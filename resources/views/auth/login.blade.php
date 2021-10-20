@@ -40,8 +40,8 @@
                                                 d="M20 21v-2a4 4 0 0 0-4-4H8a4 4
                                                 0 0 0-4 4v2"></path><circle
                                                 cx="12" cy="7" r="4"></circle></svg>
-                                        <input id="username" name="email" type="text" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" placeholder="Ej: esibrian">
-                                        <x-jet-input-error for="email"></x-jet-input-error>
+                                        <input id="dni" name="dni" type="text" class="form-control {{ $errors->has('dni') ? 'is-invalid' : '' }}" placeholder="Ej: esibrian">
+                                        <x-jet-input-error for="dni"></x-jet-input-error>
                                     </div>
 
                                     <div id="password-field" class="field-wrapper input mb-2">

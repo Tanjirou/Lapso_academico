@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+if (User::where("user_type","=", 1)->exists())
+{
+    Route::get('/register', function() {
+        return redirect('/login');
+    });
+}
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -46,39 +53,38 @@ Route::get('/sol-revision', function () {
     return view('students/sol_revision');
 })->middleware('auth');
 
-
 /* PROFESOR */
 Route::get('/secciones-prof', function () {
     return view('teachers/assigned_sections');
-})->middleware('auth');
+})->middleware('auth')->name('teacher.assigned_sections');
 
 Route::get('/perfil-profesor', function () {
     return view('teachers/teacher_profile');
-})->middleware('auth');
+})->middleware('auth')->name('teacher.profile');
 
 Route::get('/ajuste-profesor', function () {
     return view('teachers/settings');
 })->middleware('auth');
 
 Route::get('/cargar-corte', function () {
-    return view('teachers/cargacorte');
-})->middleware('auth');
+    return view('teachers/load_cut');
+})->middleware('auth')->name('teacher.load_cut');
 
 Route::get('/cargar-evaluacion', function () {
-    return view('teachers/cargaeval');
-})->middleware('auth');
+    return view('teachers/load_evaluations');
+})->middleware('auth')->name('teacher.load_evaluations');
 
 Route::get('/cargar-nota', function () {
-    return view('teachers/cargarnota');
-})->middleware('auth');
+    return view('teachers/upload_notes');
+})->middleware('auth')->name('teacher.upload_notes');
 
 Route::get('/revision-nota', function () {
-    return view('teachers/revision_nota');
-})->middleware('auth');
+    return view('teachers/review_notes');
+})->middleware('auth')->name('teacher.review_notes');
 
 Route::get('/sustitutiva-nota', function () {
-    return view('teachers/sustitutiva_nota');
-})->middleware('auth');
+    return view('teachers/substitute_note');
+})->middleware('auth')->name('teacher.substitute_note');
 
 Route::get('/revision-examen', function () {
     return view('teachers/revision_exam');

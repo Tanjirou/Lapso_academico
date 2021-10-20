@@ -11,7 +11,7 @@
                 @csrf
 
                 <div class="form-group">
-                    <x-jet-label value="{{ __('Name') }}" />
+                    <x-jet-label value="{{ __('Nombres') }}" />
 
                     <x-jet-input class="{{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
                                  :value="old('name')" required autofocus autocomplete="name" />
@@ -19,9 +19,17 @@
                 </div>
 
                 <div class="form-group">
-                    <x-jet-label value="{{ __('Email') }}" />
+                    <x-jet-label value="{{ __('Apellidos') }}" />
 
-                    <x-jet-input class="{{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email"
+                    <x-jet-input class="{{ $errors->has('last_name') ? 'is-invalid' : '' }}" type="text" name="last_name"
+                                 :value="old('last_name')" required autofocus autocomplete="last_name" />
+                    <x-jet-input-error for="last_name"></x-jet-input-error>
+                </div>
+
+                <div class="form-group">
+                    <x-jet-label value="{{ __('Cédula') }}" />
+
+                    <x-jet-input class="{{ $errors->has('email') ? 'is-invalid' : '' }}" type="text" name="email"
                                  :value="old('email')" required />
                     <x-jet-input-error for="email"></x-jet-input-error>
                 </div>
