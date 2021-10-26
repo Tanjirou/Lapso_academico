@@ -1106,6 +1106,7 @@
     @livewireScripts
 
     @stack('scripts') --}}
+    @yield('scripts_js')
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ asset('plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>

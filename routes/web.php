@@ -20,6 +20,10 @@ if (User::where("user_type","=", 1)->exists())
     });
 }
 
+Route::get('ajustes', function(){
+    return view('profile.index');
+})->name('user.profile.index');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
