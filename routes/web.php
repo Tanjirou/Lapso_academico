@@ -1,7 +1,9 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +15,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-if (User::where("user_type","=", 1)->exists())
+// if (User::where("user_type","=", 1)->exists())
+// {
+//     Route::get('/register', function() {
+//         return redirect('/login');
+//     });
+// }
+
+
+if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
 {
     Route::get('/register', function() {
         return redirect('/login');

@@ -57,13 +57,13 @@
         <header class="header navbar navbar-expand-sm">
             <ul class="navbar-nav theme-brand flex-row  text-center">
                 <li class="nav-item theme-logo">
-                    <a href="index.html">
+                    <a href="{{ route('dashboard') }}">
                         <!--<img src="assets/img/log.png" class="navbar-logo" alt="logo">-->
                         <img src="{{ asset('assets/img/logo4.png') }}" alt="logo">
                     </a>
                 </li>
                 <li class="nav-item theme-text">
-                    <a href="index.html" class="nav-link"> UNEXPO </a>
+                    <a href="{{ route('dashboard') }}" class="nav-link"> UNEXPO </a>
                 </li>
                 <li class="nav-item toggle-sidebar">
                     <a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg
@@ -151,7 +151,7 @@
                             </a>
                         </div>
                         <div class="dropdown-item">
-                            <a href="#">
+                            <a href="{{  route('profile.show') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-lock">
@@ -1101,12 +1101,12 @@
     </div>
     <!--  END CONTENT AREA  -->
     <!-- END MAIN CONTAINER -->
-    {{-- @stack('modals')
+    @stack('modals')
 
     @livewireScripts
 
-    @stack('scripts') --}}
-    @yield('scripts_js')
+    @stack('scripts')
+    @yield('javascripts')
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ asset('plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
