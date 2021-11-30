@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdministratorController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,10 @@ use Illuminate\Support\Facades\Schema;
 //     });
 // }
 
+//Ruta administrador
+
+Route::get('Administrator', [AdministratorController::class, 'load_data'])->name('administrator.load_data');
+Route::get('Load-data', [AdministratorController::class,'load_data'])->name('administrador.load_data');
 
 if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
 {
