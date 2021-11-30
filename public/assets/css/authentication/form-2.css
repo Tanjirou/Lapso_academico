@@ -291,9 +291,9 @@ body {
 }
 
 .formulario_fondo {
-    background-image: url('../../../assets/img/fondo.jpg');
+    background-image: url('../../../assets/img/base-p.jpg');
     background-size: cover;
-    background-position: top center
+    background-position: top center;
 }
 
 @media (max-width: 991px) {

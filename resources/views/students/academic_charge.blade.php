@@ -15,40 +15,36 @@
     <!--  BEGIN CONTENT AREA  -->
     <div id="content" class="main-content mt-6">
         <div class="layout-px-spacing">
-            <div class="">
-                <div class="container mb-0">
-                    <div class="row mb-2 justify-content-center">
-                        <div class="col-md-12 align-self-center order-md-0 order-1 ml-2 ">
-
-                            <nav class="breadcrumb-two align-self-center mt-4" aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Inicio</a></li>
-                                    <li class="breadcrumb-item active"><a href="javascript:void(0);">Estudiante</a></li>
-                                    <li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">General</a></li>
-                                </ol>
-                            </nav>
-
-                        </div>
+            <div class="mb-0">
+                <div class="row mb-2 justify-content-center">
+                    <div class="col-md-12 align-self-center order-md-0 order-1 ml-2">
+                        <nav class="breadcrumb-two align-self-center mt-4" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
+                                <li class="breadcrumb-item" ><a href="javascript:void(0);">Carga Académica</a></li>
+                                <!--<li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Secciones</a></li>-->
+                            </ol>
+                        </nav>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-7 col-md-6 col-4 mb-0 md-mb-0 order-md-0 order-0 mt-3 ml-3 ">
-                            <h2 class="text-bold text-primary fond-bold">Carga Académica</h2>
-                        </div>
-                        <div class="col-md-4 col-6 mb-0 md-mb-0 order-md-0 order-1 d-flex justify-content-end ml-5 mt-0">
-                            <img src="assets/img/logo-sicano4.png" class="img-fluid mb-3" alt="header-image" style="width: 40%;">
-                        </div>
+                </div>
+                <div class="row mb-2 ">
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-6 col-4 mb-0 mt-3 mr-auto ml-2 m-0">
+                        <h2 class="text-bold text-primary fond-bold m-0">Carga</h2>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-6 justify-content-end mb-0 d-flex mt-0 ml-auto">
+                        <img src="assets/img/logo-sicano4.png" class="img-fluid justify-content-end mb-0" alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
                     </div>
                 </div>
             </div>
             <div class="row layout-spacing">
                 <div class="col-lg-12">
-                    <div class="statbox widget box box-shadow">
+                    <div class="statbox widget box box-shadow shadow">
                         <div class="widget-header">
                             <div class="row">
-                                <div class="col-xl-3 col-md-3 col-sm-3 col-3">
+                                <div class="col-auto">
                                     <h4>Lapso Academico: </h4>
                                 </div>
-                                <div class="col-xl-9 col-md-9 col-sm-9 col-9">
+                                <div class="col-auto">
                                     <input type="text" class="form-control mb-4" id="lapso" placeholder="Lapso" disabled>
                                 </div>
                             </div>

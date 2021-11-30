@@ -47,17 +47,17 @@ $('.widget-content .custom-width-padding-background').on('click', function () {
 
 $('.widget-content .warning.confirm').on('click', function () {
   swal({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: '¿Estás seguro?',
+      text: "Una vez aceptado, no podrás revertir los cambios!",
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Delete',
+      confirmButtonText: 'Eliminar',
       padding: '2em'
     }).then(function(result) {
       if (result.value) {
         swal(
-          'Deleted!',
-          'Your file has been deleted.',
+          'Eliminado!',
+          'Su archivo a sido eliminado exitosamente.',
           'success'
         )
       }
@@ -115,7 +115,7 @@ $('.widget-content .html').on('click', function () {
       '<i class="flaticon-checked-1"></i> Great!',
     confirmButtonAriaLabel: 'Thumbs up, great!',
     cancelButtonText:
-    '<i class="flaticon-cancel-circle"></i> Cancel',
+    '<i class="flaticon-cancel-circle"></i> Cancelar',
     cancelButtonAriaLabel: 'Thumbs down',
     padding: '2em'
   })
@@ -194,7 +194,7 @@ $('.widget-content .dynamic-queue').on('click', function () {
     showLoaderOnConfirm: true,
     preConfirm: function() {
       return fetch(ipAPI)
-        .then(function (response) { 
+        .then(function (response) {
             return response.json();
         })
         .then(function(data) {

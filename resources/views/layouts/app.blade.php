@@ -15,6 +15,7 @@
     <script src="{{ asset('assets/js/loader.js') }}"></script>
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
     <link href="{{ asset('assets/css/elements/breadcrumb.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('plugins/apex/apexcharts.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/dashboard/dash_1.css') }}" rel="stylesheet" type="text/css" />
@@ -55,7 +56,7 @@
     <!--  BEGIN NAVBAR  -->
     <div class="header-container fixed-top">
         <header class="header navbar navbar-expand-sm">
-            <ul class="navbar-nav theme-brand flex-row  text-center">
+            <ul class="navbar-nav theme-brand flex-row text-center">
                 <li class="nav-item theme-logo">
                     <a href="{{ route('dashboard') }}">
                         <!--<img src="assets/img/log.png" class="navbar-logo" alt="logo">-->
@@ -406,7 +407,10 @@
                                 <li>
                                     <a href="{{ route('teacher.load_cut') }}">Cargar Corte</a>
                                 </li>
-                                <li class="">
+                                <li>
+                                    <a href="{{ route('teacher.upload_content') }}">Cargar Contenido</a>
+                                </li>
+                                <li >
                                     <a href="{{ route('teacher.load_evaluations') }}">Cargar Evaluaciones</a>
                                 </li>
                                 <li>
@@ -423,13 +427,11 @@
                                             <a href="{{ route('teacher.upload_notes') }}"> Por Corte </a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('teacher.review_notes') }}" target="_blank"> Revisión </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('teacher.substitute_note') }}" target="_blank"> Sustitutivo </a>
+                                            <a href="{{ route('teacher.substitutes') }}"> Sustitutivos </a>
                                         </li>
                                     </ul>
                                 </li>
+
                             </ul>
                         </li>
 
@@ -1011,7 +1013,7 @@
                         </ul>
                     </li> --}}
 
-
+                    @if (auth()->user()->user_type == 1)
                     <!--ADMINISTRADOR-->
                     <li class="menu menu-heading">
                         <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -1051,6 +1053,7 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
                 </ul>
             </nav>
         </div>
@@ -1111,11 +1114,11 @@
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ asset('plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
-    {{-- <script src="{{ asset('assets/js/libs/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/libs/jquery-3.1.1.min.js') }}"></script>
     <script src="{{ asset('bootstrap/js/popper.min.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script> --}}
+    <!--<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>-->
     <script src="{{ asset('plugins/dropify/dropify.min.js') }}"></script>
-
+    @yield('javascripts_sweet')
 
     <script>
         $(document).ready(function() {

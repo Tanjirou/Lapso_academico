@@ -84,6 +84,10 @@ Route::get('/cargar-corte', function () {
     return view('teachers/load_cut');
 })->middleware('auth')->name('teacher.load_cut');
 
+Route::get('/cargar-contenido', function () {
+    return view('teachers/upload_content');
+})->middleware('auth')->name('teacher.upload_content');
+
 Route::get('/cargar-evaluacion', function () {
     return view('teachers/load_evaluations');
 })->middleware('auth')->name('teacher.load_evaluations');
@@ -95,6 +99,10 @@ Route::get('/cargar-nota', function () {
 Route::get('/revision-nota', function () {
     return view('teachers/review_notes');
 })->middleware('auth')->name('teacher.review_notes');
+
+Route::get('/sustitutivo', function () {
+    return view('teachers/substitutes');
+})->middleware('auth')->name('teacher.substitutes');
 
 Route::get('/sustitutiva-nota', function () {
     return view('teachers/substitute_note');

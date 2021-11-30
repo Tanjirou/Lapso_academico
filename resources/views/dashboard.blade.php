@@ -30,13 +30,16 @@
                                 style="width: 30%;">
 
                         </div>-->
+                    {{ Breadcrumbs::render('home') }}
                     <div class="row">
-                        <div class="col-lg-7 col-md-6 col-4 mb-0 md-mb-0 order-md-0 order-0 mt-2 ml-3">
+                        <!--<div class="col-lg-7 col-md-6 col-4 mb-0 md-mb-0 order-md-0 order-0 mt-2 ml-3">-->
+                        <div class="col-xl-7 col-lg-6 col-md-4 col-sm-5 col-4 mb-0 mt-2 ml-3">
                             <h1 class="text-bold text-primary fond-bold"> BIENVENIDO </h1>
 
                         </div>
-                        <div class="col-md-4 col-6 mb-0 md-mb-0 order-md-0 order-1 d-flex justify-content-end ml-5 mt-0">
-                            <img src="assets/img/logo-sicano4.png" class="img-fluid mb-5" alt="header-image" style="width: 40%;">
+                        <!--<div class="col-md-4 col-6 mb-0 md-mb-0 order-md-0 order-1 d-flex justify-content-end ml-5 mt-0">-->
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-5 col-6 mb-0 d-flex justify-content-end ml-5 mt-0">
+                            <img src="assets/img/logo-sicano4.png" class="img-fluid mb-xl-5 mb-lg-5 mb-md-5 mb-2" alt="header-image" style="width-sm: 30%;  width-md:30%; width-lg:35%; width: 40%;">
                         </div>
                     </div>
 
