@@ -30,7 +30,7 @@
                                 style="width: 30%;">
 
                         </div>-->
-                    {{ Breadcrumbs::render('home') }}
+                    {{-- {{ Breadcrumbs::render('home') }} --}}
                     <div class="row">
                         <!--<div class="col-lg-7 col-md-6 col-4 mb-0 md-mb-0 order-md-0 order-0 mt-2 ml-3">-->
                         <div class="col-xl-7 col-lg-6 col-md-4 col-sm-5 col-4 mb-0 mt-2 ml-3">
