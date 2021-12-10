@@ -26,8 +26,8 @@ use Illuminate\Support\Facades\Schema;
 
 //Ruta administrador
 
-Route::get('Administrator', [AdministratorController::class, 'load_data'])->name('administrator.load_data');
-Route::get('Load-data', [AdministratorController::class,'load_data'])->name('administrador.load_data');
+Route::get('administrator', [AdministratorController::class, 'load_data'])->name('administrator.load_data');
+Route::get('load-data', [AdministratorController::class,'load_data'])->name('administrador.load_data');
 
 if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
 {
