@@ -83,37 +83,37 @@
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
                                                                                     <label for="nacionalidad">Nacionalidad</label>
-                                                                                    <input type="text" class="form-control mb-4" id="nacionalidad" readonly>
+                                                                                    <input type="text" class="form-control mb-4" id="nacionalidad" value="{{ $users->nationality }}" readonly>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
                                                                                     <label for="cedula">Cédula de Identidad</label>
-                                                                                    <input type="number" class="form-control mb-4" id="cedula" readonly >
+                                                                                    <input type="number" class="form-control mb-4" id="cedula" value="{{ $users->dni }}" readonly >
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-sm-6">
                                                                                 <div class="form-group">
                                                                                     <label for="nombres">Nombres</label>
-                                                                                    <input type="text" class="form-control mb-4" id="nombres" readonly>
+                                                                                    <input type="text" class="form-control mb-4" id="nombres" value="" readonly>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-sm-6">
                                                                                 <div class="form-group">
                                                                                     <label for="apellidos">Apellidos</label>
-                                                                                    <input type="text" class="form-control mb-4" id="apellidos" readonly>
+                                                                                    <input type="text" class="form-control mb-4" id="apellidos" value="{{ $users->last_names }}" readonly>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
                                                                                     <label for="genero">Genero</label>
-                                                                                    <input type="text" class="form-control mb-4" id="genero" readonly>
+                                                                                    <input type="text" class="form-control mb-4" id="genero" value="{{ $users->gender }}" readonly>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
                                                                                     <label for="estadociv">Estado Civil</label>
-                                                                                    <input type="text" class="form-control mb-4" id="estadociv" readonly>
+                                                                                    <input type="text" class="form-control mb-4" id="estadociv" value="{{ $users->marital_status }}" readonly>
                                                                                 </div>
                                                                             </div>
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdministratorController;
+use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -56,9 +57,12 @@ Route::get('/boletin', function () {
     return view('students/bulletin');
 })->middleware('auth')->name('studensts.bulletin');
 
-Route::get('/perfil-estudiante', function () {
-    return view('students/student_profile');
-})->middleware('auth')->name('students.profile');
+// Route::get('/perfil-estudiante', function () {
+//     return view('students/student_profile');
+// })->middleware('auth')->name('students.profile');
+
+Route::get('/perfil-estudiante', [UserController::class,'show'])->name('students.student_profile');
+
 
 Route::get('/ajuste-estudiante', function () {
     return view('students/settings');

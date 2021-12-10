@@ -128,7 +128,7 @@
                                 @elseif(auth()->user()->user_type ==2)
                                     <a href="{{ route('teacher.profile') }}">
                                     @else
-                                        <a href="{{ route('students.profile') }}">
+                                        <a href="{{ route('students.student_profile') }}">
                             @endif
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

@@ -28,10 +28,10 @@ class CreateTeachersTable extends Migration
             $table->integer('postgraduate_completed')->nullable();//Postgrado terminado
             $table->integer('postgraduate_studies')->nullable();//Estudios del postgrado
             $table->integer('postgraduate_thesis_missing')->nullable();//Falta tesis del postgrado
-            $table->date('date_entry_public_adm')->nullable();//Fecha de ingreso a la Administración Pública
-            $table->date('date_entry_unexpo')->nullable();//Fecha de ingreso a la unexpo
-            $table->date('sabbatical_date')->nullable();//Fecha de licencia sabática
-            $table->date('retirement_date')->nullable(); //Fecha de jubilación
+            $table->string('date_entry_public_adm')->nullable();//Fecha de ingreso a la Administración Pública
+            $table->string('date_entry_unexpo')->nullable();//Fecha de ingreso a la unexpo
+            $table->string('sabbatical_date')->nullable();//Fecha de licencia sabática
+            $table->string('retirement_date')->nullable(); //Fecha de jubilación
             $table->string('dedication')->nullable();//Dedicacion del profesor
             $table->string('category')->nullable();//Categoría del profesor
             $table->string('condition')->nullable();//Campo condición;
