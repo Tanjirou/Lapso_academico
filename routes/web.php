@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdministratorController;
+use App\Http\Controllers\TeacherController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -77,9 +78,7 @@ Route::get('/secciones-prof', function () {
     return view('teachers/assigned_sections');
 })->middleware('auth')->name('teacher.assigned_sections');
 
-Route::get('/perfil-profesor', function () {
-    return view('teachers/teacher_profile');
-})->middleware('auth')->name('teacher.profile');
+Route::get('/teacher-profile', [TeacherController::class, 'profile'])->name('teacher.profile');
 
 Route::get('/ajuste-profesor', function () {
     return view('teachers/settings');

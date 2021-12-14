@@ -170,7 +170,7 @@ class AdministratorController extends Controller
 
             //Registramos profesor
             Teacher::create([
-                'user' => 2,
+                'user' => $id_user->id,
                 'undergraduate_title' =>$undergraduate_title,
                 'undergraduate_area' => $undergraduate_area,
                 'undergraduate_inst' => $undergraduate_inst,
