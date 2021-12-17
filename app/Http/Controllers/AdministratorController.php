@@ -30,7 +30,7 @@ class AdministratorController extends Controller
             $dni = $student->CI_E;
             $names = $student->NOMBRES;
             $last_names = $student->APELLIDOS;
-            $gender = $student->SEXO;
+            $gender = ($student->SEXO == 1) ? 'Masculino' : 'Femenino';
             $address = $student->DIRP_E;
             $telephone = $student->TELFP_E;
             $marital_status = $student->EDO_C_E;

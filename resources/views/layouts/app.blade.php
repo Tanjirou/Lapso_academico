@@ -275,7 +275,7 @@
                             <ul class="collapse submenu list-unstyled" id="student-general"
                                 data-parent="#accordionExample">
                                 <li class="">
-                                    <a href="{{ route('studensts.academic_charge') }}"> Carga Académica </a>
+                                    <a href="{{ route('enrolled_subject.show') }}"> Carga Académica </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('studensts.bulletin') }}"> Boletin </a>

@@ -83,44 +83,44 @@
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
                                                                                     <label for="nacionalidad">Nacionalidad</label>
-                                                                                    <input type="text" class="form-control mb-4" id="nacionalidad" value="{{ $users->nationality }}" readonly>
+                                                                                    <input type="text" class="form-control mb-4" id="nacionalidad" value="{{ $profile->nationality }}" readonly>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
                                                                                     <label for="cedula">Cédula de Identidad</label>
-                                                                                    <input type="number" class="form-control mb-4" id="cedula" value="{{ $users->dni }}" readonly >
+                                                                                    <input type="number" class="form-control mb-4" id="cedula" value="{{ $profile->dni }}" readonly >
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-sm-6">
                                                                                 <div class="form-group">
                                                                                     <label for="nombres">Nombres</label>
-                                                                                    <input type="text" class="form-control mb-4" id="nombres" value="" readonly>
+                                                                                    <input type="text" class="form-control mb-4" id="nombres" value="{{ $profile->names }}" readonly>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-sm-6">
                                                                                 <div class="form-group">
                                                                                     <label for="apellidos">Apellidos</label>
-                                                                                    <input type="text" class="form-control mb-4" id="apellidos" value="{{ $users->last_names }}" readonly>
+                                                                                    <input type="text" class="form-control mb-4" id="apellidos" value="{{ $profile->last_names }}" readonly>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
                                                                                     <label for="genero">Genero</label>
-                                                                                    <input type="text" class="form-control mb-4" id="genero" value="{{ $users->gender }}" readonly>
+                                                                                    <input type="text" class="form-control mb-4" id="genero" value="{{ $profile->gender }}" readonly>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
                                                                                     <label for="estadociv">Estado Civil</label>
-                                                                                    <input type="text" class="form-control mb-4" id="estadociv" value="{{ $users->marital_status }}" readonly>
+                                                                                    <input type="text" class="form-control mb-4" id="estadociv" value="{{ $profile->marital_status }}" readonly>
                                                                                 </div>
                                                                             </div>
 
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="carrera">Carrera Inscrita</label>
-                                                                            <input type="text" class="form-control mb-4" id="carrera" readonly>
+                                                                            <input type="text" class="form-control mb-4" id="carrera" value="{{ $profile->career_name }}" readonly>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -143,22 +143,28 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <label for="country">Pais</label>
-                                                                        <input type="text" class="form-control mb-4" id="country" readonly>
+                                                                        <input type="text" class="form-control mb-4" id="country" value="{{ $profile->country }}" readonly>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <label for="state">Estado</label>
-                                                                        <input type="text" class="form-control mb-4" id="state" readonly >
+                                                                        <input type="text" class="form-control mb-4" id="state" value="{{ $profile->state }}" readonly >
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12">
+                                                                <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <label for="place">Lugar</label>
-                                                                        <input type="text" class="form-control mb-4" id="place" readonly >
+                                                                        <input type="text" class="form-control mb-4" id="place" value="{{ $profile->town }}" readonly >
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-sm-6">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="place">Fecha de Nacimiento</label>
+                                                                        <input type="text" class="form-control mb-4" id="place" value="{{ $profile->birth_date }}" readonly >
+                                                                    </div>
+                                                                </div>
+                                                                <!--<div class="col-sm-6">
                                                                     <label class="dob-input">Fecha de Nacimiento</label>
                                                                         <div class="d-sm-flex d-block">
                                                                             <div class="form-group mr-2">
@@ -261,7 +267,7 @@
                                                                                 </select>
                                                                             </div>
                                                                         </div>
-                                                                </div>
+                                                                </div>-->
 
                                                             </div>
                                                         </div>
@@ -284,23 +290,23 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label for="phone1">Teléfono Local</label>
-                                                                            <input type="text" class="form-control mb-4" id="phone1" readonly>
+                                                                            <input type="text" class="form-control mb-4" id="phone1" value="{{ $profile->telephone }}" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label for="phone2">Teléfono Celular</label>
-                                                                            <input type="text" class="form-control mb-4" id="phone2" readonly>
+                                                                            <input type="text" class="form-control mb-4" id="phone2" value="{{ $profile->mobile }}" readonly>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="address">Direccion de Habitación</label>
-                                                                    <input type="text" class="form-control mb-4" id="address" readonly >
+                                                                    <input type="text" class="form-control mb-4" id="address" value="{{ $profile->address }}" readonly >
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="email">Email</label>
-                                                                    <input type="text" class="form-control mb-4" id="email" readonly>
+                                                                    <input type="text" class="form-control mb-4" id="email" value="{{ $profile->email }}" readonly>
                                                                 </div>
 
                                                             </div>
@@ -314,7 +320,8 @@
                                     <div class="tab-pane fade" id="pills-update" role="tabpanel" aria-labelledby="pills-update-tab">
                                         <!--  ACTUALIZACION DE CONTACTO  -->
                                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
-                                            <form id="contact" class="section contact">
+                                            <form id="contact" class="section contact" method="post" action="{{ route('students.update') }}">
+                                                @csrf
                                                 <div class="info">
                                                     <h5 class="">ACTUALIZACION</h5>
                                                     <div class="row">
@@ -324,26 +331,26 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label for="phone1">Teléfono Local</label>
-                                                                            <input type="text" class="form-control mb-4" id="phone1" placeholder="02514443050" >
+                                                                            <input type="text" class="form-control mb-4" id="phone1" name="phone1" value="{{ $profile->telephone }}">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label for="phone2">Teléfono Celular</label>
-                                                                            <input type="text" class="form-control mb-4" id="phone2" placeholder="04244443050">
+                                                                            <input type="text" class="form-control mb-4" id="phone2" name="phone2" value="{{ $profile->mobile }}">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="address">Direccion de Habitación</label>
-                                                                    <input type="text" class="form-control mb-4" id="address" placeholder="Ej: Calle 10 Sector La Union" >
+                                                                    <input type="text" class="form-control mb-4" id="address" name="address"  value="{{ $profile->address }}">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="email">Email</label>
-                                                                    <input type="text" class="form-control mb-4" id="email" placeholder="Ej: juanpablo_alv@gmail.com">
+                                                                    <input type="text" class="form-control mb-4" id="email" name="email"  value="{{ $profile->email }}">
                                                                 </div>
                                                                 <div class="form-group text-center">
-                                                                    <button type="button" class="btn btn-primary text-center">Guardar</button>
+                                                                    <button type="submit" class="btn btn-primary text-center">Guardar</button>
                                                                 </div>
                                                             </div>
                                                         </div>

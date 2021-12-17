@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\EnrolledSubjectController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -27,7 +29,7 @@ use Illuminate\Support\Facades\Schema;
 //Ruta administrador
 
 Route::get('administrator', [AdministratorController::class, 'load_data'])->name('administrator.load_data');
-Route::get('load-data', [AdministratorController::class,'load_data'])->name('administrador.load_data');
+Route::get('Load-data', [AdministratorController::class,'load_data'])->name('administrador.load_data');
 
 if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
 {
@@ -49,9 +51,11 @@ Route::get('/', function () {
 })->middleware('auth')->name('home');
 
 /*ESTUDIANTE*/
-Route::get('/carga-academica', function () {
-    return view('students/academic_charge');
-})->middleware('auth')->name('studensts.academic_charge');
+// Route::get('/carga-academica', function () {
+//     return view('students/academic_charge');
+// })->middleware('auth')->name('studensts.academic_charge');
+
+Route::get('/carga-academica', [EnrolledSubjectController::class,'show'])->name('enrolled_subject.show');
 
 Route::get('/boletin', function () {
     return view('students/bulletin');
@@ -61,7 +65,10 @@ Route::get('/boletin', function () {
 //     return view('students/student_profile');
 // })->middleware('auth')->name('students.profile');
 
-Route::get('/perfil-estudiante', [UserController::class,'show'])->name('students.student_profile');
+Route::get('/perfil-estudiante', [StudentController::class,'show'])->name('students.student_profile');
+Route::post('/perfil-estudiante/store', [StudentController::class,'update'])->name('students.update');
+
+//Route::get('/perfil-estudiante', [UserController::class,'show'])->name('students.student_profile');
 
 
 Route::get('/ajuste-estudiante', function () {
