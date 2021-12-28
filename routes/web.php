@@ -90,7 +90,7 @@ Route::get('/secciones-prof', function () {
 })->middleware('auth')->name('teacher.assigned_sections');
 
 Route::get('/teacher-profile', [TeacherController::class, 'profile'])->name('teacher.profile');
-
+Route::post('/teacher-profile/store/{user}', [TeacherController::class, 'teacher_update'])->name('teacher.update_profile');
 Route::get('/ajuste-profesor', function () {
     return view('teachers/settings');
 })->middleware('auth');

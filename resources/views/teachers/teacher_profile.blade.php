@@ -72,13 +72,7 @@
                                                     <h6 class="">Información General</h6>
                                                     <div class="row">
                                                         <div class="col-lg-11 mx-auto">
-                                                            <div class="row">
-                                                                <div class="col-xl-2 col-lg-12 col-md-4">
-                                                                    <div class="upload mt-4 pr-md-4">
-                                                                        <input type="file" id="input-file-max-fs" class="dropify" data-default-file="{{ ('assets/img/200x200.jpg') }}" data-max-file-size="2M" />
-                                                                        <p class="mt-2"><i class="flaticon-cloud-upload mr-1"></i> Foto Perfil</p>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="row justify-content-center">
                                                                 <div class="col-xl-10 col-lg-12 col-md-8 mt-md-0 mt-4">
                                                                     <div class="form">
                                                                         <div class="row">
@@ -269,36 +263,45 @@
                                     <div class="tab-pane fade" id="pills-update" role="tabpanel" aria-labelledby="pills-update-tab">
                                         <!--  ACTUALIZACION DE CONTACTO  -->
                                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
-                                            <form id="contact" class="section contact">
+                                            <form action="{{ route('teacher.update_profile',['user' => $user_id]) }}" method="POST" id="contact" class="section contact" enctype="multipart/form-data">
+                                                @csrf
                                                 <div class="info">
                                                     <h5 class="">ACTUALIZACION</h5>
                                                     <div class="row">
                                                         <div class="col-md-10 mx-auto">
                                                             <div class="form">
                                                                 <div class="row">
+                                                                    <div class="col-4">
+                                                                        <div class="upload pr-md-4">
+                                                                            <input type="file" name="photo" id="input-file-max-fs" class="dropify" data-default-file="{{ ('assets/img/400x168.jpg') }}" data-max-file-size="10M" />
+                                                                            <p class="mt-2"><i class="flaticon-cloud-upload mr-1"></i> Foto Perfil</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label for="phone1">Teléfono Local</label>
-                                                                            <input type="text" class="form-control mb-4" id="phone1" value="{{ $teacher->telephone }}" placeholder="02514443050" >
+                                                                            <input type="text" class="form-control mb-4" name="phone1" value="{{ $teacher->telephone }}" placeholder="02514443050" >
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label for="phone2">Teléfono Celular</label>
-                                                                            <input type="text" class="form-control mb-4" id="phone2" placeholder="04244443050" value="{{ $teacher->mobile }}">
+                                                                            <input type="text" class="form-control mb-4" name="phone2" placeholder="04244443050" value="{{ $teacher->mobile }}">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="address">Direccion de Habitación</label>
-                                                                    <input type="text" class="form-control mb-4" id="address" value="{{ $teacher->address }}" placeholder="Calle 10 Sector La Union" >
+                                                                    <input type="text" name="address" class="form-control mb-4" id="address" value="{{ $teacher->address }}" placeholder="Calle 10 Sector La Union" >
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="email">Email</label>
-                                                                    <input type="text" class="form-control mb-4" id="email" value="{{ $teacher->email }}" placeholder="juanpablo_alv@gmail.com">
+                                                                    <input type="text" class="form-control mb-4 " name="email" id="email" value="{{ $teacher->email }}" placeholder="juanpablo_alv@gmail.com">
                                                                 </div>
                                                                 <div class="form-group text-center">
-                                                                    <button type="button" class="btn btn-primary text-center">Guardar</button>
+                                                                    <button type="submit" class="btn btn-primary text-center">Guardar</button>
                                                                 </div>
                                                             </div>
                                                         </div>

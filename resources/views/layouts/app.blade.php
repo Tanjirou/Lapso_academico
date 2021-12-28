@@ -109,7 +109,7 @@
                     <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                         <div class="user-profile-section">
                             <div class="media mx-auto">
-                                <img src="{{ asset('assets/img/student.png') }}" class="img-fluid mr-2" alt="avatar">
+                                <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png'))  }}" class="img-fluid mr-2" alt="avatar">
                                 <div class="media-body">
                                     <h5>{{ auth()->user()->names }}</h5>
                                     @if (auth()->user()->user_type == 1)
@@ -197,7 +197,7 @@
                 <div class="profile-info">
                     <figure class="user-cover-image"></figure>
                     <div class="user-info">
-                        <img src="{{ asset('assets/img/Estudiantes.png') }}" alt="avatar">
+                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png')  }}" alt="avatar">
                         <h6 class="">{{ auth()->user()->names }}</h6>
                         @if (auth()->user()->user_type == 1)
                             <p>Administrador</p>
