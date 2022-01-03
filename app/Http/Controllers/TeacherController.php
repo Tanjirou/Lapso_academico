@@ -30,7 +30,7 @@ class TeacherController extends Controller
            'email' => ['required', 'email'],
            'phone1' => ['numeric','digits_between:11,11'],
            'phone2' => ['numeric','digits_between:11,11'],
-           'photo' => ['required', 'mimes:jpg,jpeg,png'],
+           'photo' => ['mimes:jpg,jpeg,png'],
            'address' => ['required'],
         ]);
         $photo = $request->file('photo')->store('public/profile');
@@ -52,6 +52,6 @@ class TeacherController extends Controller
         $user->mobile = $data['phone2'];
         $user->address = $data['address'];
         $user->save();
-        return redirect()->action([TeacherController::class, 'profile']);
+        return redirect()->action([TeacherController::class, 'profile'])->with('store','Actualizado');
     }
 }
