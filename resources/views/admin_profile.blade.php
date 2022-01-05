@@ -215,6 +215,60 @@
                                                                 <div class="row">
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
+                                                                            <label for="nacionalidad">Nacionalidad</label>
+                                                                            <input type="text" class="form-control mb-4" id="nacionalidad" value="{{ $profile->nationality }}">
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label for="genero">Genero</label>
+                                                                                <input type="text" class="form-control mb-4" id="genero" value="{{ $profile->gender }}">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="estadociv">Estado Civil</label>
+                                                                            <input type="text" class="form-control mb-4" id="estadociv" value="{{ $profile->marital_status }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="email">Email</label>
+                                                                            <input type="text" class="form-control mb-4" id="email" name="email"  value="{{ $profile->email }}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="country">Pais</label>
+                                                                            <input type="text" class="form-control mb-4" id="country" value="{{ $profile->country }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="state">Estado</label>
+                                                                            <input type="text" class="form-control mb-4" id="state" value="{{ $profile->state }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="place">Lugar</label>
+                                                                            <input type="text" class="form-control mb-4" id="place" value="{{ $profile->town }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="place">Fecha de Nacimiento</label>
+                                                                            <input type="text" class="form-control mb-4" id="place" value="{{ $profile->birth_date }}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
                                                                             <label for="phone1">Teléfono Local</label>
                                                                             <input type="text" class="form-control mb-4" id="phone1" name="phone1" value="{{ $profile->telephone }}">
                                                                         </div>
@@ -230,10 +284,7 @@
                                                                     <label for="address">Direccion de Habitación</label>
                                                                     <input type="text" class="form-control mb-4" id="address" name="address"  value="{{ $profile->address }}">
                                                                 </div>
-                                                                <div class="form-group">
-                                                                    <label for="email">Email</label>
-                                                                    <input type="text" class="form-control mb-4" id="email" name="email"  value="{{ $profile->email }}">
-                                                                </div>
+
                                                                 <div class="form-group text-center">
                                                                     <button type="submit" class="btn btn-primary text-center">Guardar</button>
                                                                 </div>

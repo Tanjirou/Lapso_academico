@@ -19,7 +19,7 @@ class CreateAcademicOffersTable extends Migration
             $table->string('lapse')->nullable();//Lapso
             $table->string('sections')->nullable();//Secciones
             $table->integer('inscribed')->nullable();//Número de Inscritos
-            $table->integer('teacher_dni')->nullable();//Cédula del profesor
+            $table->string('teacher_dni')->nullable();//Cédula del profesor
             $table->string('record')->nullable();//Acta
             $table->integer('top_cup')->nullable();// Total de cupos
             $table->timestamps();

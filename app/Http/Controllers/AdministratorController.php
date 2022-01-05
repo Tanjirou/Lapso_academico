@@ -342,6 +342,7 @@ class AdministratorController extends Controller
         $profile = DB::table('users')
             ->join('user_types','users.user_type','=','user_types.id')
             ->where('users.user_type','=','1')
+            ->where('users.id','=',$id)
             ->select('users.*')
             ->first();
         //var_dump( $profile); die();

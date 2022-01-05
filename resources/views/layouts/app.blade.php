@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="{{ asset('assets/css/elements/breadcrumb.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('plugins/apex/apexcharts.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('assets/css/dashboard/dash_1.css') }}" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{ asset('assets/css/dashboard/dash_1.css') }}" rel="stylesheet" type="text/css" /> --}}
     <link href="{{ asset('assets/css/dashboard/dash_2.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/pages/faq/faq.css') }}" rel="stylesheet" type="text/css" />
 
@@ -61,14 +61,14 @@
     <!--  BEGIN NAVBAR  -->
     <div class="header-container fixed-top">
         <header class="header navbar navbar-expand-sm">
-            <ul class="navbar-nav theme-brand flex-row text-center">
-                <li class="nav-item theme-logo">
+            <ul class="navbar-nav theme-brand  flex-row  text-center">
+                <li class="nav-item theme-logo ml-2">
                     <a href="{{ route('dashboard') }}">
                         <!--<img src="assets/img/log.png" class="navbar-logo" alt="logo">-->
                         <img src="{{ asset('assets/img/logo4.png') }}" alt="logo">
                     </a>
                 </li>
-                <li class="nav-item theme-text">
+                <li class="nav-item theme-text mr-5">
                     <a href="{{ route('dashboard') }}" class="nav-link text-center"> UNEXPO </a>
                 </li>
                 <li class="nav-item toggle-sidebar">
@@ -114,18 +114,14 @@
                     <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                         <div class="user-profile-section">
                             <div class="media mx-auto">
-<<<<<<< HEAD
-                                <!--<img src="{{ asset('assets/img/student.png') }}" class="img-fluid mr-2" alt="avatar">-->
                                 @if (auth()->user()->user_type == 1)
-                                    <img src="{{ asset('assets/img/perfil-admin-peq.png') }}" class="img-fluid mr-2" alt="avatar">
+                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-admin-peq.png'))  }}" class="img-fluid mr-2" alt="avatar">
                                 @elseif(auth()->user()->user_type ==2)
-                                    <img src="{{ asset('assets/img/perfil-prof-peq.png') }}" class="img-fluid mr-2" alt="avatar">
+                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof-peq.png'))  }}" class="img-fluid mr-2" alt="avatar">
                                 @else
-                                    <img src="{{ asset('assets/img/student.png') }}" class="img-fluid mr-2" alt="avatar">
+                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png'))  }}" class="img-fluid mr-2" alt="avatar">
                                 @endif
-=======
-                                <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png'))  }}" class="img-fluid mr-2" alt="avatar">
->>>>>>> 017af0a70f96626ab738eae565f385663ff9bb9c
+
                                 <div class="media-body">
                                     <h5>{{ auth()->user()->names }}</h5>
                                     @if (auth()->user()->user_type == 1)
@@ -213,20 +209,18 @@
                 <div class="profile-info">
                     <figure class="user-cover-image"></figure>
                     <div class="user-info">
-<<<<<<< HEAD
-                        <!--<img src="{{ asset('assets/img/Estudiantes.png') }}" alt="avatar">-->
-=======
-                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png')  }}" alt="avatar">
->>>>>>> 017af0a70f96626ab738eae565f385663ff9bb9c
                         <h6 class="">{{ auth()->user()->names }}</h6>
                         @if (auth()->user()->user_type == 1)
                         <img src="{{ asset('assets/img/perfil-admin.png') }}" alt="avatar">
+                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-admin.png')  }}" alt="avatar">
                             <p>Administrador</p>
                         @elseif(auth()->user()->user_type ==2)
                         <img src="{{ asset('assets/img/perfil-prof.png') }}" alt="avatar">
+                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof.png')  }}" alt="avatar">
                             <p>Profesor</p>
                         @else
                         <img src="{{ asset('assets/img/perfil-estud.png') }}" alt="avatar">
+                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png')  }}" alt="avatar">
                             <p>Estudiante</p>
                         @endif
                     </div>
@@ -244,8 +238,8 @@
                             </svg><span>PANEL DE CONTROL</span></div>
                     </li>
                     <li class="menu">
-                        <a href="#dashboard" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
-                            <div class="">
+                        <a href="{{ route('home') }}" aria-expanded="false" class="dropdown-toggle">
+                            <div class="active">
                                 <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-home">
@@ -253,36 +247,27 @@
                                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
                                 </svg>
                                 <span>Inicio</span>
+                                {{-- <a href="{{ route('home') }}"> Panel actividades </a> --}}
                             </div>
-                            <div>
+                            {{-- <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-chevron-right">
                                     <polyline points="9 18 15 12 9 6"></polyline>
                                 </svg>
-                            </div>
+                            </div> --}}
                         </a>
-                        <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled"
+                        {{-- <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled"
                             id="dashboard" data-parent="#accordionExample">
                             <!--<li class="active">-->
                             <li class="active">
                                 <a href="{{ route('home') }}"> Panel actividades </a>
                             </li>
-                            <!--<li>
-                            <a href="index2.html"> Analytics </a>
-                        </li>-->
-                        </ul>
+                        </ul> --}}
                     </li>
 
                     <!--ESTUDIANTE-->
                     @if (auth()->user()->user_type == 3)
-                        {{-- <li class="menu menu-heading">
-                            <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                </svg><span>PANEL ESTUDIANTE</span></div>
-                        </li> --}}
                         <li class="menu">
                             <a href="#student-general" data-toggle="collapse" aria-expanded="false"
                                 class="dropdown-toggle">

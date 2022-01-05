@@ -52,6 +52,7 @@ class StudentController extends Controller
         $profile = DB::table('students')
             ->join('users','users.id','=','students.user')
             ->join('careers','students.career','=','careers.code')
+            ->where('users.id','=',$id)
             ->select('students.*', 'users.*','careers.career as career_name')
             ->first();
         //var_dump( $profile); die();

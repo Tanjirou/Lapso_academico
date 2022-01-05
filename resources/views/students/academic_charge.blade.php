@@ -76,10 +76,10 @@
                                                     <td>{{ $data_course->section }}</td>
                                                     <td>{{ $data_course->qualif }}</td>
                                                     <td><span class="shadow-none badge badge-primary">{{ $data_course->statusnote }}</span></td>
-                                                    <td class="text-center"><button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModalCenter"> Ver </button></td>
+                                                    <td class="text-center"><button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#{{ $data_course->code }}"> Ver </button></td>
                                                     <!-- Modal -->
-                                                    @foreach ($data_courses as $data_course)
-                                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog">
+
+                                                        <div class="modal fade" id="{{ $data_course->code }}" tabindex="-1" role="dialog">
                                                             <div class="modal-dialog modal-lg" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -119,8 +119,11 @@
                                                                             </div>
                                                                             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                                                                                 <div class="form-group">
-
-                                                                                    <input class="form-control" type="text" id="prof" value="{{ $data_course->id }}" readonly>
+                                                                                    @foreach ($name_teachers as $name_teacher)
+                                                                                        @if ($name_teacher->proceedings == $data_course->proceedings && $name_teacher->code==$data_course->code)
+                                                                                        <input class="form-control" type="text" id="prof" value="{{ $name_teacher->names_t }} {{ $name_teacher->lnames_t }}" readonly>
+                                                                                        @endif
+                                                                                    @endforeach
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -169,7 +172,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    @endforeach
+
                                                 </tr>
 
 
