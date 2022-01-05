@@ -533,7 +533,7 @@
                         </a>
                         <ul class="collapse submenu list-unstyled" id="admin-datos" data-parent="#accordionExample">
                             <li class="">
-                                <a href=" index.html">Migrar</a>
+                                <a href="{{ route('administrator.migrate') }}">Migrar</a>
                             </li>
                             <li>
                                 <a href="index2.html">Actualizar</a>

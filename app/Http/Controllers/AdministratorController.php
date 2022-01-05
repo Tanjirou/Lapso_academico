@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\DB;
 
 class AdministratorController extends Controller
 {
+    public function migrate(){
+        return view('administrator.database.migrate');
+    }
+
     public function load_data(){
         $students = DB::connection('mysql2')->table('dace002')->get();
         $teachers = DB::connection('mysql2')->table('tblaca007')->get();
@@ -331,7 +335,6 @@ class AdministratorController extends Controller
             ]);
         }
 
-        $carreras = DB::table('careers')->get()->first();
-        var_dump($carreras); die();
+        return redirect()->action([AdministratorController::class, 'migrate'])->with('migrate-message','Migración finalizada');
     }
 }
