@@ -56,17 +56,16 @@
     <!--  BEGIN NAVBAR  -->
     <div class="header-container fixed-top">
         <header class="header navbar navbar-expand-sm">
-            <ul class="navbar-nav theme-brand flex-row text-center">
-                <li class="nav-item theme-logo">
+            <ul class="navbar-nav theme-brand">
+                <li class="nav-item theme-logo ml-2">
                     <a href="{{ route('dashboard') }}">
-                        <!--<img src="assets/img/log.png" class="navbar-logo" alt="logo">-->
-                        <img src="{{ asset('assets/img/logo4.png') }}" alt="logo">
+                        <img src="{{ asset('assets/img/logo4.png') }}" class="img-fluid" alt="logo">
                     </a>
                 </li>
-                <li class="nav-item theme-text">
+                <li class="nav-item theme-text mr-5">
                     <a href="{{ route('dashboard') }}" class="nav-link"> UNEXPO </a>
                 </li>
-                <li class="nav-item toggle-sidebar">
+                <li class="nav-item toggle-sidebar mr-3">
                     <a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -512,8 +511,9 @@
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg><span>MENU ADMIN</span></div>
                     </li>
+                    <!--Gestionar Base de Datos-->
                     <li class="menu">
-                        <a href="#admin-permisos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <a href="#admin-datos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -521,7 +521,7 @@
                                     <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                     <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                                 </svg>
-                                <span>Permisos</span>
+                                <span>Gestionar Datos</span>
                             </div>
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -531,15 +531,76 @@
                                 </svg>
                             </div>
                         </a>
-                        <ul class="collapse submenu list-unstyled" id="admin-permisos" data-parent="#accordionExample">
+                        <ul class="collapse submenu list-unstyled" id="admin-datos" data-parent="#accordionExample">
                             <li class="">
-                                <a href=" index.html">Asignar</a>
+                                <a href=" index.html">Migrar</a>
+                            </li>
+                            <li>
+                                <a href="index2.html">Actualizar</a>
+                            </li>
+                            <li>
+                                <a href="index2.html">Exportar</a>
+                            </li>
+                            <li>
+                                <a href="index2.html">Blanquear</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!---->
+
+                    <li class="menu">
+                        <a href="#admin-usuarios" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-lock">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                <span>Gestionar Usuarios</span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-chevron-right">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="admin-usuarios" data-parent="#accordionExample">
+                            <li class="">
+                                <a href=" index.html">Crear</a>
                             </li>
                             <li>
                                 <a href="index2.html">Modificar</a>
                             </li>
                             <li>
-                                <a href="index2.html">Eliminar</a>
+                                <a href="index2.html">Restablecer Autenticación</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu">
+                        <a href="#admin-solicitudes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-lock">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                <span>Gestionar Solicitudes</span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-chevron-right">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="admin-solicitudes" data-parent="#accordionExample">
+                            <li class="">
+                                <a href=" index.html">Carga Tardía</a>
                             </li>
                         </ul>
                     </li>
