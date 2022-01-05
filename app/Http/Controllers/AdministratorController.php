@@ -10,6 +10,7 @@ use App\Models\Pensum;
 use App\Models\User;
 use App\Models\Student;
 use App\Models\Teacher;
+use Database\Seeders\UserTypesSeeder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -333,5 +334,38 @@ class AdministratorController extends Controller
 
         $carreras = DB::table('careers')->get()->first();
         var_dump($carreras); die();
+    }
+
+    public function show(User $user)
+    {
+        $id = auth()->user()->id;
+        $profile = DB::table('users')
+            ->join('user_types','users.user_type','=','user_types.id')
+            ->where('users.user_type','=','1')
+            ->select('users.*')
+            ->first();
+        //var_dump( $profile); die();
+        return view('admin_profile', compact('profile'));
+
+    }
+
+    public function update(Request $request)
+    {
+        //^\+?[0-9]{3}-?[0-9]{6,12}$
+        $id = auth()->user()->id;
+        // var_dump($request['phone1']); die();
+        $data = $request->validate([
+            'phone1' => ['regex:/^[0-9]{4}-?[0-9]{7}/'],
+            // 'phone1' => ['numeric'],
+            'phone2' => ['regex:/^[0-9]{4}-?[0-9]{7}/'],
+            'address' => ['string'],
+            'email' => ['required', 'email'],
+        ]);
+        //var_dump($data); die();
+        DB::table('users')
+        ->where('id','=', $id)
+        //(['telepone' => $data['mobile1], 'mobile' => $data['mobile2']] )
+        ->update(['telephone' => $data['phone1'], 'mobile' => $data['phone2'], 'address' => $data['address'], 'email' => $data['email']]);
+        return redirect()->route('admin_profile')->with('success', 'Administrador actualizado correctamente');
     }
 }

@@ -21,9 +21,9 @@
     <div id="content" class="main-content mt-6">
         <div class="layout-px-spacing">
             <div class="mb-0">
-                <div class="row mb-2 justify-content-start">
-                    <div class="col-auto align-self-center order-md-0 order-1 ml-2 ">
-                        <nav class="breadcrumb-two align-self-center mt-4" aria-label="breadcrumb">
+                <div class="row mb-2 mt-3">
+                    <div class="col-auto mb-0 order-md-0 order-1 mb-2 mt-2">
+                        <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
                                 <li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Mi Perfil</a></li>
@@ -31,18 +31,13 @@
                             </ol>
                         </nav>
                     </div>
-                </div>
-                <div class="row mb-2 ">
-                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-6 col-4 mb-0 mt-3 mr-auto ml-2 m-0">
-                        <h2 class="text-bold text-primary fond-bold m-0">Estudiante</h2>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-6 justify-content-end mb-0 d-flex mt-0 ml-auto">
-                        <img src="assets/img/logo-sicano4.png" class="img-fluid justify-content-end mb-0" alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
+                    <div class="col-md-4 col-lg-4 col-xl-4 justify-content-end mb-0 d-flex mt-4 ml-auto">
+                        <img src="assets/img/logo-sicano4.png" class="img-fluid mb-0 d-none d-md-block" alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
                     </div>
                 </div>
             </div>
             <div class="account-settings-container layout-top-spacing">
-                <div class="row layout-spacing">
+                <div class="row layout-spacing mt-2">
                     <div class="col-lg-12 col-12">
                         <div class="statbox widget box box-shadow shadow">
                             <div class="widget-content widget-content-area simple-pills">
@@ -59,7 +54,6 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="pills-update-tab" data-toggle="pill" href="#pills-update" role="tab" aria-controls="pills-update" aria-selected="false">Actualización</a>
                                     </li>
-
                                 </ul>
                                 <div class="tab-content" id="pills-tabContent">
                                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -164,111 +158,6 @@
                                                                         <input type="text" class="form-control mb-4" id="place" value="{{ $profile->birth_date }}" readonly >
                                                                     </div>
                                                                 </div>
-                                                                <!--<div class="col-sm-6">
-                                                                    <label class="dob-input">Fecha de Nacimiento</label>
-                                                                        <div class="d-sm-flex d-block">
-                                                                            <div class="form-group mr-2">
-                                                                                <select class="form-control" readonly id="exampleFormControlSelect1">
-                                                                                    <option selected>Dia</option>
-                                                                                    <option>1</option>
-                                                                                    <option>2</option>
-                                                                                    <option>3</option>
-                                                                                    <option>4</option>
-                                                                                    <option>5</option>
-                                                                                    <option>6</option>
-                                                                                    <option>7</option>
-                                                                                    <option>8</option>
-                                                                                    <option>9</option>
-                                                                                    <option>10</option>
-                                                                                    <option>11</option>
-                                                                                    <option>12</option>
-                                                                                    <option>13</option>
-                                                                                    <option>14</option>
-                                                                                    <option>15</option>
-                                                                                    <option>16</option>
-                                                                                    <option>17</option>
-                                                                                    <option>18</option>
-                                                                                    <option>19</option>
-                                                                                    <option>20</option>
-                                                                                    <option>21</option>
-                                                                                    <option>22</option>
-                                                                                    <option>23</option>
-                                                                                    <option>24</option>
-                                                                                    <option>25</option>
-                                                                                    <option>26</option>
-                                                                                    <option>27</option>
-                                                                                    <option>28</option>
-                                                                                    <option>29</option>
-                                                                                    <option>30</option>
-                                                                                    <option>31</option>
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="form-group mr-2">
-                                                                                <select class="form-control" readonly id="month">
-                                                                                    <option selected>Mes</option>
-                                                                                    <option>Enero</option>
-                                                                                    <option>Febrero</option>
-                                                                                    <option>Marzo</option>
-                                                                                    <option>Abril</option>
-                                                                                    <option>Mayo</option>
-                                                                                    <option>Junio</option>
-                                                                                    <option>Julio</option>
-                                                                                    <option>Agosto</option>
-                                                                                    <option>Septiembre</option>
-                                                                                    <option>Octubre</option>
-                                                                                    <option>Noviembre</option>
-                                                                                    <option>Diciembre</option>
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="form-group mr-2">
-                                                                                <select class="form-control" readonly id="year">
-                                                                                    <option selected>Año</option>
-                                                                                    <option>2020</option>
-                                                                                    <option>2019</option>
-                                                                                    <option>2018</option>
-                                                                                    <option>2017</option>
-                                                                                    <option>2016</option>
-                                                                                    <option>2015</option>
-                                                                                    <option>2014</option>
-                                                                                    <option>2013</option>
-                                                                                    <option>2012</option>
-                                                                                    <option>2011</option>
-                                                                                    <option>2010</option>
-                                                                                    <option>2009</option>
-                                                                                    <option>2008</option>
-                                                                                    <option>2007</option>
-                                                                                    <option>2006</option>
-                                                                                    <option>2005</option>
-                                                                                    <option>2004</option>
-                                                                                    <option>2003</option>
-                                                                                    <option>2002</option>
-                                                                                    <option>2001</option>
-                                                                                    <option>2000</option>
-                                                                                    <option>1999</option>
-                                                                                    <option>1998</option>
-                                                                                    <option>1997</option>
-                                                                                    <option>1996</option>
-                                                                                    <option>1995</option>
-                                                                                    <option>1994</option>
-                                                                                    <option>1993</option>
-                                                                                    <option>1992</option>
-                                                                                    <option>1991</option>
-                                                                                    <option>1990</option>
-                                                                                    <option>1989</option>
-                                                                                    <option>1988</option>
-                                                                                    <option>1987</option>
-                                                                                    <option>1986</option>
-                                                                                    <option>1985</option>
-                                                                                    <option>1984</option>
-                                                                                    <option>1983</option>
-                                                                                    <option>1982</option>
-                                                                                    <option>1981</option>
-                                                                                    <option>1980</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
-                                                                </div>-->
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -367,19 +256,8 @@
                 </div>
 
             </div>
+
+
         </div>
-
-
-            <!--<div class="row mb-5 justify-content-center">
-                <div class="col-lg-5 col-md-5 col-4 order-md-0 order-0 d-flex justify-content-center ml-5 mt-1">
-                    <img src="{{asset('assets/img/logo-promo56.png')}}" class="img-fluid mb-1 float-md-right" alt="header-image" style="width: 25%;">
-                </div>
-                <div class="col-lg-5 col-md-5 col-4 order-md-0 order-0 d-flex ml-5 mt-1 justify-content-start">
-                    <img src="{{asset('assets/img/logo-IE.png')}}" class="img-fluid mb-1" alt="header-image" style="width: 25%;">
-                </div>
-            </div>-->
-
-
-
     </div>
 </x-app-layout>

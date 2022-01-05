@@ -44,7 +44,7 @@
                                         </svg>
                                         <input id="dni" name="dni" type="text"
                                             class="form-control {{ $errors->has('dni') ? 'is-invalid' : '' }}"
-                                            placeholder="Ej: esibrian">
+                                            placeholder="Ingresa tu cédula">
                                         <x-jet-input-error for="dni"></x-jet-input-error>
                                     </div>
 
@@ -63,7 +63,7 @@
                                         </svg>
                                         <input id="password" name="password" type="password"
                                             class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                            placeholder="Password">
+                                            placeholder="Ingresa tu contraseña">
                                         <x-jet-input-error for="password"></x-jet-input-error>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0
                                             24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -85,8 +85,8 @@
                                                 value="">Entrar</button>
                                         </div>
                                     </div>
-                                    <p class="signup-link">Si aun no tienes cuenta de usuario y/o olvidastes tu
-                                        contraseña, dirigete al Dpto. de Tecnología.
+                                    <p class="signup-link">Si presentas problemas u olvidastes tu
+                                        contraseña, dirígete a URACE.
                                     </p>
 
                                 </div>

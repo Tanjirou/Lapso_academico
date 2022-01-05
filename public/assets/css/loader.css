@@ -17,7 +17,15 @@ div#load_screen {
   bottom: 0;
   left: 0;
   right: 0;
-  width: 100%; }
+  width: 100%;
+
+  /* background: url('../../../assets/img/logo.png') 50% 50% no-repeat rgb(249,249,249);
+  background-image: url('../../../assets/img/fondo-sinlineas2.png');
+    background-size: cover;
+    background-position: top center;
+    height: 100vh;
+    width: 100vw; */
+}
   div#load_screen .loader {
     display: flex;
     justify-content: center;
@@ -27,4 +35,5 @@ div#load_screen {
     align-self: center; }
 
 .spinner-grow {
-  color: #304aca; }
+  color: #304aca;
+  }

@@ -16,8 +16,9 @@
         <div class="row justify-content-center mt-3">
             @yield('image-error')
         </div>
+
         <div class="row justify-content-center">
-            <a href="{{ route('dashboard') }}" class="btn btn-primary btn-lg" >Ir al inicio</a>
+           <a href="{{ route('dashboard') }}" class="btn btn-primary btn-lg">Ir al Inicio</a>
         </div>
     </div>
     <script src="{{ mix('js/app.js') }}"></script>

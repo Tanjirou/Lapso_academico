@@ -26,9 +26,9 @@
     <div id="content" class="main-content mt-6">
         <div class="layout-px-spacing">
             <div class="mb-0">
-                <div class="row mb-2 justify-content-center">
-                    <div class="col-md-12 align-self-center order-md-0 order-1 ml-2">
-                        <nav class="breadcrumb-two align-self-center mt-4" aria-label="breadcrumb">
+                <div class="row mb-2 mt-3">
+                    <div class="col-12 col-md-7 col-lg-7 col-xl-7 mb-0 order-md-0 order-1 mb-2 mt-2">
+                        <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
                                 <li class="breadcrumb-item"><a href="javascript:void(0);">Cargar Contenido</a></li>
@@ -36,15 +36,18 @@
                             </ol>
                         </nav>
                     </div>
+                    <div class="col-md-4 col-lg-4 col-xl-4 justify-content-end mb-0 d-flex mt-4 ml-auto">
+                        <img src="assets/img/logo-sicano4.png" class="img-fluid mb-0 d-none d-md-block" alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
+                    </div>
                 </div>
-                <div class="row mb-2 ">
+                {{-- <div class="row mb-2 ">
                     <div class="col-xl-7 col-lg-7 col-md-7 col-sm-6 col-4 mb-0 mt-3 mr-auto ml-2 m-0">
                         <h2 class="text-bold text-primary fond-bold m-0">Contenido</h2>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-6 justify-content-end mb-0 d-flex mt-0 ml-auto">
                         <img src="assets/img/logo-sicano4.png" class="img-fluid justify-content-end mb-0" alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="row layout-spacing">
                 <div class="col-lg-12">

@@ -51,6 +51,12 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware('auth')->name('home');
 
+
+/*ADMINISTRADOR*/
+Route::get('/perfil-admin', [AdministratorController::class,'show'])->name('admin_profile');
+//Route::post('/perfil-estudiante/store', [StudentController::class,'update'])->name('students.update');
+
+
 /*ESTUDIANTE*/
 // Route::get('/carga-academica', function () {
 //     return view('students/academic_charge');

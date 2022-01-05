@@ -16,8 +16,8 @@
     <div id="content" class="main-content mt-6">
         <div class="layout-px-spacing">
             <div class="mb-0">
-                <div class="row mb-2 justify-content-start border mt-2">
-                    <div class="col-auto order-md-0 order-1 mb-4 mt-3 ">
+                <div class="row mb-2 mt-3">
+                    <div class="col-12 col-md-7 col-lg-7 col-xl-7 mb-0 order-md-0 order-1 mb-2 mt-2">
                         <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
@@ -26,8 +26,8 @@
                             </ol>
                         </nav>
                     </div>
-                    <div class="col-5 col-sm-5 col-md-4 col-lg-4 col-xl-4 justify-content-end mb-0 d-flex mt-0 ml-auto">
-                        <img src="assets/img/logo-sicano4.png" class="img-fluid justify-content-end mt-2 mb-0" alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
+                    <div class="col-md-4 col-lg-4 col-xl-4 justify-content-end mb-0 d-flex mt-4 ml-auto">
+                        <img src="assets/img/logo-sicano4.png" class="img-fluid mb-0 d-none d-md-block" alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
                     </div>
                 </div>
                 <!--<div class="row mb-2 ">
@@ -69,303 +69,110 @@
                                     <tbody>
                                         @foreach ($data_courses as $data_course)
 
-                                            <tr class="text-center">
-                                                <td class="text-primary">{{ $data_course->code }}</td>
-                                                <td>{{ $data_course->name }}</td>
-                                                <td>{{ $data_course->credit_units }}</td>
-                                                <td>{{ $data_course->section }}</td>
-                                                <td>{{ $data_course->qualif }}</td>
-                                                <td><span class="shadow-none badge badge-primary">{{ $data_course->statusnote }}</span></td>
-                                                <td class="text-center"><button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModalCenter"> Ver </button></td>
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog">
-                                                    <div class="modal-dialog modal-lg" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h4 class="modal-title" id="exampleModalLabel">Calificaciones</h5>
-                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                            </div>
-                                                            <form class="form-horizontal" role="form">
-                                                            <div class="modal-body">
-                                                                <div class="row">
-                                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                                                        <h5>Asignatura</h5>
-                                                                    </div>
-                                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                        <div class="form-group">
-                                                                            <label for="exampleFormControlInput1">Código</label>
-                                                                            <input class="form-control" type="text" readonly>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                                                                        <div class="form-group">
-                                                                            <label for="exampleFormControlInput1">Nombre</label>
-                                                                            <input class="form-control" type="text" readonly>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                                                        <div class="form-group">
-                                                                            <label for="exampleFormControlInput1">U.C.</label>
-                                                                            <input class="form-control" type="text" readonly>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            <hr>
-                                                                <div class="row">
-                                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                                                        <h5>Profesor</h5>
-                                                                    </div>
-                                                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                                                        <div class="form-group">
+                                                <tr class="text-center">
+                                                    <td class="text-primary">{{ $data_course->code }}</td>
+                                                    <td>{{ $data_course->name }}</td>
+                                                    <td>{{ $data_course->credit_units }}</td>
+                                                    <td>{{ $data_course->section }}</td>
+                                                    <td>{{ $data_course->qualif }}</td>
+                                                    <td><span class="shadow-none badge badge-primary">{{ $data_course->statusnote }}</span></td>
+                                                    <td class="text-center"><button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModalCenter"> Ver </button></td>
+                                                    <!-- Modal -->
+                                                    @foreach ($data_courses as $data_course)
+                                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog">
+                                                            <div class="modal-dialog modal-lg" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
 
-                                                                            <input class="form-control" type="text" readonly>
-                                                                        </div>
+                                                                        <h4 class="modal-title" id="exampleModalLabel">Calificaciones</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                     </div>
-                                                                </div>
-                                                            <hr>
-                                                                <div class="row">
-                                                                    <div class="col-2">
-                                                                        <h5>Cortes</h5>
-                                                                    </div>
-                                                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                                                    <form class="form-horizontal" role="form">
+                                                                    <div class="modal-body">
                                                                         <div class="row">
-                                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                                <div class="input-group">
-                                                                                <span class="input-group-addon">1</span>
-                                                                                <input type="text" class="form-control">
-                                                                                </div>
+                                                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                                                <h5>Asignatura</h5>
                                                                             </div>
                                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                                <div class="input-group">
-                                                                                <span class="input-group-addon">2</span>
-                                                                                <input type="text" class="form-control">
+                                                                                <div class="form-group">
+                                                                                    <label for="exampleFormControlInput1">Código</label>
+                                                                                    <input class="form-control" type="text" id="codigo" value="{{ $data_course->code }}" readonly>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                                <div class="input-group">
-                                                                                <span class="input-group-addon">3</span>
-                                                                                <input type="text" class="form-control">
+                                                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                                                <div class="form-group">
+                                                                                    <label for="exampleFormControlInput1">Nombre</label>
+                                                                                    <input class="form-control" type="text" id="nombre" value="{{ $data_course->name }}" readonly>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                                <div class="input-group">
-                                                                                <span class="input-group-addon">4</span>
-                                                                                <input type="text" class="form-control">
+                                                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                                                <div class="form-group">
+                                                                                    <label for="exampleFormControlInput1">U.C.</label>
+                                                                                    <input class="form-control" type="text"  id="uc" value="{{ $data_course->credit_units }}" readonly>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                </div>
-                                                            <hr>
+                                                                    <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                                                <h5>Profesor</h5>
+                                                                            </div>
+                                                                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                                                                <div class="form-group">
 
-                                                                <div class="alert alert-warning alert-dismissible" role="alert">
-                                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                    <p><strong>NOTA:</strong> Recuerda que en caso de semestre regular son cuatro(4) cortes y en caso de Intensivo son tres(3) cortes.</p>
-                                                                </div>
-                                                            </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </tr>
-                                        {{-- <tr class="text-center">
-                                            <td class="text-primary"> ALG200 </td>
-                                            <td>Algebra</td>
-                                            <td>3</td>
-                                            <td>1</td>
-                                            <td>-</td>
-                                            <td><span class="shadow-none badge badge-danger">1</span></td>
-                                            <td class="text-center"><button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModalCenter">Ver</button></td>
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog">
-                                                <div class="modal-dialog modal-lg" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title" id="exampleModalLabel">Calificaciones</h5>
-                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        </div>
-                                                        <form class="form-horizontal" role="form">
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                                                    <h5>Asignatura</h5>
-                                                                </div>
-                                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                    <div class="form-group">
-                                                                        <label for="exampleFormControlInput1">Código</label>
-                                                                        <input class="form-control" type="text"  readonly>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                                                                    <div class="form-group">
-                                                                        <label for="exampleFormControlInput1">Nombre</label>
-                                                                        <input class="form-control" type="text"  readonly>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                                                    <div class="form-group">
-                                                                        <label for="exampleFormControlInput1">U.C.</label>
-                                                                        <input class="form-control" type="text"  readonly>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        <hr>
-                                                            <div class="row">
-                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                                                    <h5>Profesor</h5>
-                                                                </div>
-                                                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                                                    <div class="form-group">
+                                                                                    <input class="form-control" type="text" id="prof" value="{{ $data_course->id }}" readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-2">
+                                                                                <h5>Cortes</h5>
+                                                                            </div>
+                                                                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                                                                <div class="row">
+                                                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                                                        <div class="input-group">
+                                                                                        <span class="input-group-addon">1</span>
+                                                                                        <input type="text" class="form-control">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                                                        <div class="input-group">
+                                                                                        <span class="input-group-addon">2</span>
+                                                                                        <input type="text" class="form-control">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                                                        <div class="input-group">
+                                                                                        <span class="input-group-addon">3</span>
+                                                                                        <input type="text" class="form-control">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                                                        <div class="input-group">
+                                                                                        <span class="input-group-addon">4</span>
+                                                                                        <input type="text" class="form-control">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    <hr>
 
-                                                                        <input class="form-control" type="text" readonly>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        <hr>
-                                                            <div class="row">
-                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                                                    <h5>Cortes</h5>
-                                                                </div>
-                                                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                            <div class="input-group">
-                                                                            <span class="input-group-addon">1</span>
-                                                                            <input type="text" class="form-control">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                            <div class="input-group">
-                                                                            <span class="input-group-addon">2</span>
-                                                                            <input type="text" class="form-control">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                            <div class="input-group">
-                                                                            <span class="input-group-addon">3</span>
-                                                                            <input type="text" class="form-control">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                            <div class="input-group">
-                                                                            <span class="input-group-addon">4</span>
-                                                                            <input type="text" class="form-control">
-                                                                            </div>
+                                                                        <div class="alert alert-warning alert-dismissible" role="alert">
+                                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                            <p><strong>NOTA:</strong> Recuerda que en caso de semestre regular son cuatro(4) cortes y en caso de Intensivo son tres(3) cortes.</p>
                                                                         </div>
                                                                     </div>
+                                                                    </form>
                                                                 </div>
-                                                            </div>
-                                                        <hr>
-
-                                                            <div class="alert alert-warning alert-dismissible" role="alert">
-                                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                <p><strong>NOTA:</strong> Recuerda que en caso de semestre regular son cuatro(4) cortes y en caso de Intensivo son tres(3) cortes.</p>
                                                             </div>
                                                         </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td class="text-primary"> LENG001 </td>
-                                            <td>Lenguaje y Comunicacion</td>
-                                            <td>2</td>
-                                            <td>1</td>
-                                            <td>19</td>
-                                            <td><span class="shadow-none badge badge-primary" >0</span></td>
-                                            <td class="text-center"><button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModalCenter">Ver</button></td>
-                                            <!--Modal-->
-                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog">
-                                                <div class="modal-dialog modal-lg" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title" id="exampleModalLabel">Calificaciones</h5>
-                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        </div>
-                                                        <form class="form-horizontal" role="form">
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                                                    <h5>Asignatura</h5>
-                                                                </div>
-                                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                    <div class="form-group">
-                                                                        <label for="exampleFormControlInput1">Código</label>
-                                                                        <input class="form-control" type="text" readonly>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                                                                    <div class="form-group">
-                                                                        <label for="exampleFormControlInput1">Nombre</label>
-                                                                        <input class="form-control" type="text" readonly>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                                                    <div class="form-group">
-                                                                        <label for="exampleFormControlInput1">U.C.</label>
-                                                                        <input class="form-control" type="text" readonly>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        <hr>
-                                                            <div class="row">
-                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                                                    <h5>Profesor</h5>
-                                                                </div>
-                                                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                                                    <div class="form-group">
+                                                    @endforeach
+                                                </tr>
 
-                                                                        <input class="form-control" type="text" readonly>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        <hr>
-                                                            <div class="row">
-                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                                                    <h5>Cortes</h5>
-                                                                </div>
-                                                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                            <div class="input-group">
-                                                                            <span class="input-group-addon">1</span>
-                                                                            <input type="text" class="form-control">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                            <div class="input-group">
-                                                                            <span class="input-group-addon">2</span>
-                                                                            <input type="text" class="form-control">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                            <div class="input-group">
-                                                                            <span class="input-group-addon">3</span>
-                                                                            <input type="text" class="form-control">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                                            <div class="input-group">
-                                                                            <span class="input-group-addon">4</span>
-                                                                            <input type="text" class="form-control">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        <hr>
 
-                                                            <div class="alert alert-warning alert-dismissible" role="alert">
-                                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                <p><strong>NOTA:</strong> Recuerda que en caso de semestre regular son cuatro(4) cortes y en caso de Intensivo son tres(3) cortes.</p>
-                                                            </div>
-                                                        </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </tr> --}}
                                         @endforeach
                                     </tbody>
 

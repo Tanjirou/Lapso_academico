@@ -3,26 +3,31 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo.ico') }}" />
     <link href="{{ asset('assets/css/loader.css') }}" rel="stylesheet" type="text/css" />
     <script src="{{ asset('assets/js/loader.js') }}"></script>
+
+    <!-- Fonts -->
+    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/plugins.css') }}" rel="stylesheet" type="text/css" />
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
     <link href="{{ asset('assets/css/elements/breadcrumb.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('plugins/apex/apexcharts.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/dashboard/dash_1.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/dashboard/dash_2.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/pages/faq/faq.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/css/plugins.css') }}" rel="stylesheet" type="text/css" />
+
+
+    <link href="{{ asset('assets/css/authentication/form-2.css') }}" rel="stylesheet" type="text/css" />
 
     {{-- @livewireStyles --}}
     <link href="{{ asset('assets/css/plugins.css') }}" rel="stylesheet" type="text/css" />
@@ -64,7 +69,7 @@
                     </a>
                 </li>
                 <li class="nav-item theme-text">
-                    <a href="{{ route('dashboard') }}" class="nav-link"> UNEXPO </a>
+                    <a href="{{ route('dashboard') }}" class="nav-link text-center"> UNEXPO </a>
                 </li>
                 <li class="nav-item toggle-sidebar">
                     <a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg
@@ -109,7 +114,14 @@
                     <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                         <div class="user-profile-section">
                             <div class="media mx-auto">
-                                <img src="{{ asset('assets/img/student.png') }}" class="img-fluid mr-2" alt="avatar">
+                                <!--<img src="{{ asset('assets/img/student.png') }}" class="img-fluid mr-2" alt="avatar">-->
+                                @if (auth()->user()->user_type == 1)
+                                    <img src="{{ asset('assets/img/perfil-admin-peq.png') }}" class="img-fluid mr-2" alt="avatar">
+                                @elseif(auth()->user()->user_type ==2)
+                                    <img src="{{ asset('assets/img/perfil-prof-peq.png') }}" class="img-fluid mr-2" alt="avatar">
+                                @else
+                                    <img src="{{ asset('assets/img/student.png') }}" class="img-fluid mr-2" alt="avatar">
+                                @endif
                                 <div class="media-body">
                                     <h5>{{ auth()->user()->names }}</h5>
                                     @if (auth()->user()->user_type == 1)
@@ -197,22 +209,33 @@
                 <div class="profile-info">
                     <figure class="user-cover-image"></figure>
                     <div class="user-info">
-                        <img src="{{ asset('assets/img/Estudiantes.png') }}" alt="avatar">
+                        <!--<img src="{{ asset('assets/img/Estudiantes.png') }}" alt="avatar">-->
                         <h6 class="">{{ auth()->user()->names }}</h6>
                         @if (auth()->user()->user_type == 1)
+                        <img src="{{ asset('assets/img/perfil-admin.png') }}" alt="avatar">
                             <p>Administrador</p>
                         @elseif(auth()->user()->user_type ==2)
+                        <img src="{{ asset('assets/img/perfil-prof.png') }}" alt="avatar">
                             <p>Profesor</p>
                         @else
+                        <img src="{{ asset('assets/img/perfil-estud.png') }}" alt="avatar">
                             <p>Estudiante</p>
                         @endif
                     </div>
                 </div>
-                <div class="  shadow-bottom">
-                </div>
-                <ul class="list-unstyled menu-categories" id="accordionExample">
+                {{-- <div class="shadow-bottom mt-0">
+                </div> --}}
+                <ul class="list-unstyled menu-categories mt-0" id="accordionExample">
                     <!--INICIO-->
-                    <li class="menu active">
+                    <!--<li class="menu active">-->
+                    <li class="menu menu-heading mt-0 text-center">
+                        <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg><span>PANEL DE CONTROL</span></div>
+                    </li>
+                    <li class="menu">
                         <a href="#dashboard" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -221,7 +244,7 @@
                                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
                                 </svg>
-                                <span>Dashboard</span>
+                                <span>Inicio</span>
                             </div>
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -231,10 +254,11 @@
                                 </svg>
                             </div>
                         </a>
-                        <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled show"
+                        <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled"
                             id="dashboard" data-parent="#accordionExample">
+                            <!--<li class="active">-->
                             <li class="active">
-                                <a href="{{ route('home') }}"> Inicio </a>
+                                <a href="{{ route('home') }}"> Panel actividades </a>
                             </li>
                             <!--<li>
                             <a href="index2.html"> Analytics </a>
@@ -244,13 +268,13 @@
 
                     <!--ESTUDIANTE-->
                     @if (auth()->user()->user_type == 3)
-                        <li class="menu menu-heading">
+                        {{-- <li class="menu menu-heading">
                             <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
-                                </svg><span>MENU ESTUDIANTE</span></div>
-                        </li>
+                                </svg><span>PANEL ESTUDIANTE</span></div>
+                        </li> --}}
                         <li class="menu">
                             <a href="#student-general" data-toggle="collapse" aria-expanded="false"
                                 class="dropdown-toggle">
@@ -274,10 +298,10 @@
                             </a>
                             <ul class="collapse submenu list-unstyled" id="student-general"
                                 data-parent="#accordionExample">
-                                <li class="">
+                                <li class="active">
                                     <a href="{{ route('enrolled_subject.show') }}"> Carga Académica </a>
                                 </li>
-                                <li>
+                                <li class="active">
                                     <a href="{{ route('studensts.bulletin') }}"> Boletin </a>
                                 </li>
                             </ul>
@@ -303,16 +327,13 @@
                                 </div>
                             </a>
                             <ul class="collapse submenu list-unstyled" id="student-ver" data-parent="#accordionExample">
-                                <li class="">
+                                <li class="active">
                                     <a href=" {{ route('students.history') }}"> Historial de Notas</a>
                                 </li>
-                                <li>
+                                <li class="active">
                                     <a href="index2.html"> Constancia </a>
                                 </li>
-                                <li>
-                                    <a href="index2.html"> Pensum </a>
-                                </li>
-                                <li>
+                                <li class="active">
                                     <a href="index2.html"> Solicitud Revisión </a>
                                 </li>
                             </ul>
@@ -344,15 +365,16 @@
                         </ul>
                     </li> --}}
                     @endif
+
                     <!--PROFESOR-->
                     @if (auth()->user()->user_type == 2)
-                        <li class="menu menu-heading">
+                        {{-- <li class="menu menu-heading">
                             <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
-                                </svg><span>MENU PROFESOR</span></div>
-                        </li>
+                                </svg><span>MENÚ</span></div>
+                        </li> --}}
                         <li class="menu">
                             <a href="#teacher-general" data-toggle="collapse" aria-expanded="false"
                                 class="dropdown-toggle">
@@ -374,9 +396,9 @@
                                     </svg>
                                 </div>
                             </a>
-                            <ul class="collapse submenu list-unstyled" id="teacher-general"
+                            <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled" id="teacher-general"
                                 data-parent="#accordionExample">
-                                <li class="">
+                                <li class="active">
                                     <a href="{{ route('teacher.assigned_sections') }}"> Secciones asignadas </a>
                                 </li>
                             </ul>
@@ -404,16 +426,16 @@
                                 </div>
                             </a>
                             <ul class="collapse submenu list-unstyled" id="proceso" data-parent="#accordionExample">
-                                <li>
+                                <li class="active">
                                     <a href="{{ route('teacher.load_cut') }}">Cargar Corte</a>
                                 </li>
-                                <li>
+                                <li class="active">
                                     <a href="{{ route('teacher.upload_content') }}">Cargar Contenido</a>
                                 </li>
-                                <li >
+                                <li class="active">
                                     <a href="{{ route('teacher.load_evaluations') }}">Cargar Evaluaciones</a>
                                 </li>
-                                <li>
+                                <li class="active">
                                     <a href="#cargar-notas" data-toggle="collapse" aria-expanded="false"
                                         class="dropdown-toggle"> Cargar Notas <svg xmlns="http://www.w3.org/2000/svg"
                                             width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -423,10 +445,10 @@
                                         </svg> </a>
                                     <ul class="collapse sub-submenu list-unstyled" id="cargar-notas"
                                         data-parent="#proceso">
-                                        <li>
+                                        <li class="active">
                                             <a href="{{ route('teacher.upload_notes') }}"> Por Corte </a>
                                         </li>
-                                        <li>
+                                        <li class="active">
                                             <a href="{{ route('teacher.substitutes') }}"> Sustitutivos </a>
                                         </li>
                                     </ul>
@@ -492,57 +514,56 @@
                             </a>
                             <ul class="collapse submenu list-unstyled" id="report-teacher"
                                 data-parent="#accordionExample">
-                                <li>
+                                <li class="active">
                                     <a href="user_profile2.html">Notas por corte</a>
                                 </li>
-                                <li>
+                                <li class="active">
                                     <a href="user_account_setting.html">Notas Total</a>
                                 </li>
                             </ul>
                         </li>
                     @endif
 
-
-                    @if (auth()->user()->user_type == 1)
                     <!--ADMINISTRADOR-->
-                    <li class="menu menu-heading">
-                        <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg><span>MENU ADMIN</span></div>
-                    </li>
-                    <li class="menu">
-                        <a href="#admin-permisos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <div class="">
-                                <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-lock">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                </svg>
-                                <span>Permisos</span>
-                            </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-chevron-right">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </div>
-                        </a>
-                        <ul class="collapse submenu list-unstyled" id="admin-permisos" data-parent="#accordionExample">
-                            <li class="">
-                                <a href=" index.html">Asignar</a>
-                            </li>
-                            <li>
-                                <a href="index2.html">Modificar</a>
-                            </li>
-                            <li>
-                                <a href="index2.html">Eliminar</a>
-                            </li>
-                        </ul>
-                    </li>
+                    @if (auth()->user()->user_type == 1)
+                        {{-- <li class="menu menu-heading">
+                            <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg><span>MENU ADMIN</span></div>
+                        </li> --}}
+                        <li class="menu">
+                            <a href="#admin-permisos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                <div class="">
+                                    <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-lock">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                    </svg>
+                                    <span>Permisos</span>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-chevron-right">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </div>
+                            </a>
+                            <ul class="collapse submenu list-unstyled" id="admin-permisos" data-parent="#accordionExample">
+                                <li class=" active">
+                                    <a href=" index.html">Asignar</a>
+                                </li>
+                                <li class=" active">
+                                    <a href="index2.html">Modificar</a>
+                                </li>
+                                <li class=" active">
+                                    <a href="index2.html">Eliminar</a>
+                                </li>
+                            </ul>
+                        </li>
                     @endif
                 </ul>
             </nav>
@@ -563,7 +584,7 @@
         </div>-->
 
         <!-- footer -->
-        <div class="footer-wrapper">
+        <!--<div class="footer-wrapper">
             <div class="footer-section f-section-1 align-content-center">
                 <div class="row justify-content-center">
                     <div class=" col-md-1 col-lg-3 order-md-0 order-0 d-flex align-item-center ml-5 mt-1">
@@ -586,9 +607,137 @@
                     </div>
 
                 </div>
+
+                <div class="row justify-content-center mb-5">
+                    <ul class="socialIcons">
+                        <li class="facebook"><a href=""><i class="fab fa-facebook-f"></i>Facebook</a></li>
+                        <li class="twitter"><a href=""><i class="fab fa-twitter"></i>Twitter</a></li>
+                        <li class="instagram"><a href=""><i class="fab fa-instagram"></i>Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>-->
+        <div class="footer-wrapper justify-content-center mt-0">
+            <div class="footer-section f-section-1 align-content-center">
+                <div class="row justify-content-center">
+                    <div class=" col-md-1 col-lg-3 order-md-0 order-0 d-flex align-item-center ml-5">
+
+                    </div>
+                    <div class="col-4 col-md-3 col-lg-3 order-md-0 order-0 d-flex justify-content-start ml-5">
+                        <img src="{{ asset('assets/img/cuadro.png') }}"
+                            class="img-fluid d-none d-xl-block mr-3 mb-3 float-md-right" alt="" style="width: 3%;">
+                    </div>
+                    <div class="col-4 col-md-3 col-lg-3 order-md-0 order-0 d-flex ml-5 justify-content-start">
+                        <img src="{{ asset('assets/img/cuadro.png') }}" class="img-fluid d-none d-xl-block mb-3" alt=""
+                            style="width: 15%;">
+                   </div>
+                    <div class="col-md-1 col-lg-3 order-md-0 order-0 d-flex ml-3 justify-content-start">
+
+                    </div>
+                    <div class="footer-section f-section-1 text-center mr-xl-auto">
+                        <hr class="mt-0">
+                        <h6 class="text-muted lead mt-0">ENCUENTRANOS EN LAS REDES</h6>
+                                <div class="redes-footer text-right">
+
+                                        <ul class="socialIcons align-content-end">
+                                            <li class="facebook"><a href="https://www.facebook.com/Unexpove"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+                                            <li class="twitter"><a href="https://twitter.com/UnexpoVe"><i class="fab fa-twitter"></i>Twitter</a></li>
+                                            <li class="instagram"><a href="https://www.instagram.com/unexpove/?hl=es-la"><i class="fab fa-instagram"></i>Instagram</a></li>
+                                        </ul>
+
+                                </div>
+                        {{-- <h6 class="text-muted">
+                            Av. Corpahuaico entre Av. La Salle y La Rotaria. Barquisimeto. Venezuela<br>
+                                    Teléfono: +58 251-6110237 | Email:  uracebqto@gmail.com<br>
+                        </h6> --}}
+                        {{-- <div class="row">
+                            <div class="col-2 justify-content-end text-right">
+                                <img src="{{ asset('assets/img/logo-promo56.png') }}" class="img-fluid mb-3" alt="header-image"
+                                style="width: 20%;">
+                            </div>
+                            <div class="col-2 justify-content-start text-left">
+                                <img src="{{ asset('assets/img/logo-IE.png') }}" class="img-fluid mb-3" alt="header-image"
+                                style="width: 20%;">
+                            </div>
+                        </div> --}}
+                        <div class="row">
+                            <div class="col-6 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
+                                <img src="{{ asset('assets/img/logo-IE.png') }}" class="img-fluid d-none d-sm-block mt-1 mb-1" alt="header-image"
+                                style="width: 30%;">
+                            </div>
+                            <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 justify-content-center text-center">
+                                <h6 class="text-muted">
+                                    Av. Corpahuaico entre Av. La Salle y La Rotaria. Barquisimeto. Venezuela<br>
+                                            Teléfono: +58 251-6110237 | Email:  uracebqto@gmail.com<br>
+                                </h6>
+                            </div>
+                            <div class="col-6 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
+                                <img src="{{ asset('assets/img/logo-promo56.png') }}" class="img-fluid d-none d-sm-block mt-1 mb-1" alt="header-image"
+                                style="width: 30%;">
+                            </div>
+                        </div>
+
+                        <p class="">Copyright © 2021 | Ing. Jorge Melendez - Ing. José Torcates |
+                            Programa Ingeniería Electrónica, All rights reserved.
+                        </p>
+                    </div>
+
+
+                </div>
+
+                <!--<div class="row justify-content-center mb-5">
+                    <ul class="socialIcons">
+                        <li class="facebook"><a href=""><i class="fab fa-facebook-f"></i>Facebook</a></li>
+                        <li class="twitter"><a href=""><i class="fab fa-twitter"></i>Twitter</a></li>
+                        <li class="instagram"><a href=""><i class="fab fa-instagram"></i>Instagram</a></li>
+                    </ul>
+                </div>-->
             </div>
 
         </div>
+
+
+            <!--<div class="footer-wrapper border">
+                <div class="footer-section f-section-1 align-content-center container p-0 border col-2 mr-5 ">
+                </div>
+
+                <div class="footer-section f-section-1 align-content-center container border p-0">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5 mr-5 text-left border">
+                            <h6 class="text-muted lead">CONTACTO:</h6>
+                            <h6 class="text-muted">
+                            Av. Corpahuaico entre Av. La Salle y La Rotaria.<br>
+                            Barquisimeto. Venezuela.<br>
+                            Teléfono: +58 251-6110237<br>
+                            Email:  uracebqto@gmail.com<br>
+                            </h6>
+                        </div>
+                        <div class="col-xs-12 col-md-6 text-right border justify-content-end p-0">
+
+                                <h6 class="text-muted lead">ENCUENTRANOS EN LAS REDES</h6>
+                                <div class="redes-footer text-right">
+
+                                        <ul class="socialIcons align-content-end">
+                                            <li class="facebook"><a href=""><i class="fab fa-facebook-f"></i>Facebook</a></li>
+                                            <li class="twitter"><a href=""><i class="fab fa-twitter"></i>Twitter</a></li>
+                                            <li class="instagram"><a href=""><i class="fab fa-instagram"></i>Instagram</a></li>
+                                        </ul>
+
+                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-right pr-5">
+                            <p class="text-muted small text-right">José Miguel, arte y belleza @2016.<br> Todos los derechos reservados.</p>
+                        </div>
+                    </div>
+                    <div class="footer-section f-section-1 align-content-center">
+                        <p class="text-center">Copyright © 2021 <a target="_blank" href="https://designreset.com">Ing. Jorge Melendez - Ing. José Torcates</a>, Programa Ingeniería Electrónica, All rights reserved.</p>
+                    </div>
+                </div>
+            </div>-->
+
         <!--  END FOOTER  -->
 
     </div>
