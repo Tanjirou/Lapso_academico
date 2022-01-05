@@ -114,6 +114,7 @@
                     <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                         <div class="user-profile-section">
                             <div class="media mx-auto">
+<<<<<<< HEAD
                                 <!--<img src="{{ asset('assets/img/student.png') }}" class="img-fluid mr-2" alt="avatar">-->
                                 @if (auth()->user()->user_type == 1)
                                     <img src="{{ asset('assets/img/perfil-admin-peq.png') }}" class="img-fluid mr-2" alt="avatar">
@@ -122,6 +123,9 @@
                                 @else
                                     <img src="{{ asset('assets/img/student.png') }}" class="img-fluid mr-2" alt="avatar">
                                 @endif
+=======
+                                <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png'))  }}" class="img-fluid mr-2" alt="avatar">
+>>>>>>> 017af0a70f96626ab738eae565f385663ff9bb9c
                                 <div class="media-body">
                                     <h5>{{ auth()->user()->names }}</h5>
                                     @if (auth()->user()->user_type == 1)
@@ -209,7 +213,11 @@
                 <div class="profile-info">
                     <figure class="user-cover-image"></figure>
                     <div class="user-info">
+<<<<<<< HEAD
                         <!--<img src="{{ asset('assets/img/Estudiantes.png') }}" alt="avatar">-->
+=======
+                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png')  }}" alt="avatar">
+>>>>>>> 017af0a70f96626ab738eae565f385663ff9bb9c
                         <h6 class="">{{ auth()->user()->names }}</h6>
                         @if (auth()->user()->user_type == 1)
                         <img src="{{ asset('assets/img/perfil-admin.png') }}" alt="avatar">
