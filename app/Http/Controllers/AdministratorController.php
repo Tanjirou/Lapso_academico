@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AcademicOffer;
+use App\Models\User;
 use App\Models\career;
 use App\Models\course;
-use App\Models\EnrolledSubject;
 use App\Models\Pensum;
-use App\Models\User;
 use App\Models\Student;
 use App\Models\Teacher;
-use Database\Seeders\UserTypesSeeder;
 use Illuminate\Http\Request;
+use App\Models\AcademicOffer;
+use App\Models\EnrolledSubject;
 use Illuminate\Support\Facades\DB;
+use Database\Seeders\UserTypesSeeder;
+use Illuminate\Support\Facades\Storage;
 
 class AdministratorController extends Controller
 {
@@ -339,37 +340,74 @@ class AdministratorController extends Controller
         return redirect()->action([AdministratorController::class, 'migrate'])->with('migrate-message','Migración finalizada');
     }
 
-    public function show(User $user)
+    public function profile(User $user)
     {
         $id = auth()->user()->id;
-        $profile = DB::table('users')
+        $admin = DB::table('users')
             ->join('user_types','users.user_type','=','user_types.id')
             ->where('users.user_type','=','1')
             ->where('users.id','=',$id)
             ->select('users.*')
             ->first();
         //var_dump( $profile); die();
-        return view('admin_profile', compact('profile'));
+        return view('administrator.admin_profile', compact('admin','id'));
 
     }
 
-    public function update(Request $request)
+    public function profile_update(Request $request, User $user)
     {
         //^\+?[0-9]{3}-?[0-9]{6,12}$
         $id = auth()->user()->id;
         // var_dump($request['phone1']); die();
         $data = $request->validate([
+            'nationaly' =>['string'],
+            'gender' =>['string'],
+            'marital_status' =>['string'],
+            'email' => ['required', 'email'],
+            'country' =>['string'],
+            'state' =>['string'],
+            'birth_date' =>['date'],
             'phone1' => ['regex:/^[0-9]{4}-?[0-9]{7}/'],
             // 'phone1' => ['numeric'],
             'phone2' => ['regex:/^[0-9]{4}-?[0-9]{7}/'],
-            'address' => ['string'],
-            'email' => ['required', 'email'],
+            'photo' => ['mimes:jpg,jpeg,png'],
+            'address' => ['required','string'],
+
         ]);
+        $photo = $request->file('photo')->store('public/profile');
+
+        if(isset($data['photo'])){
+            $img_url = DB::table('users')
+                ->where('id','=', $id)
+                ->select('photo')
+                ->first();
+            if($img_url){
+                $file = str_replace('storage', 'public', $img_url->photo);
+                Storage::delete($file);
+            }
+            $photo_url = Storage::url($photo);
+            $user->photo = $photo_url;
+        }
+        $user->nationality = $data['nationality'];
+        $user->gender = $data['gender'];
+        $user->marital_status = $data['marital_status'];
+        $user->email = $data['email'];
+        $user->country = $data['country'];
+        $user->state = $data['state'];
+        $user->birth_date = $data['birth_date'];
+        $user->telephone = $data['phone1'];
+        $user->mobile = $data['phone2'];
+        $user->address = $data['address'];
+        $user->save();
+        return redirect()->action([AdministratorController::class, 'profile'])->with('store','Actualizado');
+
         //var_dump($data); die();
-        DB::table('users')
-        ->where('id','=', $id)
-        //(['telepone' => $data['mobile1], 'mobile' => $data['mobile2']] )
-        ->update(['telephone' => $data['phone1'], 'mobile' => $data['phone2'], 'address' => $data['address'], 'email' => $data['email']]);
-        return redirect()->route('admin_profile')->with('success', 'Administrador actualizado correctamente');
+        // DB::table('users')
+        // ->where('id','=', $id)
+        // //(['telepone' => $data['mobile1], 'mobile' => $data['mobile2']] )
+        // ->update([ 'nationality' => $data['nationality'], 'gender' => $data['gender'], 'marital_status' => $data['marital_status'],
+        //             'email' => $data['email'], 'country' => $data['country'], 'state' => $data['state'], 'birth_date' => $data['birth_date'],
+        //             'telephone' => $data['phone1'],  'mobile' => $data['phone2'], 'address' => $data['address'],]);
+        // return redirect()->route('administrator.admin_profile')->with('success', 'Administrador actualizado correctamente');
     }
 }

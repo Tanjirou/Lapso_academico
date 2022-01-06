@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="{{ asset('assets/css/elements/breadcrumb.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('plugins/apex/apexcharts.css') }}" rel="stylesheet" type="text/css">
-    {{-- <link href="{{ asset('assets/css/dashboard/dash_1.css') }}" rel="stylesheet" type="text/css" /> --}}
+    <link href="{{ asset('assets/css/dashboard/dash_1.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/dashboard/dash_2.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/pages/faq/faq.css') }}" rel="stylesheet" type="text/css" />
 
@@ -62,7 +62,7 @@
     <div class="header-container fixed-top">
         <header class="header navbar navbar-expand-sm">
 
-            <ul class="navbar-nav theme-brand  flex-row  text-center">
+            <ul class="navbar-nav theme-brand">
 
                 <li class="nav-item theme-logo ml-2">
                     <a href="{{ route('dashboard') }}">
@@ -70,9 +70,7 @@
                     </a>
                 </li>
                 <li class="nav-item theme-text mr-5">
-
                     <a href="{{ route('dashboard') }}" class="nav-link"> UNEXPO </a>
-
                 </li>
                 <li class="nav-item toggle-sidebar mr-3">
                     <a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg
@@ -118,28 +116,28 @@
                         <div class="user-profile-section">
                             <div class="media mx-auto">
                                 @if (auth()->user()->user_type == 1)
-                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-admin-peq.png'))  }}" class="img-fluid mr-2" alt="avatar">
+                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-admin-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
                                 @elseif(auth()->user()->user_type ==2)
-                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof-peq.png'))  }}" class="img-fluid mr-2" alt="avatar">
+                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
                                 @else
-                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png'))  }}" class="img-fluid mr-2" alt="avatar">
+                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png')) }}" class="img-fluid mr-2" alt="avatar">
                                 @endif
 
                                 <div class="media-body">
                                     <h5>{{ auth()->user()->names }}</h5>
-                                    @if (auth()->user()->user_type == 1)
+                                    {{-- @if (auth()->user()->user_type == 1)
                                         <p>Administrador</p>
                                     @elseif(auth()->user()->user_type ==2)
                                         <p>Profesor</p>
                                     @else
                                         <p>Estudiante</p>
-                                    @endif
+                                    @endif --}}
                                 </div>
                             </div>
                         </div>
                         <div class="dropdown-item">
                             @if (auth()->user()->user_type == 1)
-                                <a href="{{ route('teacher.profile') }}">
+                                <a href="{{ route('administrator.profile') }}">
                                 @elseif(auth()->user()->user_type ==2)
                                     <a href="{{ route('teacher.profile') }}">
                                     @else
@@ -207,29 +205,25 @@
 
         <!--  BEGIN SIDEBAR  -->
         <div class="sidebar-wrapper sidebar-theme">
-
             <nav id="sidebar">
                 <div class="profile-info">
                     <figure class="user-cover-image"></figure>
                     <div class="user-info">
                         <h6 class="">{{ auth()->user()->names }}</h6>
                         @if (auth()->user()->user_type == 1)
-                        <img src="{{ asset('assets/img/perfil-admin.png') }}" alt="avatar">
-                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-admin.png')  }}" alt="avatar">
+                            <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-admin.png')  }}" alt="avatar">
                             <p>Administrador</p>
                         @elseif(auth()->user()->user_type ==2)
-                        <img src="{{ asset('assets/img/perfil-prof.png') }}" alt="avatar">
-                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof.png')  }}" alt="avatar">
+                            <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof.png')  }}" alt="avatar">
                             <p>Profesor</p>
                         @else
-                        <img src="{{ asset('assets/img/perfil-estud.png') }}" alt="avatar">
-                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png')  }}" alt="avatar">
+                            <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png')  }}" alt="avatar">
                             <p>Estudiante</p>
                         @endif
                     </div>
                 </div>
-                {{-- <div class="shadow-bottom mt-0">
-                </div> --}}
+                <div class="shadow-bottom mt-0">
+                </div>
                 <ul class="list-unstyled menu-categories mt-0" id="accordionExample">
                     <!--INICIO-->
                     <!--<li class="menu active">-->
@@ -241,8 +235,8 @@
                             </svg><span>PANEL DE CONTROL</span></div>
                     </li>
                     <li class="menu">
-                        <a href="{{ route('home') }}" aria-expanded="false" class="dropdown-toggle">
-                            <div class="active">
+                        <a href="{{ route('home') }}" aria-expanded="true" class="dropdown-toggle">
+                            <div class="">
                                 <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-home">
@@ -562,23 +556,18 @@
                             </ul>
                         </li>
 
-                    <li class="menu menu-heading">
+                    {{-- <li class="menu menu-heading">
                         <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg><span>MENU ADMIN</span></div>
-                    </li>
+                    </li> --}}
                     <!--Gestionar Base de Datos-->
                     <li class="menu">
                         <a href="#admin-datos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
-                                <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-lock">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                                 <span>Gestionar Datos</span>
                             </div>
                             <div>
@@ -609,12 +598,7 @@
                     <li class="menu">
                         <a href="#admin-usuarios" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
-                                <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-lock">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                                 <span>Gestionar Usuarios</span>
                             </div>
                             <div>
@@ -640,12 +624,7 @@
                     <li class="menu">
                         <a href="#admin-solicitudes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
-                                <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-lock">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
                                 <span>Gestionar Solicitudes</span>
                             </div>
                             <div>

@@ -1,0 +1,414 @@
+@section('styles_home')
+ <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+ <link href="{{ asset('plugins/apex/apexcharts.css') }}" rel="stylesheet" type="text/css" />
+ <link href="{{ asset('assets/css/dashboard/dash_1.css') }}" rel="stylesheet" type="text/css" />
+ <link href="{{ asset('assets/css/pages/faq/faq.css') }}" rel="stylesheet" type="text/css" />
+ <link href="{{ asset('assets/css/elements/breadcrumb.css') }}" rel="stylesheet" type="text/css" />
+ <link href="{{ asset('plugins/table/datatable/datatables.css') }}" rel="stylesheet" type="text/css" />
+ <link href="{{ asset('plugins/table/datatable/custom_dt_miscellaneous.css') }}"rel="stylesheet" type="text/css" />
+ <link href="{{ asset('plugins/table/datatable/dt-global_style.css') }}" rel="stylesheet" type="text/css" />
+ <link href="{{ asset('plugins/table/datatable/custom_dt_custom.css') }}" rel="stylesheet" type="text/css" />
+ <link href="{{ asset('plugins/dropify/dropify.min.css') }}" rel="stylesheet" type="text/css" />
+ <link href="{{ asset('assets/css/users/account-setting.css') }}" rel="stylesheet" type="text/css" />
+ <link href="{{ asset('plugins/dropify/dropify.min.css') }}" rel="stylesheet" type="text/css" />
+ <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+ <link href="{{ asset('assets/css/plugins.css') }}" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+ <!-- END PAGE LEVEL PLUGINS/CUSTOM  -->
+@endsection
+<x-app-layout>
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content mt-6">
+        <div class="layout-px-spacing">
+            <div class="mb-0">
+                <div class="row mb-2 mt-3">
+                    <div class="col-auto mb-0 order-md-0 order-1 mb-2 mt-2">
+                        <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
+                                <li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Mi Perfil</a></li>
+                                <!--<li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Secciones</a></li>-->
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-xl-4 justify-content-end mb-0 d-flex mt-4 ml-auto">
+                        <img src="assets/img/logo-sicano4.png" class="img-fluid mb-0 d-none d-md-block" alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
+                    </div>
+                </div>
+            </div>
+            @if (session('store'))
+            <div class="form-group row">
+                <span class="alert alert-success col-12">
+                    {{ session('store') }}
+                </span>
+            </div>
+            @endif
+            <div class="account-settings-container layout-top-spacing">
+                <div class="row layout-spacing mt-2">
+                    <div class="col-lg-12 col-12">
+                        <div class="statbox widget box box-shadow shadow">
+                            <div class="widget-content widget-content-area simple-pills">
+                                <ul class="nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">General</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-nacim-tab" data-toggle="pill" href="#pills-nacim" role="tab" aria-controls="pills-nacim" aria-selected="false">Nacimiento</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contacto</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-update-tab" data-toggle="pill" href="#pills-update" role="tab" aria-controls="pills-update" aria-selected="false">Actualización</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                        <!--  INFORMACION GENERAL  -->
+                                        <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
+                                            <form id="general-info" class="section general-info">
+                                                <div class="info">
+                                                    <h6 class="">Información General</h6>
+                                                    <div class="row">
+                                                        <div class="col-md-10 mx-auto">
+                                                            <div class="row">
+                                                                {{-- <div class="col-xl-2 col-lg-12 col-md-4">
+                                                                    <div class="upload mt-4 pr-md-4">
+                                                                        <input type="file" id="input-file-max-fs" class="dropify" data-default-file="{{ ('assets/img/200x200.jpg') }}" data-max-file-size="2M" />
+                                                                        <p class="mt-2"><i class="flaticon-cloud-upload mr-1"></i> Foto Perfil</p>
+                                                                    </div>
+                                                                </div> --}}
+                                                                {{-- <div class="col-xl-10 col-lg-12 col-md-8 mt-md-0 mt-4">
+                                                                    <div class="form">
+                                                                        <div class="row"> --}}
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="nacionalidad">Nacionalidad</label>
+                                                                                    <input type="text" class="form-control mb-4" id="nacionalidad" value="{{ $admin->nationality }}" readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="cedula">Cédula de Identidad</label>
+                                                                                    <input type="number" class="form-control mb-4" id="cedula" value="{{ $admin->dni }}" readonly >
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="nombres">Nombres</label>
+                                                                                    <input type="text" class="form-control mb-4" id="nombres" value="{{ $admin->names }}" readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="apellidos">Apellidos</label>
+                                                                                    <input type="text" class="form-control mb-4" id="apellidos" value="{{ $admin->last_names }}" readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="genero">Genero</label>
+                                                                                    <input type="text" class="form-control mb-4" id="genero" value="{{ $admin->gender }}" readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="estadociv">Estado Civil</label>
+                                                                                    <input type="text" class="form-control mb-4" id="estadociv" value="{{ $admin->marital_status }}" readonly>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        {{-- </div>
+                                                                    </div>
+                                                                </div> --}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-nacim" role="tabpanel" aria-labelledby="pills-nacim-tab">
+                                        <!--  LUGAR Y FECHA DE NACIMIENTO  -->
+                                        <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
+                                            <form id="contact" class="section contact">
+                                                <div class="info">
+                                                    <h5 class="">Lugar y fecha de nacimiento</h5>
+                                                    <div class="row">
+                                                        <div class="col-md-10 mx-auto">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="country">Pais</label>
+                                                                        <input type="text" class="form-control mb-4" id="country" value="{{ $admin->country }}" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="state">Estado</label>
+                                                                        <input type="text" class="form-control mb-4" id="state" value="{{ $admin->state }}" readonly >
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="place">Lugar</label>
+                                                                        <input type="text" class="form-control mb-4" id="place" value="{{ $admin->town }}" readonly >
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="place">Fecha de Nacimiento</label>
+                                                                        <input type="text" class="form-control mb-4" id="place" value="{{ $admin->birth_date }}" readonly >
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                        <!--  INFORMACION DE CONTACTO  -->
+                                        <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
+                                            <form id="contact" class="section contact">
+                                                <div class="info">
+                                                    <h5 class="">INFORMACION DE CONTACTO</h5>
+                                                    <div class="row">
+                                                        <div class="col-md-10 mx-auto">
+                                                            <div class="form">
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="phone1">Teléfono Local</label>
+                                                                            <input type="text" class="form-control mb-4" id="phone1" value="{{ $admin->telephone }}" readonly>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="phone2">Teléfono Celular</label>
+                                                                            <input type="text" class="form-control mb-4" id="phone2" value="{{ $admin->mobile }}" readonly>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="address">Direccion de Habitación</label>
+                                                                    <input type="text" class="form-control mb-4" id="address" value="{{ $admin->address }}" readonly >
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="email">Email</label>
+                                                                    <input type="text" class="form-control mb-4" id="email" value="{{ $admin->email }}" readonly>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="pills-update" role="tabpanel" aria-labelledby="pills-update-tab">
+                                        <!--  ACTUALIZACION DE CONTACTO  -->
+                                        <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
+                                            <form
+                                                action="{{ route('administrator.profile_update', ['user' => $id]) }}"
+                                                method="POST" id="contact" class="section general-info"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="info">
+                                                    <h6 class="">ACTUALIZACION</h6>
+                                                    <div class="row">
+                                                        <div class="col-lg-11 mx-auto">
+                                                            <div class="row">
+                                                                <div class="col-xl-2 col-lg-12 col-md-4">
+                                                                    <div class="upload mt-4 pr-md-4">
+                                                                        <input type="file" name="photo" id="input-file-max-fs" class="dropify  @error('photo') is-invalid @enderror"
+                                                                         data-default-file="{{ ('assets/img/200x200.jpg') }}" data-max-file-size="10M" />
+                                                                        <p class="mt-2"><i class="flaticon-cloud-upload mr-1"></i> Foto Perfil</p>
+                                                                        @error('photo')
+                                                                        <span class="invalid-feedback"
+                                                                            role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-10 col-lg-12 col-md-8 mt-md-0 mt-4">
+                                                                    <div class="form">
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="nacionalidad">Nacionalidad</label>
+                                                                                    <input type="text" class="form-control mb-4 @error('nationality') is-invalid @enderror"
+                                                                                    id="nationality" name="nationality" value="{{ $admin->nationality }}"
+                                                                                    placeholder="Venezolano">
+                                                                                @error('nationality')
+                                                                                    <span class="invalid-feedback"
+                                                                                        role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
+                                                                                @enderror
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="genero">Genero</label>
+                                                                                    {{-- <input type="text" class="form-control mb-4" id="genero" value="{{ $profile->gender }}"> --}}
+                                                                                    <select class="form-control  mb-4 @error('gender') is-invalid @enderror"
+                                                                                    id="gender" name="gender" value="{{ $admin->gender }}">
+                                                                                        <option>Masculino</option>
+                                                                                        <option>Femenino</option>
+                                                                                    </select>
+                                                                                    @error('gender')
+                                                                                    <span class="invalid-feedback"
+                                                                                        role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
+                                                                                @enderror
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="estadociv">Estado Civil</label>
+                                                                                    <input type="text" class="form-control mb-4 @error('marital_status') is-invalid @enderror"
+                                                                                    id="estadociv" name="marital_status" value="{{ $admin->marital_status }}"
+                                                                                    placeholder="Soltero">
+                                                                                @error('marital_status')
+                                                                                    <span class="invalid-feedback"
+                                                                                        role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
+                                                                                @enderror
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="email">Email</label>
+                                                                                    <input type="email" class="form-control mb-4 @error('email') is-invalid @enderror"
+                                                                                    id="email" name="email"  value="{{ $admin->email }}"
+                                                                                    placeholder="nombrecorreo@gmail.com">
+                                                                                @error('email')
+                                                                                    <span class="invalid-feedback"
+                                                                                        role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
+                                                                                @enderror
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="country">Pais</label>
+                                                                                    <input type="text" class="form-control mb-4 @error('country') is-invalid @enderror"
+                                                                                    id="country" name="country" value="{{ $admin->country }}"
+                                                                                    placeholder="Venezuela">
+                                                                                @error('country')
+                                                                                    <span class="invalid-feedback"
+                                                                                        role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
+                                                                                @enderror
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="state">Estado</label>
+                                                                                    <input type="text" class="form-control mb-4 @error('state') is-invalid @enderror"
+                                                                                    id="state" name="state"  value="{{ $admin->state }}"
+                                                                                    placeholder="Lara">
+                                                                                @error('state')
+                                                                                    <span class="invalid-feedback"
+                                                                                        role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
+                                                                                @enderror
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="town">Lugar</label>
+                                                                                    <input type="text" class="form-control mb-4 @error('town') is-invalid @enderror"
+                                                                                    id="town" name="town" value="{{ $admin->town }}"
+                                                                                    placeholder="Barquisimeto">
+                                                                                @error('town')
+                                                                                    <span class="invalid-feedback"
+                                                                                        role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
+                                                                                @enderror
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="birth_date">Fecha de Nacimiento</label>
+                                                                                    <input type="date" class="form-control mb-4" id="birth_date" name="birth_date" value="{{ $admin->birth_date }}">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="phone1">Teléfono Local</label>
+                                                                                    <input type="text" class="form-control mb-4 @error('telephone') is-invalid @enderror"
+                                                                                     id="phone1" name="phone1" value="{{ $admin->telephone }}"
+                                                                                     placeholder="0251-1111111">
+                                                                                @error('telephone')
+                                                                                    <span class="invalid-feedback"
+                                                                                        role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
+                                                                                @enderror
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="phone2">Teléfono Celular</label>
+                                                                                    <input type="text" class="form-control mb-4 @error('mobile') is-invalid @enderror"
+                                                                                    id="phone2" name="phone2" value="{{ $admin->mobile }}"
+                                                                                    placeholder="0424-1111111">
+                                                                                @error('mobile')
+                                                                                    <span class="invalid-feedback"
+                                                                                        role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
+                                                                                @enderror
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="address">Direccion de Habitación</label>
+                                                                            <input type="text" class="form-control mb-4 @error('address') is-invalid @enderror"
+                                                                            id="address" name="address"  value="{{ $admin->address }}"
+                                                                            placeholder="Calle 4, Sector Brisas del Obelisco">
+                                                                                @error('address')
+                                                                                    <span class="invalid-feedback"
+                                                                                        role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
+                                                                                @enderror
+                                                                        </div>
+                                                                        <div class="form-group text-center">
+                                                                            <button type="submit" class="btn btn-primary text-center">Guardar</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</x-app-layout>

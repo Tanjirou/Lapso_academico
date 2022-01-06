@@ -54,8 +54,8 @@ Route::get('/', function () {
 
 
 /*ADMINISTRADOR*/
-Route::get('/perfil-admin', [AdministratorController::class,'show'])->name('admin_profile');
-//Route::post('/perfil-estudiante/store', [StudentController::class,'update'])->name('students.update');
+Route::get('/perfil-admin', [AdministratorController::class,'profile'])->name('administrator.profile');
+Route::post('/perfil-admin/store/{user}', [AdministratorController::class,'profile_update'])->name('administrator.profile_update');
 
 
 /*ESTUDIANTE*/
