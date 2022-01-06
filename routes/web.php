@@ -27,9 +27,12 @@ use Illuminate\Support\Facades\Schema;
 //     });
 // }
 
-//Ruta administrador
+/*ADMINISTRADOR*/
 Route::get('migrate', [AdministratorController::class, 'migrate'])->name('administrator.migrate');
 Route::get('load-data', [AdministratorController::class,'load_data'])->name('administrator.load_data');
+Route::get('/perfil-admin', [AdministratorController::class,'profile'])->name('administrator.profile');
+Route::post('/perfil-admin/store/{user}', [AdministratorController::class,'profile_update'])->name('administrator.profile_update');
+
 
 
 
@@ -53,9 +56,6 @@ Route::get('/', function () {
 })->middleware('auth')->name('home');
 
 
-/*ADMINISTRADOR*/
-Route::get('/perfil-admin', [AdministratorController::class,'profile'])->name('administrator.profile');
-Route::post('/perfil-admin/store/{user}', [AdministratorController::class,'profile_update'])->name('administrator.profile_update');
 
 
 /*ESTUDIANTE*/
