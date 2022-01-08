@@ -360,12 +360,13 @@ class AdministratorController extends Controller
         $id = auth()->user()->id;
         // var_dump($request['phone1']); die();
         $data = $request->validate([
-            'nationaly' =>['string'],
-            'gender' =>['string'],
-            'marital_status' =>['string'],
+            'nationality' =>['alpha'],
+            'gender' =>['alpha'],
+            'marital_status' =>['alpha'],
             'email' => ['required', 'email'],
-            'country' =>['string'],
-            'state' =>['string'],
+            'country' =>['alpha'],
+            'state' =>['alpha'],
+            'town' =>['alpha'],
             'birth_date' =>['date'],
             'phone1' => ['regex:/^[0-9]{4}-?[0-9]{7}/'],
             // 'phone1' => ['numeric'],
@@ -374,9 +375,10 @@ class AdministratorController extends Controller
             'address' => ['required','string'],
 
         ]);
-        $photo = $request->file('photo')->store('public/profile');
+        //$photo = $request->file('photo')->store('public/profile');
 
         if(isset($data['photo'])){
+            $photo = $request->file('photo')->store('public/profile');
             $img_url = DB::table('users')
                 ->where('id','=', $id)
                 ->select('photo')
@@ -394,6 +396,7 @@ class AdministratorController extends Controller
         $user->email = $data['email'];
         $user->country = $data['country'];
         $user->state = $data['state'];
+        $user->town = $data['town'];
         $user->birth_date = $data['birth_date'];
         $user->telephone = $data['phone1'];
         $user->mobile = $data['phone2'];

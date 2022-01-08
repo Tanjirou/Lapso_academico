@@ -61,13 +61,8 @@ class EnrolledSubjectController extends Controller
             ->join('users','users.id','=','students.user')
             ->join('enrolled_subjects', 'enrolled_subjects.student_record','=','students.proceedings')
             ->join('courses','courses.code','=','enrolled_subjects.course')
-            //->join('academic_offers','enrolled_subjects.course','=','academic_offers.course')
-           // ->join('users','users.dni','=','academic_offers.teacher_dni')
             ->where('enrolled_subjects.lapse','=', $load->lapse)
             ->where('users.id','=',$id)
-            //->where('users.dni','=','academic_offers.teacher_dni')
-            //->where('enrolled_subjects.course','=','academic_offers.course')
-            //->where('users.type','=',2)
             ->select('students.user', 'users.id','enrolled_subjects.section as section','students.proceedings',
                     'enrolled_subjects.qualification as qualif', 'enrolled_subjects.c_status_note as statusnote','courses.*')
             ->orderByDesc('lapse')
@@ -78,18 +73,12 @@ class EnrolledSubjectController extends Controller
             ->join('academic_offers','academic_offers.teacher_dni','=','users.dni')
             ->join('enrolled_subjects','enrolled_subjects.course','=','academic_offers.course')
             ->join('courses','courses.code','=','enrolled_subjects.course')
-           // ->where('enrolled_subjects.record','=','academic_offers.record')
             ->where('enrolled_subjects.lapse','=', $load->lapse)
-            //->where('academic_offers.lapse','=', $load->lapse)
+            ->where('academic_offers.lapse','=', $load->lapse)
             ->select('users.names as names_t', 'users.last_names as lnames_t', 'enrolled_subjects.student_record as proceedings', 'courses.code')
             ->orderByDesc('enrolled_subjects.lapse')
             ->get();
 
-        // $name_teachers = DB::table('academic_offers')
-        //     ->join('users', 'academic_offers.teacher_dni','=','users.dni')
-        //     ->where('users.dni','=', $dni_teach->dni)
-        //     ->select('users.names as names_teacher')
-        //     ->get();
 
         //var_dump( $profile); die();
         return view('students/academic_charge', compact('load','data_courses','name_teachers'));
