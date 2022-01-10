@@ -30,11 +30,13 @@ use Illuminate\Support\Facades\Schema;
 /*ADMINISTRADOR*/
 Route::get('migrate', [AdministratorController::class, 'migrate'])->name('administrator.migrate');
 Route::get('load-data', [AdministratorController::class,'load_data'])->name('administrator.load_data');
-Route::get('/perfil-admin', [AdministratorController::class,'profile'])->name('administrator.profile');
-Route::post('/perfil-admin/store/{user}', [AdministratorController::class,'profile_update'])->name('administrator.profile_update');
-
-
-
+Route::get('/admin-profile', [AdministratorController::class,'profile'])->name('administrator.profile');
+Route::post('/admin-profile/store/{user}', [AdministratorController::class,'profile_update'])->name('administrator.profile_update');
+Route::get('/users-create',[AdministratorController::class, 'users_create'])->name('administrator.users_create');
+Route::post('/users-create/store', [AdministratorController::class, 'users_create_store'])->name('administrator.users_create_store');
+Route::get('/users-restore',[AdministratorController::class, 'users_restore'])->name('administrator.users_restore');
+Route::post('/users-restore/password',[AdministratorController::class, 'users_restore_password'])->name('administrator.users_restore_password');
+Route::post('/users-restore/factor',[AdministratorController::class, 'users_restore_factor'])->name('administrator.users_restore_factor');
 
 if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
 {
