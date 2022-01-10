@@ -37,6 +37,7 @@ Route::post('/users-create/store', [AdministratorController::class, 'users_creat
 Route::get('/users-restore',[AdministratorController::class, 'users_restore'])->name('administrator.users_restore');
 Route::post('/users-restore/password',[AdministratorController::class, 'users_restore_password'])->name('administrator.users_restore_password');
 Route::post('/users-restore/factor',[AdministratorController::class, 'users_restore_factor'])->name('administrator.users_restore_factor');
+Route::get('/users-modify',[AdministratorController::class, 'users_modify'])->name('administrator.users_modify');
 
 if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
 {

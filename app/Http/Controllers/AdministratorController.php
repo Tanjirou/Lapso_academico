@@ -472,4 +472,14 @@ class AdministratorController extends Controller
             ->update(['two_factor_secret'=>null,'two_factor_recovery_codes'=>null]);
             return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-restore','Autenticación de dos factores desactivado');
     }
+
+    public function users_modify(){
+        $users = DB::table('users')
+            ->join('user_types', 'user_types.id','=','users.user_type')
+            ->where('users.status','=', 'A')
+            ->select('users.names','users.last_names', 'users.dni', 'user_types.description')
+            ->orderBy('user_types.description')
+            ->simplePaginate(6);
+            return view('administrator.users.modify')->with('users',$users);
+    }
 }

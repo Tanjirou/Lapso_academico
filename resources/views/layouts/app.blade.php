@@ -567,7 +567,7 @@
                                 <a href="{{ route('administrator.users_create') }}">Crear</a>
                             </li>
                             <li>
-                                <a href="index2.html">Modificar</a>
+                                <a href="{{ route('administrator.users_modify') }}">Modificar</a>
                             </li>
                             <li>
                                 <a href="{{ route('administrator.users_restore') }}">Restablecer Autenticación</a>
