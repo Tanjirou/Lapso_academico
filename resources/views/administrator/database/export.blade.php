@@ -34,13 +34,13 @@
             </div>
         </div>
 
-        @if (session('migrate-message'))
+        {{-- @if (session('migrate-message'))
         <div class="form-group row">
             <span class="alert alert-success col-12">
                 {{ session('migrate-message') }}
             </span>
         </div>
-        @endif
+        @endif --}}
 
         <div class="mt-3">
             {{-- <div class="container mb-0">
@@ -73,19 +73,19 @@
                 <div class="container">
                     <div class="row mb-0">
                         <div class="col-md-7 align-self-center order-md-0 order-1 mb-sm-0">
-                            <h1 class="">MIGRAR</h1>
-                            <p class="font-weight-bold text-justify">En esta opción se migrará la información de estudiantes, profesores, oferta académica, universidad, materias y carreras a la base de datos del sistema.
-                                <ins>Nota:</ins> tenga en cuenta que esta opción es la primera que se debe ejecutar para que la aplicación pueda funcionar correctamente.</p>
+                            <h1 class="">EXPORTAR</h1>
+                            <p class="font-weight-bold text-justify">Esta opción se utilizará para exportar la información de la base de datos del sistema con respecto a las notas finales de los estudiantes.
+                                <ins>Nota:</ins> tenga en cuenta que esta opción se debe ejecutar una vez haya finalizado el semestre.</p>
                             {{-- <button class="btn btn-info">Ejecutar</button> --}}
                             <div class="row justify-content-center mt-5">
-                                <a href="{{ route('administrator.load_data') }}" class="btn btn-primary btn-lg"> Ejecutar</a>
+                                <a href="" class="btn btn-primary btn-lg"> Ejecutar</a>
                             </div>
 
 
                         </div>
                         <div class="col-md-5 d-flex justify-content-center order-md-0 order-0 mb-sm-0">
                             <div class="banner-img align-content-center">
-                                <img src="assets/img/migrarr.png" class="img-fluid d-none d-md-block" alt="header-image" style="width: 90%; height:90%">
+                                <img src="assets/img/exportar.png" class="img-fluid d-none d-md-block" alt="header-image" style="width: 90%; height:85%">
                             </div>
                         </div>
                     </div>

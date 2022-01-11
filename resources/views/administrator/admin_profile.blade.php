@@ -128,12 +128,13 @@
                                             </form>
                                         </div>
                                     </div>
+
                                     <div class="tab-pane fade" id="pills-nacim" role="tabpanel" aria-labelledby="pills-nacim-tab">
                                         <!--  LUGAR Y FECHA DE NACIMIENTO  -->
                                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
-                                            <form id="contact" class="section contact">
+                                            <form id="nacim" class="section general-info">
                                                 <div class="info">
-                                                    <h5 class="">Lugar y fecha de nacimiento</h5>
+                                                    <h6 class="">Lugar y fecha de nacimiento</h6>
                                                     <div class="row">
                                                         <div class="col-md-10 mx-auto">
                                                             <div class="row">
@@ -172,9 +173,9 @@
                                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                                         <!--  INFORMACION DE CONTACTO  -->
                                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
-                                            <form id="contact" class="section contact">
+                                            <form id="contact" class="section general-info">
                                                 <div class="info">
-                                                    <h5 class="">INFORMACION DE CONTACTO</h5>
+                                                    <h6 class="">INFORMACION DE CONTACTO</h6>
                                                     <div class="row">
                                                         <div class="col-md-10 mx-auto">
                                                             <div class="form">
@@ -214,7 +215,7 @@
                                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                                             <form
                                                 action="{{ route('administrator.profile_update', ['user' => $id]) }}"
-                                                method="POST" id="contact" class="section general-info"
+                                                method="POST" id="updatecontact" class="section general-info"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="info">
@@ -272,9 +273,16 @@
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
                                                                                     <label for="estadociv">Estado Civil</label>
-                                                                                    <input type="text" class="form-control mb-4 @error('marital_status') is-invalid @enderror"
+                                                                                    {{-- <input type="text" class="form-control mb-4 @error('marital_status') is-invalid @enderror"
                                                                                     id="estadociv" name="marital_status" value="{{ $admin->marital_status }}"
-                                                                                    placeholder="Soltero">
+                                                                                    placeholder="Soltero"> --}}
+                                                                                    <select class="form-control  mb-4 @error('marital_status') is-invalid @enderror"
+                                                                                    id="estadociv" name="marital_status" value="{{ $admin->marital_status }}">
+                                                                                        <option>Soltero(a)</option>
+                                                                                        <option>Casado(a)</option>
+                                                                                        <option>Divorciado(a)</option>
+                                                                                        <option>Viudo(a)</option>
+                                                                                    </select>
                                                                                 @error('marital_status')
                                                                                     <span class="invalid-feedback"
                                                                                         role="alert">
@@ -348,10 +356,10 @@
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
                                                                                     <label for="phone1">Teléfono Local</label>
-                                                                                    <input type="text" class="form-control mb-4 @error('telephone') is-invalid @enderror"
+                                                                                    <input type="text" class="form-control mb-4 @error('phone1') is-invalid @enderror"
                                                                                      id="phone1" name="phone1" value="{{ $admin->telephone }}"
                                                                                      placeholder="0251-1111111">
-                                                                                @error('telephone')
+                                                                                @error('phone1')
                                                                                     <span class="invalid-feedback"
                                                                                         role="alert">
                                                                                         <strong>{{ $message }}</strong>
@@ -362,10 +370,10 @@
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
                                                                                     <label for="phone2">Teléfono Celular</label>
-                                                                                    <input type="text" class="form-control mb-4 @error('mobile') is-invalid @enderror"
+                                                                                    <input type="text" class="form-control mb-4 @error('phone2') is-invalid @enderror"
                                                                                     id="phone2" name="phone2" value="{{ $admin->mobile }}"
                                                                                     placeholder="0424-1111111">
-                                                                                @error('mobile')
+                                                                                @error('phone2')
                                                                                     <span class="invalid-feedback"
                                                                                         role="alert">
                                                                                         <strong>{{ $message }}</strong>

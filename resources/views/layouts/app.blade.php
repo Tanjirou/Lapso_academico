@@ -321,7 +321,7 @@
                                     <a href=" {{ route('students.history') }}"> Historial de Notas</a>
                                 </li>
                                 <li class="active">
-                                    <a href="index2.html"> Constancia </a>
+                                    <a href="{{ route('students.constance') }}"> Constancia </a>
                                 </li>
                                 <li class="active">
                                     <a href="index2.html"> Solicitud Revisión </a>
@@ -579,16 +579,16 @@
                             </div>
                         </a>
                         <ul class="collapse submenu list-unstyled" id="admin-datos" data-parent="#accordionExample">
-                            <li class="">
+                            <li class="active">
                                 <a href="{{ route('administrator.migrate') }}">Migrar</a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="index2.html">Actualizar</a>
                             </li>
-                            <li>
-                                <a href="index2.html">Exportar</a>
+                            <li class="active">
+                                <a href="{{ route('administrator.export') }}">Exportar</a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="index2.html">Blanquear</a>
                             </li>
                         </ul>
@@ -610,13 +610,13 @@
                             </div>
                         </a>
                         <ul class="collapse submenu list-unstyled" id="admin-usuarios" data-parent="#accordionExample">
-                            <li class="">
+                            <li class="active">
                                 <a href=" index.html">Crear</a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="index2.html">Modificar</a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="index2.html">Restablecer Autenticación</a>
                             </li>
                         </ul>
@@ -636,7 +636,7 @@
                             </div>
                         </a>
                         <ul class="collapse submenu list-unstyled" id="admin-solicitudes" data-parent="#accordionExample">
-                            <li class="">
+                            <li class="active">
                                 <a href=" index.html">Carga Tardía</a>
                             </li>
                         </ul>

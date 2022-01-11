@@ -32,6 +32,7 @@ Route::get('migrate', [AdministratorController::class, 'migrate'])->name('admini
 Route::get('load-data', [AdministratorController::class,'load_data'])->name('administrator.load_data');
 Route::get('/perfil-admin', [AdministratorController::class,'profile'])->name('administrator.profile');
 Route::post('/perfil-admin/store/{user}', [AdministratorController::class,'profile_update'])->name('administrator.profile_update');
+Route::get('export', [AdministratorController::class, 'export'])->name('administrator.export');
 
 
 
@@ -75,6 +76,7 @@ Route::get('/boletin', function () {
 
 Route::get('/perfil-estudiante', [StudentController::class,'show'])->name('students.student_profile');
 Route::post('/perfil-estudiante/store', [StudentController::class,'update'])->name('students.update');
+Route::get('/constancia', [StudentController::class,'constance'])->name('students.constance');
 
 //Route::get('/perfil-estudiante', [UserController::class,'show'])->name('students.student_profile');
 

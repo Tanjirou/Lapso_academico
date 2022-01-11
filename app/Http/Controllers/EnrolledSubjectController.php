@@ -61,6 +61,8 @@ class EnrolledSubjectController extends Controller
             ->join('users','users.id','=','students.user')
             ->join('enrolled_subjects', 'enrolled_subjects.student_record','=','students.proceedings')
             ->join('courses','courses.code','=','enrolled_subjects.course')
+            //->join('academic_offers','enrolled_subjects.course','=','academic_offers.course')
+            //->where('enrolled_subjects.course','=','academic_offers.course')
             ->where('enrolled_subjects.lapse','=', $load->lapse)
             ->where('users.id','=',$id)
             ->select('students.user', 'users.id','enrolled_subjects.section as section','students.proceedings',

@@ -340,6 +340,10 @@ class AdministratorController extends Controller
         return redirect()->action([AdministratorController::class, 'migrate'])->with('migrate-message','Migración finalizada');
     }
 
+    public function export(){
+        return view('administrator.database.export');
+    }
+
     public function profile(User $user)
     {
         $id = auth()->user()->id;
@@ -362,15 +366,15 @@ class AdministratorController extends Controller
         $data = $request->validate([
             'nationality' =>['alpha'],
             'gender' =>['alpha'],
-            'marital_status' =>['alpha'],
+            'marital_status' =>['string'],
             'email' => ['required', 'email'],
             'country' =>['alpha'],
             'state' =>['alpha'],
             'town' =>['alpha'],
             'birth_date' =>['date'],
-            'phone1' => ['regex:/^[0-9]{4}-?[0-9]{7}/'],
+            'phone1' => ['regex:/^[0-9]{4}-?[0-9]{7}/','max:12'],
             // 'phone1' => ['numeric'],
-            'phone2' => ['regex:/^[0-9]{4}-?[0-9]{7}/'],
+            'phone2' => ['regex:/^[0-9]{4}-?[0-9]{7}/','max:12'],
             'photo' => ['mimes:jpg,jpeg,png'],
             'address' => ['required','string'],
 
@@ -398,7 +402,7 @@ class AdministratorController extends Controller
         $user->state = $data['state'];
         $user->town = $data['town'];
         $user->birth_date = $data['birth_date'];
-        $user->telephone = $data['phone1'];
+        $user->telephone =  $data['phone1'];
         $user->mobile = $data['phone2'];
         $user->address = $data['address'];
         $user->save();
@@ -410,7 +414,7 @@ class AdministratorController extends Controller
         // //(['telepone' => $data['mobile1], 'mobile' => $data['mobile2']] )
         // ->update([ 'nationality' => $data['nationality'], 'gender' => $data['gender'], 'marital_status' => $data['marital_status'],
         //             'email' => $data['email'], 'country' => $data['country'], 'state' => $data['state'], 'birth_date' => $data['birth_date'],
-        //             'telephone' => $data['phone1'],  'mobile' => $data['phone2'], 'address' => $data['address'],]);
+        //             'telephone' => $data['phone1'],  'mobile' => $data['phone2'], 'address' => $data['address']]);
         // return redirect()->route('administrator.admin_profile')->with('success', 'Administrador actualizado correctamente');
     }
 }
