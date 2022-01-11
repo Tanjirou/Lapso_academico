@@ -517,53 +517,6 @@
                     <!--ADMINISTRADOR-->
 
                     @if (auth()->user()->user_type == 1)
-                        {{-- <li class="menu menu-heading">
-                            <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                </svg><span>MENU ADMIN</span></div>
-                        </li> --}}
-                        <li class="menu">
-                            <a href="#admin-permisos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                                <div class="">
-                                    <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-lock">
-                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                    </svg>
-                                    <span>Permisos</span>
-                                </div>
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-chevron-right">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </div>
-                            </a>
-                            <ul class="collapse submenu list-unstyled" id="admin-permisos" data-parent="#accordionExample">
-                                <li class=" active">
-                                    <a href=" index.html">Asignar</a>
-                                </li>
-                                <li class=" active">
-                                    <a href="index2.html">Modificar</a>
-                                </li>
-                                <li class=" active">
-                                    <a href="index2.html">Eliminar</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                    {{-- <li class="menu menu-heading">
-                        <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg><span>MENU ADMIN</span></div>
-                    </li> --}}
-                    <!--Gestionar Base de Datos-->
                     <li class="menu">
                         <a href="#admin-datos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
@@ -610,14 +563,14 @@
                             </div>
                         </a>
                         <ul class="collapse submenu list-unstyled" id="admin-usuarios" data-parent="#accordionExample">
-                            <li class="active">
-                                <a href=" index.html">Crear</a>
+                          <li class="active">
+                                <a href="{{ route('administrator.users_create') }}">Crear</a>
                             </li>
                             <li class="active">
-                                <a href="index2.html">Modificar</a>
+                                <a href="{{ route('administrator.users_modify') }}">Modificar</a>
                             </li>
                             <li class="active">
-                                <a href="index2.html">Restablecer Autenticación</a>
+                                <a href="{{ route('administrator.users_restore') }}">Restablecer Autenticación</a>
                             </li>
                         </ul>
                     </li>
@@ -685,14 +638,7 @@
 
                 </div>
 
-                <div class="row justify-content-center mb-5">
-                    <ul class="socialIcons">
-                        <li class="facebook"><a href=""><i class="fab fa-facebook-f"></i>Facebook</a></li>
-                        <li class="twitter"><a href=""><i class="fab fa-twitter"></i>Twitter</a></li>
-                        <li class="instagram"><a href=""><i class="fab fa-instagram"></i>Instagram</a></li>
-                    </ul>
-                </div>
-            </div>
+
 
         </div>-->
         <div class="footer-wrapper justify-content-center mt-0">
@@ -724,20 +670,7 @@
                                         </ul>
 
                                 </div>
-                        {{-- <h6 class="text-muted">
-                            Av. Corpahuaico entre Av. La Salle y La Rotaria. Barquisimeto. Venezuela<br>
-                                    Teléfono: +58 251-6110237 | Email:  uracebqto@gmail.com<br>
-                        </h6> --}}
-                        {{-- <div class="row">
-                            <div class="col-2 justify-content-end text-right">
-                                <img src="{{ asset('assets/img/logo-promo56.png') }}" class="img-fluid mb-3" alt="header-image"
-                                style="width: 20%;">
-                            </div>
-                            <div class="col-2 justify-content-start text-left">
-                                <img src="{{ asset('assets/img/logo-IE.png') }}" class="img-fluid mb-3" alt="header-image"
-                                style="width: 20%;">
-                            </div>
-                        </div> --}}
+
                         <div class="row">
                             <div class="col-6 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
                                 <img src="{{ asset('assets/img/logo-IE.png') }}" class="img-fluid d-none d-sm-block mt-1 mb-1" alt="header-image"
@@ -760,16 +693,8 @@
                         </p>
                     </div>
 
-
                 </div>
 
-                <!--<div class="row justify-content-center mb-5">
-                    <ul class="socialIcons">
-                        <li class="facebook"><a href=""><i class="fab fa-facebook-f"></i>Facebook</a></li>
-                        <li class="twitter"><a href=""><i class="fab fa-twitter"></i>Twitter</a></li>
-                        <li class="instagram"><a href=""><i class="fab fa-instagram"></i>Instagram</a></li>
-                    </ul>
-                </div>-->
             </div>
 
         </div>

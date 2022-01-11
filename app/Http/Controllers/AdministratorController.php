@@ -417,4 +417,73 @@ class AdministratorController extends Controller
         //             'telephone' => $data['phone1'],  'mobile' => $data['phone2'], 'address' => $data['address']]);
         // return redirect()->route('administrator.admin_profile')->with('success', 'Administrador actualizado correctamente');
     }
+
+    public function users_create(){
+        return view('administrator.users.create');
+    }
+
+    public function users_create_store(Request $request){
+        $data = $request->validate([
+            'nombres' => ['required','regex:/^[\pL\s\-]+$/u', 'max:255'],
+            'apellidos' => ['required','regex:/^[\pL\s\-]+$/u', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'dni' => ['required', 'numeric','digits_between:6,9', 'unique:users'],
+        ]);
+
+        $password = bcrypt($data['dni']);
+
+        User::create([
+            'dni'=>$data['dni'],
+            'user_type'=> 1,
+            'password' => $password,
+            'names' => $data['nombres'],
+            'last_names' => $data['apellidos'],
+            'email' => $data['email'],
+            'status' => 'A'
+        ]);
+
+        return redirect()->action([AdministratorController::class, 'users_create'])->with('user-message','Usuario registrado con exito');
+    }
+
+    public function users_restore(){
+        return view('administrator.users.restore');
+    }
+
+    public function users_restore_password(Request $request){
+        if($request['dni']==""){
+            return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-error','Campo cedula requerido');
+        }
+        $dni = DB::table('users')->where('dni', '=', $request['dni'])->first();
+        if(!$dni){
+            return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-error','Cedula no registrada');
+        }
+        $password = bcrypt($request['dni']);
+        DB::table('users')
+            ->where('dni','=', $request['dni'])
+            ->update(['password'=> $password]);
+            return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-restore','Contraseña restablecida');
+    }
+    public function users_restore_factor(Request $request){
+        if($request['user_factor']==""){
+            return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-error','Campo cedula requerido');
+        }
+        $dni = DB::table('users')->where('dni', '=', $request['user_factor'])->first();
+        if(!$dni){
+            return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-error','Cedula no registrada');
+        }
+        DB::table('users')
+            ->where('dni','=', $request['user_factor'])
+            ->update(['two_factor_secret'=>null,'two_factor_recovery_codes'=>null]);
+            return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-restore','Autenticación de dos factores desactivado');
+    }
+
+    public function users_modify(){
+        $users = DB::table('users')
+            ->join('user_types', 'user_types.id','=','users.user_type')
+            ->where('users.status','=', 'A')
+            ->select('users.names','users.last_names', 'users.dni', 'user_types.description')
+            ->orderBy('user_types.description')
+            ->simplePaginate(6);
+            return view('administrator.users.modify')->with('users',$users);
+    }
 }
