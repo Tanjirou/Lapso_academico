@@ -227,7 +227,7 @@
                                                                 <div class="col-xl-2 col-lg-12 col-md-4">
                                                                     <div class="upload mt-4 pr-md-4">
                                                                         <input type="file" name="photo" id="input-file-max-fs" class="dropify  @error('photo') is-invalid @enderror"
-                                                                         data-default-file="{{ ('assets/img/200x200.jpg') }}" data-max-file-size="10M" />
+                                                                         data-default-file="{{ ('assets/img/200x200.jpg') }}" data-max-file-size="10M"/>
                                                                         <p class="mt-2"><i class="flaticon-cloud-upload mr-1"></i> Foto Perfil</p>
                                                                         @error('photo')
                                                                         <span class="invalid-feedback"

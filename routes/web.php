@@ -80,8 +80,8 @@ Route::get('/boletin', function () {
 //     return view('students/student_profile');
 // })->middleware('auth')->name('students.profile');
 
-Route::get('/perfil-estudiante', [StudentController::class,'show'])->name('students.student_profile');
-Route::post('/perfil-estudiante/store', [StudentController::class,'update'])->name('students.update');
+Route::get('/perfil-estudiante', [StudentController::class,'profile'])->name('students.student_profile');
+Route::post('/perfil-estudiante/store{user}', [StudentController::class,'update'])->name('students.update');
 Route::get('/constancia', [StudentController::class,'constance'])->name('students.constance');
 
 //Route::get('/perfil-estudiante', [UserController::class,'show'])->name('students.student_profile');

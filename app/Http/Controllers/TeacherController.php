@@ -28,8 +28,8 @@ class TeacherController extends Controller
     public function teacher_update(Request $request, User $user){
         $data = $request->validate([
            'email' => ['required', 'email'],
-           'phone1' => ['numeric','digits_between:11,11'],
-           'phone2' => ['numeric','digits_between:11,11'],
+           'phone1' => ['regex:/^[0-9]{4}-?[0-9]{7}/','max:12'],
+           'phone2' => ['regex:/^[0-9]{4}-?[0-9]{7}/','max:12'],
            'photo' => ['mimes:jpg,jpeg,png'],
            'address' => ['required'],
         ]);
