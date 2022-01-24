@@ -39,15 +39,7 @@
 </head>
 
 <body class="sidebar-noneoverflow">
-    {{-- <x-jet-banner />
-        @livewire('navigation-menu')
 
-        <!-- Page Heading -->
-        <header class="d-flex py-3 bg-white shadow-sm border-bottom">
-            <div class="container">
-                {{ $header }}
-    </div>
-    </header> --}}
     <!-- BEGIN LOADER -->
     <div id="load_screen">
         <div class="loader">
@@ -62,7 +54,7 @@
     <div class="header-container fixed-top">
         <header class="header navbar navbar-expand-sm">
 
-            <ul class="navbar-nav theme-brand">
+            <ul class="navbar-nav theme-brand flex-row  text-center">
 
                 <li class="nav-item theme-logo ml-2">
                     <a href="{{ route('dashboard') }}">
@@ -125,13 +117,7 @@
 
                                 <div class="media-body">
                                     <h5>{{ auth()->user()->names }}</h5>
-                                    {{-- @if (auth()->user()->user_type == 1)
-                                        <p>Administrador</p>
-                                    @elseif(auth()->user()->user_type ==2)
-                                        <p>Profesor</p>
-                                    @else
-                                        <p>Estudiante</p>
-                                    @endif --}}
+
                                 </div>
                             </div>
                         </div>
@@ -246,21 +232,9 @@
                                 <span>Inicio</span>
                                 {{-- <a href="{{ route('home') }}"> Panel actividades </a> --}}
                             </div>
-                            {{-- <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-chevron-right">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </div> --}}
+
                         </a>
-                        {{-- <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled"
-                            id="dashboard" data-parent="#accordionExample">
-                            <!--<li class="active">-->
-                            <li class="active">
-                                <a href="{{ route('home') }}"> Panel actividades </a>
-                            </li>
-                        </ul> --}}
+
                     </li>
 
                     <!--ESTUDIANTE-->
@@ -328,43 +302,11 @@
                                 </li>
                             </ul>
                         </li>
-                        {{-- <li class="menu">
-                        <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <div class="">
-                                <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
-                                <span>Usuarios</span>
-                            </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </div>
-                        </a>
-                        <ul class="collapse submenu list-unstyled" id="users" data-parent="#accordionExample">
-                            <li>
-                                <a href="student_profile.html"> Perfil </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('students.settings') }}"> Ajustes </a>
-                            </li>
-                        </ul>
-                    </li> --}}
+
                     @endif
 
                     <!--PROFESOR-->
                     @if (auth()->user()->user_type == 2)
-                        {{-- <li class="menu menu-heading">
-                            <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                </svg><span>MENÚ</span></div>
-                        </li> --}}
                         <li class="menu">
                             <a href="#teacher-general" data-toggle="collapse" aria-expanded="false"
                                 class="dropdown-toggle">
@@ -446,40 +388,6 @@
 
                             </ul>
                         </li>
-
-                        {{-- <li class="menu">
-                            <a href="#users-teacher" data-toggle="collapse" aria-expanded="false"
-                                class="dropdown-toggle">
-                                <div class="">
-                                    <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-users">
-                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="9" cy="7" r="4"></circle>
-                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                    </svg>
-                                    <span>Usuarios</span>
-                                </div>
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-chevron-right">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </div>
-                            </a>
-                            <ul class="collapse submenu list-unstyled" id="users-teacher"
-                                data-parent="#accordionExample">
-                                <li>
-                                    <a href="teacher_profile.html"> Perfil </a>
-                                </li>
-                                <li>
-                                    <a href="user_account_setting.html"> Ajustes </a>
-                                </li>
-                            </ul>
-                        </li> --}}
-
                         <li class="menu">
                             <a href="#report-teacher" data-toggle="collapse" aria-expanded="false"
                                 class="dropdown-toggle">
@@ -604,43 +512,6 @@
             {{ $slot }}
         </main>
 
-
-        <!--<div class="footer-wrapper justify-content-center">
-            <div class="footer-section f-section-1 align-content-center">
-
-                <p class="align-content-center ">Copyright © 2021 | Ing. Jorge Melendez -
-                        Ing. Miguel Alvarez | Programa Ingeniería Electrónica, All rights reserved.</p>
-            </div>
-        </div>-->
-
-        <!-- footer -->
-        <!--<div class="footer-wrapper">
-            <div class="footer-section f-section-1 align-content-center">
-                <div class="row justify-content-center">
-                    <div class=" col-md-1 col-lg-3 order-md-0 order-0 d-flex align-item-center ml-5 mt-1">
-
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-3 order-md-0 order-0 d-flex justify-content-start ml-5 mt-1">
-                        <img src="{{ asset('assets/img/logo-promo56.png') }}"
-                            class="img-fluid mr-3 mb-3 float-md-right" alt="header-image" style="width: 18%;">
-                    </div>
-                    <div class="col-4 col-md-3 col-lg-3 order-md-0 order-0 d-flex ml-5 mt-1 justify-content-start">
-                        <img src="{{ asset('assets/img/logo-IE.png') }}" class="img-fluid mb-3" alt="header-image"
-                            style="width: 18%;">
-                    </div>
-                    <div class="col-md-1 col-lg-3 order-md-0 order-0 d-flex justify-content-center ml-5 mt-1">
-
-                    </div>
-                    <div class="footer-section f-section-1 text-center">
-                        <p class="">Copyright © 2021 | Ing. Jorge Melendez - Ing. José Torcates |
-                            Programa Ingeniería Electrónica, All rights reserved.</p>
-                    </div>
-
-                </div>
-
-
-
-        </div>-->
         <div class="footer-wrapper justify-content-center mt-0">
             <div class="footer-section f-section-1 align-content-center">
                 <div class="row justify-content-center">
@@ -698,47 +569,6 @@
             </div>
 
         </div>
-
-
-            <!--<div class="footer-wrapper border">
-                <div class="footer-section f-section-1 align-content-center container p-0 border col-2 mr-5 ">
-                </div>
-
-                <div class="footer-section f-section-1 align-content-center container border p-0">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-5 mr-5 text-left border">
-                            <h6 class="text-muted lead">CONTACTO:</h6>
-                            <h6 class="text-muted">
-                            Av. Corpahuaico entre Av. La Salle y La Rotaria.<br>
-                            Barquisimeto. Venezuela.<br>
-                            Teléfono: +58 251-6110237<br>
-                            Email:  uracebqto@gmail.com<br>
-                            </h6>
-                        </div>
-                        <div class="col-xs-12 col-md-6 text-right border justify-content-end p-0">
-
-                                <h6 class="text-muted lead">ENCUENTRANOS EN LAS REDES</h6>
-                                <div class="redes-footer text-right">
-
-                                        <ul class="socialIcons align-content-end">
-                                            <li class="facebook"><a href=""><i class="fab fa-facebook-f"></i>Facebook</a></li>
-                                            <li class="twitter"><a href=""><i class="fab fa-twitter"></i>Twitter</a></li>
-                                            <li class="instagram"><a href=""><i class="fab fa-instagram"></i>Instagram</a></li>
-                                        </ul>
-
-                                </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 text-right pr-5">
-                            <p class="text-muted small text-right">José Miguel, arte y belleza @2016.<br> Todos los derechos reservados.</p>
-                        </div>
-                    </div>
-                    <div class="footer-section f-section-1 align-content-center">
-                        <p class="text-center">Copyright © 2021 <a target="_blank" href="https://designreset.com">Ing. Jorge Melendez - Ing. José Torcates</a>, Programa Ingeniería Electrónica, All rights reserved.</p>
-                    </div>
-                </div>
-            </div>-->
 
         <!--  END FOOTER  -->
 
