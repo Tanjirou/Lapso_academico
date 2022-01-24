@@ -95,10 +95,11 @@ class StudentController extends Controller
             'email' => ['required', 'email'],
             'photo' => ['mimes:jpg,jpeg,png'],
         ]);
-        $photo = $request->file('photo')->store('public/profile');
+
         //var_dump($data); die();
 
         if(isset($data['photo'])){
+            $photo = $request->file('photo')->store('public/profile');
 
             $img_url = DB::table('users')
                 ->where('id','=', $user->id)
@@ -119,14 +120,6 @@ class StudentController extends Controller
         //return redirect()->action([StudentController::class, 'show'])->with('store','Actualizado');
         return redirect()->route('students.student_profile')->with('store', 'Estudiante actualizado correctamente');
 
-        // DB::table('users')
-        // ->where('id','=', $id)
-        // ->update(['telephone' => $data['phone1'],
-        //              'mobile' => $data['phone2'],
-        //             'address' => $data['address'],
-        //              'email' => $data['email'],
-        //              'photo' => $data['photo']]);
-        // return redirect()->route('students.student_profile')->with('store', 'Estudiante actualizado');
     }
 
     /**
@@ -137,7 +130,36 @@ class StudentController extends Controller
      */
     public function constance(Student $student)
     {
-        return view('students.constancia');
+        $id = Auth()->user()->id;
+        $load = DB::table('students')
+        ->join('users','users.id','=','students.user')
+        ->join('enrolled_subjects', 'enrolled_subjects.student_record','=','students.proceedings')
+        ->where('users.id','=',$id)
+        ->select('enrolled_subjects.lapse')
+        ->orderByDesc('lapse')
+        ->first();
+
+        $data = DB::table('students')
+            ->join('users','users.id','=','students.user')
+            ->join('careers','students.career','=','careers.code')
+            ->join('enrolled_subjects', 'enrolled_subjects.student_record','=','students.proceedings')
+            ->where('users.id','=',$id)
+            ->select('students.*', 'users.*','careers.career as career_name','enrolled_subjects.lapse')
+            ->first();
+
+        $data_courses = DB::table('students')
+        ->join('users','users.id','=','students.user')
+        ->join('enrolled_subjects', 'enrolled_subjects.student_record','=','students.proceedings')
+        ->join('courses','courses.code','=','enrolled_subjects.course')
+        ->where('enrolled_subjects.lapse','=', $load->lapse)
+        ->where('users.id','=',$id)
+        ->select('students.user', 'users.id','enrolled_subjects.section as section','students.proceedings',
+                'enrolled_subjects.qualification as qualif', 'enrolled_subjects.c_status_note as statusnote','courses.*')
+        ->orderByDesc('lapse')
+        ->get();
+
+        return view('students.constancia', compact('data', 'data_courses','id','load'));
+
     }
 
      public function destroy(Student $student)
