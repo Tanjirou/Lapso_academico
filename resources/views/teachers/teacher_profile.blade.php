@@ -18,7 +18,7 @@
 @endsection
 <x-app-layout>
     <!--  BEGIN CONTENT AREA  -->
-    <div id="content" class="main-content mt-6">
+    <div class="main-content mt-6">
         <div class="layout-px-spacing">
             <div class="mb-0">
                 <div class="row mb-2 justify-content-start">
