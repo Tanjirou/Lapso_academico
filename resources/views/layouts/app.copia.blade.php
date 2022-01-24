@@ -186,6 +186,7 @@
     <div class="main-container" id="container">
 
         <div class="overlay"></div>
+        <div class="cs-overlay"></div>
         <div class="search-overlay"></div>
 
         <!--  BEGIN SIDEBAR  -->
@@ -506,90 +507,101 @@
             </nav>
         </div>
         <!--  END SIDEBAR  -->
+        <!-- Page Content -->
+        <main class="d-flex col-12">
+            {{ $slot }}
+        </main>
 
-        <!--  BEGIN CONTENT AREA  -->
-        <div id="content" class="main-content mt-6 ">
-            <main class="layout-px-spacing">
-                {{ $slot }}
-            </main>
+        <div class="footer-wrapper justify-content-center mt-0">
+            <div class="footer-section f-section-1 align-content-center">
+                <div class="row justify-content-center">
+                    <div class=" col-md-1 col-lg-3 order-md-0 order-0 d-flex align-item-center ml-5">
 
-            <!-- FOOTER  -->
-            <div class="footer-wrapper justify-content-center mt-0">
-                <div class="footer-section f-section-1 align-content-center">
-                    <div class="row justify-content-center">
-                        <div class="footer-section f-section-1 text-center mr-xl-auto">
-                            <hr class="mt-0">
-                            <h6 class="text-muted lead mt-0">ENCUENTRANOS EN LAS REDES</h6>
-                                    <div class="redes-footer text-right">
+                    </div>
+                    <div class="col-4 col-md-3 col-lg-3 order-md-0 order-0 d-flex justify-content-start ml-5">
+                        <img src="{{ asset('assets/img/cuadro.png') }}"
+                            class="img-fluid d-none d-xl-block mr-3 mb-3 float-md-right" alt="" style="width: 3%;">
+                    </div>
+                    <div class="col-4 col-md-3 col-lg-3 order-md-0 order-0 d-flex ml-5 justify-content-start">
+                        <img src="{{ asset('assets/img/cuadro.png') }}" class="img-fluid d-none d-xl-block mb-3" alt=""
+                            style="width: 15%;">
+                   </div>
+                    <div class="col-md-1 col-lg-3 order-md-0 order-0 d-flex ml-3 justify-content-start">
 
-                                            <ul class="socialIcons align-content-end">
-                                                <li class="facebook"><a href="https://www.facebook.com/Unexpove"><i class="fab fa-facebook-f"></i>Facebook</a></li>
-                                                <li class="twitter"><a href="https://twitter.com/UnexpoVe"><i class="fab fa-twitter"></i>Twitter</a></li>
-                                                <li class="instagram"><a href="https://www.instagram.com/unexpove/?hl=es-la"><i class="fab fa-instagram"></i>Instagram</a></li>
-                                            </ul>
+                    </div>
+                    <div class="footer-section f-section-1 text-center mr-xl-auto">
+                        <hr class="mt-0">
+                        <h6 class="text-muted lead mt-0">ENCUENTRANOS EN LAS REDES</h6>
+                                <div class="redes-footer text-right">
 
-                                    </div>
+                                        <ul class="socialIcons align-content-end">
+                                            <li class="facebook"><a href="https://www.facebook.com/Unexpove"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+                                            <li class="twitter"><a href="https://twitter.com/UnexpoVe"><i class="fab fa-twitter"></i>Twitter</a></li>
+                                            <li class="instagram"><a href="https://www.instagram.com/unexpove/?hl=es-la"><i class="fab fa-instagram"></i>Instagram</a></li>
+                                        </ul>
 
-                            <div class="row">
-                                <div class="col-6 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
-                                    <img src="{{ asset('assets/img/logo-IE.png') }}" class="img-fluid d-none d-sm-block mt-1 mb-1" alt="header-image"
-                                    style="width: 30%;">
                                 </div>
-                                <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 justify-content-center text-center">
-                                    <h6 class="text-muted">
-                                        Av. Corpahuaico entre Av. La Salle y La Rotaria. Barquisimeto. Venezuela<br>
-                                                Teléfono: +58 251-6110237 | Email:  uracebqto@gmail.com<br>
-                                    </h6>
-                                </div>
-                                <div class="col-6 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
-                                    <img src="{{ asset('assets/img/logo-promo56.png') }}" class="img-fluid d-none d-sm-block mt-1 mb-1" alt="header-image"
-                                    style="width: 30%;">
-                                </div>
+
+                        <div class="row">
+                            <div class="col-6 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
+                                <img src="{{ asset('assets/img/logo-IE.png') }}" class="img-fluid d-none d-sm-block mt-1 mb-1" alt="header-image"
+                                style="width: 30%;">
                             </div>
-
-                            <p class="">Copyright © 2021 | Ing. Jorge Melendez - Ing. José Torcates |
-                                Programa Ingeniería Electrónica, All rights reserved.
-                            </p>
+                            <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 justify-content-center text-center">
+                                <h6 class="text-muted">
+                                    Av. Corpahuaico entre Av. La Salle y La Rotaria. Barquisimeto. Venezuela<br>
+                                            Teléfono: +58 251-6110237 | Email:  uracebqto@gmail.com<br>
+                                </h6>
+                            </div>
+                            <div class="col-6 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
+                                <img src="{{ asset('assets/img/logo-promo56.png') }}" class="img-fluid d-none d-sm-block mt-1 mb-1" alt="header-image"
+                                style="width: 30%;">
+                            </div>
                         </div>
 
+                        <p class="">Copyright © 2021 | Ing. Jorge Melendez - Ing. José Torcates |
+                            Programa Ingeniería Electrónica, All rights reserved.
+                        </p>
                     </div>
 
                 </div>
 
             </div>
 
-            <!--  END FOOTER  -->
-
         </div>
-        <!--  END CONTENT AREA  -->
-        <!-- END MAIN CONTAINER -->
-        @stack('modals')
 
-        @livewireScripts
+        <!--  END FOOTER  -->
 
-        @stack('scripts')
-        @yield('javascripts')
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}"></script>
-        <script src="{{ asset('plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-        <script src="{{ asset('assets/js/app.js') }}"></script>
-        <script src="{{ asset('plugins/dropify/dropify.min.js') }}"></script>
-        @yield('javascripts_sweet')
+    </div>
+    <!--  END CONTENT AREA  -->
+    <!-- END MAIN CONTAINER -->
+    @stack('modals')
 
-        <script type="application/javascript">
-            $(document).ready(function() {
-                App.init();
-            });
-        </script>
-        <script src="{{ asset('assets/js/custom.js') }}"></script>
-        <!-- END GLOBAL MANDATORY SCRIPTS -->
+    @livewireScripts
 
-        <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-        <script src="{{ asset('plugins/apex/apexcharts.min.js') }}"></script>
-        <script src="{{ asset('assets/js/dashboard/dash_1.js') }}"></script>
-        <script src="{{ asset('assets/js/users/account-settings.js') }}"></script>
+    @stack('scripts')
+    @yield('javascripts')
+    <!-- Scripts -->
+    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ asset('plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('plugins/dropify/dropify.min.js') }}"></script>
+    @yield('javascripts_sweet')
 
-        <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    </body>
+    <script type="application/javascript">
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
 
-    </html>
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script src="{{ asset('plugins/apex/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('assets/js/dashboard/dash_1.js') }}"></script>
+    <script src="{{ asset('assets/js/users/account-settings.js') }}"></script>
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+</body>
+
+</html>

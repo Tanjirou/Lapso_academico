@@ -13,7 +13,7 @@
 @endsection
 <x-app-layout>
     <!--  BEGIN CONTENT AREA  -->
-    <div id="content" class="main-content mt-6">
+    <div class="main-content mt-6">
         <div class="layout-px-spacing">
             <div class="">
                 <div class="container mb-0">

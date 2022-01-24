@@ -17,7 +17,7 @@
 
 <x-app-layout>
     <!--  BEGIN CONTENT AREA  -->
-    <div id="content" class="main-content mt-6">
+    <div class="main-content mt-6">
         <div class="layout-px-spacing">
             <div class="mt-2 mb-5">
                 <div class="container mb-0">
