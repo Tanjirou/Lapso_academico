@@ -31,6 +31,7 @@ class AdministratorController extends Controller
         $careers = DB::connection('mysql2')->table('tblaca010')->get(); //Carrera
 
         //Recorremos estudiante para poder conseguir los valores de ellos
+
         foreach($students as $student){
             //Datos usuarios
             $dni = $student->CI_E;
