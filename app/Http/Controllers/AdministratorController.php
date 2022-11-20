@@ -30,7 +30,7 @@ class AdministratorController extends Controller
         $courses =DB::connection('mysql2')->table('tblaca008')->get(); //Asignatura
         $careers = DB::connection('mysql2')->table('tblaca010')->get(); //Carrera
 
-        //Recorremos estudiante
+        //Recorremos estudiante para poder conseguir los valores de ellos
         foreach($students as $student){
             //Datos usuarios
             $dni = $student->CI_E;
