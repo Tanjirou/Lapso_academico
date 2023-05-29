@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TeacherType extends Model
+class Academic_Curriculum extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'description', 'status'
+    ];
 }
