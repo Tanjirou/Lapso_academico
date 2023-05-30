@@ -14,7 +14,7 @@ class AcademicCurriculumController extends Controller
      */
     public function index()
     {
-        //
+        return view('academic_curriculum.index');
     }
 
     /**
