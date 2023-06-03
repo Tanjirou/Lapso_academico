@@ -8,7 +8,9 @@ use App\Models\course;
 use App\Models\Pensum;
 use App\Models\Student;
 use App\Models\Teacher;
+
 use App\Models\Departament;
+
 use Illuminate\Http\Request;
 use App\Models\AcademicOffer;
 use App\Models\EnrolledSubject;
@@ -366,6 +368,7 @@ class AdministratorController extends Controller
         $id = auth()->user()->id;
         // var_dump($request['phone1']); die();
         $data = $request->validate([
+
             'names' => ['required','string'],
             'last_names' => ['required','string'],
             'phone1' => ['regex:/^[0-9]{4}-?[0-9]{7}/','max:12'],
@@ -398,6 +401,7 @@ class AdministratorController extends Controller
             $photo_url = Storage::url($photo);
             $user->photo = $photo_url;
         }
+
         $user->names = $data['names'];
         $user->last_names = $data['last_names'];
         $user->telephone =  $data['phone1'];
@@ -412,6 +416,7 @@ class AdministratorController extends Controller
         // $user->birth_date = $data['birth_date'];
         // $user->mobile = $data['phone2'];
         // $user->address = $data['address'];
+
         $user->save();
         return redirect()->action([AdministratorController::class, 'profile'])->with('store','Actualizado');
 
@@ -425,7 +430,8 @@ class AdministratorController extends Controller
         // return redirect()->route('administrator.admin_profile')->with('success', 'Administrador actualizado correctamente');
     }
 
-    public function users_create(){
+    public function users_create(Request $request){
+
 
         $user_types = DB::table('user_types')
         ->where('user_types.status','=', 'A')
@@ -433,19 +439,37 @@ class AdministratorController extends Controller
         ->orderBy('user_types.id');
 
         $user_types = $user_types->get();
-        return view('administrator.users.create', ['user_types'=>$user_types]);
-        // return view('administrator.users.create')->with('user_types',$user_types);
 
-
-        $departament = DB::table('departaments')
+        $departaments = DB::table('departaments')
         ->where('departaments.status','=', 'A')
         ->select('departaments.id', 'departaments.name')
         ->orderBy('departaments.id');
 
-        $departament = $departament->get();
-        return view('administrator.users.create', ['departament'=>$departament]);
+        $departaments = $departaments->get();
+
+        /* $tipo = $request->input('user_types');
+        $tipo =  $tipo->get(); */
+        $mentions = DB::table('mentions')
+        ->where('mentions.status','=', 'A')
+        ->select('mentions.id', 'mentions.name')
+        ->orderBy('mentions.id');
+
+        $mentions = $mentions->get();
+
+        return view('administrator.users.create',['user_types'=>$user_types, 'departaments'=>$departaments,'mentions'=>$mentions ]);
 
     }
+
+   /*  public function mostrar(Request $request)
+    {
+        // selecciona directamente el valor seleccionado del select
+        $tipo = $request->input('user_types');
+        $tipo =  $tipo->get();
+
+        return view('administrator.users.create', ['tipo'=>$tipo]);
+
+
+    } */
 
     public function users_create_store(Request $request){
         $id = auth()->user()->id;
@@ -461,15 +485,18 @@ class AdministratorController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required','string','min:8'],
             'user_types' => ['required','string'],
-            'departaments' => ['string'],
-            'sections' => ['string'],
-            'degree' => ['string'],
 
+            'departmentid' => ['string'],
+            'mentionid' => ['string'],
+            'college_degree' => ['string'],
         ]);
 
         $password = bcrypt($data['dni']);
 
-        User::create([
+
+        return view('administrator.users.create');
+
+        $usuario = User::create([
             'dni'=>$data['dni'],
             'names' => $data['names'],
             'last_names' => $data['last_names'],
@@ -477,12 +504,24 @@ class AdministratorController extends Controller
             'email' => $data['email'],
             'password' => $password,
             'user_types'=> $data['user_types'],
-            'departaments' => $data['departaments'],
-            'sections' => $data['sections'],
-            'degree' => $data['degree'],
-            'status' => 'A'
+            'status' => 'A',
         ]);
-        
+
+        Teacher::create([
+            'departmentid' => $data['departaments'],
+            'mentionid' => $data['mentions'],
+            'college_degree' => $data['college_degree'],
+            'userid' => $usuario->id,
+            'status' => 'A',
+        ]);
+
+        // Perfil_Usuario::create([
+        //     'cedula' => $data['cedula'],
+        //     'nombre' => $data['nombre'],
+        //     'apellido' => $data['apellido'],
+        //     'telefono' => $data['telefono'],
+        //     'user_id' => $usuario->id,
+        // ]);
 
         return redirect()->action([AdministratorController::class, 'users_create'])->with('user-message','Usuario registrado con exito');
     }

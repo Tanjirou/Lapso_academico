@@ -111,6 +111,8 @@
                                     <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-admin-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
                                 @elseif(auth()->user()->user_type ==2)
                                     <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
+                                @elseif(auth()->user()->user_type ==3)
+                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
                                 @else
                                     <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png')) }}" class="img-fluid mr-2" alt="avatar">
                                 @endif
@@ -138,6 +140,7 @@
                             </svg> <span>Mi Perfil</span>
                             </a>
                         </div>
+
                         {{-- <div class="dropdown-item">
                             <a href="apps_mailbox.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -200,10 +203,13 @@
                             <p>Administrador</p>
                         @elseif(auth()->user()->user_type ==2)
                             <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof.png')  }}" alt="avatar">
-                            <p>Profesor</p>
+                            <p>Jefe Departamento</p>
+                        @elseif(auth()->user()->user_type ==3)
+                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof.png')  }}" alt="avatar">
+                        <p>Jefe de Sección</p>
                         @else
                             <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png')  }}" alt="avatar">
-                            <p>Estudiante</p>
+                            <p>Profesor</p>
                         @endif
                     </div>
                 </div>
@@ -349,7 +355,9 @@
                                         </path>
                                         <polygon points="12 15 17 21 7 21 12 15"></polygon>
                                     </svg>
+
                                     <span>Gestión Materias</span>
+
                                 </div>
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -370,6 +378,7 @@
                                     <a href="{{ route('teacher.load_evaluations') }}">Cargar Evaluaciones</a>
                                 </li> --}}
                                 {{-- <li class="active">
+
                                     <a href="#cargar-notas" data-toggle="collapse" aria-expanded="false"
                                         class="dropdown-toggle"> Cargar Notas <svg xmlns="http://www.w3.org/2000/svg"
                                             width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -390,8 +399,6 @@
 
                             </ul>
                         </li>
-
-                        <!--REPORTES-->
                         <li class="menu">
                             <a href="#report-teacher" data-toggle="collapse" aria-expanded="false"
                                 class="dropdown-toggle">
@@ -504,7 +511,6 @@
                                         </li>
                                     </ul>
                                 </li> --}}
-
                             </ul>
                         </li>
 
@@ -559,7 +565,10 @@
                                     <a href="{{ route('administrator.migrate') }}">Crear Pensum</a>
                                 </li>
                                 <li class="active">
-                                    <a href="index2.html">Crear Materias</a>
+                                    <a href="{{route('academic_curriculum.index')}}">Listado Pensum</a>
+                                </li>
+                                <li class="active">
+                                    <a href="">Crear Materias</a>
                                 </li>
                                 <li class="active">
                                     <a href="{{ route('administrator.export') }}">Carga de Materias</a>
@@ -657,27 +666,6 @@
                             </ul>
                         </li>
 
-                        <!--GESTION SOLICITUDES-->
-                        {{-- <li class="menu">
-                            <a href="#admin-solicitudes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                                <div class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-                                    <span>Gestionar Solicitudes</span>
-                                </div>
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-chevron-right">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </div>
-                            </a>
-                            <ul class="collapse submenu list-unstyled" id="admin-solicitudes" data-parent="#accordionExample">
-                                <li class="active">
-                                    <a href=" index.html">Carga Tardía</a>
-                                </li>
-                            </ul>
-                        </li> --}}
                     @endif
 
                     {{-- @if (auth()->user()->user_type == )

@@ -51,12 +51,6 @@
                                     <li class="nav-item">
                                         <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">General</a>
                                     </li>
-                                    {{-- <li class="nav-item">
-                                        <a class="nav-link" id="pills-nacim-tab" data-toggle="pill" href="#pills-nacim" role="tab" aria-controls="pills-nacim" aria-selected="false">Nacimiento</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contacto</a>
-                                    </li> --}}
                                     <li class="nav-item">
                                         <a class="nav-link" id="pills-update-tab" data-toggle="pill" href="#pills-update" role="tab" aria-controls="pills-update" aria-selected="false">Actualización</a>
                                     </li>
@@ -121,6 +115,7 @@
                                     </div>
 
                                     {{-- <div class="tab-pane fade" id="pills-nacim" role="tabpanel" aria-labelledby="pills-nacim-tab">
+                                    <div class="tab-pane fade" id="pills-nacim" role="tabpanel" aria-labelledby="pills-nacim-tab">
                                         <!--  LUGAR Y FECHA DE NACIMIENTO  -->
                                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                                             <form id="nacim" class="section general-info">
@@ -159,9 +154,10 @@
                                                 </div>
                                             </form>
                                         </div>
+
                                     </div> --}}
 
-                                    {{-- <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                    {{--<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                                         <!--  INFORMACION DE CONTACTO  -->
                                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                                             <form id="contact" class="section general-info">
@@ -287,132 +283,11 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            {{-- <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="nacionalidad">Nacionalidad</label>
-                                                                                    <input type="text" class="form-control mb-4 @error('nationality') is-invalid @enderror"
-                                                                                    id="nationality" name="nationality" value="{{ $admin->nationality }}"
-                                                                                    placeholder="Venezolano">
-                                                                                @error('nationality')
-                                                                                    <span class="invalid-feedback"
-                                                                                        role="alert">
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </span>
-                                                                                @enderror
-                                                                                </div>
-                                                                            </div> --}}
-                                                                            {{-- <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="genero">Genero</label>
-                                                                                    <select class="form-control  mb-4 @error('gender') is-invalid @enderror"
-                                                                                    id="gender" name="gender" value="{{ $admin->gender }}">
-                                                                                        <option>Masculino</option>
-                                                                                        <option>Femenino</option>
-                                                                                    </select>
-                                                                                    @error('gender')
-                                                                                    <span class="invalid-feedback"
-                                                                                        role="alert">
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </span>
-                                                                                @enderror
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="estadociv">Estado Civil</label>
-                                                                                    <select class="form-control  mb-4 @error('marital_status') is-invalid @enderror"
-                                                                                    id="estadociv" name="marital_status" value="{{ $admin->marital_status }}">
-                                                                                        <option>Soltero(a)</option>
-                                                                                        <option>Casado(a)</option>
-                                                                                        <option>Divorciado(a)</option>
-                                                                                        <option>Viudo(a)</option>
-                                                                                    </select>
-                                                                                @error('marital_status')
-                                                                                    <span class="invalid-feedback"
-                                                                                        role="alert">
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </span>
-                                                                                @enderror
-                                                                                </div>
-                                                                            </div>
 
-                                                                            <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="country">Pais</label>
-                                                                                    <input type="text" class="form-control mb-4 @error('country') is-invalid @enderror"
-                                                                                    id="country" name="country" value="{{ $admin->country }}"
-                                                                                    placeholder="Venezuela">
-                                                                                @error('country')
-                                                                                    <span class="invalid-feedback"
-                                                                                        role="alert">
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </span>
-                                                                                @enderror
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="state">Estado</label>
-                                                                                    <input type="text" class="form-control mb-4 @error('state') is-invalid @enderror"
-                                                                                    id="state" name="state"  value="{{ $admin->state }}"
-                                                                                    placeholder="Lara">
-                                                                                @error('state')
-                                                                                    <span class="invalid-feedback"
-                                                                                        role="alert">
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </span>
-                                                                                @enderror
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="town">Lugar</label>
-                                                                                    <input type="text" class="form-control mb-4 @error('town') is-invalid @enderror"
-                                                                                    id="town" name="town" value="{{ $admin->town }}"
-                                                                                    placeholder="Barquisimeto">
-                                                                                @error('town')
-                                                                                    <span class="invalid-feedback"
-                                                                                        role="alert">
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </span>
-                                                                                @enderror
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="birth_date">Fecha de Nacimiento</label>
-                                                                                    <input type="date" class="form-control mb-4" id="birth_date" name="birth_date" value="{{ $admin->birth_date }}">
-                                                                                </div>
-                                                                            </div>
-                                                                             --}}
-                                                                            {{-- <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="phone2">Teléfono Celular</label>
-                                                                                    <input type="text" class="form-control mb-4 @error('phone2') is-invalid @enderror"
-                                                                                    id="phone2" name="phone2" value="{{ $admin->mobile }}"
-                                                                                    placeholder="0424-1111111">
-                                                                                @error('phone2')
-                                                                                    <span class="invalid-feedback"
-                                                                                        role="alert">
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </span>
-                                                                                @enderror
-                                                                                </div>
-                                                                            </div> --}}
+
+
                                                                         </div>
-
-                                                                        {{-- <div class="form-group">
-                                                                            <label for="address">Direccion de Habitación</label>
-                                                                            <input type="text" class="form-control mb-4 @error('address') is-invalid @enderror"
-                                                                            id="address" name="address"  value="{{ $admin->address }}"
-                                                                            placeholder="Calle 4, Sector Brisas del Obelisco">
-                                                                                @error('address')
-                                                                                    <span class="invalid-feedback"
-                                                                                        role="alert">
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </span>
-                                                                                @enderror
-                                                                        </div> --}}
+                                                                    </div>
                                                                         <div class="form-group text-center">
                                                                             <button type="submit" class="btn btn-primary text-center">Guardar</button>
                                                                         </div>

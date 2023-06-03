@@ -34,9 +34,7 @@
 
             </div>
             <div class="faq container">
-
                 <div class="faq-layouting layout-spacing">
-
                     <div class="fq-comman-question-wrapper">
                         <div class="row">
                             <div class="col-md-12">

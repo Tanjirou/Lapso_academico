@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AcademicCurriculumController;
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\EnrolledSubjectController;
+use App\Models\Academic_Curriculum;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +44,7 @@ Route::post('/users-restore/password',[AdministratorController::class, 'users_re
 Route::post('/users-restore/factor',[AdministratorController::class, 'users_restore_factor'])->name('administrator.users_restore_factor');
 Route::get('/users-modify',[AdministratorController::class, 'users_modify'])->name('administrator.users_modify');
 
+Route::get('pensum',[AcademicCurriculumController::class, 'index'])->name('academic_curriculum.index');
 
 if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
 {

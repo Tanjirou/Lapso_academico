@@ -108,6 +108,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         <label for="user_types" class="text-dark">{{ __('Tipo de Usuario') }}</label>
                                             <select class="custom-select bg-white form-control border-primary @error('user_types') is-invalid @enderror" name="user_types" id="user_types">
@@ -116,20 +117,22 @@
                                                     <option value="{{ $user_type->id }}">{{ $user_type->description }}</option>
                                                 @endforeach
                                             </select>
+
                                             @error('user_types')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                     </div>
+
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="departaments" class="text-dark">{{ __('Departamento') }}</label>
                                                     <select class="custom-select bg-white form-control @error('departaments') is-invalid @enderror" name="departaments" id="departaments">
                                                         <option value="" >Seleccione</option>
-                                                        @foreach($user_types as $user_type)
-                                                            <option value="{{ $user_type->id }}">{{ $user_type->description }}</option>
+                                                        @foreach ($departaments as $departament)
+                                                            <option value="{{ $departament->id }}">{{ $departament->name }}</option>
                                                         @endforeach
                                                     </select>
                                                     @error('departaments')
@@ -140,6 +143,59 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="mentions" class="text-dark">{{ __('Mención') }}</label>
+                                                    <select class="custom-select bg-white form-control @error('mentions') is-invalid @enderror" name="mentions" id="mentions">
+                                                        <option value="" >Seleccione</option>
+                                                        @foreach ($mentions as $mention)
+                                                            <option value="{{ $mention->id }}">{{ $mention->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('mentions')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="college_degree" class="text-dark">{{ __('Titulo de Grado/Especialidad') }}</label>
+                                            <input id="college_degree" type="text" class="form-control mb-2 @error('college_degree') is-invalid @enderror" name="college_degree" value="{{ old('college_degree') }}" required autocomplete="college_degree" autofocus pattern="[a-zA-Z ]{2,48}" title="Solo se permiten letras" placeholder="Licenciado en Física">
+                                            @error('college_degree')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                    </div>
+
+
+                                    <div class="form-group row mb-0 justify-content-center">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Registrar') }}
+                                        </button>
+                                    </div>
+                                </form>
+
+
+                                    <div class="row">
+                                        <div class="col-md-6" hidden>
+                                            <div class="form-group">
+                                                <label for="departaments" class="text-dark">{{ __('Departamento') }}</label>
+                                                    <select class="custom-select bg-white form-control @error('departaments') is-invalid @enderror" name="departaments" id="departaments">
+                                                        <option value="" >Seleccione</option>
+                                                        @foreach ($departaments as $departament)
+                                                            <option value="{{ $departament->id }}">{{ $departament->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('departaments')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" hidden>
                                             <div class="form-group">
                                                 <label for="section" class="text-dark">{{ __('Sección') }}</label>
                                                     <select class="custom-select bg-white form-control @error('section') is-invalid @enderror" name="section" id="section">
@@ -156,43 +212,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="degree" class="text-dark">{{ __('Titulo de Grado/Especialidad') }}</label>
-                                            <input id="degree" type="text" class="form-control mb-2 @error('degree') is-invalid @enderror" name="degree" value="{{ old('degree') }}" required autocomplete="degree" autofocus pattern="[a-zA-Z ]{2,48}" title="Solo se permiten letras" placeholder="Licenciado en Física">
-                                            @error('degree')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                    </div>
-
-
-                                    {{-- <div class="form-group row">
-                                        <label for="permiso" class="col-md-4 col-form-label text-md-right text-dark ">{{ __('Tipo de usuario') }}</label>
-
-                                        <div class="col-md-6">
-                                            <select class="custom-select bg-white @error('permiso') is-invalid @enderror" name="permiso" id="permiso">
-                                                    <option value="" >Seleccione</option>
-                                                @foreach ($users_type as $user_type)
-                                                    <option value="{{ $user_type->id }}">{{ $user_type->description }}</option>
-                                                @endforeach
-                                            </select>
-
-
-                                            @error('permiso')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div> --}}
-
-                                    <div class="form-group row mb-0 justify-content-center">
-                                        <button type="submit" class="btn btn-primary">
-                                            {{ __('Registrar') }}
-                                        </button>
-                                    </div>
-                                </form>
 
                             </div>
                         </div>
