@@ -353,7 +353,7 @@ class AdministratorController extends Controller
         $id = auth()->user()->id;
         $admin = DB::table('users')
             ->join('user_types','users.user_type','=','user_types.id')
-            ->where('users.user_type','=','1')
+            /* ->where('users.user_type','=','1') */
             ->where('users.id','=',$id)
             ->select('users.*')
             ->first();

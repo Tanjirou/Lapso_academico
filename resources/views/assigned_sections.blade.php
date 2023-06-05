@@ -36,7 +36,7 @@
                             <h2 class="text-bold text-primary fond-bold">Carga Académica</h2>
                         </div>
                         <div class="col-md-4 col-6 mb-0 md-mb-0 order-md-0 order-1 d-flex justify-content-end ml-5 mt-0">
-                            <img src="assets/img/logo-sicano4.png" class="img-fluid mb-3" alt="header-image" style="width: 40%;">
+                            <img src="assets/img/logo-SPA1.png" class="img-fluid mb-3" alt="header-image" style="width: 40%;">
                         </div>
                     </div>
                 </div>
