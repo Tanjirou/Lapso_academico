@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\AcademicCurriculumController;
+use App\Http\Livewire\AcademicCurriculum\Index as AcademicCurriculum;
+use App\Http\Livewire\Departments\Index as Department;
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
@@ -8,10 +9,10 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\EnrolledSubjectController;
 use App\Models\Academic_Curriculum;
 use App\Models\User;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,8 +45,8 @@ Route::post('/users-restore/password',[AdministratorController::class, 'users_re
 Route::post('/users-restore/factor',[AdministratorController::class, 'users_restore_factor'])->name('administrator.users_restore_factor');
 Route::get('/users-modify',[AdministratorController::class, 'users_modify'])->name('administrator.users_modify');
 
-Route::get('pensum',[AcademicCurriculumController::class, 'index'])->name('academic_curriculum.index');
-
+Route::get('pensum',AcademicCurriculum::class)->Middleware('auth')->name('academic_curriculum.index');
+Route::get('departments',Department::class)->middleware('auth')->name('departments.index');
 if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
 {
     Route::get('/register', function() {

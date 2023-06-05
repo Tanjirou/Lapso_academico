@@ -21,7 +21,7 @@ class CreateMentionsTable extends Migration
             $table->string('name');
             $table->char('status');
             $table->timestamps();
-            $table->foreign('departmentid')->references('id')->on('departaments');
+            $table->foreign('departmentid')->references('id')->on('departments');
         });
     }
 

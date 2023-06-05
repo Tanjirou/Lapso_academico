@@ -13,10 +13,10 @@ class CreateAcademicCurriculaTable extends Migration
      */
     public function up()
     {
-        Schema::create('academic_curriculum', function (Blueprint $table) {
+        Schema::create('academic_curricula', function (Blueprint $table) {
             $table->id();
             $table->string('description');
-            $table->char('status');
+            $table->char('status')->default('A');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateAcademicCurriculaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('academic__curricula');
+        Schema::dropIfExists('academic_curricula');
     }
 }
