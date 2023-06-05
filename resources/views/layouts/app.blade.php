@@ -593,10 +593,7 @@
                             </a>
                             <ul class="collapse submenu list-unstyled" id="admin-departamento" data-parent="#accordionExample">
                                 <li class="active">
-                                    <a href="index2.html">Crear</a>
-                                </li>
-                                <li class="active">
-                                    <a href="index2.html">Modificar</a>
+                                    <a href="{{route('departments.index')}}">Crear y listar</a>
                                 </li>
                                 <li class="active">
                                     <a href="index2.html">Asignar</a>

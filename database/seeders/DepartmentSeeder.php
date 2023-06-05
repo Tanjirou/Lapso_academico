@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class DepartamentSeeder extends Seeder
+class DepartmentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,34 +14,34 @@ class DepartamentSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('departaments')->insert([
+        DB::table('departments')->insert([
             'name' => 'Electronica',
             'status' => 'A',
         ]);
 
-        DB::table('departaments')->insert([
+        DB::table('departments')->insert([
             'name' => 'Electrica',
             'status' => 'A',
         ]);
 
-        DB::table('departaments')->insert([
+        DB::table('departments')->insert([
             'name' => 'Quimica',
             'status' => 'A',
         ]);
-        DB::table('departaments')->insert([
+        DB::table('departments')->insert([
             'name' => 'Industrial',
             'status' => 'A',
         ]);
-        DB::table('departaments')->insert([
+        DB::table('departments')->insert([
             'name' => 'Mecanica',
             'status' => 'A',
         ]);
 
-        DB::table('departaments')->insert([
+        DB::table('departments')->insert([
             'name' => 'Metalurgica',
             'status' => 'A',
         ]);
-        DB::table('departaments')->insert([
+        DB::table('departments')->insert([
             'name' => 'Basico',
             'status' => 'A',
         ]);
