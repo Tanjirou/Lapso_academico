@@ -19,7 +19,7 @@ class CreateCurriculumSubjectsTable extends Migration
             $table->unsignedBigInteger('subjectsid');
             $table->string('pre_requirements')->nullable();
             $table->string('co_requisites')->nullable();
-            $table->foreign('academic_curriculumid')->references('id')->on('academic_curriculum');
+            $table->foreign('academic_curriculumid')->references('id')->on('academic_curricula');
             $table->foreign('subjectsid')->references('id')->on('subjects');
             $table->timestamps();
         });
