@@ -283,20 +283,17 @@
                                                                                 </div>
                                                                             </div>
 
-
-
-
                                                                         </div>
                                                                     </div>
                                                                         <div class="form-group text-center">
                                                                             <button type="submit" class="btn btn-primary text-center">Guardar</button>
                                                                         </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </form>
                                         </div>
                                     </div>
@@ -306,10 +303,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
     </div>
 </x-app-layout>

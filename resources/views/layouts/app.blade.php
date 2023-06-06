@@ -618,7 +618,7 @@
                             </a>
                             <ul class="collapse submenu list-unstyled" id="admin-usuarios" data-parent="#accordionExample">
                             <li class="active">
-                                    <a href="{{ route('administrator.users_create') }}">Crear</a>
+                                    <a href="{{ route('user.create') }}">Crear</a>
                                 </li>
                                 <li class="active">
                                     <a href="{{ route('administrator.users_modify') }}">Modificar</a>

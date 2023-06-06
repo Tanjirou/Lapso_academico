@@ -9,8 +9,9 @@ use App\Models\Pensum;
 use App\Models\Student;
 use App\Models\Teacher;
 
-use App\Models\Departament;
+use App\Models\UserType;
 
+use App\Models\Departament;
 use Illuminate\Http\Request;
 use App\Models\AcademicOffer;
 use App\Models\EnrolledSubject;
@@ -371,19 +372,10 @@ class AdministratorController extends Controller
 
             'names' => ['required','string'],
             'last_names' => ['required','string'],
-            'phone1' => ['regex:/^[0-9]{4}-?[0-9]{7}/','max:12'],
-            'email' => ['email'],
+            'email' => ['nullable','email'],
             'photo' => ['mimes:jpg,jpeg,png'],
+            'phone1' => ['nullable','regex:/^[0-9]{4}-?[0-9]{7}/','max:12'],
 
-            // 'nationality' =>['alpha'],
-            // 'gender' =>['alpha'],
-            // 'marital_status' =>['string'],
-            // 'country' =>['alpha'],
-            // 'state' =>['alpha'],
-            // 'town' =>['alpha'],
-            // 'birth_date' =>['date'],
-            // 'phone2' => ['regex:/^[0-9]{4}-?[0-9]{7}/','max:12'],
-            // 'address' => ['required','string'],
 
         ]);
         //$photo = $request->file('photo')->store('public/profile');
@@ -404,41 +396,27 @@ class AdministratorController extends Controller
 
         $user->names = $data['names'];
         $user->last_names = $data['last_names'];
-        $user->telephone =  $data['phone1'];
         $user->email = $data['email'];
+        $user->telephone =  $data['phone1'];
 
-        // $user->nationality = $data['nationality'];
-        // $user->gender = $data['gender'];
-        // $user->marital_status = $data['marital_status'];
-        // $user->country = $data['country'];
-        // $user->state = $data['state'];
-        // $user->town = $data['town'];
-        // $user->birth_date = $data['birth_date'];
-        // $user->mobile = $data['phone2'];
-        // $user->address = $data['address'];
 
         $user->save();
         return redirect()->action([AdministratorController::class, 'profile'])->with('store','Actualizado');
 
         //var_dump($data); die();
-        // DB::table('users')
-        // ->where('id','=', $id)
-        // //(['telepone' => $data['mobile1], 'mobile' => $data['mobile2']] )
-        // ->update([ 'nationality' => $data['nationality'], 'gender' => $data['gender'], 'marital_status' => $data['marital_status'],
-        //             'email' => $data['email'], 'country' => $data['country'], 'state' => $data['state'], 'birth_date' => $data['birth_date'],
-        //             'telephone' => $data['phone1'],  'mobile' => $data['phone2'], 'address' => $data['address']]);
-        // return redirect()->route('administrator.admin_profile')->with('success', 'Administrador actualizado correctamente');
+
     }
 
     public function users_create(Request $request){
 
 
-        $user_types = DB::table('user_types')
+       /*  $user_types = DB::table('user_types')
         ->where('user_types.status','=', 'A')
         ->select('user_types.id', 'user_types.description')
-        ->orderBy('user_types.id');
+        ->orderBy('user_types.id')->get(); */
 
-        $user_types = $user_types->get();
+        $user_types = UserType::where('user_types.status','=', 'A')->orderBy('user_types.id')->get();
+
 
         $departaments = DB::table('departaments')
         ->where('departaments.status','=', 'A')
@@ -481,8 +459,8 @@ class AdministratorController extends Controller
             'dni' => ['required', 'numeric','digits_between:6,9', 'unique:users'],
             'names' => ['required','regex:/^[\pL\s\-]+$/u', 'max:255'],
             'last_names' => ['required','regex:/^[\pL\s\-]+$/u', 'max:255'],
+            'email' => ['string', 'email', 'max:255', 'unique:users'],
             'telephone' => ['regex:/^[0-9]{4}-?[0-9]{7}/','max:12'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required','string','min:8'],
             'user_types' => ['required','string'],
 
@@ -500,8 +478,8 @@ class AdministratorController extends Controller
             'dni'=>$data['dni'],
             'names' => $data['names'],
             'last_names' => $data['last_names'],
-            'telephone' => $data['telephone'],
             'email' => $data['email'],
+            'telephone' => $data['telephone'],
             'password' => $password,
             'user_types'=> $data['user_types'],
             'status' => 'A',
