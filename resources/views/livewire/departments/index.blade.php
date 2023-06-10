@@ -8,6 +8,7 @@
                             <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
+                                    <li class="breadcrumb-item" ><a href="javascript:void(0);">Crear Departamentos</a></li>
                                 </ol>
                             </nav>
                         </div>

@@ -16,19 +16,19 @@ class MentionSeeder extends Seeder
     {
         DB::table('mentions')->insert([
             'departmentid' => '1',
+            'name' => 'Electrónica Aplicada',
+            'status' => 'A',
+        ]);
+
+        DB::table('mentions')->insert([
+            'departmentid' => '1',
             'name' => 'Comunicación',
             'status' => 'A',
         ]);
 
         DB::table('mentions')->insert([
             'departmentid' => '1',
-            'name' => 'Control',
-            'status' => 'A',
-        ]);
-
-        DB::table('mentions')->insert([
-            'departmentid' => '1',
-            'name' => 'Computación',
+            'name' => 'Control y Computación',
             'status' => 'A',
         ]);
 

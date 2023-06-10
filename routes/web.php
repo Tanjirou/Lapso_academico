@@ -45,9 +45,11 @@ Route::post('/users-create/store', [AdministratorController::class, 'users_creat
 Route::get('/users-restore',[AdministratorController::class, 'users_restore'])->name('administrator.users_restore');
 Route::post('/users-restore/password',[AdministratorController::class, 'users_restore_password'])->name('administrator.users_restore_password');
 Route::post('/users-restore/factor',[AdministratorController::class, 'users_restore_factor'])->name('administrator.users_restore_factor');
-Route::get('/users-modify',[AdministratorController::class, 'users_modify'])->name('administrator.users_modify');
+// Route::get('/users-modify',[AdministratorController::class, 'users_modify'])->name('administrator.users_modify');
 
 Route::get('users-create',UserComponent::class)->Middleware('auth')->name('user.create');
+Route::post('users-create',[UserComponent::class, 'store'])->Middleware('auth')->name('user.store');
+Route::get('/users-modify',[UserComponent::class, 'usersList'])->name('users.modify');
 
 Route::get('pensum',AcademicCurriculum::class)->Middleware('auth')->name('academic_curriculum.index');
 Route::get('departments',Department::class)->middleware('auth')->name('departments.index');

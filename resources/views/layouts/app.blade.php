@@ -621,7 +621,7 @@
                                     <a href="{{ route('user.create') }}">Crear</a>
                                 </li>
                                 <li class="active">
-                                    <a href="{{ route('administrator.users_modify') }}">Modificar</a>
+                                    <a href="{{ route('users.modify') }}">Modificar</a>
                                 </li>
                                 <li class="active">
                                     <a href="{{ route('administrator.users_restore') }}">Reestablecer Autent.</a>

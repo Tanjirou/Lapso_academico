@@ -29,6 +29,11 @@ class UserTypesSeeder extends Seeder
         ]);
 
         DB::table('user_types')->insert([
+            'description' => 'Coordinador',
+            'status' => 'A',
+        ]);
+
+        DB::table('user_types')->insert([
             'description' => 'Profesor',
             'status' => 'A',
         ]);
