@@ -15,9 +15,8 @@ class CreateCareersTable extends Migration
     {
         Schema::create('careers', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->nullable();//Código de carrera (clave primaria)
-            $table->string('university')->nullable();//Universidad
-            $table->string('career')->nullable();//Carrera
+            $table->string('name');//Universidad
+            $table->char('status')->default('A');//Carrera
             $table->timestamps();
         });
     }

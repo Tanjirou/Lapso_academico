@@ -9,6 +9,6 @@ class career extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'code', 'university' ,'career'
+        'name', 'status' ,
     ];
 }

@@ -15,9 +15,12 @@ class CreateSubjectsTable extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('departmentsid');
             $table->string('code');
             $table->string('name');
             $table->string('credit_units');
+            $table->char('status')->default('A');
+            $table->foreign('departmentsid')->references('id')->on('departments');
             $table->timestamps();
         });
     }
