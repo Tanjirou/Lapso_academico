@@ -49,7 +49,12 @@ Route::post('/users-restore/factor',[AdministratorController::class, 'users_rest
 
 Route::get('users-create',UserComponent::class)->Middleware('auth')->name('user.create');
 Route::post('users-create',[UserComponent::class, 'store'])->Middleware('auth')->name('user.store');
-Route::get('/users-modify',[UserComponent::class, 'usersList'])->name('users.modify');
+Route::get('/users-list',[UserComponent::class, 'usersList'])->name('users.list');
+Route::get('/users-list/{user}',[UserComponent::class, 'userEdit'])->name('user.edit');
+
+Route::get('/user-edit/{user}',[UserDepComponent::class, 'render'])->name('user.edit_u');
+
+Route::put('/user-update/{userId}',[UserComponent::class, 'update'])->name('user.edit_store');
 
 Route::get('pensum',AcademicCurriculum::class)->Middleware('auth')->name('academic_curriculum.index');
 Route::get('departments',Department::class)->middleware('auth')->name('departments.index');
@@ -110,12 +115,16 @@ Route::get('/sol-revision', function () {
 })->middleware('auth');
 
 /* PROFESOR */
-Route::get('/secciones-prof', function () {
-    return view('teachers/assigned_sections');
-})->middleware('auth')->name('teacher.assigned_sections');
+// Route::get('/secciones-prof', function () {
+//     return view('teachers/assigned_sections');
+// })->middleware('auth')->name('teacher.assigned_sections');
 
-Route::get('/teacher-profile', [TeacherController::class, 'profile'])->name('teacher.profile');
-Route::post('/teacher-profile/store/{user}', [TeacherController::class, 'teacher_update'])->name('teacher.update_profile');
+/* MENU - GESTION SECCIONES */
+Route::get('crear-seccion', [TeacherController::class, 'createSection'])->Middleware('auth')->name('teachers.create_section');
+Route::get('asignar-seccion', [TeacherController::class, 'assignedSection'])->Middleware('auth')->name('teachers.assigned_sections');
+
+// Route::get('/teacher-profile', [TeacherController::class, 'profile'])->name('teacher.profile');
+// Route::post('/teacher-profile/store/{user}', [TeacherController::class, 'teacher_update'])->name('teacher.update_profile');
 Route::get('/ajuste-profesor', function () {
     return view('teachers/settings');
 })->middleware('auth');

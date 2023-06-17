@@ -21,7 +21,7 @@
                         <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
-                                <li class="breadcrumb-item" ><a href="javascript:void(0);">Asignar Sección</a></li>
+                                <li class="breadcrumb-item" ><a href="javascript:void(0);">Crear Sección</a></li>
                                 <!--<li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Secciones</a></li>-->
                             </ol>
                         </nav>
@@ -44,14 +44,15 @@
                 <div class="col-lg-12">
                     <div class="statbox widget box box-shadow shadow ">
                         <div class="row mt-0 justify-content-center">
-                            <div class="col-md-10 align-content-center ">
+                            <div class="col-md-10 align-content-center">
                                 <div class="row justify-content-end text-right">
-                                    {{-- <div class="form-group col-md-12">
+                                    <div class="form-group col-md-12">
                                          <button class="btn btn-success mr-2 btn-lg"> <a href="#"></a> Ver todas </button>
-                                    </div> --}}
-                                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-6 col-4 mb-0 mt-3 mr-auto ml-2 m-0">
-                                        <h2 class="text-bold text-primary fond-bold m-0">ASIGNAR</h2>
+                                         <hr>
                                     </div>
+                                </div>
+                                <div class="row justify-content-center mb-3 mt-0 mr-auto ml-2 m-0">
+                                    <h2 class="text-bold text-primary fond-bold m-0">CREAR SECCIÓN</h2>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
@@ -77,24 +78,16 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="textMateria">Profesor</label>
-                                            <select class="form-control" id="textMateria">
-                                                <option>Profesor 1</option>
-                                                <option>Profesor 2</option>
-                                                <option>Profesor 3</option>
-                                                <option>Profesor 4</option>
-                                            </select>
+                                            <label for="textPunt">Cantidad de Secciones</label>
+                                            <input class="form-control" type="numeric" placeholder="4" >
+                                            <small id="sh-text1" class="form-text text-muted">Número aproximado de secciones a aperturar.</small>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="textMateria">Sección</label>
-                                            <select class="form-control" id="textMateria">
-                                                <option>Sección 1</option>
-                                                <option>Sección 2</option>
-                                                <option>Sección 3</option>
-                                                <option>Sección 4</option>
-                                            </select>
+                                            <label for="textPunt">Cantidad de Estudiantes</label>
+                                            <input class="form-control" type="integer" placeholder="40" >
+                                            <small id="sh-text1" class="form-text text-muted">Número de estudiantes en promedio para la planificación del próximo semestre.</small>
                                         </div>
                                     </div>
 

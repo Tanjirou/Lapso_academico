@@ -438,17 +438,6 @@ class AdministratorController extends Controller
 
     }
 
-   /*  public function mostrar(Request $request)
-    {
-        // selecciona directamente el valor seleccionado del select
-        $tipo = $request->input('user_types');
-        $tipo =  $tipo->get();
-
-        return view('administrator.users.create', ['tipo'=>$tipo]);
-
-
-    } */
-
     public function users_create_store(Request $request){
         $id = auth()->user()->id;
 

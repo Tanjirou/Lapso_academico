@@ -30,32 +30,31 @@
                     </div>
                     <div class="row mt-3 justify-content-center">
                         <div class="col-md-10">
-                         <div class="table-responsive">
-                             <table class="table">
-                                 <thead>
-                                   <tr>
-                                     <th scope="col">Nombre</th>
-                                     <th scope="col">Opciones</th>
-                                   </tr>
-                                 </thead>
-                                 <tbody>
-                                  @forelse ($departments as $department)
-                                  <tr>
-                                      <td>{{$department->name}}</td>
-                                      <td>
-                                          <button wire:click="edit({{$department->id}})" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
-                                      </td>
-                                    </tr>
-                                  @empty
-                                      <h3>No existen departamentos para mostrar</h3>
-                                  @endforelse
-
-                                 </tbody>
-                               </table>
-                         </div>
-                         <div class="row justify-content-end">
-                            {{$departments->links()}}
-                         </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Opciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @forelse ($departments as $department)
+                                    <tr>
+                                        <td>{{$department->name}}</td>
+                                        <td>
+                                            <button wire:click="edit({{$department->id}})" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
+                                        </td>
+                                        </tr>
+                                    @empty
+                                        <h3>No existen departamentos para mostrar</h3>
+                                    @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row justify-content-end">
+                                {{$departments->links()}}
+                            </div>
                         </div>
                     </div>
                 </div>

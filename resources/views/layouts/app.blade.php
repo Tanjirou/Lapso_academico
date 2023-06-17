@@ -113,6 +113,8 @@
                                     <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
                                 @elseif(auth()->user()->user_type ==3)
                                     <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
+                                @elseif(auth()->user()->user_type ==4)
+                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
                                 @else
                                     <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png')) }}" class="img-fluid mr-2" alt="avatar">
                                 @endif
@@ -124,14 +126,14 @@
                             </div>
                         </div>
                         <div class="dropdown-item">
-                            @if (auth()->user()->user_type == 1)
+                            {{-- @if (auth()->user()->user_type == 1 )
                                 <a href="{{ route('administrator.profile') }}">
                                 @elseif(auth()->user()->user_type ==2)
                                     <a href="{{ route('teacher.profile') }}">
                                     @else
                                         <a href="{{ route('students.student_profile') }}">
-                            @endif
-
+                            @endif --}}
+                            <a href="{{ route('administrator.profile') }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="feather feather-user">
@@ -207,9 +209,12 @@
                         @elseif(auth()->user()->user_type ==3)
                         <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof.png')  }}" alt="avatar">
                         <p>Jefe de Sección</p>
+                        @elseif(auth()->user()->user_type ==4)
+                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof.png')  }}" alt="avatar">
+                        <p>Profesor</p>
                         @else
                             <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png')  }}" alt="avatar">
-                            <p>Profesor</p>
+                            <p>Coordinador</p>
                         @endif
                     </div>
                 </div>
@@ -238,6 +243,75 @@
                             </div>
                         </a>
                     </li>
+
+                     <!--COORDINADOR-->
+                     @if (auth()->user()->user_type == 5)
+                     <!--GESTION MATERIAS-->
+                     <li class="menu">
+                         <a href="#proceso" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                             <div class="">
+                                 <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-airplay">
+                                     <path
+                                         d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1">
+                                     </path>
+                                     <polygon points="12 15 17 21 7 21 12 15"></polygon>
+                                 </svg>
+                                 <span>Gestión Materias</span>
+                             </div>
+                             <div>
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-chevron-right">
+                                     <polyline points="9 18 15 12 9 6"></polyline>
+                                 </svg>
+                             </div>
+                         </a>
+                         <ul class="collapse submenu list-unstyled" id="proceso" data-parent="#accordionExample">
+                             <li class="active">
+                                 <a href="{{ route('teacher.load_cut') }}">Aprobado/Reprobado</a>
+                             </li>
+                             <li class="active">
+                                 <a href="{{ route('teacher.upload_content') }}">Modificar</a>
+                             </li>
+                         </ul>
+                     </li>
+
+                     <!--REPORTES-->
+                     <li class="menu">
+                         <a href="#report-teacher" data-toggle="collapse" aria-expanded="false"
+                             class="dropdown-toggle">
+                             <div class="">
+                                 <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-clipboard">
+                                     <path
+                                         d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2">
+                                     </path>
+                                     <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                                 </svg>
+                                 <span>Reportes</span>
+                             </div>
+                             <div>
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-chevron-right">
+                                     <polyline points="9 18 15 12 9 6"></polyline>
+                                 </svg>
+                             </div>
+                         </a>
+                         <ul class="collapse submenu list-unstyled" id="report-teacher"
+                             data-parent="#accordionExample">
+                             <li class="active">
+                                 <a href="user_profile2.html">Listado Aprobados/Reprobados</a>
+                             </li>
+                             <li class="active">
+                                 <a href="user_account_setting.html">Estadisticas</a>
+                             </li>
+                         </ul>
+                     </li>
+                 @endif
 
                     <!--PROFESOR NORMAL-->
                     @if (auth()->user()->user_type == 4)
@@ -335,10 +409,10 @@
                             <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled" id="teacher-general"
                                 data-parent="#accordionExample">
                                 <li class="active">
-                                    <a href="{{ route('teacher.assigned_sections') }}"> Crear </a>
+                                    <a href="{{ route('teachers.create_section') }}"> Crear </a>
                                 </li>
                                 <li class="active">
-                                    <a href="{{ route('teacher.assigned_sections') }}"> Asignar </a>
+                                    <a href="{{ route('teachers.assigned_sections') }}"> Asignar </a>
                                 </li>
                             </ul>
                         </li>
@@ -460,10 +534,10 @@
                             <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled" id="teacher-general"
                                 data-parent="#accordionExample">
                                 <li class="active">
-                                    <a href="{{ route('teacher.assigned_sections') }}"> Crear </a>
+                                    <a href="{{ route('teachers.create_section') }}"> Crear </a>
                                 </li>
                                 <li class="active">
-                                    <a href="{{ route('teacher.assigned_sections') }}"> Asignar </a>
+                                    <a href="{{ route('teachers.assigned_sections') }}"> Asignar </a>
                                 </li>
                             </ul>
                         </li>
@@ -621,7 +695,7 @@
                                     <a href="{{ route('user.create') }}">Crear</a>
                                 </li>
                                 <li class="active">
-                                    <a href="{{ route('users.modify') }}">Modificar</a>
+                                    <a href="{{ route('users.list') }}">Actualizar</a>
                                 </li>
                                 <li class="active">
                                     <a href="{{ route('administrator.users_restore') }}">Reestablecer Autent.</a>

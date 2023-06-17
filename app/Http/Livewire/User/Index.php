@@ -9,16 +9,20 @@ use Livewire\Component;
 use App\Models\UserType;
 use App\Models\Department;
 use Illuminate\Http\Request;
+use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 
 class Index extends Component
 {
+    use WithPagination;
     public $user_types, $departments, $selectedUser;
     public $selectedDepartment = null;
     public $selectedMention = null;
     public $mentions = null;
     public $dni, $password, $names, $last_names, $email, $telephone, $user_type, $ndepartament, $nmention, $college_degree;
     public $mens;
+    public $userId;
+    public User $user;
 
     protected $rules=[
     'dni' => 'required|numeric|digits_between:6,9|unique:users',
@@ -27,43 +31,34 @@ class Index extends Component
     'last_names' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
     'email' => 'string|email|max:255|unique:users|nullable',
     'telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable',
-    // 'user_type' => 'required',
-    //'ndepartament' => 'string',
-    // 'nmention' => 'string',
     'selectedUser' => 'required',
     'selectedDepartment' => 'nullable',
     'selectedMention' => 'nullable',
     'college_degree' => 'regex:/^[\pL\s\-]+$/u|max:255|nullable'];
+
+    protected $paginationTheme = 'bootstrap';
+
 
     public function mount()
     {
         $this->user_types= UserType::where('user_types.status','=', 'A')->orderBy('user_types.id')->get();
         $this->departments= Department::where('departments.status','=', 'A')->orderBy('departments.id')->get();
         $this->mentions= Mention::where('mentions.status','=', 'A')->orderBy('mentions.id')->get();
-
     }
 
     public function updatedSelectedDepartment($department_id)
     {
-        /* if (!empty($value)) {
-            $this->selectedDepartment = Department::find($value);
-            $this->mentions = $this->selectedDepartment->mentions;
-        } else {
-            $this->selectedDepartment = null;
-            $this->mentions = [];
-        }
-        $this->selectedMention = null; */
         $this->mentions = Mention::where('departmentid', $department_id)->get();
     }
 
-    public function updatedSelectedMention($value)
+   /*  public function updatedSelectedMention($value)
     {
         if (!empty($value)) {
             $this->selectedMention = Mention::find($value);
         } else {
             $this->selectedMention = null;
         }
-    }
+    } */
 
     public function store()
     {
@@ -123,7 +118,7 @@ class Index extends Component
         $this->college_degree = '';
 
         //Mostrar un mensaje de exito
-        session()->flash('mens', 'Usuario registrado correctamente');
+        session()->flash('mens', 'Usuario registrado exitosamente');
         /* $this->emitUp('userSaved','Usuario registrado correctamente'); */
 
     }
@@ -132,16 +127,78 @@ class Index extends Component
         $users = DB::table('users')
             ->join('user_types', 'user_types.id','=','users.user_type')
             ->where('users.status','=', 'A')
-            ->select('users.names','users.last_names', 'users.dni', 'user_types.description')
+            ->select('users.id', 'users.names','users.last_names', 'users.dni', 'user_types.description')
             ->orderBy('user_types.description')
-            ->simplePaginate(6);
-            return view('administrator.users.modify')->with('users',$users);
+            ->simplePaginate(2);
+            return view('livewire.user.list')->with('users',$users);
+    }
+
+    // return view('livewire.departments.index',[
+    //     'departments'=>Department::orderBy('id','desc')->paginate(7),
+    // ]);
+
+    public function userEdit(User $user){
+
+
+        $this->user_types= UserType::where('user_types.status','=', 'A')->orderBy('user_types.id')->get();
+        $this->departments= Department::where('departments.status','=', 'A')->orderBy('departments.id')->get();
+        $this->mentions= Mention::where('mentions.status','=', 'A')->orderBy('mentions.id')->get();
+
+        if($user->user_type != 1)
+        {
+            $teacher = Teacher::where('userid','=', $user->id)->first();
+            // var_dump($teacher);die();
+            return view('livewire.user.edit')->with('teacher', $teacher)->with('user', $user)->with('user_types', $this->user_types)->with('departments', $this->departments)->with('mentions', $this->mentions)->with('selectedUser', $this->selectedUser)->with('selectedDepartment', $this->selectedDepartment);
+        }
+
+        return view('livewire.user.edit')->with('user', $user)->with('user_types', $this->user_types)->with('departments', $this->departments)->with('mentions', $this->mentions)->with('selectedUser', $this->selectedUser)->with('selectedDepartment', $this->selectedDepartment);
+    }
+
+    public function update(User $user, Teacher $teacher){
+        // $this->mount();
+        // $this->validate(['dni' => 'required|numeric|digits_between:6,9|unique:users']);
+        // // 'password' => 'required|string|min:8',
+        // $this->validate(['names' => 'required|regex:/^[\pL\s\-]+$/u|max:255']);
+        // $this->validate(['last_names' => 'required|regex:/^[\pL\s\-]+$/u|max:255']);
+        // $this->validate(['email' => 'string|email|max:255|unique:users|nullable']);
+        // $this->validate(['telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable']);
+        // $this->validate(['password' => 'required|string|min:8']);
+        // $this->validate(['selectedUser' => 'required']);
+        // $this->validate(['selectedDepartment' => 'nullable']);
+        // $this->validate(['selectedMention' => 'nullable']);
+        // $this->validate(['college_degree' => 'regex:/^[\pL\s\-]+$/u|max:255|nullable']);
+
+        $this->validate($this->rules);
+        $user = User::find($this->userId);
+        $user->dni = $this->dni;
+        $user->names = $this->names;
+        $user->last_names = $this->last_names;
+        $user->email = $this->email;
+        $user->telephone = $this->telephone;
+        $user->password = bcrypt($this->password);
+        $user->user_type= $this->selectedUser;
+        $user->status = 'A';
+        $user->save();
+
+        if($this->selectedUser != 1)
+        {
+            $teacher = new Teacher;
+            $teacher->userid = $user->id;
+            $teacher->ndepartament = $this->selectedDepartment;
+            $teacher->nmention = $this->selectedMention;
+            $teacher->college_degree = $this->college_degree;
+            $teacher->status = 'A';
+            $teacher->save();
+        }
+
+        session()->flash('mens', 'Usuario actualizado exitosamente.');
+        return redirect()->to('livewire.user.list');
+        // return view('livewire.user.list');
     }
 
     public function render()
     {
-
-        return view('livewire.user.index',['departments' => Department::all()]);
+       return view('livewire.user.index',['departments' => Department::all()]);
 
         /* $mentions = Mention::all();
         return view('livewire.user.index',['mentions' => $mentions]); */
