@@ -565,7 +565,7 @@
                                 <a href="{{route('departments.index')}}">Crear y listar</a>
                             </li>
                             <li class="active">
-                                <a href="index2.html">Asignar</a>
+                                <a href="{{route('department_section.index')}}">Secciones</a>
                             </li>
                         </ul>
                     </li>
