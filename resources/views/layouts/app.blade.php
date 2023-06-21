@@ -619,6 +619,30 @@
                     <!--ADMINISTRADOR-->
 
                     @if (auth()->user()->user_type == 1)
+                     <!--GESTION DEPARTAMENTO-->
+                     <li class="menu">
+                        <a href="#admin-departamento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                                <span>Gestión Departamento</span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-chevron-right">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="admin-departamento" data-parent="#accordionExample">
+                            <li class="active">
+                                <a href="{{route('departments.index')}}">Crear y listar</a>
+                            </li>
+                            <li class="active">
+                                <a href="{{route('department_section.index')}}">Secciones</a>
+                            </li>
+                        </ul>
+                    </li>
                         <!--GESTION PENSUM-->
                         <li class="menu">
                             <a href="#admin-pensum" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -639,7 +663,7 @@
                                     <a href="{{route('academic_curriculum.index')}}">Crear y listar Pensum</a>
                                 </li>
                                 <li class="active">
-                                    <a href="">Crear Materias</a>
+                                    <a href="{{route('subjects.index')}}">Crear Materias</a>
                                 </li>
                                 <li class="active">
                                     <a href="{{ route('administrator.export') }}">Carga de Materias</a>
@@ -647,31 +671,6 @@
                                 {{-- <li class="active">
                                     <a href="index2.html">Blanquear</a>
                                 </li> --}}
-                            </ul>
-                        </li>
-
-                        <!--GESTION DEPARTAMENTO-->
-                        <li class="menu">
-                            <a href="#admin-departamento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                                <div class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                                    <span>Gestión Departamento</span>
-                                </div>
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-chevron-right">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </div>
-                            </a>
-                            <ul class="collapse submenu list-unstyled" id="admin-departamento" data-parent="#accordionExample">
-                                <li class="active">
-                                    <a href="{{route('departments.index')}}">Crear y listar</a>
-                                </li>
-                                <li class="active">
-                                    <a href="index2.html">Asignar</a>
-                                </li>
                             </ul>
                         </li>
 

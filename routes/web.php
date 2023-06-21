@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Livewire\AcademicCurriculum\Index as AcademicCurriculum;
-use App\Http\Livewire\Departments\Index as Department;
+use App\Http\Livewire\AcademicCurriculum\Index as AcademicCurriculumComponent;
+use App\Http\Livewire\Departments\Index as DepartmentComponent;
 use App\Http\Livewire\User\Index as UserComponent;
+use App\Http\Livewire\Subjects\Index as SubjectsComponent;
+use App\Http\Livewire\DepartmentSection\Index as DepartmentSectionComponent;
 
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\UserController;
@@ -56,8 +58,11 @@ Route::get('/user-edit/{user}',[UserDepComponent::class, 'render'])->name('user.
 
 Route::put('/user-update/{userId}',[UserComponent::class, 'update'])->name('user.edit_store');
 
-Route::get('pensum',AcademicCurriculum::class)->Middleware('auth')->name('academic_curriculum.index');
-Route::get('departments',Department::class)->middleware('auth')->name('departments.index');
+Route::get('pensum',AcademicCurriculumComponent::class)->Middleware('auth')->name('academic_curriculum.index');
+Route::get('departments',DepartmentComponent::class)->middleware('auth')->name('departments.index');
+Route::get('subjects',SubjectsComponent::class)->middleware('auth')->name('subjects.index');
+Route::get('departments-section',DepartmentSectionComponent::class)->middleware('auth')->name('department_section.index');
+
 if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
 {
     Route::get('/register', function() {
