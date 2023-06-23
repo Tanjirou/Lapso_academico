@@ -12,7 +12,7 @@
                                 </ol>
                             </nav>
                         </div>
-                        <div class="col-md-4 col-lg-4 col-xl-4 justify-content-end mb-0 d-flex mt-4 ml-auto">
+                        <div class="col-md-4 col-lg-4 col-xl-4 justify-content-end mb-2 d-flex mt-4 ml-auto">
                             <img src="assets/img/logo-SPA1.png" class="img-fluid mb-0 d-none d-md-block"
                                 alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
                         </div>
@@ -39,8 +39,9 @@
                             class="btn btn-primary w-100 w-md-auto btn-lg mb-2 mt-4 mt-md-0">Guardar</button>
                         </div>
                     </form>
+                    <hr>
                     <div class="row justify-content-center">
-                        <h1 class="mt-4">Listado de Secciones</h1>
+                        <h2 class="fond-weight-bold text-bold text-black m-0">LISTADO DE SECCIONES</h2>
                     </div>
                     <div class="row mt-3 justify-content-center">
                         <div class="col-md-10">

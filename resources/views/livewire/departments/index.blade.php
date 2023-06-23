@@ -24,9 +24,10 @@
                             </div>
                              <button type="submit" class="btn btn-primary w-100 w-md-auto btn-lg mb-2 mt-4 mt-md-0">Guardar</button>
                          </div>
+                         <hr>
                      </form>
                     <div class="row justify-content-center">
-                        <h1 class="mt-4">Departamentos</h1>
+                        <h2 class="text-bold text-primary fond-bold m-0">LISTADO DE DEPARTAMENTOS</h2>
                     </div>
                     <div class="row mt-3 justify-content-center">
                         <div class="col-md-10">
@@ -62,3 +63,4 @@
         </div>
     </div>
  </div>
+

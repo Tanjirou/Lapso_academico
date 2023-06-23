@@ -34,7 +34,7 @@
                 <div class="col-lg-12">
                     <div class="statbox widget box box-shadow shadow ">
                         <div class="row justify-content-center mb-3">
-                            <h1 class="font-weight-bold text-center">Crear Usuario</h1>
+                            <h2 class="text-bold text-black fond-bold m-0 mb-2">CREAR USUARIO</h2>
                         </div>
                         <div class="row mt-0">
                             <div class="col-md-12">

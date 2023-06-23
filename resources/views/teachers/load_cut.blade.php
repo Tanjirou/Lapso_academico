@@ -34,63 +34,29 @@
                         <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
-                                <li class="breadcrumb-item" ><a href="javascript:void(0);">Cargar Corte</a></li>
+                                <li class="breadcrumb-item" ><a href="javascript:void(0);">Carga A/R</a></li>
                                 <!--<li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">General</a></li>-->
                             </ol>
                         </nav>
                     </div>
                     <div class="col-md-4 col-lg-4 col-xl-4 justify-content-end mb-0 d-flex mt-4 ml-auto">
-                        <img src="assets/img/logo-sicano4.png" class="img-fluid mb-0 d-none d-md-block" alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
+                        <img src="assets/img/logo-SPA1.png" class="img-fluid mb-0 d-none d-md-block" alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
                     </div>
                 </div>
-                {{-- <div class="row mb-2 ">
-                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-6 col-4 mb-0 mt-3 mr-auto ml-2 m-0">
-                        <h2 class="text-bold text-primary fond-bold m-0">Corte</h2>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-6 justify-content-end mb-0 d-flex mt-0 ml-auto">
-                        <img src="assets/img/logo-sicano4.png" class="img-fluid justify-content-end mb-0" alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
-                    </div>
-                </div> --}}
             </div>
             <div class="row layout-spacing">
                 <div class="col-lg-12">
                     <div class="statbox widget box box-shadow shadow">
                         <div class="row mt-0">
                             <div class="col-md-12 text-center">
-                                <h4>Carga de Cortes</h4>
+                                <h2 class="text-bold text-primary fond-bold m-0">CARGA DE ESTUDIANTES</h2>
                                 <hr>
                             </div>
                         </div>
-                        <div class="row mt-0 mb-4">
+                        {{-- <div class="row mt-0 mb-4">
                             <div class="col-md-12 justify-content-center">
                                 <div class="form-group">
                                     <label for="textcorte">Seleccione el corte</label>
-                                    <!--<div class="row  text-center">
-                                        <div class="col-md-3">
-                                            <label class="new-control new-radio new-radio-text radio-primary">
-                                                <input type="radio" class="new-control-input" name="custom-radio-1">
-                                                <span class="new-control-indicator"></span><span class="new-radio-content">Corte I</span>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="new-control new-radio new-radio-text radio-primary">
-                                                <input type="radio" class="new-control-input" name="custom-radio-2">
-                                                <span class="new-control-indicator"></span><span class="new-radio-content">Corte II</span>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="new-control new-radio new-radio-text radio-primary">
-                                                <input type="radio" class="new-control-input" name="custom-radio-3">
-                                                <span class="new-control-indicator"></span><span class="new-radio-content">Corte III</span>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="new-control new-radio new-radio-text radio-primary">
-                                                <input type="radio" class="new-control-input" name="custom-radio-4">
-                                                <span class="new-control-indicator"></span><span class="new-radio-content">Corte IV</span>
-                                            </label>
-                                        </div>
-                                    </div>-->
                                     <div class="row justify-content-center text-center">
                                         <div class="col-md-3">
                                             <div class="custom-control custom-radio custom-control-inline">
@@ -119,19 +85,35 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="textAsign">Mención</label>
+                                     <select class="form-control" id="textAsign">
+                                            <option>Seleccione</option>
+                                            <option>Matematica</option>
+                                            <option>Física</option>
+                                            <option>Asignaturas Generales</option>
+                                            <option>Ciencias Gráficas</option>
+                                        </select>
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="textAsign">Asignatura</label>
                                      <select class="form-control" id="textAsign">
-                                            <option>Mecanica</option>
-                                            <option>Electrica</option>
+                                            <option>Seleccione</option>
                                             <option>Cálculo</option>
+                                            <option>Algebra</option>
+                                            <option>Programación I</option>
+                                            <option>Lab. Fisica</option>
                                         </select>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="textCorte">Sección</label>
                                     <select class="form-control" id="textCorte">
@@ -142,42 +124,27 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="textPunt">Puntuación</label>
+                                    <label for="textPunt">Cantidad Estudiantes</label>
                                     <input class="form-control" type="text" placeholder="40" >
-                                    <small id="sh-text1" class="form-text text-muted">Debe ser menor a 40 puntos.</small>
+                                    <small id="sh-text1" class="form-text text-muted">Cantidad de estudiantes que cursaron la materia.</small>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="textFechaIni">Fecha Inicio</label>
-                                     <input id="basicFlatpickr" value="Seleccione" class="form-control flatpickr flatpickr-input active" type="date">
-                                    <!-- var f1 = flatpickr(document.getElementById('basicFlatpickr')); -->
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="textFechaFin">Fecha Fin</label>
-                                    <input id="basicFlatpickr2" value="Seleccione" class="form-control flatpickr flatpickr-input active" type="date">
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="form-group text-center col-md-12">
-                                 <button class="btn btn-primary mr-2 btn-lg"> <a href="#"></a> Agregar</button>
                             </div>
                         </div>
 
                         <hr>
 
-                        <h4 class="text-center mb-4">Información de los cortes</h4>
+                        <h2 class="text-bold text-center text-primary fond-bold m-0 mb-3">BUSCAR UN TITULO PARA COLOCAR</h2>
                         <div class="row justify-content-end">
-                            <div class="col-3 align-content-end mb-4">
-                                <input type="text" id="searchTerm" class="form-control" placeholder="Buscar..." onkeyup="doSearch()">
+                            <div class="col-md-6 align-content-end mb-4">
+                                <input type="text" id="searchTerm" class="form-control" placeholder="Introduce la cédula del estudiante a Buscar..." onkeyup="doSearch()">
+                            </div>
+                            <div class="form-group text-center col-md-3">
+                                <button class="btn btn-primary mr-2 btn-lg"> <a href="#"></a> Buscar</button>
+                           </div>
+                           <div class="form-group text-center col-md-3 align-content-end">
+                                <button class="btn btn-success mr-2 btn-lg"> <a href="#"></a> NUEVO</button>
                             </div>
                         </div>
                             <div class="widget-content widget-content-area table-responsive">
@@ -185,38 +152,37 @@
                                 <table id="datos" class="table table-bordered table-hover table-striped mb-4">
                                     <thead>
                                         <tr>
-                                            <th class="text-center"> Corte </th>
-                                            <th class="text-center">Asignatura</th>
-                                            <th class="text-center">Sección</th>
-                                            <th class="text-center">Fecha Inicio</th>
-                                            <th class="text-center">Fecha Fin</th>
-                                            <th class="text-center">Puntuacion</th>
+                                            <th class="text-center"> Cédula </th>
+                                            <th class="text-center">Carrera</th>
+                                            <th class="text-center">Aprobado</th>
+                                            <th class="text-center">Reprobado</th>
                                             <th class="text-center">Acción</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="text-cente mb-4r"> Corte I </td>
-                                            <td class="text-center">Calculo I</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">01/02/2021</td>
-                                            <td class="text-center">01/03/2021</td>
-                                            <td class="text-center">25</td>
-                                            <td class="text-center"><button class="mr-2 btn btn-primary  warning confirm">Eliminar</button></td>
+                                            <td class="text-center mb-4"> 1234556 </td>
+                                            <td class="text-center">Ingenieria Mecanica</td>
+                                            <td class="text-center"><input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input"></td>
+                                            <td class="text-center"></td>
+                                            <td class="text-center"><button class="mr-2 btn btn-danger warning confirm">Eliminar</button></td>
                                         </tr>
                                         <tr>
-                                            <td class="text-center mb-4"> Corte II </td>
-                                            <td class="text-center">Calculo I</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">02/03/2021</td>
-                                            <td class="text-center">02/04/2021</td>
-                                            <td class="text-center">25</td>
-                                            <td class="text-center"><button class="mr-2 btn btn-primary  warning confirm">Eliminar</button></td>
+                                            <td class="text-center mb-4"> 0876543e46 </td>
+                                            <td class="text-center">Ingenieria Mecanica</td>
+                                            <td class="text-center"></td>
+                                            <td class="text-center"></td>
+                                            <td class="text-center"><button class="mr-2 btn btn-danger warning confirm">Eliminar</button></td>
                                         </tr>
 
                                     </tbody>
 
                                 </table>
+                            </div>
+                            <div class="row">
+                                <div class="form-group text-center col-md-12">
+                                     <button class="btn btn-primary mr-2 btn-lg"> <a href="#"></a> Registrar</button>
+                                </div>
                             </div>
 
                     </div>

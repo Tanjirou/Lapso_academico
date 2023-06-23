@@ -26,7 +26,7 @@
                         <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
-                                <li class="breadcrumb-item"><a href="javascript:void(0);">Actualizar</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Listado</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -37,10 +37,10 @@
                 </div>
             </div>
             <div class="row layout-spacing mt-2 justify-content-center mt-3">
-                <div class="col-10">
+                <div class="col-lg-12">
                     <div class="statbox widget box box-shadow shadow ">
                         <div class="row justify-content-center mb-3">
-                            <h2 class="fond-weight-bold text-bold text-primary m-0 mb-2">LISTADO DE USUARIOS</h2>
+                            <h2 class="fond-weight-bold text-bold text-primary m-0 mb-2">LISTADO DE SECCIONES</h2>
                         </div>
                         <div class="row mt-0">
                             <div class="col-md-12">
@@ -49,30 +49,39 @@
                                         <thead class="thead-primary">
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Cedula</th>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Tipo de Usuario</th>
-                                            <th scope="col">Opciones</th>
+                                            <th scope="col">Mención</th>
+                                            <th scope="col">Asignatura</th>
+                                            <th scope="col">Cant1</th>
+                                            <th scope="col">Cant2</th>
+                                            <th scope="col">Profesor</th>
+                                            <th scope="col">Sección</th>
+                                            <th class="text-center" scope="col">Opciones</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                             @php $cont=1; @endphp
-                                            @foreach ($users as $user)
+                                            {{-- @foreach ($users as $user) --}}
                                             <tr>
                                                 <th scope="row">{{ $cont++ }}</th>
-                                                <td>{{ $user->dni }}</td>
-                                                <td>{{ $user->names." ".$user->last_names }}</td>
-                                                <td>{{ $user->description  }}</td>
-                                                <td>
-                                                    <a href="{{route('user.edit',['user'=>$user->id])}}" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="text-center">
+                                                    {{-- <a href="{{route('user.edit',['user'=>$user->id])}}" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button> --}}
+                                                    <a href="" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
+                                                    <a href="{{ route('teachers.assigned_sections') }}" type="button" class="bg-info px-2 py-1 text-white rounded">Asignar</button>
+                                                    <a href="" type="button" class="bg-info px-2 py-1 text-white rounded">Eliminar</button>
                                                 </td>
                                             </tr>
-                                            @endforeach
+                                            {{-- @endforeach --}}
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="row justify-content-center">
-                                    {{$users->links()}}
+                                    {{-- {{$users->links()}} --}}
                                 </div>
                             </div>
                         </div>
@@ -83,4 +92,3 @@
         </div>
     </div>
 </x-app-layout>
-

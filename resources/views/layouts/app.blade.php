@@ -272,9 +272,9 @@
                              <li class="active">
                                  <a href="{{ route('teacher.load_cut') }}">Aprobado/Reprobado</a>
                              </li>
-                             <li class="active">
+                             {{-- <li class="active">
                                  <a href="{{ route('teacher.upload_content') }}">Modificar</a>
-                             </li>
+                             </li> --}}
                          </ul>
                      </li>
 
@@ -341,9 +341,9 @@
                                 <li class="active">
                                     <a href="{{ route('teacher.load_cut') }}">Aprobado/Reprobado</a>
                                 </li>
-                                <li class="active">
+                                {{-- <li class="active">
                                     <a href="{{ route('teacher.upload_content') }}">Modificar</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </li>
 
@@ -411,8 +411,11 @@
                                 <li class="active">
                                     <a href="{{ route('teachers.create_section') }}"> Crear </a>
                                 </li>
-                                <li class="active">
+                                {{-- <li class="active">
                                     <a href="{{ route('teachers.assigned_sections') }}"> Asignar </a>
+                                </li> --}}
+                                <li class="active">
+                                    <a href="{{ route('teachers.list_sections') }}"> Listado </a>
                                 </li>
                             </ul>
                         </li>
@@ -445,32 +448,9 @@
                                 <li class="active">
                                     <a href="{{ route('teacher.load_cut') }}">Aprobado/Reprobado</a>
                                 </li>
-                                <li class="active">
+                                {{-- <li class="active">
                                     <a href="{{ route('teacher.upload_content') }}">Modificar</a>
-                                </li>
-                                {{-- <li class="active">
-                                    <a href="{{ route('teacher.load_evaluations') }}">Cargar Evaluaciones</a>
                                 </li> --}}
-                                {{-- <li class="active">
-
-                                    <a href="#cargar-notas" data-toggle="collapse" aria-expanded="false"
-                                        class="dropdown-toggle"> Cargar Notas <svg xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-chevron-right">
-                                            <polyline points="9 18 15 12 9 6"></polyline>
-                                        </svg> </a>
-                                    <ul class="collapse sub-submenu list-unstyled" id="cargar-notas"
-                                        data-parent="#proceso">
-                                        <li class="active">
-                                            <a href="{{ route('teacher.upload_notes') }}"> Por Corte </a>
-                                        </li>
-                                        <li class="active">
-                                            <a href="{{ route('teacher.substitutes') }}"> Sustitutivos </a>
-                                        </li>
-                                    </ul>
-                                </li> --}}
-
                             </ul>
                         </li>
                         <li class="menu">
@@ -536,8 +516,11 @@
                                 <li class="active">
                                     <a href="{{ route('teachers.create_section') }}"> Crear </a>
                                 </li>
-                                <li class="active">
+                                {{-- <li class="active">
                                     <a href="{{ route('teachers.assigned_sections') }}"> Asignar </a>
+                                </li> --}}
+                                <li class="active">
+                                    <a href="{{ route('teachers.list_sections') }}"> Listado </a>
                                 </li>
                             </ul>
                         </li>
@@ -561,29 +544,8 @@
                                 <li class="active">
                                     <a href="{{ route('teacher.load_cut') }}">Aprobado/Reprobado</a>
                                 </li>
-                                <li class="active">
+                                {{-- <li class="active">
                                     <a href="{{ route('teacher.upload_content') }}">Modificar</a>
-                                </li>
-                                {{-- <li class="active">
-                                    <a href="{{ route('teacher.load_evaluations') }}">Cargar Evaluaciones</a>
-                                </li> --}}
-                                {{-- <li class="active">
-                                    <a href="#cargar-notas" data-toggle="collapse" aria-expanded="false"
-                                        class="dropdown-toggle"> Cargar Notas <svg xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-chevron-right">
-                                            <polyline points="9 18 15 12 9 6"></polyline>
-                                        </svg> </a>
-                                    <ul class="collapse sub-submenu list-unstyled" id="cargar-notas"
-                                        data-parent="#proceso">
-                                        <li class="active">
-                                            <a href="{{ route('teacher.upload_notes') }}"> Por Corte </a>
-                                        </li>
-                                        <li class="active">
-                                            <a href="{{ route('teacher.substitutes') }}"> Sustitutivos </a>
-                                        </li>
-                                    </ul>
                                 </li> --}}
                             </ul>
                         </li>
@@ -734,73 +696,6 @@
                         </li>
 
                     @endif
-
-                    {{-- @if (auth()->user()->user_type == )
-                        <li class="menu">
-                            <a href="#student-general" data-toggle="collapse" aria-expanded="false"
-                                class="dropdown-toggle">
-                                <div class="">
-                                    <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-layers">
-                                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                        <polyline points="2 17 12 22 22 17"></polyline>
-                                        <polyline points="2 12 12 17 22 12"></polyline>
-                                    </svg>
-                                    <span>Gestión Estudiante</span>
-                                </div>
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-chevron-right">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </div>
-                            </a>
-                            <ul class="collapse submenu list-unstyled" id="student-general"
-                                data-parent="#accordionExample">
-                                <li class="active">
-                                    <a href="{{ route('enrolled_subject.show') }}"> Carga Académica </a>
-                                </li>
-                                <li class="active">
-                                    <a href="{{ route('studensts.bulletin') }}"> Boletin </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu">
-                            <a href="#student-ver" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                                <div class="">
-                                    <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-layout">
-                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                        <line x1="3" y1="9" x2="21" y2="9"></line>
-                                        <line x1="9" y1="21" x2="9" y2="9"></line>
-                                    </svg>
-                                    <span>Sevicios</span>
-                                </div>
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-chevron-right">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </div>
-                            </a>
-                            <ul class="collapse submenu list-unstyled" id="student-ver" data-parent="#accordionExample">
-                                <li class="active">
-                                    <a href=" {{ route('students.history') }}"> Historial de Notas</a>
-                                </li>
-                                <li class="active">
-                                    <a href="{{ route('students.constance') }}"> Constancia </a>
-                                </li>
-                                <li class="active">
-                                    <a href="index2.html"> Solicitud Revisión </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                    @endif --}}
                 </ul>
             </nav>
         </div>

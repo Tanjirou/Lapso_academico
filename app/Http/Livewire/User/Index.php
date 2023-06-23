@@ -198,7 +198,8 @@ class Index extends Component
 
     public function render()
     {
-       return view('livewire.user.index',['departments' => Department::all()]);
+        $id_usuario ='';
+       return view('livewire.user.index',['departments' => Department::all(), 'id_usuario'=>$id_usuario]);
 
         /* $mentions = Mention::all();
         return view('livewire.user.index',['mentions' => $mentions]); */

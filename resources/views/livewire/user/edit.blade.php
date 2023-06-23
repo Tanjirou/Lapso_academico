@@ -125,6 +125,7 @@
                                                     <option value="" >Seleccione</option>
                                                 @foreach ($user_types as $user_type)
                                                     <option value="{{ $user_type->id }}" {{($user_type->id == $user->user_type) ? 'selected': ''}}>{{ $user_type->description }}</option>
+                                                    @php $id_usuario = $user_type->id; @endphp
                                                 @endforeach
                                             </select>
 
@@ -134,8 +135,8 @@
                                                 </span>
                                             @enderror
                                     </div>
-                                    @livewire('user-dep')
-                                    <div wire:target="selectedUser">
+                                    @livewire('user-dep', ['user_type' => $id_usuario])
+                                    {{-- <div wire:target="selectedUser">
                                         @if($selectedUser!=1 && $selectedUser!=2  && $selectedUser!=4 && !empty($selectedUser) && !is_null($selectedUser))
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -212,7 +213,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                    </div>
+                                    </div> --}}
 
 
                                     <div class="form-group row mb-0 justify-content-center">

@@ -63,4 +63,8 @@ class TeacherController extends Controller
     public function assignedSection(){
         return view('teachers.assigned_sections');
     }
+
+    public function listSection(){
+        return view('teachers.list_sections');
+    }
 }

@@ -127,6 +127,7 @@ Route::get('/sol-revision', function () {
 /* MENU - GESTION SECCIONES */
 Route::get('crear-seccion', [TeacherController::class, 'createSection'])->Middleware('auth')->name('teachers.create_section');
 Route::get('asignar-seccion', [TeacherController::class, 'assignedSection'])->Middleware('auth')->name('teachers.assigned_sections');
+Route::get('listado-secciones', [TeacherController::class, 'listSection'])->Middleware('auth')->name('teachers.list_sections');
 
 // Route::get('/teacher-profile', [TeacherController::class, 'profile'])->name('teacher.profile');
 // Route::post('/teacher-profile/store/{user}', [TeacherController::class, 'teacher_update'])->name('teacher.update_profile');

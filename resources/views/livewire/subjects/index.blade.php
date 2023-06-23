@@ -52,8 +52,9 @@
                             class="btn btn-primary w-100 w-md-auto btn-lg mb-2 mt-4 mt-md-0">Guardar</button>
                         </div>
                     </form>
+                    <br>
                     <div class="row justify-content-center">
-                        <h1 class="mt-4">Materias</h1>
+                        <h2 class="text-bold text-black fond-bold m-0 mb-2">LISTADO DE MATERIAS</h2>
                     </div>
                     <div class="row mt-3 justify-content-center">
                         <div class="col-md-10">

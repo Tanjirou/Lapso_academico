@@ -26,7 +26,7 @@
                 <div class="col-lg-12">
                     <div class="statbox widget box box-shadow shadow ">
                         <div class="row justify-content-center p-3">
-                            <h1 class="font-weight-bold text-center">Crear Usuario</h1>
+                            <h2 class="fond-weight-bold text-bold text-primary m-0 mb-2">CREAR USUARIO</h1>
                         </div>
                         <div class="row mt-0 justify-content-center">
                             <div class=" col-11 col-md-10 pb-3">

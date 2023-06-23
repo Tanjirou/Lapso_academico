@@ -21,7 +21,7 @@
                         <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
-                                <li class="breadcrumb-item" ><a href="javascript:void(0);">Crear Sección</a></li>
+                                <li class="breadcrumb-item" ><a href="javascript:void(0);">Crear Estructura</a></li>
                                 <!--<li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Secciones</a></li>-->
                             </ol>
                         </nav>
@@ -45,32 +45,39 @@
                     <div class="statbox widget box box-shadow shadow ">
                         <div class="row mt-0 justify-content-center">
                             <div class="col-md-10 align-content-center">
-                                <div class="row justify-content-end text-right">
-                                    <div class="form-group col-md-12">
-                                         <button class="btn btn-success mr-2 btn-lg"> <a href="#"></a> Ver todas </button>
-                                         <hr>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-center mb-3 mt-0 mr-auto ml-2 m-0">
-                                    <h2 class="text-bold text-primary fond-bold m-0">CREAR SECCIÓN</h2>
+                                <div class="row justify-content-center mb-3 mt-2 mr-auto ml-2 m-0">
+                                    <h2 class="text-bold text-primary fond-bold m-0">CREAR ESTRUCTURA</h2>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="textDpto">Departamento</label>
-                                             <input type="text" class="form-control" id="dpto" placeholder="Dpto" value="Ciencias Sociales" readonly >
+                                             <input type="text" class="form-control" id="dpto" placeholder="Dpto" value="Estudios Básicos" readonly >
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="textMateria">Asignatura</label>
-                                            <select class="form-control" id="textMateria">
+                                            <label for="textMenc">Mención (Sección)</label>
+                                            <select class="form-control" id="textMenc">
+                                                <option>Seleccione</option>
+                                                <option>Matematica</option>
+                                                <option>Física</option>
+                                                <option>Asignaturas Generales</option>
+                                                <option>Ciencias Gráficas</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="textAsig">Asignatura</label>
+                                            <select class="form-control" id="textAsig">
+                                                <option>Seleccione</option>
                                                 <option>Calculo I</option>
                                                 <option>Algebra</option>
-                                                <option>Lenguaje</option>
-                                                <option>Ingles I</option>
+                                                <option>Programación I</option>
+                                                <option>Fisica</option>
                                             </select>
                                         </div>
                                     </div>
@@ -90,7 +97,6 @@
                                             <small id="sh-text1" class="form-text text-muted">Número de estudiantes en promedio para la planificación del próximo semestre.</small>
                                         </div>
                                     </div>
-
                                 </div>
                                     <br>
                                     <div class="row">
@@ -98,9 +104,6 @@
                                              <button class="btn btn-primary mr-2 btn-lg"> <a href="#"></a> Guardar </button>
                                         </div>
                                     </div>
-                                    <hr>
-
-
                             </div>
                         </div>
                     </div>

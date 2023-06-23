@@ -35,14 +35,14 @@
                 <div class="col-10">
                     <div class="statbox widget box box-shadow shadow ">
                         <div class="row justify-content-center mb-3">
-                            <h1 class="font-weight-bold text-center">Restablecer</h1>
+                            <h2 class="fond-weight-bold text-bold text-primary m-0 mb-2">RESTABLECER</h2>
                         </div>
                         <div class="row mt-0">
                             <div class="col-md-12">
 
                                 <div class="form-group row">
                                     <label for="user_dni"
-                                        class="col-md-4 col-form-label text-md-right text-dark ">{{ __('Cedula') }}</label>
+                                        class="col-md-4 col-form-label text-md-right text-dark ">{{ __('Cédula') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="user_dni" type="text"
