@@ -17,15 +17,20 @@
                                 alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
                         </div>
                     </div>
-                    <form wire:submit.prevent='save'>
+                    <form wire:submit.prevent='save' method="POST">
+                        @csrf
+                        @if (session()->has('mens'))
+                        <div class="alert alert-success">
+                            {{ session('mens') }}
+                        </div>
+                        @endif
                         <div class="form-group row mx-sm-3 mb-2 justify-content-center align-items-center align-content-center">
                             <div class="col-12 col-md-6 align-content-center align-items-center">
-                                <input type="text" class="form-control" id="name"
-                                    placeholder="Nombre de la sección">
+                                <input type="text" wire:model = "departmentSection.description" class="form-control" placeholder="Nombre de la sección">
                             </div>
                             <div class="col-12 col-md-6 d-md-flex justify-content-center align-content-center align-items-center">
                                 <label for="credit_unid" class="col-form-label mr-3">Departamento</label>
-                                <select class="form-control" name="department" id="department">
+                                <select wire:model="departmentSection.departmentid" class="form-control">
                                     <option value="">Seleccione</option>
                                     @foreach ($departments as $department)
                                         <option value="{{$department->id}}">{{$department->name}}</option>
@@ -55,9 +60,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        @forelse($departmentSections as $departmentSection)
+                                        <tr>
+                                            <td>{{$departmentSection->description}}</td>
+                                            <td>{{$departmentSection->department}}</td>
+                                            <td>
+                                                <button wire:click="edit({{$departmentSection->id}})" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
+                                            </td>
+                                        </tr>
+                                        @empty
+                                            <h3>No existen secciones de los departamentos para mostrar</h3>
+                                        @endforelse
                                     </tbody>
                                 </table>
+                            </div>
+                            <div class="row justify-content-end">
+                                {{$departmentSections->links()}}
                             </div>
                         </div>
                     </div>

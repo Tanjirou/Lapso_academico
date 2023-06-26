@@ -27,20 +27,22 @@ class Index extends Component
     public function done(Department $department)
     {
         $department->update(['done'=>!$department->done]);
+        session()->flash('mens', 'Departamento guardado correctamente.');
         $this->mount();
     }
     public function save()
     {
         $this->validate();
         $this->department->save();
+        session()->flash('mens', 'Departamento guardado correctamente.');
         $this->mount();
-        $this->emitUp('departmentSaved','Departamento guardado correctamente');
+        $this->emitUp('departmentSaved','Departamento guardado correctamente.');
 
     }
     public function render()
     {
         return view('livewire.departments.index',[
-            'departments'=>Department::orderBy('id','desc')->paginate(7),
+            'departments'=>Department::orderBy('id','desc')->paginate(10),
         ]);
     }
 }

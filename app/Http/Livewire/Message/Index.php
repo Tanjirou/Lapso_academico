@@ -6,7 +6,8 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    public function pensumSaved($message)
+    protected $listeners =['departmentSectionSaved'];
+    public function departmentSectionSaved($message)
     {
         session()->flash('message',$message);
     }
