@@ -24,7 +24,7 @@ class UserTypesSeeder extends Seeder
         ]);
 
         DB::table('user_types')->insert([
-            'description' => 'Jefe Sección',
+            'description' => 'Jefe de Sección',
             'status' => 'A',
         ]);
 

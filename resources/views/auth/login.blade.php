@@ -85,8 +85,8 @@
                                                 value="">Entrar</button>
                                         </div>
                                     </div>
-                                    <p class="signup-link">Si presentas problemas u olvidastes tu
-                                        contraseña, dirígete a URACE.
+                                    <p class="signup-link">Si presentas problemas y/o olvidastes tu
+                                        contraseña, contacta al Administrador del sistema.
                                     </p>
 
                                 </div>
