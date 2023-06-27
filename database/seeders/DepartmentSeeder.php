@@ -45,5 +45,9 @@ class DepartmentSeeder extends Seeder
             'name' => 'Basico',
             'status' => 'A',
         ]);
+        DB::table('departments')->insert([
+            'name' => 'Servicio Comunitario',
+            'status' => 'A',
+        ]);
     }
 }

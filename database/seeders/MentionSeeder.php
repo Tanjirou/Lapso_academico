@@ -124,34 +124,6 @@ class MentionSeeder extends Seeder
             'name' => 'Ciencias Gráficas',
             'status' => 'A',
         ]);
-        // DB::table('mentions')->insert([
-        //     'departmentid' => '1',
-        //     'name' => 'Electrónica Aplicada',
-        //     'status' => 'A',
-        // ]);
 
-        // DB::table('mentions')->insert([
-        //     'departmentid' => '1',
-        //     'name' => 'Comunicación',
-        //     'status' => 'A',
-        // ]);
-
-        // DB::table('mentions')->insert([
-        //     'departmentid' => '1',
-        //     'name' => 'Control y Computación',
-        //     'status' => 'A',
-        // ]);
-
-        // DB::table('mentions')->insert([
-        //     'departmentid' => '7',
-        //     'name' => 'Matematica',
-        //     'status' => 'A',
-        // ]);
-
-        // DB::table('mentions')->insert([
-        //     'departmentid' => '7',
-        //     'name' => 'Fisica',
-        //     'status' => 'A',
-        // ]);
     }
 }
