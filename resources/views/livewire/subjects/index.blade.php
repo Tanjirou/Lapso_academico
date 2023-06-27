@@ -17,29 +17,35 @@
                                 alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
                         </div>
                     </div>
-                    <form wire:submit.prevent='save'>
+                    <form wire:submit.prevent='save' method="POST">
+                        @csrf
+                        @if (session()->has('mens'))
+                        <div class="alert alert-success">
+                            {{ session('mens') }}
+                        </div>
+                        @endif
                         <div class="form-group row mx-sm-3 mb-2 justify-content-center">
                             <div class="col-12 col-md-5 align-content-center align-items-center">
-                                <label for="code">Código</label>
-                                <input type="text" class="form-control" id="code"
+                                <label for="subject.code">Código</label>
+                                <input type="text" class="form-control" wire:model="subject.code"
                                     placeholder="Código de la materia">
-                                @error('codigo.name')
+                                @error('subject.code')
                                     <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="col-12 col-md-5 align-content-center align-items-center">
-                                <label for="name">Nombre</label>
-                                <input type="email" class="form-control" id="name"
+                                <label for="subject.name">Nombre</label>
+                                <input type="text" class="form-control" wire:model ="subject.name"
                                     placeholder="Nombre de la materia">
                             </div>
                             <div class="col-12 col-md-5 align-content-center align-items-center">
-                                <label for="credit_unid">Unidades de crédito</label>
-                                <input type="email" class="form-control" id="credit_unid"
+                                <label for="subject.credit_unid">Unidades de crédito</label>
+                                <input type="number" class="form-control" wire:model="subject.credit_units"
                                     placeholder="En números">
                             </div>
                             <div class="col-12 col-md-5 align-content-center align-items-center">
                                 <label for="department">Departamento</label>
-                                <select class="form-control" id="department">
+                                <select class="form-control" wire:model="subject.departmentsid">
                                     <option value="">Seleccione</option>
                                     @foreach ($departments as $department)
                                     <option value="{{$department->id}}">{{$department->name}}</option>
@@ -70,7 +76,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        @forelse ($subjects as $subject)
+                                            <tr>
+                                                <td>{{$subject->code}}</td>
+                                                <td>{{$subject->name}}</td>
+                                                <td>{{$subject->credit_units}}</td>
+                                                <td>{{$subject->department}}</td>
+                                                <td> <button wire:click="edit({{$subject->id}})" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button></td>
+                                            </tr>
+                                        @empty
+                                        <h3>No existen materias para mostrar</h3>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>
