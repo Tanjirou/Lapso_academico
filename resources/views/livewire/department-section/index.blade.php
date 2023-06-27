@@ -46,7 +46,7 @@
                     </form>
                     <hr>
                     <div class="row justify-content-center">
-                        <h2 class="fond-weight-bold text-bold text-black m-0">LISTADO DE SECCIONES</h2>
+                        <h2 class="text-bold text-primary fond-bold m-0">LISTADO DE SECCIONES</h2>
                     </div>
                     <div class="row mt-3 justify-content-center">
                         <div class="col-md-10">

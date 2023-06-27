@@ -143,18 +143,6 @@
                             </a>
                         </div>
 
-                        {{-- <div class="dropdown-item">
-                            <a href="apps_mailbox.html">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-inbox">
-                                    <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
-                                    <path
-                                        d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
-                                    </path>
-                                </svg> <span>Mis mensajes</span>
-                            </a>
-                        </div> --}}
                         <div class="dropdown-item">
                             <a href="{{  route('profile.show') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -211,10 +199,10 @@
                         <p>Jefe de Sección</p>
                         @elseif(auth()->user()->user_type ==4)
                         <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof.png')  }}" alt="avatar">
-                        <p>Profesor</p>
+                        <p>Coordinador</p>
                         @else
                             <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png')  }}" alt="avatar">
-                            <p>Coordinador</p>
+                            <p>Profesor</p>
                         @endif
                     </div>
                 </div>
@@ -244,7 +232,7 @@
                         </a>
                     </li>
 
-                     <!--COORDINADOR-->
+                     <!--PROFESOR NORMAL-->
                      @if (auth()->user()->user_type == 5)
                      <!--GESTION MATERIAS-->
                      <li class="menu">
@@ -306,14 +294,12 @@
                              <li class="active">
                                  <a href="user_profile2.html">Listado Aprobados/Reprobados</a>
                              </li>
-                             <li class="active">
-                                 <a href="user_account_setting.html">Estadisticas</a>
-                             </li>
+
                          </ul>
                      </li>
                  @endif
 
-                    <!--PROFESOR NORMAL-->
+                    <!--COORDINADOR-->
                     @if (auth()->user()->user_type == 4)
                         <!--GESTION MATERIAS-->
                         <li class="menu">
@@ -341,9 +327,9 @@
                                 <li class="active">
                                     <a href="{{ route('teacher.load_cut') }}">Aprobado/Reprobado</a>
                                 </li>
-                                {{-- <li class="active">
-                                    <a href="{{ route('teacher.upload_content') }}">Modificar</a>
-                                </li> --}}
+                                <li class="active">
+                                    <a href="user_account_setting.html">Estadisticas</a>
+                                </li>
                             </ul>
                         </li>
 
@@ -622,7 +608,7 @@
                             </a>
                             <ul class="collapse submenu list-unstyled" id="admin-pensum" data-parent="#accordionExample">
                                 <li class="active">
-                                    <a href="{{route('academic_curriculum.index')}}">Crear y listar Pensum</a>
+                                    <a href="{{route('academic_curriculum.index')}}">Crear y listar</a>
                                 </li>
                                 <li class="active">
                                     <a href="{{route('subjects.index')}}">Crear Materias</a>
