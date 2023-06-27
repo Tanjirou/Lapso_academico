@@ -90,6 +90,9 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="row justify-content-end">
+                                {{$subjects->links()}}
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -4,10 +4,13 @@ namespace App\Http\Livewire\Subjects;
 use App\Models\Subject;
 use Livewire\Component;
 use App\Models\Department;
+use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 
 class Index extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $departments;
     public Subject $subject;
     protected $rules =['subject.code'=>'required|min:3','subject.name'=>'required|min:3',
@@ -41,7 +44,7 @@ class Index extends Component
         $subjects = DB::table('subjects')
         ->join('departments','departments.id','=','subjects.departmentsid')
         ->select('subjects.*','departments.name as department')
-        ->orderBy('id')->paginate(10);
+        ->orderByDesc('id')->paginate(10);
         return view('livewire.subjects.index',['subjects'=>$subjects]);
     }
 }
