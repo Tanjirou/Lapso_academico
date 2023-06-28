@@ -51,8 +51,7 @@
                                             <th scope="col">#</th>
                                             <th scope="col">Mención</th>
                                             <th scope="col">Asignatura</th>
-                                            <th scope="col">Cant1</th>
-                                            <th scope="col">Cant2</th>
+                                            <th scope="col">Cant. Estudiantes</th>
                                             <th scope="col">Profesor</th>
                                             <th scope="col">Sección</th>
                                             <th class="text-center" scope="col">Opciones</th>
