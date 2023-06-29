@@ -13,20 +13,20 @@ use Illuminate\Support\Facades\DB;
 
 class Index extends Component
 {
-    public $user_types, $departments, $user, $teacher, $section, $userId,
+    public $user_types, $departments, $user, $teacher, $section, $userId, $college_degree,
     $selectedUser,$selectedDepartment =null,$selectedMention = null,$mentions = null;
     public UserType $user_type;
     public Department $department;
     protected $rules=[
         'password' => 'required|string|min:8',
-        'names' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
-        'last_names' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
+        'names' => 'required|string|max:255',
+        'last_names' => 'required|string|max:255',
         'email' => 'string|email|max:255|unique:users|nullable',
         'telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable',
         'selectedUser' => 'required',
         'selectedDepartment' => 'nullable',
         'selectedMention' => 'nullable',
-        'college_degree' => 'regex:/^[\pL\s\-]+$/u|max:255|nullable'];
+        'college_degree' => 'string|max:255|nullable'];
 
     public function mount($user){
         $this->user = $user;
@@ -70,12 +70,12 @@ class Index extends Component
                 ->update(
                     ['ndepartament'=> $this->selectedDepartment,
                      'nmention' => $this->selectedMention,
-                     'college_degree' => $data['college_degree']
+                     'college_degree' => $this->college_degree
                     ]);
          }
 
         //Mostrar un mensaje de exito
-        return redirect()->route('users.list')->with('mens','Usuario registrado exitosamente');
+        return redirect()->route('users.list')->with('mens','Usuario actualizado exitosamente');
         //session()->flash('mens', 'Usuario registrado exitosamente');
         /* $this->emitUp('userSaved','Usuario registrado correctamente'); */
 

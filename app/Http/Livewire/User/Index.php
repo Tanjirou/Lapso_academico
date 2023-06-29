@@ -27,14 +27,14 @@ class Index extends Component
     protected $rules=[
     'dni' => 'required|numeric|digits_between:6,9|unique:users',
     'password' => 'required|string|min:8',
-    'names' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
-    'last_names' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
+    'names' => 'required|string|max:255',
+    'last_names' => 'required|string|max:255',
     'email' => 'string|email|max:255|unique:users|nullable',
     'telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable',
     'selectedUser' => 'required',
     'selectedDepartment' => 'nullable',
     'selectedMention' => 'nullable',
-    'college_degree' => 'regex:/^[\pL\s\-]+$/u|max:255|nullable'];
+    'college_degree' => 'string|max:255|nullable'];
 
     protected $paginationTheme = 'bootstrap';
 
@@ -111,8 +111,8 @@ class Index extends Component
             ->join('user_types', 'user_types.id','=','users.user_type')
             ->where('users.status','=', 'A')
             ->select('users.id', 'users.names','users.last_names', 'users.dni', 'user_types.description')
-            ->orderBy('user_types.description')
-            ->simplePaginate(2);
+            ->orderByDesc('users.id')
+            ->simplePaginate(10);
             return view('livewire.user.list')->with('users',$users);
     }
 

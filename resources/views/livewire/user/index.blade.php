@@ -48,7 +48,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="names"  class="text-dark">{{ __('Nombres') }}</label>
-                                                <input id="names" wire:model="names" type="text" class="form-control mb-2 @error('names') is-invalid @enderror" name="names" value="{{ old('names') }}" required autocomplete="names" autofocus pattern="[a-zA-Z ]{2,48}" title="Solo se permiten letras" placeholder="Evan Jesus">
+                                                <input id="names" wire:model="names" type="text" class="form-control mb-2 @error('names') is-invalid @enderror" name="names" value="{{ old('names') }}" required autocomplete="names" autofocus placeholder="Evan Jesus">
                                             @error('names')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -59,7 +59,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="last_names"  class="text-dark">{{ __('Apellidos') }}</label>
-                                                <input id="last_names" wire:model="last_names"  type="text" class="form-control mb-2 @error('last_names') is-invalid @enderror" name="last_names" value="{{ old('last_names') }}" required autocomplete="last_names" autofocus pattern="[a-zA-Z ]{2,48}" title="Solo se permiten letras" placeholder="Sibrian Melendez">
+                                                <input id="last_names" wire:model="last_names"  type="text" class="form-control mb-2 @error('last_names') is-invalid @enderror" name="last_names" value="{{ old('last_names') }}" required autocomplete="last_names" autofocus placeholder="Sibrian Melendez">
                                             @error('last_names')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
