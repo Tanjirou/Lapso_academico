@@ -62,23 +62,6 @@ class Index extends Component
 
     public function store()
     {
-        // $messages = [
-        //     'dni.required' => 'La cédula del usuario es requerida',
-        //     'dni.numeric' => 'Solo se admite caracteres numéricos',
-        //     'dni.unique' => 'Ya existe un usuario con ese numero de cédula',
-        //     'names.required' => 'El nombre del usuario es requerido',
-        //     'names.max' => 'El nombre del usuario debe tener maximo 255 caracteres',
-        //     'last_names.required' => 'El apellido del usuario es requerido',
-        //     'last_names.max' => 'El apellido del usuario debe tener maximo 255 caracteres',
-        //     'email.email' => 'Debe colocar un email con un formato valido',
-        //     'email.max' => 'El email del usuario debe tener maximo 255 caracteres',
-        //     'email.unique' => 'Ya existe un usuario con ese email',
-        //     'telephone.max' => 'El telefono del usuario debe tener maximo 12 caracteres',
-        //     'password.required' => 'La clave del usuario es requerida',
-        //     'password.max' => 'La clave del usuario debe tener minimo 8 caracteres',
-        //     'selectedUser.required' => 'El tipo de usuario es requerido',
-
-        // ];
         $this->validate($this->rules);
         //Guardar datos en la primera tabla user
         $user = new User;
@@ -155,19 +138,6 @@ class Index extends Component
     }
 
     public function update(User $user, Teacher $teacher){
-        // $this->mount();
-        // $this->validate(['dni' => 'required|numeric|digits_between:6,9|unique:users']);
-        // // 'password' => 'required|string|min:8',
-        // $this->validate(['names' => 'required|regex:/^[\pL\s\-]+$/u|max:255']);
-        // $this->validate(['last_names' => 'required|regex:/^[\pL\s\-]+$/u|max:255']);
-        // $this->validate(['email' => 'string|email|max:255|unique:users|nullable']);
-        // $this->validate(['telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable']);
-        // $this->validate(['password' => 'required|string|min:8']);
-        // $this->validate(['selectedUser' => 'required']);
-        // $this->validate(['selectedDepartment' => 'nullable']);
-        // $this->validate(['selectedMention' => 'nullable']);
-        // $this->validate(['college_degree' => 'regex:/^[\pL\s\-]+$/u|max:255|nullable']);
-
         $this->validate($this->rules);
         $user = User::find($this->userId);
         $user->dni = $this->dni;
