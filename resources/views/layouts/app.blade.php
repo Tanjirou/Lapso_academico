@@ -213,7 +213,7 @@
                     <!--<li class="menu active">-->
                     <li class="menu menu-heading mt-0 text-center">
                         <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
                                     stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg><span>PANEL DE CONTROL</span></div>
@@ -234,70 +234,70 @@
 
                      <!--PROFESOR NORMAL-->
                      @if (auth()->user()->user_type == 5)
-                     <!--GESTION MATERIAS-->
-                     <li class="menu">
-                         <a href="#proceso" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                             <div class="">
-                                 <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                     stroke-linejoin="round" class="feather feather-airplay">
-                                     <path
-                                         d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1">
-                                     </path>
-                                     <polygon points="12 15 17 21 7 21 12 15"></polygon>
-                                 </svg>
-                                 <span>Gestión Materias</span>
-                             </div>
-                             <div>
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                     stroke-linejoin="round" class="feather feather-chevron-right">
-                                     <polyline points="9 18 15 12 9 6"></polyline>
-                                 </svg>
-                             </div>
-                         </a>
-                         <ul class="collapse submenu list-unstyled" id="proceso" data-parent="#accordionExample">
-                             <li class="active">
-                                 <a href="{{ route('teacher.load_cut') }}">Aprobado/Reprobado</a>
-                             </li>
-                             {{-- <li class="active">
-                                 <a href="{{ route('teacher.upload_content') }}">Modificar</a>
-                             </li> --}}
-                         </ul>
-                     </li>
+                        <!--GESTION MATERIAS-->
+                        <li class="menu">
+                            <a href="#proceso" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                <div class="">
+                                    <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-airplay">
+                                        <path
+                                            d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1">
+                                        </path>
+                                        <polygon points="12 15 17 21 7 21 12 15"></polygon>
+                                    </svg>
+                                    <span>Gestión Materias</span>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-chevron-right">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </div>
+                            </a>
+                            <ul class="collapse submenu list-unstyled" id="proceso" data-parent="#accordionExample">
+                                <li class="active">
+                                    <a href="{{ route('teacher.load_cut') }}">Aprobado/Reprobado</a>
+                                </li>
+                                {{-- <li class="active">
+                                    <a href="{{ route('teacher.upload_content') }}">Modificar</a>
+                                </li> --}}
+                            </ul>
+                        </li>
 
-                     <!--REPORTES-->
-                     <li class="menu">
-                         <a href="#report-teacher" data-toggle="collapse" aria-expanded="false"
-                             class="dropdown-toggle">
-                             <div class="">
-                                 <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                     stroke-linejoin="round" class="feather feather-clipboard">
-                                     <path
-                                         d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2">
-                                     </path>
-                                     <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                                 </svg>
-                                 <span>Reportes</span>
-                             </div>
-                             <div>
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                     stroke-linejoin="round" class="feather feather-chevron-right">
-                                     <polyline points="9 18 15 12 9 6"></polyline>
-                                 </svg>
-                             </div>
-                         </a>
-                         <ul class="collapse submenu list-unstyled" id="report-teacher"
-                             data-parent="#accordionExample">
-                             <li class="active">
-                                 <a href="user_profile2.html">Listado Aprobados/Reprobados</a>
-                             </li>
+                        <!--REPORTES-->
+                        <li class="menu">
+                            <a href="#report-teacher" data-toggle="collapse" aria-expanded="false"
+                                class="dropdown-toggle">
+                                <div class="">
+                                    <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-clipboard">
+                                        <path
+                                            d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2">
+                                        </path>
+                                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                                    </svg>
+                                    <span>Reportes</span>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-chevron-right">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </div>
+                            </a>
+                            <ul class="collapse submenu list-unstyled" id="report-teacher"
+                                data-parent="#accordionExample">
+                                <li class="active">
+                                    <a href="user_profile2.html">Listado A/R.</a>
+                                </li>
 
-                         </ul>
-                     </li>
-                 @endif
+                            </ul>
+                        </li>
+                    @endif
 
                     <!--COORDINADOR-->
                     @if (auth()->user()->user_type == 4)
@@ -397,9 +397,6 @@
                                 <li class="active">
                                     <a href="{{ route('teachers.create_section') }}"> Crear </a>
                                 </li>
-                                {{-- <li class="active">
-                                    <a href="{{ route('teachers.assigned_sections') }}"> Asignar </a>
-                                </li> --}}
                                 <li class="active">
                                     <a href="{{ route('teachers.list_sections') }}"> Listado </a>
                                 </li>
@@ -568,29 +565,29 @@
 
                     @if (auth()->user()->user_type == 1)
                      <!--GESTION DEPARTAMENTO-->
-                     <li class="menu">
-                        <a href="#admin-departamento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <div class="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                                <span>Gestión Departamento</span>
-                            </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-chevron-right">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </div>
-                        </a>
-                        <ul class="collapse submenu list-unstyled" id="admin-departamento" data-parent="#accordionExample">
-                            <li class="active">
-                                <a href="{{route('departments.index')}}">Crear y listar</a>
-                            </li>
-                            <li class="active">
-                                <a href="{{route('department_section.index')}}">Secciones</a>
-                            </li>
-                        </ul>
-                    </li>
+                        <li class="menu">
+                            <a href="#admin-departamento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                <div class="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                                    <span>Gestión Departamento</span>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-chevron-right">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </div>
+                            </a>
+                            <ul class="collapse submenu list-unstyled" id="admin-departamento" data-parent="#accordionExample">
+                                <li class="active">
+                                    <a href="{{route('departments.index')}}">Crear y listar</a>
+                                </li>
+                                <li class="active">
+                                    <a href="{{route('department_section.index')}}">Secciones</a>
+                                </li>
+                            </ul>
+                        </li>
                         <!--GESTION PENSUM-->
                         <li class="menu">
                             <a href="#admin-pensum" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">

@@ -32,7 +32,7 @@
                     </form>
                     <hr>
                    <div class="row justify-content-center">
-                    <h2 class="text-bold text-black fond-bold m-0 mb-2">PENSUMS ACADEMICOS</h2>
+                    <h2 class="text-bold text-primary fond-bold m-0 mb-2">PENSUMS ACADEMICOS</h2>
                    </div>
                    <div class="row mt-3 justify-content-center">
                        <div class="col-md-10">

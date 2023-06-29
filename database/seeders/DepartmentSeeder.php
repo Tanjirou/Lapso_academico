@@ -15,17 +15,17 @@ class DepartmentSeeder extends Seeder
     public function run()
     {
         DB::table('departments')->insert([
-            'name' => 'Electronica',
+            'name' => 'Electrónica',
             'status' => 'A',
         ]);
 
         DB::table('departments')->insert([
-            'name' => 'Electrica',
+            'name' => 'Eléctrica',
             'status' => 'A',
         ]);
 
         DB::table('departments')->insert([
-            'name' => 'Quimica',
+            'name' => 'Química',
             'status' => 'A',
         ]);
         DB::table('departments')->insert([
@@ -33,16 +33,20 @@ class DepartmentSeeder extends Seeder
             'status' => 'A',
         ]);
         DB::table('departments')->insert([
-            'name' => 'Mecanica',
+            'name' => 'Mecánica',
             'status' => 'A',
         ]);
 
         DB::table('departments')->insert([
-            'name' => 'Metalurgica',
+            'name' => 'Metalúrgica',
             'status' => 'A',
         ]);
         DB::table('departments')->insert([
-            'name' => 'Basico',
+            'name' => 'EStudios Básicos',
+            'status' => 'A',
+        ]);
+        DB::table('departments')->insert([
+            'name' => 'Servicio Comunitario',
             'status' => 'A',
         ]);
     }

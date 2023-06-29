@@ -59,7 +59,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="textMenc">Mención (Sección)</label>
+                                            <label for="textMenc">Sección del Departamneto</label>
                                             <select class="form-control" id="textMenc">
                                                 <option>Seleccione</option>
                                                 <option>Matematica</option>
@@ -94,7 +94,7 @@
                                         <div class="form-group">
                                             <label for="textPunt">Cantidad de Estudiantes</label>
                                             <input class="form-control" type="integer" placeholder="40" >
-                                            <small id="sh-text1" class="form-text text-muted">Número de estudiantes en promedio para la planificación del próximo semestre.</small>
+                                            <small id="sh-text1" class="form-text text-muted">Cantidad máxima de estudiantes en promedio para la planificación del próximo semestre.</small>
                                         </div>
                                     </div>
                                 </div>

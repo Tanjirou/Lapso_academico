@@ -89,7 +89,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="textAsign">Mención</label>
+                                    <label for="textAsign">Sección del Departamento</label>
                                      <select class="form-control" id="textAsign">
                                             <option>Seleccione</option>
                                             <option>Matematica</option>
@@ -135,7 +135,7 @@
 
                         <hr>
 
-                        <h2 class="text-bold text-center text-primary fond-bold m-0 mb-3">BUSCAR UN TITULO PARA COLOCAR</h2>
+                        <h2 class="text-bold text-center text-primary fond-bold m-0 mb-3">LISTADO DE ESTUDIANTES</h2>
                         <div class="row justify-content-end">
                             <div class="col-md-6 align-content-end mb-4">
                                 <input type="text" id="searchTerm" class="form-control" placeholder="Introduce la cédula del estudiante a Buscar..." onkeyup="doSearch()">

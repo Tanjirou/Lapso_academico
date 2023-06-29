@@ -50,7 +50,7 @@ class AcademicCurriculaSeeder extends Seeder
         ]);
 
         DB::table('academic_curricula')->insert([
-            'description' => 'Ingeniería Quimica',
+            'description' => 'Ingeniería QuÍmica',
             'status' => 'A',
         ]);
     }

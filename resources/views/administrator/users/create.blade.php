@@ -144,7 +144,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="mentions" class="text-dark">{{ __('Mención') }}</label>
+                                                <label for="mentions" class="text-dark">{{ __('Sección del Departamento') }}</label>
                                                     <select class="custom-select bg-white form-control @error('mentions') is-invalid @enderror" name="mentions" id="mentions">
                                                         <option value="" >Seleccione</option>
                                                         @foreach ($mentions as $mention)
@@ -197,7 +197,7 @@
                                         </div>
                                         <div class="col-md-6" hidden>
                                             <div class="form-group">
-                                                <label for="section" class="text-dark">{{ __('Sección') }}</label>
+                                                <label for="section" class="text-dark">{{ __('Sección del Departamento') }}</label>
                                                     <select class="custom-select bg-white form-control @error('section') is-invalid @enderror" name="section" id="section">
                                                         <option value="" >Seleccione</option>
                                                         @foreach ($user_types as $user_type)
