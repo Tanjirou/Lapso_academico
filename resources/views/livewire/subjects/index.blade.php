@@ -17,13 +17,14 @@
                                 alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
                         </div>
                     </div>
+                    @if (session()->has('mens'))
+                    <div class="alert alert-success">
+                        {{ session('mens') }}
+                    </div>
+                    @endif
                     <form wire:submit.prevent='save' method="POST">
                         @csrf
-                        @if (session()->has('mens'))
-                        <div class="alert alert-success">
-                            {{ session('mens') }}
-                        </div>
-                        @endif
+
                         <div class="form-group row mx-sm-3 mb-2 justify-content-center">
                             <div class="col-12 col-md-5 align-content-center align-items-center">
                                 <label for="subject.code">Código</label>
@@ -44,11 +45,11 @@
                                     placeholder="En números">
                             </div>
                             <div class="col-12 col-md-5 align-content-center align-items-center">
-                                <label for="department">Departamento</label>
-                                <select class="form-control" wire:model="subject.departmentsid">
+                                <label for="subject.departmentsectionid">Departamento</label>
+                                <select class="form-control" wire:model="subject.departmentsectionid">
                                     <option value="">Seleccione</option>
-                                    @foreach ($departments as $department)
-                                    <option value="{{$department->id}}">{{$department->name}}</option>
+                                    @foreach ($department_sections as $department)
+                                    <option value="{{$department->id}}">{{$department->description}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -71,7 +72,7 @@
                                             <th scope="col">Código</th>
                                             <th scope="col">Nombre</th>
                                             <th scope="col">Unidades de crédito</th>
-                                            <th scope="col">Departamento</th>
+                                            <th scope="col">Sección del Departamento</th>
                                             <th scope="col">Opciones</th>
                                         </tr>
                                     </thead>

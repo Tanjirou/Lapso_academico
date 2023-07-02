@@ -19,9 +19,8 @@ class SubjectsSeeder extends Seeder
         //     'code' => 'EB1115',
         //     'name' => 'Calculo I',
         //     'credit_units' => 5,
-        //     'pre_req' => '',
-        //     'co_req' => '',
         //     'status' => 'A',
         // ]);
+
     }
 }
