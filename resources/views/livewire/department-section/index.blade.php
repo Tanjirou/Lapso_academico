@@ -17,13 +17,13 @@
                                 alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
                         </div>
                     </div>
+                    @if (session()->has('mens'))
+                    <div class="alert alert-success">
+                        {{ session('mens') }}
+                    </div>
+                    @endif
                     <form wire:submit.prevent='save' method="POST">
                         @csrf
-                        @if (session()->has('mens'))
-                        <div class="alert alert-success">
-                            {{ session('mens') }}
-                        </div>
-                        @endif
                         <div class="form-group row mx-sm-3 mb-2 justify-content-center align-items-center align-content-center">
                             <div class="col-12 col-md-6 align-content-center align-items-center">
                                 <input type="text" wire:model = "departmentSection.description" class="form-control" placeholder="Indique nombre de la sección">
