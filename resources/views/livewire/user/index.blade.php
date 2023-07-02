@@ -1,9 +1,5 @@
 <div>
-    @if (session()->has('mens'))
-        <div class="alert alert-success">
-            {{ session('mens') }}
-        </div>
-    @endif
+
 
     <div class="main-content mt-6">
         <div class="layout-px-spacing">
@@ -224,4 +220,10 @@
 
 
     </div>
+
+     @if (session()->has('mens'))
+        <div class="alert alert-success">
+            {{ session('mens') }}
+        </div>
+    @endif
 </div>

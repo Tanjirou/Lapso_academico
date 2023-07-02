@@ -50,9 +50,9 @@ class Index extends Component
             'nmention' => 'nullable',
             'college_degree' => 'string|max:255|nullable'
         ]);
-        //$this->validate($this->rules);
+
         //Guardar datos en la primera tabla user
-        //$user->dni = $data['dni'];
+
         DB::table('users')->where('id','=',$user->id)
             ->update([
                 'names' => $data['names'],
@@ -76,8 +76,7 @@ class Index extends Component
 
         //Mostrar un mensaje de exito
         return redirect()->route('users.list')->with('mens','Usuario actualizado exitosamente');
-        //session()->flash('mens', 'Usuario registrado exitosamente');
-        /* $this->emitUp('userSaved','Usuario registrado correctamente'); */
+
 
     }
 

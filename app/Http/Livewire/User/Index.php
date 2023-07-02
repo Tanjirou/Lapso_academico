@@ -100,10 +100,10 @@ class Index extends Component
     public function usersList(){
         $users = DB::table('users')
             ->join('user_types', 'user_types.id','=','users.user_type')
-            ->join('teachers', 'teachers.userid', '=', 'users.user_type')
+            ->join('teachers', 'teachers.userid', '=', 'users.id')
             ->join('departments', 'departments.id', '=', 'teachers.ndepartament')
             ->where('users.status','=', 'A')
-            ->select('users.id', 'users.names','users.last_names', 'users.dni', 'user_types.description', 'departments.name')
+            ->select('users.id', 'users.names','users.last_names', 'users.dni', 'user_types.description as description', 'departments.name as name')
             ->orderByDesc('users.id')
             ->simplePaginate(10);
             return view('livewire.user.list')->with('users',$users);

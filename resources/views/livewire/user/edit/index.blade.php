@@ -1,9 +1,5 @@
 <div>
-    @if (session()->has('mens'))
-        <div class="alert alert-success">
-            {{ session('mens') }}
-        </div>
-    @endif
+
 
     <div class="main-content mt-6">
         <div class="layout-px-spacing">
@@ -117,7 +113,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="departments" class="text-dark">{{ __('Departamento') }}</label>
-                                                            <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartment" id="department">
+                                                            <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartament" id="department">
                                                                 <option value="" >Seleccione</option>
                                                                 @foreach ($departments as $department)
                                                                     <option value="{{ $department->id }}">{{ $department->name }}</option>
@@ -162,7 +158,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="departments" class="text-dark">{{ __('Departamento') }}</label>
-                                                        <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="departments" id="departments">
+                                                        <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartament" id="departments">
                                                             <option value="" >Seleccione</option>
                                                             @foreach ($departments as $department)
                                                                 <option value="{{ $department->id }}">{{ $department->name }}</option>
@@ -194,7 +190,7 @@
                                     <div class="form-group row mb-0 justify-content-center">
                                         <div class="col-12 col-md-4 col-lg-3">
                                             <button type="submit" class="w-100 btn btn-primary font-weight-bold">
-                                                {{ __('Registrar') }}
+                                                {{ __('Actualizar') }}
                                             </button>
                                         </div>
 
@@ -217,4 +213,10 @@
 
 
     </div>
+
+    @if (session()->has('mens'))
+        <div class="alert alert-success">
+            {{ session('mens') }}
+        </div>
+    @endif
 </div>
