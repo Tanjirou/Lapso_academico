@@ -22,7 +22,7 @@ class Index extends Component
     public function save(){
         $this->validate();
         $this->subject->save();
-        session()->flash('mens', 'Sección del departamento guardado correctamente.');
+        session()->flash('mens', 'Materia guardada correctamente.');
         $this->mount();
     }
     public function edit(Subject $subject)
