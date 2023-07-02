@@ -14,13 +14,24 @@ class Index extends Component
     protected $paginationTheme = 'bootstrap';
     public $department_sections;
     public Subject $subject;
-    protected $rules =['subject.code'=>'required|min:3','subject.name'=>'required|min:3',
+    protected $rules =['subject.code'=>'required|min:3|unique:subjects,code','subject.name'=>'required|min:3',
     'subject.credit_units'=>'required','subject.departmentsectionid'=>'required'];
     public function mount(){
         $this->department_sections = DepartmentSection::all();
         $this->subject = new Subject();
     }
     public function save(){
+        if(is_null($this->subject->id)){
+            $this->rules =[
+                'subject.code'=>'required|min:3|unique:subjects,code','subject.name'=>'required|min:3',
+                'subject.credit_units'=>'required','subject.departmentsectionid'=>'required'
+            ];
+        }else{
+            $this->rules =[
+                'subject.code'=>'required|min:3|unique:subjects,code,'.$this->subject->id,'subject.name'=>'required|min:3',
+                'subject.credit_units'=>'required','subject.departmentsectionid'=>'required'
+            ];
+        }
         $this->validate();
         $this->subject->save();
         session()->flash('mens', 'Materia guardada correctamente.');
@@ -30,7 +41,7 @@ class Index extends Component
     {
         $this->subject = $subject;
     }
-    public function updatedSubjectText()
+    public function update()
     {
         $this->validate($this->rules);
     }
