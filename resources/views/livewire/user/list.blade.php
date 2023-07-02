@@ -64,7 +64,7 @@
                                                 <td>{{ $user->dni }}</td>
                                                 <td>{{ $user->names." ".$user->last_names }}</td>
                                                 <td>{{ $user->description  }}</td>
-                                                <td>{{ $user->name  }}</td>
+                                                <td>{{ (is_null($user->name) ? 'Sin departamento': $user->name)  }}</td>
                                                 <td>
                                                     <a href="{{route('user.edit',['user'=>$user->id])}}" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
                                                 </td>
