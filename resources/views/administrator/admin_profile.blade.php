@@ -89,19 +89,6 @@
                                                                         <input type="text" class="form-control mb-4" id="phone1" value="{{ $admin->telephone }}" readonly>
                                                                     </div>
                                                                 </div>
-
-                                                                {{-- <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label for="genero">Genero</label>
-                                                                        <input type="text" class="form-control mb-4" id="genero" value="{{ $admin->gender }}" readonly>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label for="estadociv">Estado Civil</label>
-                                                                        <input type="text" class="form-control mb-4" id="estadociv" value="{{ $admin->marital_status }}" readonly>
-                                                                    </div>
-                                                                </div> --}}
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="email">Email</label>
@@ -113,89 +100,6 @@
                                             </form>
                                         </div>
                                     </div>
-
-                                    {{-- <div class="tab-pane fade" id="pills-nacim" role="tabpanel" aria-labelledby="pills-nacim-tab">
-                                    <div class="tab-pane fade" id="pills-nacim" role="tabpanel" aria-labelledby="pills-nacim-tab">
-                                        <!--  LUGAR Y FECHA DE NACIMIENTO  -->
-                                        <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
-                                            <form id="nacim" class="section general-info">
-                                                <div class="info">
-                                                    <h6 class="">Lugar y fecha de nacimiento</h6>
-                                                    <div class="row">
-                                                        <div class="col-md-10 mx-auto">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label for="country">Pais</label>
-                                                                        <input type="text" class="form-control mb-4" id="country" value="{{ $admin->country }}" readonly>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label for="state">Estado</label>
-                                                                        <input type="text" class="form-control mb-4" id="state" value="{{ $admin->state }}" readonly >
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label for="place">Lugar</label>
-                                                                        <input type="text" class="form-control mb-4" id="place" value="{{ $admin->town }}" readonly >
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label for="place">Fecha de Nacimiento</label>
-                                                                        <input type="text" class="form-control mb-4" id="place" value="{{ $admin->birth_date }}" readonly >
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-
-                                    </div> --}}
-
-                                    {{--<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                                        <!--  INFORMACION DE CONTACTO  -->
-                                        <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
-                                            <form id="contact" class="section general-info">
-                                                <div class="info">
-                                                    <h6 class="">INFORMACION DE CONTACTO</h6>
-                                                    <div class="row">
-                                                        <div class="col-md-10 mx-auto">
-                                                            <div class="form">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="phone1">Teléfono Local</label>
-                                                                            <input type="text" class="form-control mb-4" id="phone1" value="{{ $admin->telephone }}" readonly>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="phone2">Teléfono Celular</label>
-                                                                            <input type="text" class="form-control mb-4" id="phone2" value="{{ $admin->mobile }}" readonly>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label for="address">Direccion de Habitación</label>
-                                                                    <input type="text" class="form-control mb-4" id="address" value="{{ $admin->address }}" readonly >
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label for="email">Email</label>
-                                                                    <input type="text" class="form-control mb-4" id="email" value="{{ $admin->email }}" readonly>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div> --}}
 
                                     <div class="tab-pane fade" id="pills-update" role="tabpanel" aria-labelledby="pills-update-tab">
                                         <!--  ACTUALIZACION DE CONTACTO  -->
@@ -231,7 +135,7 @@
                                                                                     <label for="names">Nombres</label>
                                                                                     <input type="text" class="form-control mb-4 @error('names') is-invalid @enderror"
                                                                                     id="names" name="names" value="{{ $admin->names }}"
-                                                                                    placeholder="Evan Jesus">
+                                                                                    placeholder="Ej: Evan Jesus">
                                                                                 @error('names')
                                                                                     <span class="invalid-feedback"
                                                                                         role="alert">
@@ -245,7 +149,7 @@
                                                                                     <label for="names">Apellidos</label>
                                                                                     <input type="text" class="form-control mb-4 @error('last_names') is-invalid @enderror"
                                                                                     id="last_names" name="last_names" value="{{ $admin->last_names }}"
-                                                                                    placeholder="Sibrian Melendez">
+                                                                                    placeholder="Ej: Sibrian Melendez">
                                                                                 @error('last_names')
                                                                                     <span class="invalid-feedback"
                                                                                         role="alert">
@@ -259,7 +163,7 @@
                                                                                     <label for="phone1">Teléfono</label>
                                                                                     <input type="text" class="form-control mb-4 @error('phone1') is-invalid @enderror"
                                                                                      id="phone1" name="phone1" value="{{ $admin->telephone }}"
-                                                                                     placeholder="0414-1234567">
+                                                                                     placeholder="Ej: 0414-1234567">
                                                                                 @error('phone1')
                                                                                     <span class="invalid-feedback"
                                                                                         role="alert">
@@ -273,7 +177,7 @@
                                                                                     <label for="email">Email</label>
                                                                                     <input type="email" class="form-control mb-4 @error('email') is-invalid @enderror"
                                                                                     id="email" name="email"  value="{{ $admin->email }}"
-                                                                                    placeholder="nombrecorreo@gmail.com">
+                                                                                    placeholder="Ej: nombrecorreo@gmail.com">
                                                                                 @error('email')
                                                                                     <span class="invalid-feedback"
                                                                                         role="alert">
