@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\User\Edit;
 
 use App\Models\User;
-use App\Models\Mention;
+use App\Models\DepartmentSection;
 use App\Models\Teacher;
 use Livewire\Component;
 use App\Models\UserType;
@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 class Index extends Component
 {
     public $user_types, $departments, $user, $teacher, $section, $userId, $college_degree,
-    $selectedUser,$selectedDepartment =null,$selectedMention = null,$mentions = null;
+    $selectedUser,$selectedDepartment =null,$selectedMention = null, $department_sections = null;
     public UserType $user_type;
     public Department $department;
     protected $rules=[
@@ -34,21 +34,21 @@ class Index extends Component
         $this->user_type = new UserType();
         $this->department = new Department();
         $this->departments= Department::where('departments.status','=', 'A')->orderBy('departments.id')->get();
-        $this->mentions= Mention::where('mentions.status','=', 'A')->orderBy('mentions.id')->get();
+        $this->department_sections= DepartmentSection::where('department_sections.status','=', 'A')->orderBy('department_sections.id')->get();
     }
 
-    public function update(User $user,Request $request)
+    public function update(User $user, Request $request)
     {
 
         $data = $request->validate([
-            'names' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
-            'last_names' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
+            'names' => 'required|string|max:255',
+            'last_names' => 'required|string|max:255',
             'email' => 'string|email|max:255|nullable',
             'telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable',
             'user_type' => 'required',
             'ndepartament' => 'nullable',
             'nmention' => 'nullable',
-            'college_degree' => 'regex:/^[\pL\s\-]+$/u|max:255|nullable'
+            'college_degree' => 'string|max:255|nullable'
         ]);
         //$this->validate($this->rules);
         //Guardar datos en la primera tabla user
@@ -83,7 +83,7 @@ class Index extends Component
 
     public function updatedSelectedDepartment($department_id)
     {
-        $this->mentions = Mention::where('departmentid', $department_id)->get();
+        $this->department_sections = DepartmentSection::where('departmentid', $department_id)->get();
     }
 
 

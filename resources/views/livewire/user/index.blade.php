@@ -37,7 +37,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="dni" class="text-dark">{{ __('Cédula') }}</label>
-                                                <input id="dni" wire:model="dni" type="numeric" class="form-control mb-2 @error('dni') is-invalid @enderror" name="dni" value="{{ old('dni') }}" required autocomplete="dni" autofocus  maxlength="9"  title="la cédula debe ser solo numerica" pattern="[0-9]+" placeholder="123456789">
+                                                <input id="dni" wire:model="dni" type="numeric" class="form-control mb-2 @error('dni') is-invalid @enderror" name="dni" value="{{ old('dni') }}" required autocomplete="dni" autofocus  maxlength="9"  title="la cédula debe ser solo numerica" pattern="[0-9]+" placeholder="Ej: 123456789">
                                             @error('dni')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -48,7 +48,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="names"  class="text-dark">{{ __('Nombres') }}</label>
-                                                <input id="names" wire:model="names" type="text" class="form-control mb-2 @error('names') is-invalid @enderror" name="names" value="{{ old('names') }}" required autocomplete="names" autofocus placeholder="Evan Jesus">
+                                                <input id="names" wire:model="names" type="text" class="form-control mb-2 @error('names') is-invalid @enderror" name="names" value="{{ old('names') }}" required autocomplete="names" autofocus placeholder="Ej: Evan Jesus">
                                             @error('names')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -59,7 +59,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="last_names"  class="text-dark">{{ __('Apellidos') }}</label>
-                                                <input id="last_names" wire:model="last_names"  type="text" class="form-control mb-2 @error('last_names') is-invalid @enderror" name="last_names" value="{{ old('last_names') }}" required autocomplete="last_names" autofocus placeholder="Sibrian Melendez">
+                                                <input id="last_names" wire:model="last_names"  type="text" class="form-control mb-2 @error('last_names') is-invalid @enderror" name="last_names" value="{{ old('last_names') }}" required autocomplete="last_names" autofocus placeholder="Ej: Sibrian Meléndez">
                                             @error('last_names')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -70,7 +70,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="telephone" class="text-dark">{{ __('Teléfono') }}</label>
-                                                <input id="telephone" wire:model="telephone"  type="text" class="form-control mb-2 @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" autocomplete="telephone" autofocus  maxlength="12"  title="El teléfono debe tener el formato como se muestra en el ejemplo" placeholder="0414-1234567">
+                                                <input id="telephone" wire:model="telephone"  type="text" class="form-control mb-2 @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" autocomplete="telephone" autofocus  maxlength="12"  title="El teléfono debe tener el formato como se muestra en el ejemplo" placeholder="Ej: 0414-1234567">
                                             @error('telephone')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -81,7 +81,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="email" class="text-dark">{{ __('Email') }}</label>
-                                                <input id="email" wire:model="email"  type="email" class="form-control mb-2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" placeholder="correo@correo.com">
+                                                <input id="email" wire:model="email"  type="email" class="form-control mb-2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" placeholder="Ej: correo@correo.com">
                                                 @error('email')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -92,7 +92,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="password" class="text-dark">{{ __('Contraseña') }}</label>
-                                                <input id="password" wire:model="password"  type="password" class="form-control mb-2 @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autofocus minlength="8"  title="La contraseña debe tener mínimo 8 caracteres" placeholder="Contraseña">
+                                                <input id="password" wire:model="password"  type="password" class="form-control mb-2 @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autofocus minlength="8"  title="La contraseña debe tener mínimo 8 caracteres" placeholder="Escriba su contraseña">
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -139,11 +139,11 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="mentions" class="text-dark">{{ __('Sección') }}</label>
+                                                        <label for="mentions" class="text-dark">{{ __('Sección del Departamento') }}</label>
                                                             <select wire:model="selectedMention" class="custom-select bg-white form-control @error('mentions') is-invalid @enderror" name="nmention" id="mentions">
                                                                 <option value="" >Seleccione</option>
-                                                                @foreach ($mentions as $mention)
-                                                                    <option value="{{ $mention->id }}">{{ $mention->name }}</option>
+                                                                @foreach ($department_sections as $department_section)
+                                                                    <option value="{{ $department_section->id }}">{{ $department_section->description }}</option>
                                                                 @endforeach
                                                             </select>
                                                             @error('mentions')
@@ -156,7 +156,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="college_degree" class="text-dark">{{ __('Titulo de Grado/Especialidad') }}</label>
-                                                    <input id="college_degree" wire:model="college_degree" type="text" class="form-control mb-4 @error('college_degree') is-invalid @enderror" name="college_degree" value="{{ old('college_degree') }}" autocomplete="college_degree" autofocus placeholder="Licenciado en Física">
+                                                    <input id="college_degree" wire:model="college_degree" type="text" class="form-control mb-4 @error('college_degree') is-invalid @enderror" name="college_degree" value="{{ old('college_degree') }}" autocomplete="college_degree" autofocus placeholder="Ej: Licenciado en Física">
                                                     @error('college_degree')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -185,7 +185,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="college_degree" class="text-dark">{{ __('Titulo de Grado/Especialidad') }}</label>
-                                                    <input id="college_degree" wire:model="college_degree" type="text" class="form-control mb-4 @error('college_degree') is-invalid @enderror" name="college_degree" value="{{ old('college_degree') }}" autocomplete="college_degree" autofocus placeholder="Licenciado en Física">
+                                                    <input id="college_degree" wire:model="college_degree" type="text" class="form-control mb-4 @error('college_degree') is-invalid @enderror" name="college_degree" value="{{ old('college_degree') }}" autocomplete="college_degree" autofocus placeholder="Ej: Licenciado en Física">
                                                     @error('college_degree')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>

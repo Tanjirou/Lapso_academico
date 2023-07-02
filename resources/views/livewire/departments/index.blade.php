@@ -24,7 +24,7 @@
                         @endif
                          <div class="form-group row mx-sm-3 mb-2 justify-content-center">
                             <div class="col-12 col-md-5 align-content-center align-items-center">
-                             <input wire:model="department.name" class="p-2 form-control" type="text" placeholder="Nombre del departamento">
+                             <input wire:model="department.name" class="p-2 form-control" type="text" placeholder="Indique nombre del departamento">
                              @error('department.name') <div class="mt-1 text-danger text-sm">{{$message}}</div> @enderror
                             </div>
                              <button type="submit" class="btn btn-primary w-100 w-md-auto btn-lg mb-2 mt-4 mt-md-0">Guardar</button>

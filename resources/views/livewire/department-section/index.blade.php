@@ -26,7 +26,7 @@
                         @endif
                         <div class="form-group row mx-sm-3 mb-2 justify-content-center align-items-center align-content-center">
                             <div class="col-12 col-md-6 align-content-center align-items-center">
-                                <input type="text" wire:model = "departmentSection.description" class="form-control" placeholder="Nombre de la sección">
+                                <input type="text" wire:model = "departmentSection.description" class="form-control" placeholder="Indique nombre de la sección">
                             </div>
                             <div class="col-12 col-md-6 d-md-flex justify-content-center align-content-center align-items-center">
                                 <label for="credit_unid" class="col-form-label mr-3">Departamento</label>

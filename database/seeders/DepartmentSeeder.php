@@ -42,7 +42,7 @@ class DepartmentSeeder extends Seeder
             'status' => 'A',
         ]);
         DB::table('departments')->insert([
-            'name' => 'EStudios Básicos',
+            'name' => 'Estudios Básicos',
             'status' => 'A',
         ]);
         DB::table('departments')->insert([

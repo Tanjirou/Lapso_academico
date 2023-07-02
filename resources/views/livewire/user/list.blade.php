@@ -52,6 +52,7 @@
                                             <th scope="col">Cedula</th>
                                             <th scope="col">Nombre</th>
                                             <th scope="col">Tipo de Usuario</th>
+                                            <th scope="col">Departamento</th>
                                             <th scope="col">Opciones</th>
                                         </tr>
                                         </thead>
@@ -63,6 +64,7 @@
                                                 <td>{{ $user->dni }}</td>
                                                 <td>{{ $user->names." ".$user->last_names }}</td>
                                                 <td>{{ $user->description  }}</td>
+                                                <td>{{ $user->name  }}</td>
                                                 <td>
                                                     <a href="{{route('user.edit',['user'=>$user->id])}}" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
                                                 </td>
@@ -78,8 +80,10 @@
                         </div>
 
                     </div>
+
                 </div>
             </div>
+
         </div>
     </div>
 </x-app-layout>

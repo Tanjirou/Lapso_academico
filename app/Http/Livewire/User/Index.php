@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
-use App\Models\Mention;
 use App\Models\Teacher;
+use App\Models\DepartmentSection;
 use Livewire\Component;
 use App\Models\UserType;
 use App\Models\Department;
@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\DB;
 class Index extends Component
 {
     use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $user_types, $departments, $selectedUser;
     public $selectedDepartment = null;
     public $selectedMention = null;
-    public $mentions = null;
+    public $department_sections = null;
     public $dni, $password, $names, $last_names, $email, $telephone, $user_type, $ndepartament, $nmention, $college_degree;
     public $mens;
     public $userId;
@@ -36,29 +37,19 @@ class Index extends Component
     'selectedMention' => 'nullable',
     'college_degree' => 'string|max:255|nullable'];
 
-    protected $paginationTheme = 'bootstrap';
-
 
     public function mount()
     {
         $this->user_types= UserType::where('user_types.status','=', 'A')->orderBy('user_types.id')->get();
         $this->departments= Department::where('departments.status','=', 'A')->orderBy('departments.id')->get();
-        $this->mentions= Mention::where('mentions.status','=', 'A')->orderBy('mentions.id')->get();
+        // $this->mentions= Mention::where('mentions.status','=', 'A')->orderBy('mentions.id')->get();
+        $this->department_sections= DepartmentSection::where('department_sections.status','=', 'A')->orderBy('department_sections.id')->get();
     }
 
     public function updatedSelectedDepartment($department_id)
     {
-        $this->mentions = Mention::where('departmentid', $department_id)->get();
+        $this->department_sections = DepartmentSection::where('departmentid', $department_id)->get();
     }
-
-   /*  public function updatedSelectedMention($value)
-    {
-        if (!empty($value)) {
-            $this->selectedMention = Mention::find($value);
-        } else {
-            $this->selectedMention = null;
-        }
-    } */
 
     public function store()
     {
@@ -109,8 +100,10 @@ class Index extends Component
     public function usersList(){
         $users = DB::table('users')
             ->join('user_types', 'user_types.id','=','users.user_type')
+            ->join('teachers', 'teachers.userid', '=', 'users.user_type')
+            ->join('departments', 'departments.id', '=', 'teachers.ndepartament')
             ->where('users.status','=', 'A')
-            ->select('users.id', 'users.names','users.last_names', 'users.dni', 'user_types.description')
+            ->select('users.id', 'users.names','users.last_names', 'users.dni', 'user_types.description', 'departments.name')
             ->orderByDesc('users.id')
             ->simplePaginate(10);
             return view('livewire.user.list')->with('users',$users);
@@ -120,22 +113,22 @@ class Index extends Component
     //     'departments'=>Department::orderBy('id','desc')->paginate(7),
     // ]);
 
-    public function userEdit(User $user){
+    // public function userEdit(User $user){
 
 
-        $this->user_types= UserType::where('user_types.status','=', 'A')->orderBy('user_types.id')->get();
-        $this->departments= Department::where('departments.status','=', 'A')->orderBy('departments.id')->get();
-        $this->mentions= Mention::where('mentions.status','=', 'A')->orderBy('mentions.id')->get();
+    //     $this->user_types= UserType::where('user_types.status','=', 'A')->orderBy('user_types.id')->get();
+    //     $this->departments= Department::where('departments.status','=', 'A')->orderBy('departments.id')->get();
+    //     $this->mentions= Mention::where('mentions.status','=', 'A')->orderBy('mentions.id')->get();
 
-        if($user->user_type != 1)
-        {
-            $teacher = Teacher::where('userid','=', $user->id)->first();
-            // var_dump($teacher);die();
-            return view('livewire.user.edit')->with('teacher', $teacher)->with('user', $user)->with('user_types', $this->user_types)->with('departments', $this->departments)->with('mentions', $this->mentions)->with('selectedUser', $this->selectedUser)->with('selectedDepartment', $this->selectedDepartment);
-        }
+    //     if($user->user_type != 1)
+    //     {
+    //         $teacher = Teacher::where('userid','=', $user->id)->first();
+    //         // var_dump($teacher);die();
+    //         return view('livewire.user.edit')->with('teacher', $teacher)->with('user', $user)->with('user_types', $this->user_types)->with('departments', $this->departments)->with('mentions', $this->mentions)->with('selectedUser', $this->selectedUser)->with('selectedDepartment', $this->selectedDepartment);
+    //     }
 
-        return view('livewire.user.edit')->with('user', $user)->with('user_types', $this->user_types)->with('departments', $this->departments)->with('mentions', $this->mentions)->with('selectedUser', $this->selectedUser)->with('selectedDepartment', $this->selectedDepartment);
-    }
+    //     return view('livewire.user.edit')->with('user', $user)->with('user_types', $this->user_types)->with('departments', $this->departments)->with('mentions', $this->mentions)->with('selectedUser', $this->selectedUser)->with('selectedDepartment', $this->selectedDepartment);
+    // }
 
     public function update(User $user, Teacher $teacher){
         $this->validate($this->rules);
@@ -163,7 +156,6 @@ class Index extends Component
 
         session()->flash('mens', 'Usuario actualizado exitosamente.');
         return redirect()->to('livewire.user.list');
-        // return view('livewire.user.list');
     }
 
     public function render()

@@ -49,11 +49,10 @@
                                         <thead class="thead-primary">
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Mención</th>
+                                            <th scope="col">Sección del Dpto.</th>
                                             <th scope="col">Asignatura</th>
-                                            <th scope="col">Cant. Estudiantes</th>
+                                            <th scope="col">N° Sección</th>
                                             <th scope="col">Profesor</th>
-                                            <th scope="col">Sección</th>
                                             <th class="text-center" scope="col">Opciones</th>
                                         </tr>
                                         </thead>
@@ -62,8 +61,6 @@
                                             {{-- @foreach ($users as $user) --}}
                                             <tr>
                                                 <th scope="row">{{ $cont++ }}</th>
-                                                <td></td>
-                                                <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
