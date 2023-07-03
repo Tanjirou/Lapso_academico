@@ -16,12 +16,15 @@ class CreateMentionsTable extends Migration
         // Schema::enableForeignKeyConstraints();
         Schema::create('mentions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('departmentid');
-           /*  $table->string('ndepartament'); */
+            $table->unsignedBigInteger('subjectid');
+            $table->unsignedBigInteger('academic_curriculaid');
             $table->string('name');
-            $table->char('status');
+            $table->string('pre_req')->nullable();
+            $table->string('post_req')->nullable();
+            $table->char('status')->default('A');
+            $table->foreign('subjectid')->references('id')->on('departments');
+            $table->foreign('academic_curriculaid')->references('id')->on('academic_curricula');
             $table->timestamps();
-            $table->foreign('departmentid')->references('id')->on('departments');
         });
     }
 

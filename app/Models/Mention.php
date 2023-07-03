@@ -9,6 +9,7 @@ class Mention extends Model
 {
     use HasFactory;
     protected $fillable =[
-        'departmentid' , 'name', 'status'
+        'subjectid' ,'academic_curriculaid', 'name', 'pre_req','post_req','status',
     ];
+
 }
