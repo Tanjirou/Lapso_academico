@@ -16,7 +16,7 @@ class Index extends Component
     protected $rules = [
         'mention.subjectid' =>'required',
         'mention.academic_curriculaid' =>'required',
-        'mention.name' =>'required|min:3',
+        'mention.name' =>'nullable|min:3|string',
         'mention.pre_req' => 'nullable',
         'mention.post_req' => 'nullable'
     ];

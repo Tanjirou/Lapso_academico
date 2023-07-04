@@ -26,8 +26,20 @@
                         @csrf
 
                         <div class="form-group row mx-sm-3 mb-2 ">
+                             <div class="col-12 col-md-5 align-content-center align-items-center">
+                                <label for="academic_curriculaid">Pensum</label>
+                                <select  class="form-control" name="academic_curriculaid" wire:model='mention.academic_curriculaid'>
+                                    <option value="">Seleccione</option>
+                                    @foreach ($academic_curricula as $academic_c)
+                                    <option value="{{$academic_c->id}}">{{$academic_c->description}}</option>
+                                    @endforeach
+                                </select>
+                                @error('mention.academic_curriculaid')
+                                    <div class="mt-1 text-danger text-sm">{{ $message }}</div>
+                                @enderror
+                            </div>
                             <div class="col-12 col-md-5 align-content-center align-items-center">
-                                <label for="name">Nombre de la Mención</label>
+                                <label for="name">Mención</label>
                                 <input type="text" class="form-control" wire:model='mention.name' name="name">
                             </div>
                             <div class="col-12 col-md-5 align-content-center align-items-center">
@@ -50,18 +62,7 @@
                                     <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="col-12 col-md-5 align-content-center align-items-center">
-                                <label for="academic_curriculaid">Pensum</label>
-                                <select  class="form-control" name="academic_curriculaid" wire:model='mention.academic_curriculaid'>
-                                    <option value="">Seleccione</option>
-                                    @foreach ($academic_curricula as $academic_c)
-                                    <option value="{{$academic_c->id}}">{{$academic_c->description}}</option>
-                                    @endforeach
-                                </select>
-                                @error('mention.academic_curriculaid')
-                                    <div class="mt-1 text-danger text-sm">{{ $message }}</div>
-                                @enderror
-                            </div>
+
 
 
                         </div>
