@@ -6,6 +6,7 @@ use App\Http\Livewire\User\Index as UserComponent;
 use App\Http\Livewire\Subjects\Index as SubjectsComponent;
 use App\Http\Livewire\DepartmentSection\Index as DepartmentSectionComponent;
 use App\Http\Livewire\User\Edit\Index as UserEditComponent;
+use App\Http\Livewire\SectionStruc\Index as StructureSectionComponent;
 
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\UserController;
@@ -72,6 +73,8 @@ if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
     });
 }
 
+Route::get('structure-section',StructureSectionComponent::class)->middleware('auth')->name('section-struc.index');
+
 Route::get('ajustes', function(){
     return view('profile.index');
 })->name('user.profile.index');
@@ -122,14 +125,16 @@ Route::get('/sol-revision', function () {
 })->middleware('auth');
 
 /* PROFESOR */
-// Route::get('/secciones-prof', function () {
-//     return view('teachers/assigned_sections');
-// })->middleware('auth')->name('teacher.assigned_sections');
+Route::post('section-create',StructureSectionComponent::class)->Middleware('auth')->name('section-struc.index');
 
 /* MENU - GESTION SECCIONES */
 Route::get('crear-seccion', [TeacherController::class, 'createSection'])->Middleware('auth')->name('teachers.create_section');
 Route::get('asignar-seccion', [TeacherController::class, 'assignedSection'])->Middleware('auth')->name('teachers.assigned_sections');
 Route::get('listado-secciones', [TeacherController::class, 'listSection'])->Middleware('auth')->name('teachers.list_sections');
+
+
+
+
 
 // Route::get('/teacher-profile', [TeacherController::class, 'profile'])->name('teacher.profile');
 // Route::post('/teacher-profile/store/{user}', [TeacherController::class, 'teacher_update'])->name('teacher.update_profile');
