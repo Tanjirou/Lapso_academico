@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 class Index extends Component
 {
     public $user_types, $departments, $user, $teacher, $section, $userId, $college_degree,
-    $selectedUser,$selectedDepartment =null,$selectedMention = null, $department_sections = null;
+    $selectedUser,$selectedDepartment,$selectedMention, $department_sections;
     public UserType $user_type;
     public Department $department;
     protected $rules=[
@@ -39,18 +39,20 @@ class Index extends Component
 
     public function update(User $user, Request $request)
     {
-
         $data = $request->validate([
             'names' => 'required|string|max:255',
             'last_names' => 'required|string|max:255',
-            'email' => 'string|email|max:255|nullable',
+            'email' => 'string|email|max:255|nullable|unique:users,email,'.$user->id,
             'telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable',
             'user_type' => 'required',
-            'ndepartament' => 'nullable',
+            'ndepartment' => 'nullable',
             'nmention' => 'nullable',
             'college_degree' => 'string|max:255|nullable'
         ]);
 
+
+        DB::table('teachers')->where('userid','=',$user->id)->delete();
+        //$this->validate($this->rules);
         //Guardar datos en la primera tabla user
 
         DB::table('users')->where('id','=',$user->id)
@@ -65,13 +67,28 @@ class Index extends Component
          //Guardar datos en la segunda tabla teacher
          if($data['user_type'] != 1)
          {
-            DB::table('teachers')
+            $teacher = DB::table('teachers')->where('userid','=',$user->id)->first();
+
+            if(is_null($teacher)){
+                DB::table('teachers')
+                ->insert(
+                    [
+                     'userid'=>$user->id,
+                     'ndepartament'=> $request['ndepartment'],
+                     'nmention' => $request['nmention'],
+                     'college_degree' => $request['college_degree'],
+                     'status' => 'A'
+                    ]);
+            }else{
+                DB::table('teachers')
                 ->where('userid','=',$user->id)
                 ->update(
-                    ['ndepartament'=> $this->selectedDepartment,
-                     'nmention' => $this->selectedMention,
-                     'college_degree' => $this->college_degree
+                    [ 'ndepartament'=> $request['ndepartment'],
+                      'nmention' => $request['nmention'],
+                      'college_degree' => $request['college_degree'],
                     ]);
+            }
+
          }
 
         //Mostrar un mensaje de exito

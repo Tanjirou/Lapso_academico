@@ -16,12 +16,12 @@
                             <img src="assets/img/logo-SPA1.png" class="img-fluid mb-0 d-none d-md-block" alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
                         </div>
                     </div>
+                    @if (session()->has('mens'))
+                    <div class="alert alert-success">
+                        {{ session('mens') }}
+                    </div>
+                    @endif
                      <form wire:submit.prevent='save'>
-                        @if (session()->has('mens'))
-                        <div class="alert alert-success">
-                            {{ session('mens') }}
-                        </div>
-                        @endif
                          <div class="form-group row mx-sm-3 mb-2 justify-content-center">
                             <div class="col-12 col-md-5 align-content-center align-items-center">
                              <input wire:model="department.name" class="p-2 form-control" type="text" placeholder="Indique nombre del departamento">

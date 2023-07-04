@@ -611,7 +611,7 @@
                                     <a href="{{route('subjects.index')}}">Crear Materias</a>
                                 </li>
                                 <li class="active">
-                                    <a href="{{ route('administrator.export') }}">Carga de Materias</a>
+                                    <a href="{{ route('mentions.index') }}">Carga de Materias</a>
                                 </li>
                                 {{-- <li class="active">
                                     <a href="index2.html">Blanquear</a>

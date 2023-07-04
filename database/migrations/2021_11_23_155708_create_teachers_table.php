@@ -17,16 +17,13 @@ class CreateTeachersTable extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('userid');
-            /* $table->unsignedBigInteger('departmentid');
-            $table->unsignedBigInteger('mentionid'); */
-            $table->string('ndepartament')->nullable();
+            $table->unsignedBigInteger('ndepartament')->nullable();
             $table->string('nmention')->nullable();
             $table->string('college_degree')->nullable();
             $table->char('status');
             $table->timestamps();
             $table->foreign('userid')->references('id')->on('users');
-            /* $table->foreign('departmentid')->references('id')->on('departaments'); */
-           /*  $table->foreign('mentionid')->references('id')->on('mentions'); */
+            $table->foreign('ndepartament')->references('id')->on('departments');
         });
     }
 

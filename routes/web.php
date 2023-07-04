@@ -8,6 +8,8 @@ use App\Http\Livewire\DepartmentSection\Index as DepartmentSectionComponent;
 use App\Http\Livewire\User\Edit\Index as UserEditComponent;
 use App\Http\Livewire\SectionStruc\Index as StructureSectionComponent;
 
+use App\Http\Livewire\Mentions\Index as MentionsComponent;
+
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
@@ -53,8 +55,8 @@ Route::post('/users-restore/factor',[AdministratorController::class, 'users_rest
 
 Route::get('users-create',UserComponent::class)->Middleware('auth')->name('user.create');
 Route::post('users-create',[UserComponent::class, 'store'])->Middleware('auth')->name('user.store');
-Route::get('/users-list',[UserComponent::class, 'usersList'])->name('users.list');
-Route::get('/users-list/{user}',UserEditComponent::class)->name('user.edit');
+Route::get('/users-list',[UserComponent::class, 'usersList'])->middleware('auth')->name('users.list');
+Route::get('/users-list/{user}',UserEditComponent::class)->middleware('auth')->name('user.edit');
 Route::put('/users-list/{user}',[UserEditComponent::class,'update'])->name('user.updated');
 
 Route::get('/user-edit/{user}',[UserDepComponent::class, 'render'])->name('user.edit_u');
@@ -65,7 +67,7 @@ Route::get('pensum',AcademicCurriculumComponent::class)->Middleware('auth')->nam
 Route::get('departments',DepartmentComponent::class)->middleware('auth')->name('departments.index');
 Route::get('subjects',SubjectsComponent::class)->middleware('auth')->name('subjects.index');
 Route::get('departments-section',DepartmentSectionComponent::class)->middleware('auth')->name('department_section.index');
-
+Route::get('mentions', MentionsComponent::class)->middleware('auth')->name('mentions.index');
 if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
 {
     Route::get('/register', function() {

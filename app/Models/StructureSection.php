@@ -5,11 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mention extends Model
+class StructureSection extends Model
 {
     use HasFactory;
-    protected $fillable =[
-        'subjectid' ,'academic_curriculaid', 'name', 'pre_req','post_req','status',
-    ];
-
 }
