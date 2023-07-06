@@ -67,4 +67,8 @@ class TeacherController extends Controller
     public function listSection(){
         return view('teachers.list_sections');
     }
+
+    public function reportJefeDpto(){
+        return view('teachers.report_jefedpto');
+    }
 }

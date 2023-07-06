@@ -552,7 +552,7 @@
                             <ul class="collapse submenu list-unstyled" id="report-teacher"
                                 data-parent="#accordionExample">
                                 <li class="active">
-                                    <a href="user_profile2.html">Listado A/R</a>
+                                    <a href="{{ route('teachers.report_jefedpto') }}">Listado A/R</a>
                                 </li>
                                 <li class="active">
                                     <a href="user_account_setting.html">Estadisticas</a>

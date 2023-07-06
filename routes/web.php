@@ -138,6 +138,8 @@ Route::get('structure-section',StructureSectionComponent::class)->middleware('au
 Route::get('asignar-seccion', [TeacherController::class, 'assignedSection'])->Middleware('auth')->name('teachers.assigned_sections');
 Route::get('listado-secciones', [TeacherController::class, 'listSection'])->Middleware('auth')->name('teachers.list_sections');
 
+/* MENU - REPORTES */
+Route::get('reporte-jefedpto', [TeacherController::class, 'reportJefeDpto'])->Middleware('auth')->name('teachers.report_jefedpto');
 
 
 

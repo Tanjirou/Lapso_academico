@@ -18,15 +18,20 @@
                     </div>
                 </div>
             </div>
+
             <div class="row layout-spacing mt-2">
                 <div class="col-lg-12">
                     <div class="statbox widget box box-shadow shadow ">
                         <div class="row justify-content-center p-3">
-                            <h2 class="fond-weight-bold text-bold text-primary m-0 mb-2">CREAR USUARIO</h1>
+                            <h2 class="fond-weight-bold text-bold text-primary m-0 mb-2">CREAR USUARIO</h2>
                         </div>
                         <div class="row mt-0 justify-content-center">
                             <div class=" col-11 col-md-10 pb-3">
-                                {{-- <form method="POST" action="{{ route('administrator.users_create_store') }}"> --}}
+                                @if (session()->has('mens'))
+                                    <div class="alert alert-success">
+                                        {{ session('mens') }}
+                                    </div>
+                                @endif
                                 <form method="POST" wire:submit.prevent="store">
                                     @csrf
                                     <div class="row">
@@ -221,9 +226,5 @@
 
     </div>
 
-     @if (session()->has('mens'))
-        <div class="alert alert-success">
-            {{ session('mens') }}
-        </div>
-    @endif
+
 </div>

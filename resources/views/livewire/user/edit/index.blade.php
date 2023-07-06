@@ -21,6 +21,11 @@
                     </div>
                 </div>
             </div>
+            @if (session()->has('mens'))
+            <div class="alert alert-success">
+                {{ session('mens') }}
+            </div>
+            @endif
             <div class="row layout-spacing mt-2">
                 <div class="col-lg-12">
                     <div class="statbox widget box box-shadow shadow ">
@@ -29,7 +34,6 @@
                         </div>
                         <div class="row mt-0 justify-content-center">
                             <div class=" col-11 col-md-10 pb-3">
-                                {{-- <form method="POST" action="{{ route('administrator.users_create_store') }}"> --}}
                                 <form method="POST" action="{{ route('user.updated', ['user' => $userData->id]) }}">
                                     @csrf
                                     @method('PUT')
@@ -138,7 +142,6 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-<<<<<<< HEAD
                                                         <label for="departments" class="text-dark">{{ __('Departamento') }}</label>
                                                             <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartament" id="department">
                                                                 <option value="" >Seleccione</option>
@@ -151,24 +154,6 @@
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
                                                             @enderror
-=======
-                                                        <label for="departments"
-                                                            class="text-dark">{{ __('Departamento') }}</label>
-                                                        <select wire:model="selectedDepartment"
-                                                            class="custom-select bg-white form-control @error('departments') is-invalid @enderror"
-                                                            name="ndepartment" id="selectedDepartment">
-                                                            <option value="">Seleccione</option>
-                                                            @foreach ($departments as $department)
-                                                                <option value="{{ $department->id }}">
-                                                                    {{ $department->name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @error('departments')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
->>>>>>> 3b4eb8e107cbfe5b6950057cc08775d1917e3766
                                                     </div>
                                                 </div>
                                                 @if ($selectedUser == 3 || $selectedUser == 5)
@@ -194,8 +179,7 @@
                                                         </div>
                                                     </div>
 
-<<<<<<< HEAD
-                                        @elseif($selectedUser==2 || $selectedUser==4)
+                                        {{-- @elseif($selectedUser==2 || $selectedUser==4)
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -211,11 +195,8 @@
                                                                 <strong>{{ $message }}</strong>
                                                             </span>
                                                         @enderror
-                                                </div>
-=======
+                                                </div> --}}
                                                 @endif
-
->>>>>>> 3b4eb8e107cbfe5b6950057cc08775d1917e3766
                                             </div>
 
                                             <div class="form-group">
@@ -233,24 +214,12 @@
                                                 @enderror
                                             </div>
                                         @endif
-
-
-<<<<<<< HEAD
                                     <div class="form-group row mb-0 justify-content-center">
                                         <div class="col-12 col-md-4 col-lg-3">
                                             <button type="submit" class="w-100 btn btn-primary font-weight-bold">
                                                 {{ __('Actualizar') }}
                                             </button>
                                         </div>
-=======
-                                        <div class="form-group row mb-0 justify-content-center">
-                                            <div class="col-12 col-md-4 col-lg-3">
-                                                <button type="submit" class="w-100 btn btn-primary font-weight-bold">
-                                                    {{ __('Registrar') }}
-                                                </button>
-                                            </div>
->>>>>>> 3b4eb8e107cbfe5b6950057cc08775d1917e3766
-
                                         </div>
                                 </form>
 
@@ -271,9 +240,5 @@
 
     </div>
 
-    @if (session()->has('mens'))
-        <div class="alert alert-success">
-            {{ session('mens') }}
-        </div>
-    @endif
+
 </div>

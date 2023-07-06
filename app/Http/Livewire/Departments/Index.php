@@ -27,7 +27,7 @@ class Index extends Component
     public function done(Department $department)
     {
         $department->update(['done'=>!$department->done]);
-        session()->flash('mens', 'Departamento guardado correctamente.');
+        session()->flash('mens', 'Departamento actualizado correctamente.');
         $this->mount();
     }
     public function save()

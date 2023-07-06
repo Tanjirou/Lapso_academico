@@ -27,7 +27,7 @@ class Index extends Component
     public function done(AcademicCurriculumModel $pensum)
     {
         $pensum->update(['done'=>!$pensum->done]);
-        session()->flash('mens', 'Pensum guardado correctamente.');
+        session()->flash('mens', 'Pensum actualizado correctamente.');
         $this->mount();
     }
     public function save()
