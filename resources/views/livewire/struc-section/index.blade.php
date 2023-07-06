@@ -159,7 +159,7 @@
                                     </table>
                                 </div>
                                 <div class="row justify-content-end">
-
+                                    {{$struc_sections->links()}}
                                 </div>
                             </div>
                         </div>
