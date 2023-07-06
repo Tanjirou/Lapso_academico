@@ -18,13 +18,14 @@
                     </div>
                 </div>
             </div>
+            @if(!is_null($academic_lapse))
             <div class="row layout-spacing mt-2">
                 <div class="col-lg-12">
                     <div class="statbox widget box box-shadow shadow ">
                         <div class="row mt-0 justify-content-center">
                             <div class="col-md-10 align-content-center">
                                 <div class="row justify-content-center mb-3 mt-2 mr-auto ml-2 m-0">
-                                    <h2 class="text-bold text-primary fond-bold m-0">CREAR ESTRUCTURA</h2>
+                                    <h2 class="text-bold text-primary fond-bold m-0">Asignar Profesor</h2>
                                 </div>
 
                                 <div class="row mt-0 justify-content-center">
@@ -54,7 +55,7 @@
                                                             class="form-control" id="textMenc">
                                                             <option>Seleccione</option>
                                                             @foreach ($department_sections as $department_section)
-                                                                <option value="{{ $department_section->id }}" {{($department_section->id == $selectedDepartmentSection) ? 'selected' : ''}}>
+                                                                <option value="{{ $department_section->id }}">
                                                                     {{ $department_section->description }}</option>
                                                             @endforeach
                                                         </select>
@@ -66,12 +67,12 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="textAsig">Asignatura</label>
-                                                        <select wire:model="struc_section.subjectid"
-                                                            class="form-control" id="textAsig">
+                                                        <select wire:model="selectedSubject" class="form-control"
+                                                            id="textAsig">
                                                             <option value="">Seleccione</option>
                                                             @if (!is_null($subjects))
                                                                 @foreach ($subjects as $subject)
-                                                                    <option value="{{ $subject->id }}" {{($struc_section->subjectid == $subject->id) ? 'selected' : ''}}>
+                                                                    <option value="{{ $subject->id }}">
                                                                         {{ $subject->name }}</option>
                                                                 @endforeach
                                                             @endif
@@ -85,27 +86,59 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textPunt">Cantidad de Secciones</label>
-                                                        <input wire:model="struc_section.number_section"
-                                                            class="form-control" type="number" placeholder="4">
-                                                        <small id="sh-text1" class="form-text text-muted">Número
-                                                            aproximado de secciones a aperturar.</small>
-                                                        @error('struc_section.number_section')
+                                                        <label for="section_number">Seccion</label>
+                                                        <select wire:model="section.section_number" class="form-control"
+                                                            id="section_number">
+                                                            <option value="">Seleccione</option>
+                                                            @if (!is_null($structure_sections))
+                                                                @for ($i = 1; $i <= $structure_sections->number_section; $i++)
+                                                                    <option value="{{ $i }}">
+                                                                        {{ $i }}</option>
+                                                                @endfor
+                                                            @endif
+                                                        </select>
+                                                        @error('struc_section.average_students')
                                                             <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                                         @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textPunt">Cantidad de Estudiantes</label>
-                                                        <input wire:model="struc_section.average_students"
-                                                            class="form-control" type="number" placeholder="40">
-                                                        <small id="sh-text1" class="form-text text-muted">Cantidad
-                                                            máxima de estudiantes en promedio para la planificación del
-                                                            próximo semestre.</small>
-                                                        @error('struc_section.average_students')
+                                                        <label for="textPunt">Cantidad de Estudiantes(promedio)</label>
+                                                        <input class="form-control" type="number" placeholder="40"
+                                                            readonly
+                                                            value="{{ isset($structure_sections->average_students) ? $structure_sections->average_students : 0 }}">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="teacherid">Profesor</label>
+                                                        <select wire:model="section.teacherid" class="form-control"
+                                                            id="teacherid">
+                                                            <option value="">Seleccione</option>
+                                                            @if (!is_null($teachers))
+                                                                @foreach ($teachers as $teacher)
+                                                                    <option value="{{ $teacher->id }}">
+                                                                        {{ $teacher->names }}
+                                                                        {{ $teacher->last_names }}</option>
+                                                                @endforeach
+                                                            @endif
+                                                        </select>
+                                                        @error('section.teacherid')
                                                             <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                                         @enderror
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="textPunt">Lapso Academico</label>
+                                                        <input class="form-control" type="number" placeholder="40"
+                                                            readonly
+                                                            value="{{ isset($academic_lapse) ? $academic_lapse->description : '' }}">
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -139,12 +172,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($struc_sections as $struc_section)
+                                            {{-- @foreach ($struc_sections as $struc_section)
                                                 <tr>
                                                     <td>{{ $struc_section->department_section }}</td>
                                                     <td>{{ $struc_section->subject }}</td>
-                                                    <td>{{ $struc_section->number_section }}</td>
                                                     <td>{{ $struc_section->average_students }}</td>
+                                                    <td>{{ $struc_section->number_section }}</td>
                                                     <td class="d-flex justify-content-center">
                                                         <button wire:click="edit({{ $struc_section->id }})"
                                                             type="button"
@@ -154,18 +187,21 @@
                                                                 class="ml-2 bg-danger px-2 py-1 text-white rounded">Eliminar</button>
                                                     </td>
                                                 </tr>
-                                            @endforeach
+                                            @endforeach --}}
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="row justify-content-end">
-                                    {{$struc_sections->links()}}
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @else
+            <p class="font-weight-bold">Debe activar un lapso academico</p>
+            @endif
         </div>
 
     </div>

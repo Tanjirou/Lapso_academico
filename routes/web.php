@@ -8,7 +8,7 @@ use App\Http\Livewire\DepartmentSection\Index as DepartmentSectionComponent;
 use App\Http\Livewire\User\Edit\Index as UserEditComponent;
 use App\Http\Livewire\StrucSection\Index as StructureSectionComponent;
 use App\Http\Livewire\AcademicLapse\Index as AcademicLapseComponent;
-
+use App\Http\Livewire\Sections\Index as SectionsComponent;
 
 use App\Http\Livewire\Mentions\Index as MentionsComponent;
 
@@ -55,6 +55,8 @@ Route::post('/users-restore/password',[AdministratorController::class, 'users_re
 Route::post('/users-restore/factor',[AdministratorController::class, 'users_restore_factor'])->name('administrator.users_restore_factor');
 // Route::get('/users-modify',[AdministratorController::class, 'users_modify'])->name('administrator.users_modify');
 Route::get('academic-lapse',AcademicLapseComponent::class)->name('academic_lapse.index');
+Route::get('sections',SectionsComponent::class)->name('sections.index');
+
 
 Route::get('users-create',UserComponent::class)->Middleware('auth')->name('user.create');
 Route::post('users-create',[UserComponent::class, 'store'])->Middleware('auth')->name('user.store');

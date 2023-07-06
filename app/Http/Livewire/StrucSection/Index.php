@@ -63,7 +63,9 @@ class Index extends Component
         $this->mount();
     }
     public function edit(StructureSection $struc_section){
+        $this->selectedDepartmentSection = $struc_section->department_sectionid;
         $this->struc_section = $struc_section;
+        $this->subjects = Subject::where('departmentsectionid',$this->selectedDepartmentSection)->get();
     }
     public function delete(StructureSection $struc_section){
         $this->struc_section = $struc_section;

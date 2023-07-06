@@ -398,7 +398,7 @@
                                     <a href="{{ route('section-struc.index') }}"> Crear </a>
                                 </li>
                                 <li class="active">
-                                    <a href="{{ route('teachers.list_sections') }}"> Asignar Profesor </a>
+                                    <a href="{{ route('sections.index') }}"> Asignar Profesor </a>
                                 </li>
                             </ul>
                         </li>
@@ -503,7 +503,7 @@
                                     <a href="{{ route('teachers.assigned_sections') }}"> Asignar </a>
                                 </li> --}}
                                 <li class="active">
-                                    <a href="{{ route('teachers.list_sections') }}"> Asignar Profesor </a>
+                                    <a href="{{ route('sections.index') }}"> Asignar Profesor </a>
                                 </li>
                             </ul>
                         </li>
