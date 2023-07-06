@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class StructureSection extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'subjectid','department_sectionid','average_students',
+        'number_section','status'
+    ];
 }

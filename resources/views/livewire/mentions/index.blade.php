@@ -26,7 +26,7 @@
                         @csrf
 
                         <div class="form-group row mx-sm-3 mb-2 ">
-                             <div class="col-12 col-md-5 align-content-center align-items-center">
+                             <div class="col-12 col-md-6 align-content-center align-items-center">
                                 <label for="academic_curriculaid">Pensum</label>
                                 <select  class="form-control" name="academic_curriculaid" wire:model='mention.academic_curriculaid'>
                                     <option value="">Seleccione</option>
@@ -38,19 +38,11 @@
                                     <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="col-12 col-md-5 align-content-center align-items-center">
-                                <label for="name">Mención</label>
-                                <input type="text" class="form-control" wire:model='mention.name' name="name">
+                            <div class="col-12 col-md-6 align-content-center align-items-center">
+                                <label for="name">Mención de la Carrera</label>
+                                <input type="text" class="form-control" wire:model='mention.name' name="name" placeholder="Indique la mención de la carrera">
                             </div>
-                            <div class="col-12 col-md-5 align-content-center align-items-center">
-                                <label for="pre_req">Pre-Requisitos</label>
-                                <input type="text" class="form-control" wire:model='mention.pre_req' name="pre_req">
-                            </div>
-                            <div class="col-12 col-md-5 align-content-center align-items-center">
-                                <label for="post_req">Co-Requisitos</label>
-                                <input type="text" class="form-control" name="post_req" wire:model='mention.post_req'>
-                            </div>
-                            <div class="col-12 col-md-5 align-content-center align-items-center">
+                            <div class="col-12 col-md-6 mt-2 align-content-center align-items-center">
                                 <label for="subjectid">Materia</label>
                                 <select class="form-control" name="subjectid" wire:model='mention.subjectid'>
                                     <option value="">Seleccione</option>
@@ -62,6 +54,15 @@
                                     <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="col-12 col-md-6 mt-2 align-content-center align-items-center">
+                                <label for="pre_req">Pre-Requisitos</label>
+                                <input type="text" class="form-control" wire:model='mention.pre_req' name="pre_req" placeholder="Indique pre-requisitos separados con coma (,)">
+                            </div>
+                            <div class="col-12 col-md-6 mt-2 align-content-center align-items-center">
+                                <label for="post_req">Co-Requisitos</label>
+                                <input type="text" class="form-control" name="post_req" wire:model='mention.post_req' placeholder="Indique co-requisitos separados con coma (,)">
+                            </div>
+
 
 
 

@@ -39,13 +39,13 @@
                                 <input type="text" class="form-control" wire:model ="subject.name"
                                     placeholder="Nombre de la materia">
                             </div>
-                            <div class="col-12 col-md-5 align-content-center align-items-center">
+                            <div class="col-12 col-md-5 mt-3 align-content-center align-items-center">
                                 <label for="subject.credit_unid">Unidades de crédito</label>
                                 <input type="number" class="form-control" wire:model="subject.credit_units"
                                     placeholder="En números">
                             </div>
-                            <div class="col-12 col-md-5 align-content-center align-items-center">
-                                <label for="subject.departmentsectionid">Departamento</label>
+                            <div class="col-12 col-md-5 mt-3 align-content-center align-items-center">
+                                <label for="subject.departmentsectionid">Sección del Departamento</label>
                                 <select class="form-control" wire:model="subject.departmentsectionid">
                                     <option value="">Seleccione</option>
                                     @foreach ($department_sections as $department)
