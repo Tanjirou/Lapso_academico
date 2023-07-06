@@ -133,8 +133,8 @@
                                             <tr>
                                                 <th scope="col">Departamento</th>
                                                 <th scope="col">Materia</th>
-                                                <th scope="col">Cantidad de Estudiantes por Sección</th>
                                                 <th scope="col">Cantidad de Secciones</th>
+                                                <th scope="col">Cantidad de Estudiantes por Sección</th>
                                                 <th scope="col">Opciones</th>
                                             </tr>
                                         </thead>
