@@ -15,6 +15,13 @@ class CreateStructureSectionsTable extends Migration
     {
         Schema::create('structure_sections', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('subjectid')->unique();
+            $table->unsignedBigInteger('department_sectionid');
+            $table->integer('average_students');
+            $table->integer('number_section');
+            $table->char('status')->default('A');
+            $table->foreign('subjectid')->references('id')->on('subjects');
+            $table->foreign('department_sectionid')->references('id')->on('department_sections');
             $table->timestamps();
         });
     }

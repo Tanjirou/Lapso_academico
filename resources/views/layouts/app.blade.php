@@ -395,7 +395,7 @@
                             <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled" id="teacher-general"
                                 data-parent="#accordionExample">
                                 <li class="active">
-                                    <a href="{{ route('teachers.create_section') }}"> Crear </a>
+                                    <a href="{{ route('section-struc.index') }}"> Crear </a>
                                 </li>
                                 <li class="active">
                                     <a href="{{ route('teachers.list_sections') }}"> Listado </a>
@@ -497,7 +497,7 @@
                             <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled" id="teacher-general"
                                 data-parent="#accordionExample">
                                 <li class="active">
-                                    <a href="{{ route('teachers.create_section') }}"> Crear </a>
+                                    <a href="{{ route('section-struc.index') }}"> Crear </a>
                                 </li>
                                 {{-- <li class="active">
                                     <a href="{{ route('teachers.assigned_sections') }}"> Asignar </a>

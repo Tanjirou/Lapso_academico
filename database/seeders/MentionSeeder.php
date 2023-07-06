@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SubjectsSeeder extends Seeder
+class MentionsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,10 +15,11 @@ class SubjectsSeeder extends Seeder
     public function run()
     {
         DB::table('subjects')->insert([
-            'departmentsectionid' => 20,
-            'code' => 'EB1115',
-            'name' => 'Calculo I',
-            'credit_units' => 5,
+            'subjectid' => 1,
+            'academic_curriculaid' => 1,
+            'name' => '',
+            'pre_req' => '',
+            'post_req' => '',
             'status' => 'A',
         ]);
 
