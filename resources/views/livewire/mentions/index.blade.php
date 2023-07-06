@@ -96,7 +96,7 @@
                                                 <td>{{$mention->academic_curricula}}</td>
                                                 <td>{{$mention->subject}}</td>
                                                 <td>{{(is_null($mention->pre_req) ? 'No tiene pre-requisitos' : $mention->pre_req)}}</td>
-                                                <td>{{(is_null($mention->post_req) ? 'No tiene pre-requisitos' : $mention->post_req)}}</td>
+                                                <td>{{(is_null($mention->post_req) ? 'No tiene co-requisitos' : $mention->post_req)}}</td>
                                                 <td>
                                                     <button wire:click="edit({{$mention->id}})" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
                                                 </td>
@@ -106,7 +106,7 @@
                                 </table>
                             </div>
                             <div class="row justify-content-end">
-
+                                {{$mentions->links()}}
                             </div>
                         </div>
                     </div>

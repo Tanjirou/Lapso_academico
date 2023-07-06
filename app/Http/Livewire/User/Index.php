@@ -110,32 +110,12 @@ class Index extends Component
         ->leftJoin('teachers', 'teachers.userid', '=', 'users.user_type')
         ->leftJoin('departments', 'departments.id', '=', 'teachers.ndepartament')
         ->where('users.status','=', 'A')
-        ->select('users.id', 'users.names','users.last_names', 'users.dni', 'user_types.description', 'departments.name')
+        ->select('users.id', 'users.names','users.last_names', 'users.dni', 'user_types.description', 'departments.name as name')
         ->orderByDesc('users.id')
         ->simplePaginate(10);
         return view('livewire.user.list')->with('users',$users);
     }
 
-    // return view('livewire.departments.index',[
-    //     'departments'=>Department::orderBy('id','desc')->paginate(7),
-    // ]);
-
-    // public function userEdit(User $user){
-
-
-    //     $this->user_types= UserType::where('user_types.status','=', 'A')->orderBy('user_types.id')->get();
-    //     $this->departments= Department::where('departments.status','=', 'A')->orderBy('departments.id')->get();
-    //     $this->mentions= Mention::where('mentions.status','=', 'A')->orderBy('mentions.id')->get();
-
-    //     if($user->user_type != 1)
-    //     {
-    //         $teacher = Teacher::where('userid','=', $user->id)->first();
-    //         // var_dump($teacher);die();
-    //         return view('livewire.user.edit')->with('teacher', $teacher)->with('user', $user)->with('user_types', $this->user_types)->with('departments', $this->departments)->with('mentions', $this->mentions)->with('selectedUser', $this->selectedUser)->with('selectedDepartment', $this->selectedDepartment);
-    //     }
-
-    //     return view('livewire.user.edit')->with('user', $user)->with('user_types', $this->user_types)->with('departments', $this->departments)->with('mentions', $this->mentions)->with('selectedUser', $this->selectedUser)->with('selectedDepartment', $this->selectedDepartment);
-    // }
 
     public function update(User $user, Teacher $teacher){
         $this->validate($this->rules);
@@ -169,9 +149,6 @@ class Index extends Component
     {
         $id_usuario ='';
        return view('livewire.user.index',['departments' => Department::all(), 'id_usuario'=>$id_usuario]);
-
-        /* $mentions = Mention::all();
-        return view('livewire.user.index',['mentions' => $mentions]); */
     }
 
     }

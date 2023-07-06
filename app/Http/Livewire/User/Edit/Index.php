@@ -74,7 +74,7 @@ class Index extends Component
                 ->insert(
                     [
                      'userid'=>$user->id,
-                     'ndepartament'=> $request['ndepartment'],
+                     'ndepartament'=> $request['ndepartament'],
                      'nmention' => $request['nmention'],
                      'college_degree' => $request['college_degree'],
                      'status' => 'A'
@@ -83,7 +83,7 @@ class Index extends Component
                 DB::table('teachers')
                 ->where('userid','=',$user->id)
                 ->update(
-                    [ 'ndepartament'=> $request['ndepartment'],
+                    [ 'ndepartament'=> $request['ndepartament'],
                       'nmention' => $request['nmention'],
                       'college_degree' => $request['college_degree'],
                     ]);

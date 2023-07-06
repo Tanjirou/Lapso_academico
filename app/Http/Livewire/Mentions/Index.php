@@ -7,10 +7,13 @@ use App\Models\Mention;
 use App\Models\Subject;
 use Livewire\Component;
 use Illuminate\Http\Request;
+use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 
 class Index extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $subjects, $academic_curricula, $subjectid;
     public Mention $mention;
     protected $rules = [
@@ -42,7 +45,7 @@ class Index extends Component
             ->join('academic_curricula','mentions.academic_curriculaid','=','academic_curricula.id')
             ->where('mentions.status','=','A')
             ->select('mentions.*','academic_curricula.description as academic_curricula','subjects.name as subject')
-            ->simplePaginate(10);
+            ->orderByDesc('id')->paginate(10);
         return view('livewire.mentions.index',[
             'mentions'=>$mentions
         ]);
