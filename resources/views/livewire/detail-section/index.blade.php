@@ -116,7 +116,7 @@
                                 </div>
                             </div>
                             <br>
-                            @if (is_null($evaluate_section))
+                            @if (!is_null($evaluate_section))
                                 <div class="col-12">
                                     <div class="row justify-content-center">
                                         <h2 class="text-bold text-primary fond-bold m-0 mb-2">Estudiantes</h2>
