@@ -258,7 +258,7 @@
                             </a>
                             <ul class="collapse submenu list-unstyled" id="proceso" data-parent="#accordionExample">
                                 <li class="active">
-                                    <a href="{{ route('teacher.load_cut') }}">Aprobado/Reprobado</a>
+                                    <a href="{{ route('detail_section.index') }}">Aprobado/Reprobado</a>
                                 </li>
                                 {{-- <li class="active">
                                     <a href="{{ route('teacher.upload_content') }}">Modificar</a>
@@ -429,7 +429,7 @@
                             </a>
                             <ul class="collapse submenu list-unstyled" id="proceso" data-parent="#accordionExample">
                                 <li class="active">
-                                    <a href="{{ route('teacher.load_cut') }}">Aprobado/Reprobado</a>
+                                    <a href="{{ route('detail_section.index') }}">Aprobado/Reprobado</a>
                                 </li>
                                 {{-- <li class="active">
                                     <a href="{{ route('teacher.upload_content') }}">Modificar</a>
@@ -525,7 +525,7 @@
                             </a>
                             <ul class="collapse submenu list-unstyled" id="proceso" data-parent="#accordionExample">
                                 <li class="active">
-                                    <a href="{{ route('teacher.load_cut') }}">Aprobado/Reprobado</a>
+                                    <a href="{{ route('detail_section.index') }}">Aprobado/Reprobado</a>
                                 </li>
                                 {{-- <li class="active">
                                     <a href="{{ route('teacher.upload_content') }}">Modificar</a>
