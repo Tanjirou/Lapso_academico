@@ -81,10 +81,10 @@ class Index extends Component
     }
     public function delete(StructureSection $struc_section){
         $this->struc_section = $struc_section;
-        $this->struc_section->delete();
         Section::where('structure_sectionid',$this->struc_section->id)
         ->where('subjectid',$this->struc_section->subjectid)
         ->delete();
+        $this->struc_section->delete();
         session()->flash('mens', 'Estructura eliminada correctamente.');
         $this->reset('selectedDepartmentSection');
         $this->mount();

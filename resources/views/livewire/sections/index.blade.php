@@ -36,7 +36,7 @@
                                             </div>
                                         @endif
                                         <form method="POST" wire:submit.prevent="save">
-                                            @csrf
+                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
@@ -77,7 +77,7 @@
                                                                 @endforeach
                                                             @endif
                                                         </select>
-                                                        @error('struc_section.subjectid')
+                                                        @error('selectedSubject')
                                                             <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                                         @enderror
                                                     </div>
@@ -87,35 +87,27 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="section_number">Seccion</label>
-                                                        <select wire:model="section.section_number" class="form-control"
+                                                        <select wire:model="section_number" class="form-control"
                                                             id="section_number">
                                                             <option value="">Seleccione</option>
-                                                            @if (!is_null($structure_sections))
-                                                                @for ($i = 1; $i <= $structure_sections->number_section; $i++)
-                                                                    <option value="{{ $i }}">
-                                                                        {{ $i }}</option>
-                                                                @endfor
+                                                            @if (!is_null($sections_not_updated))
+                                                            @foreach ($sections_not_updated as $section)
+                                                                <option value="{{ $section->id }}">
+                                                                    {{ $section->section_number }}</option>
+                                                            @endforeach
+
                                                             @endif
                                                         </select>
-                                                        @error('struc_section.average_students')
+                                                        @error('section_number')
                                                             <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                                         @enderror
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="textPunt">Cantidad de Estudiantes(promedio)</label>
-                                                        <input class="form-control" type="number" placeholder="40"
-                                                            readonly
-                                                            value="{{ isset($structure_sections->average_students) ? $structure_sections->average_students : 0 }}">
-
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="teacherid">Profesor</label>
-                                                        <select wire:model="section.teacherid" class="form-control"
+                                                        <select wire:model="teacherid" class="form-control"
                                                             id="teacherid">
                                                             <option value="">Seleccione</option>
                                                             @if (!is_null($teachers))
@@ -126,7 +118,7 @@
                                                                 @endforeach
                                                             @endif
                                                         </select>
-                                                        @error('section.teacherid')
+                                                        @error('teacherid')
                                                             <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                                         @enderror
 
@@ -135,17 +127,20 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="textPunt">Lapso Academico</label>
-                                                        <input class="form-control" type="number" placeholder="40"
+                                                        <input class="form-control" type="text" placeholder="40"
                                                             readonly
                                                             value="{{ isset($academic_lapse) ? $academic_lapse->description : '' }}">
-
-                                                    </div>
+                                                            <input type="hidden" wire:model="lapse" id="lapse">
+                                                            @error('lapse')
+                                                            <div class="mt-1 text-danger text-sm">{{ $message }}</div>
+                                                        @enderror
+                                                        </div>
                                                 </div>
                                             </div>
                                             <br>
                                             <div class="row">
                                                 <div class="form-group text-center col-md-12">
-                                                    <button class="btn btn-primary mr-2 btn-lg"> <a href="#"></a>
+                                                    <button class="btn btn-primary mr-2 btn-lg">
                                                         Guardar </button>
                                                 </div>
                                             </div>
@@ -172,22 +167,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @foreach ($struc_sections as $struc_section)
-                                                <tr>
-                                                    <td>{{ $struc_section->department_section }}</td>
-                                                    <td>{{ $struc_section->subject }}</td>
-                                                    <td>{{ $struc_section->average_students }}</td>
-                                                    <td>{{ $struc_section->number_section }}</td>
-                                                    <td class="d-flex justify-content-center">
-                                                        <button wire:click="edit({{ $struc_section->id }})"
-                                                            type="button"
-                                                            class="bg-info px-2 py-1 text-white rounded">Editar</button>
-                                                            <button wire:click="delete({{ $struc_section->id }})"
-                                                                type="button"
-                                                                class="ml-2 bg-danger px-2 py-1 text-white rounded">Eliminar</button>
-                                                    </td>
-                                                </tr>
-                                            @endforeach --}}
+                                            @foreach ($sections as $section)
+                                            <tr>
+                                             <td>{{$section->lapse}}</td>
+                                            <td>{{$section->section_number}}</td>
+                                            <td>{{$section->subject}}</td>
+                                            <td>{{$section->names}} {{$section->last_names}}</td>
+                                            <td class="d-flex justify-content-center">
+                                             <button wire:click="delete({{$section->id}})" type="button" class="bg-danger px-2 py-1 ml-3 text-white rounded">Eliminar</button>
+                                            </td>
+                                            </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
