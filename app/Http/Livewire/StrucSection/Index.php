@@ -2,13 +2,14 @@
 
 namespace App\Http\Livewire\StrucSection;
 
+use App\Models\Section;
 use App\Models\Subject;
 use App\Models\Teacher;
 use Livewire\Component;
 use App\Models\Department;
 use Livewire\WithPagination;
-use App\Models\DepartmentSection;
 use App\Models\StructureSection;
+use App\Models\DepartmentSection;
 use Illuminate\Support\Facades\DB;
 // use App\Models\AcademicCurriculum as AcademicCurriculumModel;
 
@@ -54,10 +55,21 @@ class Index extends Component
                 'struc_section.average_students' => 'required',
                 'struc_section.number_section' =>'required'
             ];
+            Section::where('structure_sectionid',$this->struc_section->id)
+            ->where('subjectid',$this->struc_section->subjectid)
+            ->delete();
         }
         $this->validate();
         $this->struc_section->department_sectionid = $this->selectedDepartmentSection;
         $this->struc_section->save();
+        $structure = StructureSection::orderByDesc('id')->first();
+        for($i =1; $i<=$this->struc_section->number_section;$i++){
+            Section::create([
+                'structure_sectionid' =>$structure->id,
+                'subjectid' => $structure->subjectid,
+                'section_number' => $i,
+            ]);
+        }
         session()->flash('mens', 'Estructura guardada correctamente.');
         $this->reset('selectedDepartmentSection');
         $this->mount();
@@ -70,6 +82,9 @@ class Index extends Component
     public function delete(StructureSection $struc_section){
         $this->struc_section = $struc_section;
         $this->struc_section->delete();
+        Section::where('structure_sectionid',$this->struc_section->id)
+        ->where('subjectid',$this->struc_section->subjectid)
+        ->delete();
         session()->flash('mens', 'Estructura eliminada correctamente.');
         $this->reset('selectedDepartmentSection');
         $this->mount();

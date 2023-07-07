@@ -10,6 +10,6 @@ class Section extends Model
     use HasFactory;
     protected $fillable =[
         'teacherid','structure_sectionid' ,'academic_lapseid','subjectid',
-        'section_number','number_students','status',
+        'section_number','status',
     ];
 }

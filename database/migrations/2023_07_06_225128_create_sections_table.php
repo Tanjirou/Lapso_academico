@@ -16,11 +16,10 @@ class CreateSectionsTable extends Migration
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('teacherid')->nullable();
-            $table->unsignedBigInteger('structure_sectionid');
-            $table->unsignedBigInteger('academic_lapseid');
-            $table->unsignedBigInteger('subjectid');
+            $table->unsignedBigInteger('structure_sectionid')->nullable();
+            $table->unsignedBigInteger('academic_lapseid')->nullable();
+            $table->unsignedBigInteger('subjectid')->nullable();
             $table->string('section_number');
-            $table->string('number_students');
             $table->char('status',1)->default('A');
             $table->foreign('teacherid')->references('id')->on('teachers');
             $table->foreign('structure_sectionid')->references('id')->on('structure_sections');
