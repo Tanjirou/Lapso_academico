@@ -137,7 +137,7 @@
                                         @enderror
                                     </div>
 
-                                    <div wire:target="selectedUser">
+                                        <div wire:target="selectedUser">
                                         @if ($selectedUser > 1)
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -178,24 +178,6 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-
-                                        {{-- @elseif($selectedUser==2 || $selectedUser==4)
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="departments" class="text-dark">{{ __('Departamento') }}</label>
-                                                        <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartament" id="departments">
-                                                            <option value="" >Seleccione</option>
-                                                            @foreach ($departments as $department)
-                                                                <option value="{{ $department->id }}">{{ $department->name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @error('departments')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
-                                                </div> --}}
                                                 @endif
                                             </div>
 
@@ -214,13 +196,15 @@
                                                 @enderror
                                             </div>
                                         @endif
+                                    </div>
+                                    
                                     <div class="form-group row mb-0 justify-content-center">
                                         <div class="col-12 col-md-4 col-lg-3">
                                             <button type="submit" class="w-100 btn btn-primary font-weight-bold">
                                                 {{ __('Actualizar') }}
                                             </button>
                                         </div>
-                                        </div>
+                                    </div>
                                 </form>
 
                             </div>

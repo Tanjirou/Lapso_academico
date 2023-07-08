@@ -9,11 +9,11 @@ use App\Models\AcademicCurriculum as AcademicCurriculumModel;
 class Index extends Component
 {
     use WithPagination;
-    public $pensums;
+    protected $paginationTheme = 'bootstrap';
     public AcademicCurriculumModel $pensum;
     protected $rules =['pensum.description'=>'required|max:60'];
     public function mount(){
-        $this->pensums =AcademicCurriculumModel::orderBy('id','desc')->get();
+        // $this->pensums =AcademicCurriculumModel::orderBy('id','desc')->paginate(10);
         $this->pensum = new AcademicCurriculumModel();
     }
     public function updatedPensumText()
@@ -41,7 +41,10 @@ class Index extends Component
     }
     public function render()
     {
-        return view('livewire.academic-curriculum.index');
+        $pensums =AcademicCurriculumModel::orderBy('id','desc')->paginate(10);
+        return view('livewire.academic-curriculum.index', [
+            'pensums'=>$pensums
+        ]);
     }
 
 }

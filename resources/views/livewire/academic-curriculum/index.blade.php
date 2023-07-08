@@ -59,6 +59,9 @@
                                 </tbody>
                               </table>
                         </div>
+                        <div class="row justify-content-end">
+                             {{$pensums->links()}}
+                        </div>
                        </div>
                    </div>
                </div>

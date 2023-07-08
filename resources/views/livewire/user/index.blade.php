@@ -32,6 +32,11 @@
                                         {{ session('mens') }}
                                     </div>
                                 @endif
+                                @if (session()->has('mens-error'))
+                                    <div class="alert alert-danger">
+                                        {{ session('mens-error') }}
+                                    </div>
+                                @endif
                                 <form method="POST" wire:submit.prevent="store">
                                     @csrf
                                     <div class="row">
@@ -128,7 +133,11 @@
                                                             <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartment" id="departments">
                                                                 <option value="" >Seleccione</option>
                                                                 @foreach ($departments as $department)
-                                                                    <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                                                    @if ($department->id == 8)
+                                                                        @continue
+                                                                    @else
+                                                                        <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                                                    @endif
                                                                 @endforeach
                                                             </select>
                                                             @error('departments')

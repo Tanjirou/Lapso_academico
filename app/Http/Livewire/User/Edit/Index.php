@@ -30,7 +30,9 @@ class Index extends Component
 
     public function mount($user){
         $this->user = $user;
-        $this->user_types = UserType::all();
+        $this->user_types= UserType::where('status', 'A')
+        ->whereNotIn('id',[4])
+        ->orderBy('user_types.id')->get();
         $this->user_type = new UserType();
         $this->department = new Department();
         $this->departments= Department::where('departments.status','=', 'A')->orderBy('departments.id')->get();

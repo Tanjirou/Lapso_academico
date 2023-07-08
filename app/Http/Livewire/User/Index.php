@@ -40,10 +40,13 @@ class Index extends Component
 
     public function mount()
     {
-        $this->user_types= UserType::where('user_types.status','=', 'A')->orderBy('user_types.id')->get();
+        $this->user_types= UserType::where('status', 'A')
+        ->whereNotIn('id',[4])
+        ->orderBy('user_types.id')->get();
         $this->departments= Department::where('departments.status','=', 'A')->orderBy('departments.id')->get();
         // $this->mentions= Mention::where('mentions.status','=', 'A')->orderBy('mentions.id')->get();
         $this->department_sections= DepartmentSection::where('department_sections.status','=', 'A')->orderBy('department_sections.id')->get();
+        $this->teacher = new Teacher();
     }
 
     public function updatedSelectedDepartment($department_id)
@@ -53,32 +56,61 @@ class Index extends Component
 
     public function store()
     {
-        $this->validate($this->rules);
-        //Guardar datos en la primera tabla user
-        $user = new User;
-        $user->dni = $this->dni;
-        $user->names = $this->names;
-        $user->last_names = $this->last_names;
-        $user->email = $this->email;
-        $user->telephone = $this->telephone;
-        $user->password = bcrypt($this->password);
-        $user->user_type= $this->selectedUser;
-        $user->status = 'A';
-        $user->save();
+        $count_active_teacherDepart = null;
+        $count_active_teacherSection = null;
+        var_dump($this->selectedDepartment);die();
+        if(is_null($this->selectedDepartment)){
+            $count_active_teacherDepart = DB::table('teachers')->join('users','teachers.userid','=','users.id')
+                                                    ->where('teachers.status','=','A')
+                                                    >where('users.user_type','=',2)
+                                                    ->where('teachers.ndepartament','=',$this->selectedDepartment)
+                                                    ->first();
+        }
+        if(is_null($this->selectedMention)){
+            $count_active_teacherSection = DB::table('teachers')
+                                                    ->join('users','teachers.userid','=','users.id')
+                                                    ->join('department_sections','teachers.ndepartament','=','department_sections.id')
+                                                    ->where('teachers.status','=','A')
+                                                    ->where('users.user_type','=',3)
+                                                    ->where('teachers.ndepartament','=',$this->selectedDepartment)
+                                                    ->where('teachers.nmention','=',$this->selectedMention)
+                                                    ->first();
+        }
+        if(!is_null($count_active_teacherDepart))  {
+            session()->flash('mens-error', 'Ya existe un jefe para este departamento');
+        }
+        elseif(!is_null($count_active_teacherSection)) {
+            session()->flash('mens-error', 'Ya existe un jefe para esa sección');
+        }else{
+            $this->validate($this->rules);
 
-         //Guardar datos en la segunda tabla teacher
-         if($this->selectedUser != 1)
-         {
-            $teacher = new Teacher;
-            $teacher->userid = $user->id;
-            $teacher->ndepartament = $this->selectedDepartment;
-            $teacher->nmention = $this->selectedMention;
-            $teacher->college_degree = $this->college_degree;
-            $teacher->status = 'A';
-            $teacher->save();
-         }
+            //Guardar datos en la primera tabla user
+            $user = new User;
+            $user->dni = $this->dni;
+            $user->names = $this->names;
+            $user->last_names = $this->last_names;
+            $user->email = $this->email;
+            $user->telephone = $this->telephone;
+            $user->password = bcrypt($this->password);
+            $user->user_type= $this->selectedUser;
+            $user->status = 'A';
+            $user->save();
 
-
+            //Guardar datos en la segunda tabla teacher
+            if($this->selectedUser != 1)
+             {
+                $teacher = new Teacher;
+                $teacher->userid = $user->id;
+                $teacher->ndepartament = $this->selectedDepartment;
+                $teacher->nmention = $this->selectedMention;
+                $teacher->college_degree = $this->college_degree;
+                $teacher->status = 'A';
+                $teacher->save();
+            }
+            //Mostrar un mensaje de exito
+            session()->flash('mens', 'Usuario registrado exitosamente');
+            $this->mount();
+        }
         //Limpiar los campos del formulario
         $this->dni = '';
         $this->names = '';
@@ -92,7 +124,7 @@ class Index extends Component
         $this->college_degree = '';
 
         //Mostrar un mensaje de exito
-        session()->flash('mens', 'Usuario registrado exitosamente');
+       // session()->flash('mens', 'Usuario registrado exitosamente');
         /* $this->emitUp('userSaved','Usuario registrado correctamente'); */
 
     }

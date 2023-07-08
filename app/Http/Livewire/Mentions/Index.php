@@ -30,10 +30,21 @@ class Index extends Component
 
     }
     public function save(){
-        $this->validate();
-        $this->mention->save();
-        session()->flash('mens', 'Materia asignada correctamente.');
-        $this->mount();
+        $count_mentions = DB::table('mentions')->where('status','=','A')
+                                                ->where('subjectid','=',$this->mention->subjectid)
+                                                ->where('academic_curriculaid','=',$this->mention->academic_curriculaid)
+                                                ->first();
+        if(is_null($count_mentions) || !is_null($this->mention->id))
+        {
+            $this->validate();
+            $this->mention->save();
+            session()->flash('mens', 'Materia asignada correctamente.');
+            $this->mount();
+        }
+        else{
+            session()->flash('mens-error', 'Ya se encuentra esa materia registrada en el pensum.');
+        }
+       
     }
     public function edit(Mention $mention){
         $this->mention = $mention;

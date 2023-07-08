@@ -22,6 +22,11 @@
                         {{ session('mens') }}
                     </div>
                     @endif
+                    @if (session()->has('mens-error'))
+                    <div class="alert alert-danger">
+                        {{ session('mens-error') }}
+                    </div>
+                    @endif
                     <form wire:submit.prevent='save' method="POST">
                         @csrf
 
