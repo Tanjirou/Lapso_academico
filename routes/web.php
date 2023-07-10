@@ -11,6 +11,7 @@ use App\Http\Livewire\AcademicLapse\Index as AcademicLapseComponent;
 use App\Http\Livewire\Sections\Index as SectionsComponent;
 use App\Http\Livewire\DetailSection\Index as DetailSectionComponent;
 use App\Http\Livewire\Mentions\Index as MentionsComponent;
+use App\Http\Livewire\Reports\EvaluationResult\Index as EvaluationResultComponent;
 
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\UserController;
@@ -72,6 +73,9 @@ Route::get('pensum',AcademicCurriculumComponent::class)->Middleware('auth')->nam
 Route::get('departments',DepartmentComponent::class)->middleware('auth')->name('departments.index');
 Route::get('subjects',SubjectsComponent::class)->middleware('auth')->name('subjects.index');
 Route::get('departments-section',DepartmentSectionComponent::class)->middleware('auth')->name('department_section.index');
+
+Route::get('evaluation-result',EvaluationResultComponent::class)->name('reports.evaluation-result.index');
+
 Route::get('mentions', MentionsComponent::class)->middleware('auth')->name('mentions.index');
 if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
 {
