@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class MentionsSeeder extends Seeder
+class SectionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,14 +14,13 @@ class MentionsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('mentions')->insert([
+        DB::table('sections')->insert([
+            'teacherid' => 1,
+            'structure_sectionid' => 1,
+            'academic_lapseid' => 1,
             'subjectid' => 1,
-            'academic_curriculaid' => 1,
-            'name' => '',
-            'pre_req' => '',
-            'post_req' => '',
-            'status' => 'A',
+            'section_number' => '2',
+            'status' => 'F',
         ]);
-
     }
 }

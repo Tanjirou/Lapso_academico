@@ -551,8 +551,11 @@
                             </a>
                             <ul class="collapse submenu list-unstyled" id="report-teacher"
                                 data-parent="#accordionExample">
+
                                 <li class="active">
-                                    <a href="{{ route('teachers.report_jefedpto') }}">Listado A/R</a>
+                                    <a href="{{ route('reports.evaluation-result.index') }}">Listado A/R</a>
+                                </li><li class="active">
+                                    <a href="{{ route('teachers.report_jefedpto') }}">Listado</a>
                                 </li>
                                 <li class="active">
                                     <a href="user_account_setting.html">Estadisticas</a>
@@ -673,7 +676,7 @@
                         <li class="menu">
                             <a href="#admin-datos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                                 <div class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-database"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
                                     <span>Gestión Datos</span>
                                 </div>
                                 <div>
@@ -707,7 +710,7 @@
         <!--  END SIDEBAR  -->
 
         <!--  BEGIN CONTENT AREA  -->
-        <div id="content" class="main-content mt-6 ">
+        <div id="content" class="main-content mt-5 ">
             <main class="layout-px-spacing">
                 {{ $slot }}
             </main>
@@ -719,25 +722,23 @@
                         <div class="footer-section f-section-1 text-center mr-xl-auto">
                             <hr class="mt-0">
                             <h6 class="text-muted lead mt-0">ENCUENTRANOS EN LAS REDES</h6>
-                                    <div class="redes-footer text-right">
+                                    <div class="redes-footer text-right mb-0">
 
-                                            <ul class="socialIcons align-content-end">
+                                            <ul class="socialIcons align-content-end mb-0">
                                                 <li class="facebook"><a href="https://www.facebook.com/Unexpove"><i class="fab fa-facebook-f"></i>Facebook</a></li>
                                                 <li class="twitter"><a href="https://twitter.com/UnexpoVe"><i class="fab fa-twitter"></i>Twitter</a></li>
                                                 <li class="instagram"><a href="https://www.instagram.com/unexpove/?hl=es-la"><i class="fab fa-instagram"></i>Instagram</a></li>
                                             </ul>
-
                                     </div>
 
-                            <div class="row">
+                            <div class="row mt-0">
                                 <div class="col-6 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
                                     <img src="{{ asset('assets/img/logo-IE.png') }}" class="img-fluid d-none d-sm-block mt-1 mb-1" alt="header-image"
                                     style="width: 30%;">
                                 </div>
                                 <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 justify-content-center text-center">
                                     <h6 class="text-muted">
-                                        Av. Corpahuaico entre Av. La Salle y La Rotaria. Barquisimeto. Venezuela<br>
-                                                Teléfono: +58 251-6110237 | Email:  uracebqto@gmail.com<br>
+                                        <br>Av. Corpahuaico entre Av. La Salle y La Rotaria. Barquisimeto. Venezuela<br>
                                     </h6>
                                 </div>
                                 <div class="col-6 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">

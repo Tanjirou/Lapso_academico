@@ -131,7 +131,7 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Departamento</th>
+                                                <th scope="col">Sección del Dpto.</th>
                                                 <th scope="col">Materia</th>
                                                 <th scope="col">Cantidad de Secciones</th>
                                                 <th scope="col">Cantidad de Estudiantes por Sección</th>
