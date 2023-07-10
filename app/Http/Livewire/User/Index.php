@@ -56,32 +56,7 @@ class Index extends Component
 
     public function store()
     {
-        $count_active_teacherDepart = null;
-        $count_active_teacherSection = null;
-        var_dump($this->selectedDepartment);die();
-        if(is_null($this->selectedDepartment)){
-            $count_active_teacherDepart = DB::table('teachers')->join('users','teachers.userid','=','users.id')
-                                                    ->where('teachers.status','=','A')
-                                                    >where('users.user_type','=',2)
-                                                    ->where('teachers.ndepartament','=',$this->selectedDepartment)
-                                                    ->first();
-        }
-        if(is_null($this->selectedMention)){
-            $count_active_teacherSection = DB::table('teachers')
-                                                    ->join('users','teachers.userid','=','users.id')
-                                                    ->join('department_sections','teachers.ndepartament','=','department_sections.id')
-                                                    ->where('teachers.status','=','A')
-                                                    ->where('users.user_type','=',3)
-                                                    ->where('teachers.ndepartament','=',$this->selectedDepartment)
-                                                    ->where('teachers.nmention','=',$this->selectedMention)
-                                                    ->first();
-        }
-        if(!is_null($count_active_teacherDepart))  {
-            session()->flash('mens-error', 'Ya existe un jefe para este departamento');
-        }
-        elseif(!is_null($count_active_teacherSection)) {
-            session()->flash('mens-error', 'Ya existe un jefe para esa sección');
-        }else{
+
             $this->validate($this->rules);
 
             //Guardar datos en la primera tabla user
@@ -110,7 +85,6 @@ class Index extends Component
             //Mostrar un mensaje de exito
             session()->flash('mens', 'Usuario registrado exitosamente');
             $this->mount();
-        }
         //Limpiar los campos del formulario
         $this->dni = '';
         $this->names = '';
