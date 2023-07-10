@@ -6,13 +6,14 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 use App\Models\AcademicCurriculum as AcademicCurriculumModel;
+use App\Models\DetailSection;
+use App\Models\Student;
 
 class Index extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public AcademicCurriculumModel $pensum;
-    public $enableDelete;
     protected $rules =['pensum.description'=>'required|max:60'];
     public function mount(){
         // $this->pensums =AcademicCurriculumModel::orderBy('id','desc')->paginate(10);
@@ -43,15 +44,19 @@ class Index extends Component
     }
     public function delete(AcademicCurriculumModel $pensum){
         $this->pensum = $pensum;
-        session()->flash('mens', 'Pensum eliminado correctamente.');
-        $this->mount();
-        $this->emitUp('pensumSaved','Pensum eliminado correctamente.');
-        $this->pensum->delete();
-    }
-    public function updatedEnableDelete($academicCurriculaId){
-        $mention = Mention::where('academic_curriculaid','',$academicCurriculaId)->first();
-        if($mention){
-            $this->enableDelete = false;
+        $mention = Mention::where('academic_curriculaid','=',$pensum->id)->first();
+        $student = Student::where('academic_curriculaid','=',$pensum->id)->first();
+        $detailSection = DetailSection::where('studentcurriculum','=',$pensum->id)->first();
+        if(!is_null($mention) || !is_null($student) || !is_null($detailSection)){
+            session()->flash('mens-error', 'No se puede eliminar esa sección del departamento.');
+            $this->pensum->description = null;
+        }else{
+            $nextId = AcademicCurriculumModel::max('id') + 1;
+            $this->pensum->delete();
+            DB::statement("ALTER TABLE academic_curricula AUTO_INCREMENT = $nextId");
+            session()->flash('mens', 'Pensum eliminado correctamente.');
+            $this->mount();
+            $this->emitUp('pensumSaved','Pensum eliminado correctamente.');
         }
     }
     public function render()

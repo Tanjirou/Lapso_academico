@@ -22,6 +22,11 @@
                         {{ session('mens') }}
                     </div>
                     @endif
+                    @if (session()->has('mens-error'))
+                    <div class="alert alert-danger">
+                        {{ session('mens-error') }}
+                    </div>
+                    @endif
                     <form wire:submit.prevent='save' method="POST">
                         @csrf
                         <div class="form-group row mx-sm-3 mb-2 justify-content-center align-items-center align-content-center">
@@ -66,6 +71,7 @@
                                             <td>{{$departmentSection->department}}</td>
                                             <td>
                                                 <button wire:click="edit({{$departmentSection->id}})" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
+                                                <button wire:click="delete({{$departmentSection->id}})" type="button" class="bg-danger px-2 py-1 text-white rounded">Eliminar</button>
                                             </td>
                                         </tr>
                                         @empty

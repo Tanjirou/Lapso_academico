@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire\Departments;
 
+use App\Models\Teacher;
 use Livewire\Component;
-use Livewire\WithPagination;
 use App\Models\Department;
+use Livewire\WithPagination;
 use App\Models\DepartmentSection;
 
 class Index extends Component
@@ -50,9 +51,12 @@ class Index extends Component
         $this->department->delete();
     }
     public function updatedEnableDelete($departmentId){
-        $mention = DepartmentSection::where('departmentid','=',$departmentId)->first();
-        if($mention){
+        $departmentSection = DepartmentSection::where('departmentid','=',$departmentId)->first();
+        $teacher = Teacher::where('ndepartament','=',$departmentId)->first();
+        if($departmentSection || $teacher){
             $this->enableDelete = false;
+        }else{
+            $this->enableDelete = true;
         }
     }
     public function render()

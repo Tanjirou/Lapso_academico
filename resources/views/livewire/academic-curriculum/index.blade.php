@@ -21,6 +21,11 @@
                        {{ session('mens') }}
                    </div>
                    @endif
+                   @if (session()->has('mens-error'))
+                   <div class="alert alert-danger">
+                       {{ session('mens-error') }}
+                   </div>
+                   @endif
                     <form wire:submit.prevent='save'>
                         <div class="form-group row mx-sm-3 mb-2 justify-content-center">
                            <div class="col-12 col-md-5 align-content-center align-items-center">
@@ -50,9 +55,7 @@
                                      <td>{{$pensum->description}}</td>
                                      <td>
                                          <button wire:click="edit({{$pensum->id}})" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
-                                         @if($enableDelete)
                                          <button wire:click="delete({{$pensum->id}})" type="button" class="bg-danger px-2 py-1 text-white rounded">Eliminar</button>
-                                         @endif
                                      </td>
                                    </tr>
                                  @empty
