@@ -17,7 +17,7 @@ class Index extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $teacher, $subject,$department, $department_sections, $detail_sections, $subjects, $section, $section_number, $countstudents, $studaprob, $studrep, $sections_not_updated, $optionds, $optionsub, $optionsec, $academic_lapse, $lapse;
+    public $teacher, $subject,$department, $departmentSectionEnable = false, $subjectSectionEnable = false, $numberSectionEnable = false, $department_sections, $detail_sections, $subjects, $section, $section_number, $countstudents, $studaprob, $studrep, $sections_not_updated, $optionds, $optionsub, $optionsec, $academic_lapse, $lapse;
     public $selectedDepartmentSection= null, $selectedSubject = null;
 
 
@@ -46,12 +46,19 @@ class Index extends Component
         // $this->subject->name = null;
     }
 
+    public function updatedOptionds($option){
+        if(!is_null($this->optionds) && $this->optionds == 'option2'){
+            $this->departmentSectionEnable = true;
+        }else{
+            $this->departmentSectionEnable = false;
+        }
+    }
+
     public function updatedSelectedSubject($subjectId){
         if($subjectId != 'Seleccione' && $subjectId && $this->selectedSubject){
             $this->sections_not_updated = Section::where('subjectid',$subjectId)
-                            ->where('status','A')
-                            ->whereNull('academic_lapseid')
-                            ->whereNull('teacherid')
+                            ->where('status','F')
+                            ->select('sections.*')
                             ->orderBy('section_number')
                             ->get();
 
@@ -62,6 +69,21 @@ class Index extends Component
         }
     }
 
+    public function updatedOptionsub($option){
+        if(!is_null($this->optionsub) && $this->optionsub == 'option4'){
+            $this->subjectSectionEnable = true;
+        }else{
+            $this->subjectSectionEnable = false;
+        }
+    }
+
+    public function updatedOptionsec($option){
+        if(!is_null($this->optionsec) && $this->optionsec == 'option6'){
+            $this->numberSectionEnable = true;
+        }else{
+            $this->numberSectionEnable = false;
+        }
+    }
     public function render()
     {
         $detail_sections = DB::table('detail_sections')

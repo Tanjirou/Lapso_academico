@@ -552,9 +552,9 @@
                             <ul class="collapse submenu list-unstyled" id="report-teacher"
                                 data-parent="#accordionExample">
 
-                                {{-- <li class="active">
+                                <li class="active">
                                     <a href="{{ route('reports.evaluation-result.index') }}">Listado A/R</a>
-                                </li> --}}
+                                </li>
                                 <li class="active">
                                     <a href="{{ route('teachers.report_jefedpto') }}">Listado</a>
                                 </li>

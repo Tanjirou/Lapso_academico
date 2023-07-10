@@ -57,7 +57,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6" id="select-container1" style="display: none">
+                                    @if ($departmentSectionEnable)
+                                    <div class="col-md-6" id="select-container1">
                                         <div class="form-group">
                                             <label for="secdep">Seleccione una Sección del Departamento</label>
                                             <select wire:model="selectedDepartmentSection" class="form-control" name="secDep" id="secDep">
@@ -72,6 +73,8 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    @endif
+
                                 </div>
                                 <!--MATERIA-->
                                 <div class="row">
@@ -94,7 +97,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6" id="select-container2" style="display: none">
+                                    @if ($subjectSectionEnable)
+                                    <div class="col-md-6" id="select-container2">
                                         <div class="form-group">
                                             <label for="subject">Seleccione una Materia</label>
                                             <select wire:model="selectedSubject" class="form-control" name="subject" id="subject">
@@ -111,6 +115,7 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    @endif
                                 </div>
                                 <!--SECCION-->
                                 <div class="row">
@@ -133,7 +138,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6" id="select-container4" style="display: none">
+                                    @if ($numberSectionEnable)
+                                    <div class="col-md-6" id="select-container4">
                                         <div class="form-group">
                                             <label for="section_number">Seleccione una sección</label>
                                             <select wire:model="section_number" class="form-control" name="section_number" id="section_number">
@@ -151,6 +157,7 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    @endif
                                 </div>
 
                                 <br>
@@ -175,7 +182,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($detail_sections as $detail_s)
+                                            {{-- @foreach ($detail_sections as $detail_s)
                                             <tr>
                                                 <td class="text-center"> {{$detail_s->department_section}}</td>
                                                 <td class="text-center">{{$detail_s->subject}}</td>
@@ -184,7 +191,7 @@
                                                 <td class="text-center"> {{$detail_s->section_number}} </td>
                                                 <td class="text-center"> {{$detail_s->section_number}} </td>
                                             </tr>
-                                            @endforeach
+                                            @endforeach --}}
                                         </tbody>
                                     </table>
 
@@ -197,7 +204,7 @@
         </div>
     </div>
 </div>
-<script>
+{{-- <script>
     var option1 = document.getElementById('option1');
     var option2 = document.getElementById('option2');
     var selectContainer1 = document.getElementById('select-container1');
@@ -233,4 +240,4 @@
     option6.addEventListener('click', function() {
       selectContainer4.style.display = 'block';
     });
-  </script>
+  </script> --}}
