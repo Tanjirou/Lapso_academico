@@ -668,14 +668,15 @@
                             </a>
                             <ul class="collapse submenu list-unstyled" id="admin-datos" data-parent="#accordionExample">
                                 <li class="active">
+                                    <a href="{{route('academic_lapse.index')}}">Asignar Lapso</a>
+                                </li>    
+                                <li class="active">
                                     <a href="{{ route('administrator.export') }}">Exportar</a>
                                 </li>
                                 <li class="active">
                                     <a href="index2.html">Blanquear</a>
                                 </li>
-                                <li class="active">
-                                    <a href="{{route('academic_lapse.index')}}">Asignar Lapso</a>
-                                </li>
+                                
                                 {{-- <li class="active">
                                     <a href="{{ route('administrator.migrate') }}">Migrar</a>
                                 </li> --}}

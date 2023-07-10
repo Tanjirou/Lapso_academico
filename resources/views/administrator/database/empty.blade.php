@@ -24,7 +24,7 @@
                     <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
-                            <li class="breadcrumb-item" ><a href="javascript:void(0);">Exportar</a></li>
+                            <li class="breadcrumb-item" ><a href="javascript:void(0);">Blanquear</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -73,10 +73,10 @@
                 <div class="container">
                     <div class="row mb-0">
                         <div class="col-md-7 align-self-center order-md-0 order-1 mb-sm-0">
-                            <h1 class="">EXPORTAR</h1>
-                            <p class="font-weight-bold text-justify">Esta opción se utilizará para exportar la información de la base de datos del sistema con respecto al histórico de aprobados y reprobados,
-                                 y la información de los usuarios.
-                                <ins>Nota:</ins> Tenga en cuenta que esta opción es para realizar un backup de la información importante del sistema.</p>
+                            <h1 class="">BLANQUEAR</h1>
+                            <p class="font-weight-bold text-justify">Se borrará la información al inicio o a mitad del lapso academico en curso para introducir 
+                                la nueva información necesaria para desarrollar la planificación académica del próximo lapso academico.
+                                <ins>Nota:</ins> No se blanquera toda la información de la base de datos, solo la necesaria para mantener la operatividad del sistema.</p>
                             {{-- <button class="btn btn-info">Ejecutar</button> --}}
                             <div class="row justify-content-center mt-5">
                                 <a href="" class="btn btn-primary btn-lg"> Ejecutar</a>
