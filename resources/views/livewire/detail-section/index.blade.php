@@ -61,7 +61,8 @@
                                                         <div class="form-group">
                                                             <label for="textAsig">Asignatura</label>
                                                             <select wire:model="selectedSubject" class="form-control"
-                                                                id="textAsig">
+                                                                id="textAsig"
+                                                                @readonly({{(!is_null($evaluate_section) ? true : false)}})>
                                                                 <option value="">Seleccione</option>
                                                                 @if (!is_null($subjects))
                                                                     @foreach ($subjects as $subject)
@@ -82,7 +83,8 @@
                                                         <div class="form-group">
                                                             <label for="section_number">Seccion</label>
                                                             <select wire:model="section_number" class="form-control"
-                                                                id="section_number">
+                                                                id="section_number"
+                                                                @readonly({{(!is_null($evaluate_section) ? true : false)}})>
                                                                 <option value="">Seleccione</option>
                                                                 @if (!is_null($sections))
                                                                     @foreach ($sections as $section)
@@ -97,6 +99,19 @@
                                                                 </div>
                                                             @enderror
                                                         </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="textPunt">Cantidad de Estudiantes</label>
+                                                            <input class="form-control" wire:model="student_numbers"
+                                                                type="number" placeholder="40"
+                                                                @readonly({{(!is_null($evaluate_section) ? true : false)}})>
+                                                        </div>
+                                                        @error('student_numbers')
+                                                            <div class="mt-1 text-danger text-sm">{{ $message }}
+                                                            </div>
+                                                        @enderror
                                                     </div>
 
                                                 </div>
@@ -129,62 +144,130 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="textDpto">Cedula</label>
-                                                            <input type="text" class="form-control" id="dni"
-                                                                placeholder="Cedula">
-
+                                                            <input type="text" wire:model="query"
+                                                                class="form-control" id="dni"
+                                                                placeholder="Cedula" wire:keydown="studentSearch">
+                                                            @error('query')
+                                                                <div class="mt-1 text-danger text-sm">{{ $message }}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
+                                                    <input type="hidden" wire:model="userId" >
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="textDpto">Nombre</label>
-                                                            <input type="text" class="form-control" id="name"
-                                                                placeholder="Nombre">
-
+                                                            <input type="text" wire:model="studentName"
+                                                                class="form-control" id="name"
+                                                                placeholder="Nombre"
+                                                                value="{{ is_null($studentSearch) ? '' : $studentSearch->name }}">
+                                                            @error('studentName')
+                                                                <div class="mt-1 text-danger text-sm">{{ $message }}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
                                                     <div
                                                         class="col-12 col-md-6 mt-2 align-content-center align-items-center">
                                                         <label for="academic_curricula">Pensum</label>
-                                                        <select class="form-control" name="academic_curricula">
+                                                        <select wire:model="academicCurriculaId" class="form-control">
                                                             <option value="">Seleccione</option>
-
+                                                            @foreach ($academicCurricula as $academic)
+                                                                <option {{($academicCurriculaId && ($academicCurriculaId == $academic->id)) ? 'selected' : ''}} value="{{ $academic->id }}">
+                                                                    {{ $academic->description }}</option>
+                                                            @endforeach
                                                         </select>
-                                                        @error('academic_curricula')
+                                                        @error('academicCurriculaId')
                                                             <div class="mt-1 text-danger text-sm">{{ $message }}
                                                             </div>
                                                         @enderror
                                                     </div>
-                                                    <div class="col-12 align-content-center align-items-center">
-                                                        <div class="form-group row d-flex justify-content-center mt-3">
+                                                    <div
+                                                        class="col-12 col-md-6 align-content-center align-items-center">
+                                                        <div class="form-group row d-flex justify-content-center mt-5">
                                                             <div class="col-md-5">
-                                                                <input type="radio" class="form-check-input"
-                                                                    id="qualification" value="aprobado"
-                                                                    name="qualification" placeholder="Nombre"><label
+                                                                <input type="radio" wire:model="qualificationResult"
+                                                                    class="form-check-input" id="qualification"
+                                                                    value="Aprobado" name="qualification"><label
                                                                     class="form-check-label"
-                                                                    for="textDpto">Aprobado</label>
+                                                                    for="qualification">Aprobado</label>
                                                             </div>
                                                             <div class="col-md-5">
-                                                                <input type="radio" class="form-check-input"
-                                                                    id="qualification" value="reprobado"
-                                                                    name="qualification" placeholder="Nombre"><label
+                                                                <input type="radio" wire:model="qualificationResult"
+                                                                    class="form-check-input" id="qualification1"
+                                                                    value="Reprobado" name="qualification"><label
                                                                     class="form-check-label"
-                                                                    for="textDpto">Reprobado</label>
+                                                                    for="qualification1">Reprobado</label>
 
                                                             </div>
-
+                                                            @error('qualificationResult')
+                                                                <div class="mt-1 text-danger text-sm">{{ $message }}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row justify-content-center text-center">
+                                                <div class="row mt-5 justify-content-center text-center">
                                                     <div class="form-group text-center  col-md-12">
                                                         <button class="btn btn-primary mr-2 btn-lg">
                                                             Cargar </button>
                                                     </div>
                                                 </div>
                                             </form>
+                                            @if (session()->has('mens-error-student'))
+                                            <div class="alert alert-danger">
+                                                {{ session('mens-error-student') }}
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
+                                </div>
+                                    <div class="col-12">
+                                        <div class="row d-flex justify-content-center">
+                                           <div class="col-10">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Cedula</th>
+                                                            <th scope="col">Carrera</th>
+                                                            <th scope="col">Calificación</th>
+                                                            <th scope="col">Opciones</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if ($temporaryTables)
+                                                        @foreach ($temporaryTables as $temporarTable)
+                                                        <tr>
+                                                            <td>{{$temporarTable->dni}}</td>
+                                                            <td>{{$temporarTable->description}}</td>
+                                                            <td>{{$temporarTable->qualification}}</td>
+                                                            <td>
+                                                                <button wire:click="delete({{ $temporarTable->id }})"
+                                                                    type="button"
+                                                                    class="ml-2 bg-danger px-2 py-1 text-white rounded">Remover</button>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                        @endif
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                           </div>
+                                        </div>
+                                </div>
+                                <div class="col-12">
+                                    <form wire:submit.prevent="recordInformation" method="POST">
+                                        @csrf
+                                        <div class="row mt-5 mb-2 d-flex justify-content-center text-center">
+                                            <div class="form-group text-center ">
+                                                <button class="btn btn-primary mr-2 btn-lg">
+                                                    Guardar </button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             @endif
                         </div>

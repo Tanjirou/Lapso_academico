@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DetailSection extends Model
 {
     use HasFactory;
+    protected $fillable =[
+        'sectionid','studentid','studentcurriculum','qualification','status',
+    ];
 }

@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Student extends Model
+class TemporaryTable extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'academic_curriculaid','mention','dni','name', 'status'
+    protected $fillable =[
+        'sectionid','studentid','studentcurriculum','teacher_dni','qualification','status',
     ];
-
 }

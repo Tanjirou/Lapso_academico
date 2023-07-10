@@ -17,6 +17,7 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('academic_curriculaid');
+            $table->string('mention')->nullable();
             $table->string('dni');
             $table->string('name');
             $table->char('status',1)->default('A');
