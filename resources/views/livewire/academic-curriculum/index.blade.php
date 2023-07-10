@@ -50,6 +50,9 @@
                                      <td>{{$pensum->description}}</td>
                                      <td>
                                          <button wire:click="edit({{$pensum->id}})" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
+                                         @if($enableDelete)
+                                         <button wire:click="delete({{$pensum->id}})" type="button" class="bg-danger px-2 py-1 text-white rounded">Eliminar</button>
+                                         @endif
                                      </td>
                                    </tr>
                                  @empty

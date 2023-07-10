@@ -651,28 +651,6 @@
                             </ul>
                         </li>
 
-                        <!--GESTIONAR LAPSO ACADEMICO-->
-                        <li class="menu">
-                            <a href="#admin-lapso_academico" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                                <div class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                                    <span>Lapso Académico</span>
-                                </div>
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-chevron-right">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </div>
-                            </a>
-                            <ul class="collapse submenu list-unstyled" id="admin-lapso_academico" data-parent="#accordionExample">
-                                <li class="active">
-                                    <a href="{{ route('academic_lapse.index') }}">Crear</a>
-                                </li>
-                            </ul>
-                        </li>
-
                         <!--GESTIONAR DATOS-->
                         <li class="menu">
                             <a href="#admin-datos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -696,7 +674,7 @@
                                     <a href="index2.html">Blanquear</a>
                                 </li>
                                 <li class="active">
-                                    <a href="index2.html">Asignar Lapso</a>
+                                    <a href="{{route('academic_lapse.index')}}">Asignar Lapso</a>
                                 </li>
                                 {{-- <li class="active">
                                     <a href="{{ route('administrator.migrate') }}">Migrar</a>

@@ -5,11 +5,14 @@ namespace App\Http\Livewire\Departments;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Department;
+use App\Models\DepartmentSection;
+
 class Index extends Component
 {
     use WithPagination;
     //public $departments;
     public Department $department;
+    public $enableDelete;
     protected $rules =['department.name'=>'required|max:60'];
     protected $paginationTheme = 'bootstrap';
     public function mount(){
@@ -38,6 +41,19 @@ class Index extends Component
         $this->mount();
         $this->emitUp('departmentSaved','Departamento guardado correctamente.');
 
+    }
+    public function delete(Department $department){
+        $this->department = $department;
+        session()->flash('mens', 'Departamento eliminado correctamente.');
+        $this->mount();
+        $this->emitUp('departmentSaved','Departamento eliminado correctamente.');
+        $this->department->delete();
+    }
+    public function updatedEnableDelete($departmentId){
+        $mention = DepartmentSection::where('departmentid','=',$departmentId)->first();
+        if($mention){
+            $this->enableDelete = false;
+        }
     }
     public function render()
     {

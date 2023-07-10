@@ -50,6 +50,9 @@
                                         <td>{{$department->name}}</td>
                                         <td>
                                             <button wire:click="edit({{$department->id}})" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
+                                            @if($enableDelete)
+                                            <button wire:click="delete({{$department->id}})" type="button" class="bg-danger px-2 py-1 text-white rounded">Eliminar</button>
+                                            @endif
                                         </td>
                                         </tr>
                                     @empty
