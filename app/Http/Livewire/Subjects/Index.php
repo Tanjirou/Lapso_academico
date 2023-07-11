@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Livewire\Subjects;
+use App\Models\Section;
 use App\Models\Subject;
 use Livewire\Component;
 use App\Models\Department;
-use App\Models\DepartmentSection;
 use Livewire\WithPagination;
+use App\Models\StructureSection;
+use App\Models\DepartmentSection;
 use Illuminate\Support\Facades\DB;
 
 class Index extends Component
@@ -50,6 +52,23 @@ class Index extends Component
         $subject->update(['done'=>!$subject->done]);
         session()->flash('mens', 'Materia guardada correctamente.');
         $this->mount();
+    }
+    public function delete(Subject $subject){
+        $this->subject = $subject;
+        $structure = StructureSection::where('subjectid','=', $subject->id)->first();
+        $section = Section::where('subjectid','=', $subject->id)->first();
+
+        if($structure || $section){
+
+        }else{
+            $nextId = Subject::max('id') + 1;
+            DB::statement("ALTER TABLE subjects AUTO_INCREMENT = $nextId");
+            $this->subject->delete();
+            session()->flash('mens', 'Materia eliminada correctamente.');
+            $this->mount();
+            $this->emitUp('departmentSaved','Materia eliminada correctamente.');
+        }
+
     }
     public function render()
     {

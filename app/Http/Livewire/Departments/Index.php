@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\Models\Department;
 use Livewire\WithPagination;
 use App\Models\DepartmentSection;
+use Illuminate\Support\Facades\DB;
 
 class Index extends Component
 {
@@ -45,10 +46,21 @@ class Index extends Component
     }
     public function delete(Department $department){
         $this->department = $department;
-        session()->flash('mens', 'Departamento eliminado correctamente.');
-        $this->mount();
-        $this->emitUp('departmentSaved','Departamento eliminado correctamente.');
-        $this->department->delete();
+        $departmentSection = DepartmentSection::where('departmentid','=',$this->department->id)->first();
+        $teacher = Teacher::where('ndepartament','=',$this->department->id)->first();
+        if($departmentSection || $teacher){
+            session()->flash('mens-error', 'No se puede eliminar el departamento.');
+
+        }else{
+            $nextId = Department::max('id') + 1;
+            $this->department->delete();
+            DB::statement("ALTER TABLE departments AUTO_INCREMENT = $nextId");
+            session()->flash('mens', 'Departamento eliminado correctamente.');
+            $this->mount();
+            $this->emitUp('departmentSaved','Departamento eliminado correctamente.');
+        }
+
+
     }
     public function updatedEnableDelete($departmentId){
         $departmentSection = DepartmentSection::where('departmentid','=',$departmentId)->first();
