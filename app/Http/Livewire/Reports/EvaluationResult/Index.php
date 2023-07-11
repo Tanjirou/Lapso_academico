@@ -17,9 +17,10 @@ class Index extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $teacher, $subject,$department, $departmentSectionEnable = false, $subjectSectionEnable = false, $numberSectionEnable = false, $department_sections, $detail_sections, $subjects, $section, $section_number, $countstudents, $studaprob, $studrep, $sections_not_updated, $optionds, $optionsub, $optionsec, $academic_lapse, $lapse;
+    public $teacher, $subject,$department, $departmentSectionEnable = false, $subjectSectionEnable = false, $numberSectionEnable = false,
+     $department_sections, $subjects,$detailSections = null,  $section, $section_number, $countstudents, $studaprob, $studrep, $sections_not_updated, $optionds, $optionsub, $optionsec, $academic_lapse, $lapse;
     public $selectedDepartmentSection= null, $selectedSubject = null;
-
+    public DetailSection $detailSection;
 
     public function mount()
     {
@@ -27,8 +28,8 @@ class Index extends Component
         $this->department = Department::where('id',$this->teacher->ndepartament)->first();
         $this->academic_lapse = AcademicLapse::where('status','A')->first();
         $this->lapse = $this->academic_lapse->id;
+        $this->detailSection = new DetailSection();
         $this->department_sections = DepartmentSection::where('departmentid',$this->department->id)->get();
-        $this->detail_sections = new DetailSection();
         $this->department_sections = DepartmentSection::join('structure_sections','department_sections.id','=','structure_sections.department_sectionid')
         ->join('subjects','structure_sections.subjectid','=','subjects.id')
         ->where('department_sections.departmentid',$this->teacher->ndepartament)
@@ -84,21 +85,37 @@ class Index extends Component
             $this->numberSectionEnable = false;
         }
     }
-    public function render()
+
+    public function search()
     {
-        $detail_sections = DB::table('detail_sections')
-        ->join('sections','detail_sections.sectionid','=','sections.id')
+        $optionds = $this->optionds;
+        $optionsub = $this->optionsub;
+        $selectedDepartmentSection = $this->selectedDepartmentSection;
+        $selectedSubject = $this->selectedSubject;
+        $this->detailSections = DetailSection::join('sections','detail_sections.sectionid','=','sections.id')
         ->join('subjects','sections.subjectid','=','subjects.id')
         ->join('department_sections','subjects.departmentsectionid','=','department_sections.id')
         ->join('departments','department_sections.departmentid','=','departments.id')
         ->where('sections.status','=','F')
         ->where('detail_sections.status','=','F')
+        ->orWhere(function ($query) use ($optionds, $selectedDepartmentSection) {
+            if ($optionds && isset($optionds) && $optionds != 'option1' && $selectedDepartmentSection){
+                $query->where('department_sections.id','=',$selectedDepartmentSection);
+            }
+        })
+        ->orWhere(function ($query) use ($optionsub, $selectedSubject) {
+            if ($optionsub && isset($optionsub) && $optionsub != 'option3' && isset($selectedSubject) && !is_null($selectedSubject)){
+                $query->where('subjects.id','=',$selectedSubject);
+            }
+        })
+
         ->select('department_sections.description as department_section','subjects.name as subject','sections.section_number')
         ->groupBy('department_sections.description','subjects.name','sections.section_number')
         ->simplePaginate(10);
-        return view('livewire.reports.evaluation-result.index',[
-            'detail_sections'=>$detail_sections
-        ]);
+    }
+    public function render()
+    {
+        return view('livewire.reports.evaluation-result.index');
     }
 }
 // ->select('department_sections.description as department_section','subjects.name as subject','sections.section_number', COUNT(CASE WHEN detail.sections.qualification == 'Aprobado' THEN 1 END) as studaprob, COUNT(CASE WHEN detail.sections.qualification == 'Reprobado' THEN 1 END) as studrep)

@@ -61,8 +61,6 @@ Route::post('/users-restore/password',[AdministratorController::class, 'users_re
 Route::post('/users-restore/factor',[AdministratorController::class, 'users_restore_factor'])->name('administrator.users_restore_factor');
 // Route::get('/users-modify',[AdministratorController::class, 'users_modify'])->name('administrator.users_modify');
 Route::get('academic-lapse',AcademicLapseComponent::class)->name('academic_lapse.index');
-Route::get('sections',SectionsComponent::class)->name('sections.index');
-Route::get('qualify-student',DetailSectionComponent::class)->name('detail_section.index');
 
 Route::get('users-create',UserComponent::class)->Middleware('auth')->name('user.create');
 Route::post('users-create',[UserComponent::class, 'store'])->Middleware('auth')->name('user.store');
@@ -79,9 +77,7 @@ Route::get('departments',DepartmentComponent::class)->middleware('auth')->name('
 Route::get('subjects',SubjectsComponent::class)->middleware('auth')->name('subjects.index');
 Route::get('departments-section',DepartmentSectionComponent::class)->middleware('auth')->name('department_section.index');
 
-//REPORTES
-Route::get('evaluation-result',EvaluationResultComponent::class)->name('reports.evaluation-result.index');
-Route::get('open-section',OpenSectionComponent::class)->name('reports.open-section.index');
+
 
 Route::get('mentions', MentionsComponent::class)->middleware('auth')->name('mentions.index');
 if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
@@ -106,89 +102,18 @@ Route::get('/', function () {
 
 
 
-/*ESTUDIANTE*/
-// Route::get('/carga-academica', function () {
-//     return view('students/academic_charge');
-// })->middleware('auth')->name('studensts.academic_charge');
-
-Route::get('/carga-academica', [EnrolledSubjectController::class,'show'])->name('enrolled_subject.show');
-
-Route::get('/boletin', function () {
-    return view('students/bulletin');
-})->middleware('auth')->name('studensts.bulletin');
-
-// Route::get('/perfil-estudiante', function () {
-//     return view('students/student_profile');
-// })->middleware('auth')->name('students.profile');
-
-Route::get('/perfil-estudiante', [StudentController::class,'profile'])->name('students.student_profile');
-Route::post('/perfil-estudiante/store{user}', [StudentController::class,'update'])->name('students.update');
-Route::get('/constancia', [StudentController::class,'constance'])->name('students.constance');
-
-//Route::get('/perfil-estudiante', [UserController::class,'show'])->name('students.student_profile');
-
-
-Route::get('/ajuste-estudiante', function () {
-    return view('students/settings');
-})->middleware('auth')->name('students.settings');
-
-Route::get('/historial', function () {
-    return view('students/historial');
-})->middleware('auth')->name('students.history');
-
-Route::get('/sol-revision', function () {
-    return view('students/sol_revision');
-})->middleware('auth');
-
 /* PROFESOR */
+Route::get('sections',SectionsComponent::class)->name('sections.index');
+Route::get('qualify-student',DetailSectionComponent::class)->name('detail_section.index');
+
 Route::get('structure-section',StructureSectionComponent::class)->middleware('auth')->name('section-struc.index');
-//Route::get('section-create',StructureSectionComponent::class)->Middleware('auth')->name('section-struc.index');
+
 
 /* MENU - GESTION SECCIONES */
 //Route::get('sections', [TeacherController::class, 'createSection'])->Middleware('auth')->name('teachers.create_section');
-Route::get('asignar-seccion', [TeacherController::class, 'assignedSection'])->Middleware('auth')->name('teachers.assigned_sections');
-Route::get('listado-secciones', [TeacherController::class, 'listSection'])->Middleware('auth')->name('teachers.list_sections');
+// Route::get('asignar-seccion', [TeacherController::class, 'assignedSection'])->Middleware('auth')->name('teachers.assigned_sections');
+// Route::get('listado-secciones', [TeacherController::class, 'listSection'])->Middleware('auth')->name('teachers.list_sections');
 
-/* MENU - REPORTES */
-Route::get('reporte-jefedpto', [TeacherController::class, 'reportJefeDpto'])->Middleware('auth')->name('teachers.report_jefedpto');
-
-
-
-
-// Route::get('/teacher-profile', [TeacherController::class, 'profile'])->name('teacher.profile');
-// Route::post('/teacher-profile/store/{user}', [TeacherController::class, 'teacher_update'])->name('teacher.update_profile');
-Route::get('/ajuste-profesor', function () {
-    return view('teachers/settings');
-})->middleware('auth');
-
-Route::get('/cargar-corte', function () {
-    return view('teachers/load_cut');
-})->middleware('auth')->name('teacher.load_cut');
-
-Route::get('/cargar-contenido', function () {
-    return view('teachers/upload_content');
-})->middleware('auth')->name('teacher.upload_content');
-
-Route::get('/cargar-evaluacion', function () {
-    return view('teachers/load_evaluations');
-})->middleware('auth')->name('teacher.load_evaluations');
-
-Route::get('/cargar-nota', function () {
-    return view('teachers/upload_notes');
-})->middleware('auth')->name('teacher.upload_notes');
-
-Route::get('/revision-nota', function () {
-    return view('teachers/review_notes');
-})->middleware('auth')->name('teacher.review_notes');
-
-Route::get('/sustitutivo', function () {
-    return view('teachers/substitutes');
-})->middleware('auth')->name('teacher.substitutes');
-
-Route::get('/sustitutiva-nota', function () {
-    return view('teachers/substitute_note');
-})->middleware('auth')->name('teacher.substitute_note');
-
-Route::get('/revision-examen', function () {
-    return view('teachers/revision_exam');
-})->middleware('auth');
+//REPORTES
+Route::get('evaluation-result',EvaluationResultComponent::class)->name('reports.evaluation-result.index');
+Route::get('open-section',OpenSectionComponent::class)->name('reports.open-section.index');

@@ -7,7 +7,7 @@
                         <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
-                                <li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Reporte Estadistico</a></li>
+                                <li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Reporte Planificación</a></li>
                                 <!--<li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">General</a></li>-->
                             </ol>
                         </nav>
@@ -24,7 +24,7 @@
                         <div class="row mt-0 justify-content-center">
                             <div class="col-md-10 align-content-center mr-auto ml-auto">
                                 <div class="col-md-12 text-center">
-                                    <h3 class="fond-weight-bold text-bold text-primary mt-2 mb-1">SECCIONES A APERTURAR</h3>
+                                    <h3 class="fond-weight-bold text-bold text-primary mt-2 mb-1">PLANIFICACIÓN ACADÉMICA</h3>
                                     <hr>
                                 </div>
 
@@ -74,92 +74,8 @@
                                         </div>
                                     </div>
                                     @endif
-
                                 </div>
-                                <!--MATERIA-->
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="textSubject">Materia - Filtrado por:</label>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label class="new-control new-radio new-radio-text radio-primary">
-                                                        <input type="radio" class="new-control-input" name="optionsub" value="option3" wire:model="optionsub" id="option3">
-                                                        <span class="new-control-indicator"></span><span class="new-radio-content">Todas</span>
-                                                    </label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="new-control new-radio new-radio-text radio-primary">
-                                                        <input type="radio" class="new-control-input" name="optionsub" value="option4" wire:model="optionsub" id="option4">
-                                                        <span class="new-control-indicator"></span><span class="new-radio-content">Especifico</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @if ($subjectSectionEnable)
-                                    <div class="col-md-6" id="select-container2">
-                                        <div class="form-group">
-                                            <label for="subject">Seleccione una Materia</label>
-                                            <select wire:model="selectedSubject" class="form-control" name="subject" id="subject">
-                                                <option value="">Seleccione</option>
-                                                @if (!is_null($subjects))
-                                                    @foreach ($subjects as $subject)
-                                                        <option value="{{ $subject->id }}">
-                                                            {{ $subject->name }}</option>
-                                                    @endforeach
-                                                @endif
-                                            </select>
-                                            @error('selectedSubject')
-                                                <div class="mt-1 text-danger text-sm">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    @endif
-                                </div>
-                                <!--SECCION-->
-                                {{-- <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="textSection">Sección - Filtrado por:</label>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label class="new-control new-radio new-radio-text radio-primary">
-                                                        <input type="radio" class="new-control-input" name="optionsec" value="option5" wire:model="optionsec" id="option5">
-                                                        <span class="new-control-indicator"></span><span class="new-radio-content">Todas</span>
-                                                    </label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="new-control new-radio new-radio-text radio-primary">
-                                                        <input type="radio" class="new-control-input" name="optionsec" value="option6" wire:model="optionsec" id="option6">
-                                                        <span class="new-control-indicator"></span><span class="new-radio-content">Especifico</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @if ($numberSectionEnable)
-                                    <div class="col-md-6" id="select-container4">
-                                        <div class="form-group">
-                                            <label for="section_number">Seleccione una sección</label>
-                                            <select wire:model="section_number" class="form-control" name="section_number" id="section_number">
-                                                    <<option value="">Seleccione</option>
-                                                    @if (!is_null($sections_not_updated))
-                                                    @foreach ($sections_not_updated as $section)
-                                                        <option value="{{ $section->id }}">
-                                                            {{ $section->section_number }}</option>
-                                                    @endforeach
-
-                                                    @endif
-                                            </select>
-                                            @error('section_number')
-                                                <div class="mt-1 text-danger text-sm">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    @endif
-                                </div> --}}
-
+                                
                                 <br>
 
                                 <div class="row">
@@ -168,7 +84,7 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <h4 class="text-center">LISTADO</h4>
+                                <!-- <h4 class="text-center">LISTADO</h4>
                                 <div class="widget-content widget-content-area table-responsive">
                                     <table id="column-filter" class="table table-bordered table-hover table-striped">
                                         <thead>
@@ -208,7 +124,7 @@
                                         </tbody>
                                     </table>
 
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
