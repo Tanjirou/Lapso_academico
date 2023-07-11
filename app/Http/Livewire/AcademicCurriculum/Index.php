@@ -48,7 +48,7 @@ class Index extends Component
         $student = Student::where('academic_curriculaid','=',$pensum->id)->first();
         $detailSection = DetailSection::where('studentcurriculum','=',$pensum->id)->first();
         if(!is_null($mention) || !is_null($student) || !is_null($detailSection)){
-            session()->flash('mens-error', 'No se puede eliminar esa sección del departamento.');
+            session()->flash('mens-error', 'No se puede eliminar el pensum.');
             $this->pensum->description = null;
         }else{
             $nextId = AcademicCurriculumModel::max('id') + 1;
