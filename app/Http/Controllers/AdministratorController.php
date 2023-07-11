@@ -349,6 +349,10 @@ class AdministratorController extends Controller
         return view('administrator.database.export');
     }
 
+    public function empty(){
+        return view('administrator.database.empty');
+    }
+
     public function profile(User $user)
     {
         $id = auth()->user()->id;

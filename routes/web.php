@@ -12,6 +12,7 @@ use App\Http\Livewire\Sections\Index as SectionsComponent;
 use App\Http\Livewire\DetailSection\Index as DetailSectionComponent;
 use App\Http\Livewire\Mentions\Index as MentionsComponent;
 use App\Http\Livewire\Reports\EvaluationResult\Index as EvaluationResultComponent;
+use App\Http\Livewire\Reports\OpenSection\Index as OpenSectionComponent;
 
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\UserController;
@@ -46,7 +47,11 @@ Route::get('migrate', [AdministratorController::class, 'migrate'])->name('admini
 Route::get('load-data', [AdministratorController::class,'load_data'])->name('administrator.load_data');
 //Route::get('/perfil-admin', [AdministratorController::class,'profile'])->name('administrator.profile');
 //Route::post('/perfil-admin/store/{user}', [AdministratorController::class,'profile_update'])->name('administrator.profile_update');
+//BASE DE DATOS
 Route::get('export', [AdministratorController::class, 'export'])->name('administrator.export');
+Route::get('empty', [AdministratorController::class, 'empty'])->name('administrator.empty');
+
+
 Route::get('/admin-profile', [AdministratorController::class,'profile'])->name('administrator.profile');
 Route::post('/admin-profile/store/{user}', [AdministratorController::class,'profile_update'])->name('administrator.profile_update');
 Route::get('/users-create',[AdministratorController::class, 'users_create'])->name('administrator.users_create');
@@ -74,7 +79,9 @@ Route::get('departments',DepartmentComponent::class)->middleware('auth')->name('
 Route::get('subjects',SubjectsComponent::class)->middleware('auth')->name('subjects.index');
 Route::get('departments-section',DepartmentSectionComponent::class)->middleware('auth')->name('department_section.index');
 
+//REPORTES
 Route::get('evaluation-result',EvaluationResultComponent::class)->name('reports.evaluation-result.index');
+Route::get('open-section',OpenSectionComponent::class)->name('reports.open-section.index');
 
 Route::get('mentions', MentionsComponent::class)->middleware('auth')->name('mentions.index');
 if (Schema::hasTable('users') && count(DB::table('users')->get())>0)

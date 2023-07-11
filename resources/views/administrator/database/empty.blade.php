@@ -74,9 +74,8 @@
                     <div class="row mb-0">
                         <div class="col-md-7 align-self-center order-md-0 order-1 mb-sm-0">
                             <h1 class="">BLANQUEAR</h1>
-                            <p class="font-weight-bold text-justify">Se borrará la información al inicio o a mitad del lapso academico en curso para introducir 
-                                la nueva información necesaria para desarrollar la planificación académica del próximo lapso academico.
-                                <ins>Nota:</ins> No se blanquera toda la información de la base de datos, solo la necesaria para mantener la operatividad del sistema.</p>
+                            <p class="font-weight-bold text-justify">Esta opción se utilizara para borrar la información al inicio o a mitad del lapso academico en curso, para introducir la nueva información necesaria para desarrollar la planificación académica del próximo lapso academico.
+                                <ins>Nota:</ins> No se blanqueara toda la información de la base de datos, solo la necesaria para mantener la operatividad del sistema.</p>
                             {{-- <button class="btn btn-info">Ejecutar</button> --}}
                             <div class="row justify-content-center mt-5">
                                 <a href="" class="btn btn-primary btn-lg"> Ejecutar</a>
@@ -86,7 +85,7 @@
                         </div>
                         <div class="col-md-5 d-flex justify-content-center order-md-0 order-0 mb-sm-0">
                             <div class="banner-img align-content-center">
-                                <img src="assets/img/exportar.png" class="img-fluid d-none d-md-block" alt="header-image" style="width: 90%; height:85%">
+                                <img src="assets/img/vaciar.png" class="img-fluid d-none d-md-block" alt="header-image" style="width: 90%; height:85%">
                             </div>
                         </div>
                     </div>

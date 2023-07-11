@@ -110,13 +110,13 @@
                                 @if (auth()->user()->user_type == 1)
                                     <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-admin-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
                                 @elseif(auth()->user()->user_type ==2)
-                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
+                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-jefedpto-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
                                 @elseif(auth()->user()->user_type ==3)
-                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
+                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-jefesec-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
                                 @elseif(auth()->user()->user_type ==4)
-                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
+                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-coord-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
                                 @else
-                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png')) }}" class="img-fluid mr-2" alt="avatar">
+                                    <img src="{{ ((auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-profe-peq.png')) }}" class="img-fluid mr-2" alt="avatar">
                                 @endif
 
                                 <div class="media-body">
@@ -192,16 +192,16 @@
                             <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-admin.png')  }}" alt="avatar">
                             <p>Administrador</p>
                         @elseif(auth()->user()->user_type ==2)
-                            <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof.png')  }}" alt="avatar">
+                            <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-jefedpto.png')  }}" alt="avatar">
                             <p>Jefe Departamento</p>
                         @elseif(auth()->user()->user_type ==3)
-                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof.png')  }}" alt="avatar">
+                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-jefesec.png')  }}" alt="avatar">
                         <p>Jefe de Sección</p>
                         @elseif(auth()->user()->user_type ==4)
-                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-prof.png')  }}" alt="avatar">
+                        <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-coord.png')  }}" alt="avatar">
                         <p>Coordinador</p>
                         @else
-                            <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/student.png')  }}" alt="avatar">
+                            <img src="{{ (auth()->user()->photo) ? auth()->user()->photo : asset('assets/img/perfil-profe.png')  }}" alt="avatar">
                             <p>Profesor</p>
                         @endif
                     </div>
@@ -260,9 +260,6 @@
                                 <li class="active">
                                     <a href="{{ route('detail_section.index') }}">Aprobado/Reprobado</a>
                                 </li>
-                                {{-- <li class="active">
-                                    <a href="{{ route('teacher.upload_content') }}">Modificar</a>
-                                </li> --}}
                             </ul>
                         </li>
 
@@ -292,7 +289,7 @@
                             <ul class="collapse submenu list-unstyled" id="report-teacher"
                                 data-parent="#accordionExample">
                                 <li class="active">
-                                    <a href="user_profile2.html">Listado A/R.</a>
+                                    <a href="user_profile2.html">Aprob./Reprob.</a>
                                 </li>
 
                             </ul>
@@ -327,9 +324,6 @@
                                 <li class="active">
                                     <a href="{{ route('teacher.load_cut') }}">Aprobado/Reprobado</a>
                                 </li>
-                                <li class="active">
-                                    <a href="user_account_setting.html">Estadisticas</a>
-                                </li>
                             </ul>
                         </li>
 
@@ -360,9 +354,6 @@
                                 data-parent="#accordionExample">
                                 <li class="active">
                                     <a href="user_profile2.html">Listado Aprobados/Reprobados</a>
-                                </li>
-                                <li class="active">
-                                    <a href="user_account_setting.html">Estadisticas</a>
                                 </li>
                             </ul>
                         </li>
@@ -431,9 +422,6 @@
                                 <li class="active">
                                     <a href="{{ route('detail_section.index') }}">Aprobado/Reprobado</a>
                                 </li>
-                                {{-- <li class="active">
-                                    <a href="{{ route('teacher.upload_content') }}">Modificar</a>
-                                </li> --}}
                             </ul>
                         </li>
                         <li class="menu">
@@ -553,13 +541,13 @@
                                 data-parent="#accordionExample">
 
                                 <li class="active">
-                                    <a href="{{ route('reports.evaluation-result.index') }}">Listado A/R</a>
+                                    <a href="{{ route('reports.evaluation-result.index') }}">Aprob./Reprob.</a>
                                 </li>
-                                <li class="active">
+                                {{-- <li class="active">
                                     <a href="{{ route('teachers.report_jefedpto') }}">Listado</a>
-                                </li>
+                                </li> --}}
                                 <li class="active">
-                                    <a href="user_account_setting.html">Estadisticas</a>
+                                    <a href="{{ route('reports.open-section.index') }}">Secciones a abrir</a>
                                 </li>
                             </ul>
                         </li>
@@ -669,14 +657,14 @@
                             <ul class="collapse submenu list-unstyled" id="admin-datos" data-parent="#accordionExample">
                                 <li class="active">
                                     <a href="{{route('academic_lapse.index')}}">Asignar Lapso</a>
-                                </li>    
+                                </li>
                                 <li class="active">
                                     <a href="{{ route('administrator.export') }}">Exportar</a>
                                 </li>
                                 <li class="active">
-                                    <a href="index2.html">Blanquear</a>
+                                    <a href="{{ route('administrator.empty') }}">Blanquear</a>
                                 </li>
-                                
+
                                 {{-- <li class="active">
                                     <a href="{{ route('administrator.migrate') }}">Migrar</a>
                                 </li> --}}
