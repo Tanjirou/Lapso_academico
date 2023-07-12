@@ -32,16 +32,22 @@
                         <div class="form-group row mx-sm-3 mb-2 justify-content-center align-items-center align-content-center">
                             <div class="col-12 col-md-6 align-content-center align-items-center">
                                 <input type="text" wire:model = "departmentSection.description" class="form-control" placeholder="Indique nombre de la sección del departamento">
+                                @error('departmentSection.description') <div class="mt-1 text-danger text-sm">{{$message}}</div> @enderror
                             </div>
-                            <div class="col-12 col-md-6 d-md-flex justify-content-center align-content-center align-items-center">
-                                <label for="credit_unid" class="col-form-label mr-3">Departamento</label>
-                                <select wire:model="departmentSection.departmentid" class="form-control">
-                                    <option value="">Seleccione</option>
-                                    @foreach ($departments as $department)
-                                        <option value="{{$department->id}}">{{$department->name}}</option>
-                                    @endforeach
-                                </select>
+
+                            <div class="col-12 col-md-6  justify-content-center align-content-center align-items-center">
+                                <div class="d-md-flex justify-content-center">
+                                    <label for="credit_unid" class="col-form-label mr-3">Departamento</label>
+                                    <select wire:model="departmentSection.departmentid" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        @foreach ($departments as $department)
+                                            <option value="{{$department->id}}">{{$department->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error('departmentSection.departmentid') <div class="d-block mt-1 text-danger text-sm">{{$message}}</div> @enderror
                             </div>
+
 
                         </div>
                         <div class="row justify-content-center mt-4">
