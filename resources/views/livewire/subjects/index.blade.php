@@ -18,9 +18,14 @@
                         </div>
                     </div>
                     @if (session()->has('mens'))
-                    <div class="alert alert-success">
-                        {{ session('mens') }}
-                    </div>
+                        <div class="alert alert-success">
+                            {{ session('mens') }}
+                        </div>
+                    @endif
+                    @if (session()->has('mens-error'))
+                        <div class="alert alert-danger">
+                            {{ session('mens-error') }}
+                        </div>
                     @endif
                     <form wire:submit.prevent='save' method="POST">
                         @csrf
@@ -36,27 +41,36 @@
                             </div>
                             <div class="col-12 col-md-5 align-content-center align-items-center">
                                 <label for="subject.name">Nombre</label>
-                                <input type="text" class="form-control" wire:model ="subject.name"
+                                <input type="text" class="form-control" wire:model="subject.name"
                                     placeholder="Nombre de la materia">
+                                    @error('subject.name')
+                                    <div class="mt-1 text-danger text-sm">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-12 col-md-5 mt-3 align-content-center align-items-center">
                                 <label for="subject.credit_unid">Unidades de crédito</label>
                                 <input type="number" class="form-control" wire:model="subject.credit_units"
                                     placeholder="En números">
+                                    @error('subject.credit_units')
+                                    <div class="mt-1 text-danger text-sm">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-12 col-md-5 mt-3 align-content-center align-items-center">
                                 <label for="subject.departmentsectionid">Sección del Departamento</label>
                                 <select class="form-control" wire:model="subject.departmentsectionid">
                                     <option value="">Seleccione</option>
                                     @foreach ($department_sections as $department)
-                                    <option value="{{$department->id}}">{{$department->description}}</option>
+                                        <option value="{{ $department->id }}">{{ $department->description }}</option>
                                     @endforeach
                                 </select>
+                                @error('subject.departmentsectionid')
+                                <div class="mt-1 text-danger text-sm">{{ $message }}</div>
+                            @enderror
                             </div>
                         </div>
                         <div class="row justify-content-center mt-4">
                             <button type="submit"
-                            class="btn btn-primary w-100 w-md-auto btn-lg mb-2 mt-4 mt-md-0">Guardar</button>
+                                class="btn btn-primary w-100 w-md-auto btn-lg mb-2 mt-4 mt-md-0">Guardar</button>
                         </div>
                     </form>
                     <br>
@@ -79,20 +93,26 @@
                                     <tbody>
                                         @forelse ($subjects as $subject)
                                             <tr>
-                                                <td>{{$subject->code}}</td>
-                                                <td>{{$subject->name}}</td>
-                                                <td>{{$subject->credit_units}}</td>
-                                                <td>{{$subject->department}}</td>
-                                                <td> <button wire:click="edit({{$subject->id}})" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button></td>
+                                                <td>{{ $subject->code }}</td>
+                                                <td>{{ $subject->name }}</td>
+                                                <td>{{ $subject->credit_units }}</td>
+                                                <td>{{ $subject->department }}</td>
+                                                <td class="d-flex justify-content-center">
+                                                    <button wire:click="edit({{ $subject->id }})" type="button"
+                                                        class="bg-info px-2 py-1 text-white rounded">Editar</button>
+                                                    <button wire:click="delete({{ $subject->id }})" type="button"
+                                                        class="bg-danger ml-2 px-2 py-1 text-white rounded">Eliminar</button>
+                                                </td>
+
                                             </tr>
                                         @empty
-                                        <h3>No existen materias para mostrar</h3>
+                                            <h3>No existen materias para mostrar</h3>
                                         @endforelse
                                     </tbody>
                                 </table>
                             </div>
                             <div class="row justify-content-end">
-                                {{$subjects->links()}}
+                                {{ $subjects->links() }}
                             </div>
                         </div>
                     </div>

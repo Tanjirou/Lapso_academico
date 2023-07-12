@@ -52,6 +52,7 @@ class Index extends Component
             session()->flash('mens-error', 'No se puede eliminar esa sección del departamento.');
             $this->departmentSection->description = null;
             $this->departmentSection->departmentid = null;
+            $this->mount();
         }else{
             $nextId = DepartmentSection::max('id') + 1;
             $this->departmentSection->delete();
