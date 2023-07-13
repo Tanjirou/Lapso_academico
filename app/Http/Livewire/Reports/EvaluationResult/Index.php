@@ -90,6 +90,7 @@ class Index extends Component
     {
         $optionds = $this->optionds;
         $optionsub = $this->optionsub;
+        $optionsec = $this->optionsec;
         $selectedDepartmentSection = $this->selectedDepartmentSection;
         $selectedSubject = $this->selectedSubject;
         $detailSections = DetailSection::join('sections','detail_sections.sectionid','=','sections.id')
@@ -113,6 +114,9 @@ class Index extends Component
         }
         if($this->optionsub && $optionsub != 'option3'){
             $detailSections->where('subjects.id','=',$this->selectedSubject);
+         }
+         if($this->optionsec && $optionsec != 'option5'){
+            $detailSections->where('sections.id','=',$this->section_number);
          }
         $this->detailSections = $detailSections->get();
 

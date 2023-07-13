@@ -77,7 +77,7 @@
                                                         Departamento</label>
                                                     <select wire:model="selectedDepartmentSection" class="form-control"
                                                         name="secDep" id="secDep">
-
+                                                        <option value="">Seleccione</option>
                                                         @foreach ($department_sections as $department_section)
                                                             <option value="{{ $department_section->id }}">
                                                                 {{ $department_section->description }}</option>
@@ -126,11 +126,10 @@
                                                     <label for="subject">Seleccione una Materia</label>
                                                     <select wire:model="selectedSubject" class="form-control"
                                                         name="subject" id="subject">
-
+                                                        <option value="">Seleccione</option>
                                                         @if (!is_null($subjects))
                                                             @foreach ($subjects as $subject)
-                                                                <option value="{{ $subject->id }}">
-                                                                    {{ $subject->name }}</option>
+                                                                <option value="{{ $subject->id }}">{{ $subject->name }}</option>
                                                             @endforeach
                                                         @endif
                                                     </select>
