@@ -52,7 +52,7 @@ Route::get('export', [AdministratorController::class, 'export'])->name('administ
 Route::get('empty', [AdministratorController::class, 'empty'])->name('administrator.empty');
 
 
-Route::get('/admin-profile', [AdministratorController::class,'profile'])->name('administrator.profile');
+Route::get('/profile', [AdministratorController::class,'profile'])->name('administrator.profile');
 Route::post('/admin-profile/store/{user}', [AdministratorController::class,'profile_update'])->name('administrator.profile_update');
 Route::get('/users-create',[AdministratorController::class, 'users_create'])->name('administrator.users_create');
 Route::post('/users-create/store', [AdministratorController::class, 'users_create_store'])->name('administrator.users_create_store');

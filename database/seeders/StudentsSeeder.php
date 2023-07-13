@@ -34,7 +34,7 @@ class StudentsSeeder extends Seeder
         ]);
         DB::table('students')->insert([
             'academic_curriculaid' => 2,
-            'dni' => '32100200',
+            'dni' => '33100200',
             'name' => 'Jimena Gil',
             'status' => 'A',
         ]);
