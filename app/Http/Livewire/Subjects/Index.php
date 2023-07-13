@@ -59,14 +59,15 @@ class Index extends Component
         $section = Section::where('subjectid','=', $subject->id)->first();
 
         if($structure || $section){
-
+            session()->flash('mens-error', 'No se puede eliminar la materia.');
+            $this->mount();
         }else{
             $nextId = Subject::max('id') + 1;
             DB::statement("ALTER TABLE subjects AUTO_INCREMENT = $nextId");
             $this->subject->delete();
             session()->flash('mens', 'Materia eliminada correctamente.');
             $this->mount();
-            $this->emitUp('departmentSaved','Materia eliminada correctamente.');
+            $this->emitUp('subjectidSaved','Materia eliminada correctamente.');
         }
 
     }

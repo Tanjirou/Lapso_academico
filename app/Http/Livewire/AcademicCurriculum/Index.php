@@ -50,6 +50,7 @@ class Index extends Component
         if(!is_null($mention) || !is_null($student) || !is_null($detailSection)){
             session()->flash('mens-error', 'No se puede eliminar el pensum.');
             $this->pensum->description = null;
+            $this->mount();
         }else{
             $nextId = AcademicCurriculumModel::max('id') + 1;
             $this->pensum->delete();

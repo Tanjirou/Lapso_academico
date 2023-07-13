@@ -50,6 +50,7 @@ class Index extends Component
         $teacher = Teacher::where('ndepartament','=',$this->department->id)->first();
         if($departmentSection || $teacher){
             session()->flash('mens-error', 'No se puede eliminar el departamento.');
+            $this->mount();
 
         }else{
             $nextId = Department::max('id') + 1;

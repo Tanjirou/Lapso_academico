@@ -75,6 +75,7 @@ Route::put('/user-update/{userId}',[UserComponent::class, 'update'])->name('user
 Route::get('pensum',AcademicCurriculumComponent::class)->Middleware('auth')->name('academic_curriculum.index');
 Route::get('departments',DepartmentComponent::class)->middleware('auth')->name('departments.index');
 Route::get('subjects',SubjectsComponent::class)->middleware('auth')->name('subjects.index');
+Route::post('subjects',SubjectsComponent::class)->middleware('auth');
 Route::get('departments-section',DepartmentSectionComponent::class)->middleware('auth')->name('department_section.index');
 
 

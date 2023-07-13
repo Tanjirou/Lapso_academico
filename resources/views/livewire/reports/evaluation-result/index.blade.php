@@ -77,7 +77,7 @@
                                                         Departamento</label>
                                                     <select wire:model="selectedDepartmentSection" class="form-control"
                                                         name="secDep" id="secDep">
-                                                        <option>Seleccione</option>
+
                                                         @foreach ($department_sections as $department_section)
                                                             <option value="{{ $department_section->id }}">
                                                                 {{ $department_section->description }}</option>
@@ -126,7 +126,7 @@
                                                     <label for="subject">Seleccione una Materia</label>
                                                     <select wire:model="selectedSubject" class="form-control"
                                                         name="subject" id="subject">
-                                                        <option value="">Seleccione</option>
+
                                                         @if (!is_null($subjects))
                                                             @foreach ($subjects as $subject)
                                                                 <option value="{{ $subject->id }}">
@@ -176,7 +176,7 @@
                                                     <label for="section_number">Seleccione una sección</label>
                                                     <select wire:model="section_number" class="form-control"
                                                         name="section_number" id="section_number">
-                                                        <<option value="">Seleccione</option>
+                                                        <option value="">Seleccione</option>
                                                             @if (!is_null($sections_not_updated))
                                                                 @foreach ($sections_not_updated as $section)
                                                                     <option value="{{ $section->id }}">
@@ -213,9 +213,9 @@
                                                 <th class="text-center">Código</th>
                                                 <th class="text-center">Materia</th>
                                                 <th class="text-center">Sección</th>
-                                                <th class="text-center">N° Estudiantes</th>
                                                 <th class="text-center">N° Aprobados</th>
                                                 <th class="text-center">N° Reprobados</th>
+                                                <th class="text-center">N° Estudiantes</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -223,7 +223,25 @@
                                                 @foreach ($detailSections as $detail_s)
                                                     <tr>
                                                         <td class="text-center" >
-                                                            <input type="text" wire:model="detailSection.{{$loop->index}}.subject" readonly >
+                                                            {{$detail_s->department_section}}
+                                                        </td>
+                                                        <td class="text-center" >
+                                                            {{$detail_s->code}}
+                                                        </td>
+                                                        <td class="text-center" >
+                                                            {{$detail_s->subject}}
+                                                        </td>
+                                                        <td class="text-center" >
+                                                            {{$detail_s->section_number}}
+                                                        </td>
+                                                        <td class="text-center" >
+                                                            {{$detail_s->aprobados}}
+                                                        </td>
+                                                        <td class="text-center" >
+                                                            {{$detail_s->reprobados}}
+                                                        </td>
+                                                        <td class="text-center" >
+                                                            {{$detail_s->reprobados+$detail_s->aprobados}}
                                                         </td>
                                                     </tr>
                                                 @endforeach

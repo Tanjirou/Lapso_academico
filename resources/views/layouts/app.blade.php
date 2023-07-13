@@ -289,7 +289,7 @@
                             <ul class="collapse submenu list-unstyled" id="report-teacher"
                                 data-parent="#accordionExample">
                                 <li class="active">
-                                    <a href="user_profile2.html">Aprob./Reprob.</a>
+                                    <a href="{{ route('reports.evaluation-result.index') }}">Aprob./Reprob.</a>
                                 </li>
 
                             </ul>
@@ -322,7 +322,7 @@
                             </a>
                             <ul class="collapse submenu list-unstyled" id="proceso" data-parent="#accordionExample">
                                 <li class="active">
-                                    <a href="{{ route('teacher.load_cut') }}">Aprobado/Reprobado</a>
+                                    <a href="{{ route('detail_section.index') }}">Aprobado/Reprobado</a>
                                 </li>
                             </ul>
                         </li>
@@ -352,8 +352,12 @@
                             </a>
                             <ul class="collapse submenu list-unstyled" id="report-teacher"
                                 data-parent="#accordionExample">
+
                                 <li class="active">
-                                    <a href="user_profile2.html">Aprobados/Reprobados</a>
+                                    <a href="{{ route('reports.evaluation-result.index') }}">Aprob./Reprob.</a>
+                                </li>
+                                <li class="active">
+                                    <a href="{{ route('reports.open-section.index') }}">Planificación</a>
                                 </li>
                             </ul>
                         </li>
@@ -448,11 +452,12 @@
                             </a>
                             <ul class="collapse submenu list-unstyled" id="report-teacher"
                                 data-parent="#accordionExample">
+
                                 <li class="active">
-                                    <a href="user_profile2.html">Aprob./Reprob</a>
+                                    <a href="{{ route('reports.evaluation-result.index') }}">Aprob./Reprob.</a>
                                 </li>
                                 <li class="active">
-                                    <a href="user_account_setting.html">Planificación</a>
+                                    <a href="{{ route('reports.open-section.index') }}">Planificación</a>
                                 </li>
                             </ul>
                         </li>
@@ -460,28 +465,7 @@
 
                     <!--JEFE DE DEPARTAMENTO-->
                     @if (auth()->user()->user_type == 2)
-                    <!--GESTION USUARIOS-->
-                    <li class="menu">
-                            <a href="#admin-usuarios" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                                <div class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                                    <span>Gestión Usuarios</span>
-                                </div>
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-chevron-right">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </div>
-                            </a>
-                            <ul class="collapse submenu list-unstyled" id="admin-usuarios" data-parent="#accordionExample">
-                                <li class="active">
-                                    <a href="{{ route('users.list') }}">Actualizar</a>
-                                </li>
-                            </ul>
-                        </li>
-                    
+
                     <!--GESTION SECCIONES-->
                         <li class="menu">
                             <a href="#teacher-general" data-toggle="collapse" aria-expanded="false"
