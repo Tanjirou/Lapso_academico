@@ -18,7 +18,6 @@ class CreateMentionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('subjectid');
             $table->unsignedBigInteger('academic_curriculaid');
-            $table->string('name')->nullable();
             $table->string('pre_req')->nullable();
             $table->string('post_req')->nullable();
             $table->char('status')->default('A');

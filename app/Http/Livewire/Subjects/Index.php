@@ -62,8 +62,13 @@ class Index extends Component
             session()->flash('mens-error', 'No se puede eliminar la materia.');
             $this->mount();
         }else{
+            $driverName = DB::getDriverName();
             $nextId = Subject::max('id') + 1;
-            DB::statement("ALTER TABLE subjects AUTO_INCREMENT = $nextId");
+            if($driverName =='pgsql'){
+                DB::statement("ALTER SEQUENCE subjects_id_seq RESTART WITH $nextId");
+            }else{
+                DB::statement("ALTER TABLE subjects AUTO_INCREMENT = $nextId");
+            }
             $this->subject->delete();
             session()->flash('mens', 'Materia eliminada correctamente.');
             $this->mount();

@@ -52,9 +52,14 @@ class Index extends Component
             $this->pensum->description = null;
             $this->mount();
         }else{
+            $driverName = DB::getDriverName();
             $nextId = AcademicCurriculumModel::max('id') + 1;
+            if($driverName =='pgsql'){
+                DB::statement("ALTER SEQUENCE academic_curricula_id_seq RESTART WITH $nextId");
+            }else{
+                DB::statement("ALTER TABLE academic_curricula AUTO_INCREMENT = $nextId");
+            }
             $this->pensum->delete();
-            DB::statement("ALTER TABLE academic_curricula AUTO_INCREMENT = $nextId");
             session()->flash('mens', 'Pensum eliminado correctamente.');
             $this->mount();
             $this->emitUp('pensumSaved','Pensum eliminado correctamente.');

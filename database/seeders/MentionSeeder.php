@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class MentionsSeeder extends Seeder
+class MentionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class MentionsSeeder extends Seeder
     public function run()
     {
         //CALULO I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 1,
             'academic_curriculaid' => 1,
             'pre_req' => '',
@@ -23,7 +23,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 1,
             'academic_curriculaid' => 2,
             'pre_req' => '',
@@ -31,7 +31,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 1,
             'academic_curriculaid' => 3,
             'pre_req' => '',
@@ -39,7 +39,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 1,
             'academic_curriculaid' => 4,
             'pre_req' => '',
@@ -47,7 +47,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 1,
             'academic_curriculaid' => 5,
             'pre_req' => '',
@@ -55,7 +55,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 1,
             'academic_curriculaid' => 6,
             'pre_req' => '',
@@ -63,7 +63,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 1,
             'academic_curriculaid' => 7,
             'pre_req' => '',
@@ -71,7 +71,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 1,
             'academic_curriculaid' => 8,
             'pre_req' => '',
@@ -81,7 +81,7 @@ class MentionsSeeder extends Seeder
 
 
         //DINUJO I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 2,
             'academic_curriculaid' => 1,
             'pre_req' => '',
@@ -89,7 +89,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 2,
             'academic_curriculaid' => 2,
             'pre_req' => '',
@@ -97,7 +97,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 2,
             'academic_curriculaid' => 3,
             'pre_req' => '',
@@ -105,7 +105,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 2,
             'academic_curriculaid' => 4,
             'pre_req' => '',
@@ -113,7 +113,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 2,
             'academic_curriculaid' => 5,
             'pre_req' => '',
@@ -121,7 +121,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 2,
             'academic_curriculaid' => 6,
             'pre_req' => '',
@@ -129,7 +129,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 2,
             'academic_curriculaid' => 7,
             'pre_req' => '',
@@ -137,7 +137,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 2,
             'academic_curriculaid' => 8,
             'pre_req' => '',
@@ -147,7 +147,7 @@ class MentionsSeeder extends Seeder
 
 
         //INGLÉS I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 3,
             'academic_curriculaid' => 1,
             'pre_req' => '',
@@ -155,7 +155,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 3,
             'academic_curriculaid' => 2,
             'pre_req' => '',
@@ -163,7 +163,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 3,
             'academic_curriculaid' => 3,
             'pre_req' => '',
@@ -171,7 +171,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 3,
             'academic_curriculaid' => 4,
             'pre_req' => '',
@@ -179,7 +179,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 3,
             'academic_curriculaid' => 5,
             'pre_req' => '',
@@ -187,7 +187,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 3,
             'academic_curriculaid' => 6,
             'pre_req' => '',
@@ -195,7 +195,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 3,
             'academic_curriculaid' => 7,
             'pre_req' => '',
@@ -203,7 +203,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 3,
             'academic_curriculaid' => 8,
             'pre_req' => '',
@@ -214,7 +214,7 @@ class MentionsSeeder extends Seeder
 
 
         //LEMGUAJE
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 4,
             'academic_curriculaid' => 1,
             'pre_req' => '',
@@ -222,7 +222,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 4,
             'academic_curriculaid' => 2,
             'pre_req' => '',
@@ -230,7 +230,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 4,
             'academic_curriculaid' => 3,
             'pre_req' => '',
@@ -238,7 +238,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 4,
             'academic_curriculaid' => 4,
             'pre_req' => '',
@@ -246,7 +246,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 5,
             'academic_curriculaid' => 5,
             'pre_req' => '',
@@ -254,7 +254,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 5,
             'academic_curriculaid' => 6,
             'pre_req' => '',
@@ -262,7 +262,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 5,
             'academic_curriculaid' => 7,
             'pre_req' => '',
@@ -270,7 +270,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 5,
             'academic_curriculaid' => 8,
             'pre_req' => '',
@@ -281,7 +281,7 @@ class MentionsSeeder extends Seeder
 
 
         //DEPORTE
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 5,
             'academic_curriculaid' => 1,
             'pre_req' => '',
@@ -289,7 +289,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 5,
             'academic_curriculaid' => 2,
             'pre_req' => '',
@@ -297,7 +297,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 5,
             'academic_curriculaid' => 3,
             'pre_req' => '',
@@ -305,7 +305,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 5,
             'academic_curriculaid' => 4,
             'pre_req' => '',
@@ -313,7 +313,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 5,
             'academic_curriculaid' => 5,
             'pre_req' => '',
@@ -321,7 +321,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 5,
             'academic_curriculaid' => 6,
             'pre_req' => '',
@@ -329,7 +329,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 5,
             'academic_curriculaid' => 7,
             'pre_req' => '',
@@ -337,7 +337,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 5,
             'academic_curriculaid' => 8,
             'pre_req' => '',
@@ -348,7 +348,7 @@ class MentionsSeeder extends Seeder
 
 
         //DHP I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 6,
             'academic_curriculaid' => 1,
             'pre_req' => '',
@@ -356,7 +356,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 6,
             'academic_curriculaid' => 2,
             'pre_req' => '',
@@ -364,7 +364,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 6,
             'academic_curriculaid' => 3,
             'pre_req' => '',
@@ -372,7 +372,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 6,
             'academic_curriculaid' => 4,
             'pre_req' => '',
@@ -380,7 +380,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 6,
             'academic_curriculaid' => 5,
             'pre_req' => '',
@@ -388,7 +388,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 6,
             'academic_curriculaid' => 6,
             'pre_req' => '',
@@ -396,7 +396,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 6,
             'academic_curriculaid' => 7,
             'pre_req' => '',
@@ -404,7 +404,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 6,
             'academic_curriculaid' => 8,
             'pre_req' => '',
@@ -415,7 +415,7 @@ class MentionsSeeder extends Seeder
 
 
         //QUÍMICA GENERAL
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 7,
             'academic_curriculaid' => 1,
             'pre_req' => '',
@@ -423,7 +423,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 7,
             'academic_curriculaid' => 2,
             'pre_req' => '',
@@ -431,7 +431,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 7,
             'academic_curriculaid' => 3,
             'pre_req' => '',
@@ -439,7 +439,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 7,
             'academic_curriculaid' => 4,
             'pre_req' => '',
@@ -447,7 +447,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 7,
             'academic_curriculaid' => 5,
             'pre_req' => '',
@@ -455,7 +455,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 7,
             'academic_curriculaid' => 6,
             'pre_req' => '',
@@ -463,7 +463,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 7,
             'academic_curriculaid' => 7,
             'pre_req' => '',
@@ -471,7 +471,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 7 ,
             'academic_curriculaid' => 8,
             'pre_req' => '',
@@ -482,7 +482,7 @@ class MentionsSeeder extends Seeder
 
 
         //CALCULO II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 8,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB1115',
@@ -490,7 +490,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 8,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB1115',
@@ -498,7 +498,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 8,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB1115',
@@ -506,7 +506,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 8,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB1115',
@@ -514,7 +514,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 8,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB1115',
@@ -522,7 +522,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 8,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB1115',
@@ -530,7 +530,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 8,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB1115',
@@ -538,7 +538,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 8,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB1115',
@@ -549,7 +549,7 @@ class MentionsSeeder extends Seeder
 
 
         //FÍSICA I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 1,
             'pre_req' => '',
@@ -557,7 +557,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 2,
             'pre_req' => '',
@@ -565,7 +565,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 3,
             'pre_req' => '',
@@ -573,7 +573,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 4,
             'pre_req' => '',
@@ -581,7 +581,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 5,
             'pre_req' => '',
@@ -589,7 +589,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 6,
             'pre_req' => '',
@@ -597,7 +597,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 7,
             'pre_req' => '',
@@ -605,7 +605,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 8,
             'pre_req' => '',
@@ -616,7 +616,7 @@ class MentionsSeeder extends Seeder
 
 
         //DIBUJO II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 10,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB3112',
@@ -624,7 +624,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 10,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB3112',
@@ -632,7 +632,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 10,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB3112',
@@ -640,7 +640,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 10,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB3112',
@@ -648,7 +648,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 10,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB3112',
@@ -656,7 +656,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 10,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB3112',
@@ -664,7 +664,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 10,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB3112',
@@ -672,7 +672,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 10,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB3112',
@@ -683,7 +683,7 @@ class MentionsSeeder extends Seeder
 
 
         //INGLÉS II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 11,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB4121',
@@ -691,7 +691,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 11,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB4121',
@@ -699,7 +699,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 11,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB4121',
@@ -707,7 +707,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 11,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB4121',
@@ -715,7 +715,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 11,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB4121',
@@ -723,7 +723,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 11,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB4121',
@@ -731,7 +731,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 11,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB4121',
@@ -739,7 +739,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 11,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB4121',
@@ -750,7 +750,7 @@ class MentionsSeeder extends Seeder
 
 
         //DHP II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 12,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB7113',
@@ -758,7 +758,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 12,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB7113',
@@ -766,7 +766,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 12,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB7113',
@@ -774,7 +774,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 12,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB7113',
@@ -782,7 +782,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 12,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB7113',
@@ -790,7 +790,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 12,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB7113',
@@ -798,7 +798,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 12,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB7113',
@@ -806,7 +806,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 12,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB7113',
@@ -817,7 +817,7 @@ class MentionsSeeder extends Seeder
 
 
         //LECTURA CRÍTICA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 13,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB7113',
@@ -825,7 +825,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 13,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB7113',
@@ -833,7 +833,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 13,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB7113',
@@ -841,7 +841,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 13,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB7113',
@@ -849,7 +849,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 13,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB7113',
@@ -857,7 +857,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 13,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB7113',
@@ -865,7 +865,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 13,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB7113',
@@ -873,7 +873,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 13,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB7113',
@@ -884,7 +884,7 @@ class MentionsSeeder extends Seeder
 
 
         //CALCULO III
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 14,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB1125',
@@ -892,7 +892,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 14,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB1125',
@@ -900,7 +900,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 14,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB1125',
@@ -908,7 +908,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 14,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB1125',
@@ -916,7 +916,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 14,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB1125',
@@ -924,7 +924,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 14,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB1125',
@@ -932,7 +932,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 14,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB1125',
@@ -940,7 +940,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 14,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB1125',
@@ -951,7 +951,7 @@ class MentionsSeeder extends Seeder
 
 
         //ALGEBRA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 15,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB1115',
@@ -959,7 +959,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 15,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB1115',
@@ -967,7 +967,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 15,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB1115',
@@ -975,7 +975,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 15,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB1115',
@@ -983,7 +983,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 15,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB1115',
@@ -991,7 +991,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 15,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB1115',
@@ -999,7 +999,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 15,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB1115',
@@ -1007,7 +1007,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 15,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB1115',
@@ -1018,7 +1018,7 @@ class MentionsSeeder extends Seeder
 
 
         //FÍSICA II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 16,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB2115,EB1125',
@@ -1026,7 +1026,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 16,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB2115,EB1125',
@@ -1034,7 +1034,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 16,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB2115,EB1125',
@@ -1042,7 +1042,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 16,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB2115,EB1125',
@@ -1050,7 +1050,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 16,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB2115,EB1125',
@@ -1058,7 +1058,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 16,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB2115,EB1125',
@@ -1066,7 +1066,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 16,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB2115,EB1125',
@@ -1074,7 +1074,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 16,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB2115,EB1125',
@@ -1085,7 +1085,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB FÍSICA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 1,
             'pre_req' => '',
@@ -1093,7 +1093,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 2,
             'pre_req' => '',
@@ -1101,7 +1101,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 3,
             'pre_req' => '',
@@ -1109,7 +1109,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 4,
             'pre_req' => '',
@@ -1117,7 +1117,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB1125',
@@ -1125,7 +1125,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 6,
             'pre_req' => '',
@@ -1133,7 +1133,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB1125',
@@ -1141,7 +1141,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 8,
             'pre_req' => '',
@@ -1152,7 +1152,7 @@ class MentionsSeeder extends Seeder
 
 
         //DHP III
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 18,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB7123',
@@ -1160,7 +1160,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 18,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB7123',
@@ -1168,7 +1168,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 18,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB7123',
@@ -1176,7 +1176,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 18,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB7123',
@@ -1184,7 +1184,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 18,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB7123',
@@ -1192,7 +1192,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 18,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB7123',
@@ -1200,7 +1200,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 18,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB7123',
@@ -1208,7 +1208,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 18,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB7123',
@@ -1219,7 +1219,7 @@ class MentionsSeeder extends Seeder
 
 
         //CIRCUITOS E. I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 19,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB1125',
@@ -1227,7 +1227,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 19,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB1125',
@@ -1235,7 +1235,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 19,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB1125',
@@ -1243,7 +1243,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 19,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB1125',
@@ -1254,7 +1254,7 @@ class MentionsSeeder extends Seeder
 
 
         //INICIACIÓN P.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 20,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB1125,EB2115',
@@ -1265,7 +1265,7 @@ class MentionsSeeder extends Seeder
 
 
         //DIBUJO MAQ. II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 21,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB3122',
@@ -1273,10 +1273,10 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        
+
 
         //DIBUJO MAQ. IM
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 22,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB3122',
@@ -1287,7 +1287,7 @@ class MentionsSeeder extends Seeder
 
 
         //MECANICA APLI. I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 23,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB1125,EB2115',
@@ -1298,7 +1298,7 @@ class MentionsSeeder extends Seeder
 
 
         //FÍSICA-QUÍMICA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 24,
             'academic_curriculaid' => 7,
             'pre_req' => 'IQ5113,EB1125',
@@ -1309,7 +1309,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB QUÍM. GENERAL
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 25,
             'academic_curriculaid' => 8,
             'pre_req' => '',
@@ -1320,7 +1320,7 @@ class MentionsSeeder extends Seeder
 
 
         //QUÍMICA ANA.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 26,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ5113,EB1125',
@@ -1331,7 +1331,7 @@ class MentionsSeeder extends Seeder
 
 
         //CALCULO IV
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 27,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB1134,EB1213',
@@ -1339,7 +1339,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 27,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB1134,EB1213',
@@ -1347,7 +1347,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 27,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB1134,EB1213',
@@ -1355,7 +1355,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 27,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB1134,EB1213',
@@ -1366,7 +1366,7 @@ class MentionsSeeder extends Seeder
 
 
         //PROGRAMACIÓN
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 28,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB1125,EB1213',
@@ -1374,7 +1374,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 28,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB1125,EB1213',
@@ -1382,7 +1382,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 28,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB1125,EB1213',
@@ -1390,7 +1390,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 28,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB1125,EB1213',
@@ -1398,7 +1398,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 28,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB1125,EB1213',
@@ -1406,7 +1406,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 28,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB1125,EB1213',
@@ -1414,7 +1414,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 28,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB1125,EB1213',
@@ -1422,7 +1422,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 28,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB1125,EB1213',
@@ -1433,7 +1433,7 @@ class MentionsSeeder extends Seeder
 
 
         //MAT. ESPECIALES
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 29,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB1134,EB1213',
@@ -1441,7 +1441,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 29,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB1134,EB1213',
@@ -1449,7 +1449,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 29,
             'academic_curriculaid' => 7,
             'pre_req' => '',
@@ -1457,7 +1457,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 29,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB1134,EB1213',
@@ -1468,7 +1468,7 @@ class MentionsSeeder extends Seeder
 
 
         //CIRCUITOS II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 30,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE5114',
@@ -1476,7 +1476,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 30,
             'academic_curriculaid' => 2,
             'pre_req' => 'IE5114',
@@ -1484,7 +1484,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 30,
             'academic_curriculaid' => 3,
             'pre_req' => 'IE5114',
@@ -1492,7 +1492,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 30,
             'academic_curriculaid' => 4,
             'pre_req' => 'IE5114',
@@ -1503,7 +1503,7 @@ class MentionsSeeder extends Seeder
 
 
         //ELECTROMETRÍA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 31,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE5114',
@@ -1511,10 +1511,10 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        
+
 
         //LAB ELECTROMETRÍA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 32,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB2211',
@@ -1525,7 +1525,7 @@ class MentionsSeeder extends Seeder
 
 
         //MAQ. ELEC. I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 33,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE5114',
@@ -1536,7 +1536,7 @@ class MentionsSeeder extends Seeder
 
 
         //INTRO. ADMIN.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 34,
             'academic_curriculaid' => 1,
             'pre_req' => '',
@@ -1544,7 +1544,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 34,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB2124,EB2211',
@@ -1552,7 +1552,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 34,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB2124,EB2211',
@@ -1560,7 +1560,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 34,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB2124,EB2211',
@@ -1568,7 +1568,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 34,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB2124,EB2211',
@@ -1576,7 +1576,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 34,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB2124,EB2211',
@@ -1584,7 +1584,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 34,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB2124,EB2211',
@@ -1592,7 +1592,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 34,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB2124,EB2211',
@@ -1603,7 +1603,7 @@ class MentionsSeeder extends Seeder
 
 
         //MEDICIONES ELEC.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 35,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB2211',
@@ -1611,7 +1611,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 35,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB2211',
@@ -1619,7 +1619,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 35,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB2211',
@@ -1630,7 +1630,7 @@ class MentionsSeeder extends Seeder
 
 
         //ELECTRÓNICA I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 36,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB2124,IE5114',
@@ -1638,7 +1638,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 36,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB2124,IE5114',
@@ -1646,7 +1646,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 36,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB2124,IE5114',
@@ -1657,7 +1657,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB CIRCUITOS ELEC.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 37,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE5124,IE5221',
@@ -1665,7 +1665,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 37,
             'academic_curriculaid' => 2,
             'pre_req' => '',
@@ -1673,7 +1673,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 37,
             'academic_curriculaid' => 3,
             'pre_req' => '',
@@ -1681,7 +1681,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 37,
             'academic_curriculaid' => 4,
             'pre_req' => '',
@@ -1691,8 +1691,8 @@ class MentionsSeeder extends Seeder
 
 
 
-        //MECÁNICA APLICADA 
-        DB::table('subjects')->insert([
+        //MECÁNICA APLICADA
+        DB::table('mentions')->insert([
             'subjectid' => 38,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB1213,EB3122',
@@ -1700,7 +1700,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 38,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB1213,EB3122',
@@ -1711,7 +1711,7 @@ class MentionsSeeder extends Seeder
 
 
         //TERMODINÁMICA II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 39,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB1134,IQ5113',
@@ -1722,7 +1722,7 @@ class MentionsSeeder extends Seeder
 
 
         //ING QUÍMICA II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 40,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB1134,IQ5113',
@@ -1733,7 +1733,7 @@ class MentionsSeeder extends Seeder
 
 
         //MECÁNICA APL. II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 41,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM1253',
@@ -1744,7 +1744,7 @@ class MentionsSeeder extends Seeder
 
 
         //FND. ING. ELEC.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 42,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB2211,EB1134',
@@ -1752,7 +1752,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 42,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB2211,EB1134',
@@ -1760,7 +1760,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 42,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB2211,EB1134',
@@ -1768,7 +1768,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 42,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB2211,EB1134',
@@ -1779,7 +1779,7 @@ class MentionsSeeder extends Seeder
 
 
         //ANA. QUÍ. MET.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 43,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT2103',
@@ -1790,7 +1790,7 @@ class MentionsSeeder extends Seeder
 
 
         //PROC. MET.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 44,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT2103,EB2124',
@@ -1801,7 +1801,7 @@ class MentionsSeeder extends Seeder
 
 
         //TERM. MET.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 45,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB1134,MT2103',
@@ -1812,7 +1812,7 @@ class MentionsSeeder extends Seeder
 
 
         //ELEM. FIS. QUÍ.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 46,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB1125,IQ5113',
@@ -1823,7 +1823,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB QUÍ. ANA.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 47,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3213,IQ3121',
@@ -1834,7 +1834,7 @@ class MentionsSeeder extends Seeder
 
 
         //PRINC. ING. QUÍ
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 48,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB1134,IQ3213',
@@ -1845,7 +1845,7 @@ class MentionsSeeder extends Seeder
 
 
         //EELCTRO. ANA.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 49,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE5114',
@@ -1856,7 +1856,7 @@ class MentionsSeeder extends Seeder
 
 
         //TEORIA DECONT IE
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 50,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE5114,EB1144',
@@ -1867,7 +1867,7 @@ class MentionsSeeder extends Seeder
 
 
         //TEORIA ELECTRO IE
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 51,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB1144,EB2124',
@@ -1878,7 +1878,7 @@ class MentionsSeeder extends Seeder
 
 
         //MAQ. ELEC. II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 52,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE5124,IE6112',
@@ -1889,7 +1889,7 @@ class MentionsSeeder extends Seeder
 
 
         //PROB. Y ESTAD.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 53,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB1134,EB1312',
@@ -1897,7 +1897,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 53,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB1134,EB1312',
@@ -1905,7 +1905,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 53,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB1134,EB1312',
@@ -1913,7 +1913,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 53,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB1134,EB1312',
@@ -1921,7 +1921,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 53,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB1134,EB1312',
@@ -1929,7 +1929,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 53,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB1134,EB1312',
@@ -1937,7 +1937,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 53,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB1134,EB1312',
@@ -1948,7 +1948,7 @@ class MentionsSeeder extends Seeder
 
 
         //
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 54,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB1144,EB5124,EB6542',
@@ -1956,7 +1956,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 54,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB1144,EB6542,IE5124',
@@ -1964,7 +1964,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 54,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB1144,EB6542,IE5124',
@@ -1972,7 +1972,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 54,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB1144,EB6542,IE5124',
@@ -1980,7 +1980,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 54,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB1154,EB1312,EB6542',
@@ -1988,7 +1988,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 54,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB1154,EB1312,EB6542',
@@ -1996,7 +1996,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 54,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB1154,EB1312,EB6542',
@@ -2004,7 +2004,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 54,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB1154,EB1312,EB6542',
@@ -2015,7 +2015,7 @@ class MentionsSeeder extends Seeder
 
 
         //TECN. ELECTRO.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 55,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL1154',
@@ -2023,7 +2023,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 55,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1154',
@@ -2031,7 +2031,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 55,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL1154',
@@ -2042,7 +2042,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB ELECTRO. I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 56,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL1142',
@@ -2050,7 +2050,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 56,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1142',
@@ -2058,7 +2058,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 56,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL1142',
@@ -2069,7 +2069,7 @@ class MentionsSeeder extends Seeder
 
 
         //ELECTR. II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 57,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL1154',
@@ -2077,7 +2077,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 57,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1154',
@@ -2085,7 +2085,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 57,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL1154',
@@ -2096,7 +2096,7 @@ class MentionsSeeder extends Seeder
 
 
         //ANA. DE SEÑALES
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 58,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB1144,IE5114',
@@ -2104,7 +2104,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 58,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB1144,IE5114',
@@ -2112,7 +2112,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 58,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB1144,IE5114',
@@ -2122,7 +2122,7 @@ class MentionsSeeder extends Seeder
 
 
         //CIRCUITOS DIGITLES
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 59,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL1154',
@@ -2130,7 +2130,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 59,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1154',
@@ -2138,7 +2138,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 59,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL1154',
@@ -2149,7 +2149,7 @@ class MentionsSeeder extends Seeder
 
 
         //FENO. TRANSP. II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 60,
             'academic_curriculaid' => 5,
             'pre_req' => 'IQ4063,IQ4093',
@@ -2160,7 +2160,7 @@ class MentionsSeeder extends Seeder
 
 
         //PLANT. IND.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 61,
             'academic_curriculaid' => 5,
             'pre_req' => 'II2311',
@@ -2171,7 +2171,7 @@ class MentionsSeeder extends Seeder
 
 
         //RESIS. Y ENSY. MATERIALES
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 62,
             'academic_curriculaid' => 5,
             'pre_req' => 'IM1043',
@@ -2179,7 +2179,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 62,
             'academic_curriculaid' => 7,
             'pre_req' => 'IM1043',
@@ -2190,7 +2190,7 @@ class MentionsSeeder extends Seeder
 
 
         //ESTD. IND.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 63,
             'academic_curriculaid' => 5,
             'pre_req' => 'EB1154,EB1312',
@@ -2201,7 +2201,7 @@ class MentionsSeeder extends Seeder
 
 
         //MECNNISMOS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 64,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM1263',
@@ -2212,7 +2212,7 @@ class MentionsSeeder extends Seeder
 
 
         //RESIS. DE MATERIALES IM
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 65,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM1253',
@@ -2223,7 +2223,7 @@ class MentionsSeeder extends Seeder
 
 
         //ENSA. RESIT. MATERIALES
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 66,
             'academic_curriculaid' => 6,
             'pre_req' => '',
@@ -2234,7 +2234,7 @@ class MentionsSeeder extends Seeder
 
 
         //MAQ. HERRAMIENTAS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 67,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM1112',
@@ -2245,7 +2245,7 @@ class MentionsSeeder extends Seeder
 
 
         //TERMODINÁMICA I IM
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 68,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB1154,EB2211',
@@ -2256,7 +2256,7 @@ class MentionsSeeder extends Seeder
 
 
         //FENO. TRANSP. I MT
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 69,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT2143,EB1154',
@@ -2267,7 +2267,7 @@ class MentionsSeeder extends Seeder
 
 
         //MET. FISICA I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 70,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT2143,EB1154',
@@ -2278,7 +2278,7 @@ class MentionsSeeder extends Seeder
 
 
         //MET. EXTR. I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 71,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT2133',
@@ -2289,7 +2289,7 @@ class MentionsSeeder extends Seeder
 
 
         //FUND. RESIS. MATERIALES
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 72,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB2211,EB1134',
@@ -2300,7 +2300,7 @@ class MentionsSeeder extends Seeder
 
 
         //QUÍMICA ORG I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 73,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3113,IQ3213',
@@ -2311,7 +2311,7 @@ class MentionsSeeder extends Seeder
 
 
         //TERMODINÁMICA I IQ
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 74,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4113',
@@ -2322,7 +2322,7 @@ class MentionsSeeder extends Seeder
 
 
         //FENO. TRANSP. I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 75,
             'academic_curriculaid' => 8,
             'pre_req' => '',
@@ -2333,7 +2333,7 @@ class MentionsSeeder extends Seeder
 
 
         //ING. ECONÓMICA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 76,
             'academic_curriculaid' => 1,
             'pre_req' => 'EB1134',
@@ -2341,7 +2341,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 76,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB1134',
@@ -2349,7 +2349,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 76,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB1134',
@@ -2357,7 +2357,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 76,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB1134',
@@ -2365,7 +2365,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 76,
             'academic_curriculaid' => 6,
             'pre_req' => 'EB1134',
@@ -2373,7 +2373,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 76,
             'academic_curriculaid' => 7,
             'pre_req' => 'EB1134',
@@ -2381,7 +2381,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 76,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB1134',
@@ -2392,7 +2392,7 @@ class MentionsSeeder extends Seeder
 
 
         //CIRCUITOS DIG. IE
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 77,
             'academic_curriculaid' => 1,
             'pre_req' => 'EL1013',
@@ -2403,7 +2403,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB ELECTR.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 78,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE5131',
@@ -2414,7 +2414,7 @@ class MentionsSeeder extends Seeder
 
 
         //MAQ ELEC II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 79,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE6122',
@@ -2425,7 +2425,7 @@ class MentionsSeeder extends Seeder
 
 
         //MATER. ELEC.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 80,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE5313,IE6122',
@@ -2436,7 +2436,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRANS. ENERG. ELEC. I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 81,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE5124',
@@ -2447,7 +2447,7 @@ class MentionsSeeder extends Seeder
 
 
         //INST. ELEC. I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 82,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE5124,IE6122',
@@ -2458,7 +2458,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB II ELECTR.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 83,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL1161',
@@ -2466,7 +2466,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 83,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1161',
@@ -2474,7 +2474,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 83,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL1161',
@@ -2485,7 +2485,7 @@ class MentionsSeeder extends Seeder
 
 
         //ELECTRONICA III
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 84,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL1183',
@@ -2493,7 +2493,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 84,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1183',
@@ -2501,7 +2501,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 84,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL1183',
@@ -2512,7 +2512,7 @@ class MentionsSeeder extends Seeder
 
 
         //
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 85,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL2113',
@@ -2520,7 +2520,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 85,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL2113',
@@ -2528,7 +2528,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 85,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL2113',
@@ -2539,7 +2539,7 @@ class MentionsSeeder extends Seeder
 
 
         //TEORIA ELECTR.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 86,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB1144,EB2124',
@@ -2547,11 +2547,11 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        
+
 
 
         //TEORÍA DE CONTROL
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 87,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL2113',
@@ -2559,7 +2559,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 87,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL2113',
@@ -2567,7 +2567,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 87,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL2113',
@@ -2578,7 +2578,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB CIRCUITOS DIG.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 88,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL3213',
@@ -2586,7 +2586,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 88,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3213',
@@ -2594,7 +2594,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 88,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL3213',
@@ -2604,7 +2604,7 @@ class MentionsSeeder extends Seeder
 
 
         //PROGRAMACIÓN II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 89,
             'academic_curriculaid' => 3,
             'pre_req' => 'EB1213',
@@ -2612,11 +2612,11 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        
+
 
 
         //MAQ. ELEC. EL
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 90,
             'academic_curriculaid' => 4,
             'pre_req' => 'IE5124',
@@ -2628,7 +2628,7 @@ class MentionsSeeder extends Seeder
 
 
         //ELEMENTOS DE MAQ.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 91,
             'academic_curriculaid' => 5,
             'pre_req' => 'IM1022,IM1054',
@@ -2639,7 +2639,7 @@ class MentionsSeeder extends Seeder
 
 
         //TENS DE FABRICACIÓN I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 92,
             'academic_curriculaid' => 5,
             'pre_req' => 'IM1054',
@@ -2647,7 +2647,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 92,
             'academic_curriculaid' => 7,
             'pre_req' => 'IM2014',
@@ -2658,7 +2658,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRNASF CALOR
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 93,
             'academic_curriculaid' => 5,
             'pre_req' => 'IQ4073',
@@ -2670,7 +2670,7 @@ class MentionsSeeder extends Seeder
 
 
         //ING. DEL TRABAJO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 94,
             'academic_curriculaid' => 5,
             'pre_req' => 'II2322,II3114',
@@ -2678,11 +2678,11 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        
+
 
 
         //LAB ING. TRABAJO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 95,
             'academic_curriculaid' => 5,
             'pre_req' => '',
@@ -2693,7 +2693,7 @@ class MentionsSeeder extends Seeder
 
 
         //TECN. MATERIALES
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 96,
             'academic_curriculaid' => 5,
             'pre_req' => 'IM1054',
@@ -2701,7 +2701,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 96,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM1331',
@@ -2712,7 +2712,7 @@ class MentionsSeeder extends Seeder
 
 
         //ELEMEN. MAQ.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 97,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM1273,IM1324',
@@ -2723,7 +2723,7 @@ class MentionsSeeder extends Seeder
 
 
         //METROLOGÍA Y CALIDAD
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 98,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM2114,II3043',
@@ -2734,7 +2734,7 @@ class MentionsSeeder extends Seeder
 
 
         //TERMODINÁMICA II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 99,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM3153',
@@ -2745,7 +2745,7 @@ class MentionsSeeder extends Seeder
 
 
         //MECA. FLUIDOS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 100,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM3153',
@@ -2756,7 +2756,7 @@ class MentionsSeeder extends Seeder
 
 
         //FEN. TRANSP. II MT
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 101,
             'academic_curriculaid' => 7,
             'pre_req' => 'IQ1043',
@@ -2767,7 +2767,7 @@ class MentionsSeeder extends Seeder
 
 
         //MET FISICA II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 102,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT1134',
@@ -2778,7 +2778,7 @@ class MentionsSeeder extends Seeder
 
 
         //MET EXTR. II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 103,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT2212,IQ4013',
@@ -2789,7 +2789,7 @@ class MentionsSeeder extends Seeder
 
 
         //ANA. INST.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 104,
             'academic_curriculaid' => 8,
             'pre_req' => 'EB2211',
@@ -2800,7 +2800,7 @@ class MentionsSeeder extends Seeder
 
 
         //QUÍ. ORGANICA II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 105,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3313,IQ3222',
@@ -2811,7 +2811,7 @@ class MentionsSeeder extends Seeder
 
 
         //TERMODINÁMICA II IQ
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 106,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4213,EB1154',
@@ -2822,7 +2822,7 @@ class MentionsSeeder extends Seeder
 
 
         //FEN. TRANSP II IQ
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 107,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4313',
@@ -2833,7 +2833,7 @@ class MentionsSeeder extends Seeder
 
 
         //ELEC. INDUSTRIAL IE
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 108,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE1033,EL1041',
@@ -2841,10 +2841,10 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        
+
 
         //LAB MAQ. ELE.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 109,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE6134,IE5131',
@@ -2855,7 +2855,7 @@ class MentionsSeeder extends Seeder
 
 
         //ANA. SIST. ELEC. POT. I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 110,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE7514,IE6134',
@@ -2867,7 +2867,7 @@ class MentionsSeeder extends Seeder
 
 
         //INST. ELEC. II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 111,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE7514',
@@ -2878,7 +2878,7 @@ class MentionsSeeder extends Seeder
 
 
         //REDES ELEC
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 112,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE7514',
@@ -2889,7 +2889,7 @@ class MentionsSeeder extends Seeder
 
 
         //RADIACIÓN Y PROPAGACIÓN
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 113,
             'academic_curriculaid' => 2,
             'pre_req' => '',
@@ -2900,7 +2900,7 @@ class MentionsSeeder extends Seeder
 
 
         //LINEAS DE TRANS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 114,
             'academic_curriculaid' => 2,
             'pre_req' => '',
@@ -2911,7 +2911,7 @@ class MentionsSeeder extends Seeder
 
 
         //TELEFONIA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 115,
             'academic_curriculaid' => 2,
             'pre_req' => '',
@@ -2922,7 +2922,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB I SIST. CONTROL
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 116,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL3163',
@@ -2930,7 +2930,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 116,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3163',
@@ -2938,7 +2938,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 116,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL3163',
@@ -2949,7 +2949,7 @@ class MentionsSeeder extends Seeder
 
 
         //MICRO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 117,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL3221,EB1312',
@@ -2957,7 +2957,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 117,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3221,EB1312',
@@ -2965,7 +2965,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 117,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL3221,EB1312',
@@ -2976,7 +2976,7 @@ class MentionsSeeder extends Seeder
 
 
         //INST. ELECTR.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 118,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL1313,EL3221',
@@ -2984,7 +2984,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 118,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1313,EL3221',
@@ -2992,7 +2992,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 118,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL1313,EL3221',
@@ -3003,7 +3003,7 @@ class MentionsSeeder extends Seeder
 
 
         //CONTROL DIG
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 119,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3163',
@@ -3014,7 +3014,7 @@ class MentionsSeeder extends Seeder
 
 
         //ESTRUCTURA DE DATOS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 120,
             'academic_curriculaid' => 2,
             'pre_req' => '',
@@ -3025,7 +3025,7 @@ class MentionsSeeder extends Seeder
 
 
         //ANAL. NUMERICO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 121,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB1144,EL4143',
@@ -3036,7 +3036,7 @@ class MentionsSeeder extends Seeder
 
 
         //ELECTR. IND. I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 122,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1313',
@@ -3048,7 +3048,7 @@ class MentionsSeeder extends Seeder
 
 
         //SIST. CONTROL II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 123,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3163',
@@ -3060,7 +3060,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB MAQ. ELEC.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 124,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1142,IE6013',
@@ -3071,7 +3071,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB FENOMENOS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 125,
             'academic_curriculaid' => 5,
             'pre_req' => 'IQ4003',
@@ -3079,7 +3079,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 125,
             'academic_curriculaid' => 7,
             'pre_req' => 'IQ4034',
@@ -3091,7 +3091,7 @@ class MentionsSeeder extends Seeder
 
 
         //INST. Y CONTROL
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 126,
             'academic_curriculaid' => 5,
             'pre_req' => 'IE5014',
@@ -3099,7 +3099,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 126,
             'academic_curriculaid' => 6,
             'pre_req' => 'IE5014',
@@ -3107,7 +3107,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 126,
             'academic_curriculaid' => 8,
             'pre_req' => 'IE5014,IQ4331',
@@ -3118,7 +3118,7 @@ class MentionsSeeder extends Seeder
 
 
         //INV. OPE. I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 127,
             'academic_curriculaid' => 5,
             'pre_req' => 'II2113',
@@ -3130,7 +3130,7 @@ class MentionsSeeder extends Seeder
 
 
         //CONTROL DE CALIDAD
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 128,
             'academic_curriculaid' => 5,
             'pre_req' => 'II3114',
@@ -3141,7 +3141,7 @@ class MentionsSeeder extends Seeder
 
 
         //PLANIFICACIÓN Y CONTROL PROD.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 129,
             'academic_curriculaid' => 5,
             'pre_req' => 'II2113',
@@ -3152,7 +3152,7 @@ class MentionsSeeder extends Seeder
 
 
         //ING DE COSTO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 130,
             'academic_curriculaid' => 5,
             'pre_req' => 'II2113',
@@ -3163,7 +3163,7 @@ class MentionsSeeder extends Seeder
 
 
         //ELEMENTOS DE MAQ
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 131,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM1443',
@@ -3174,7 +3174,7 @@ class MentionsSeeder extends Seeder
 
 
         //TECN. MECÀNICA I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 132,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM2314',
@@ -3185,7 +3185,7 @@ class MentionsSeeder extends Seeder
 
 
         //MAQ E INST. HIDRÁ.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 133,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM3224',
@@ -3196,7 +3196,7 @@ class MentionsSeeder extends Seeder
 
 
         //CONTROL DE CALIDAD
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 134,
             'academic_curriculaid' => 7,
             'pre_req' => 'II3043',
@@ -3204,7 +3204,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 134,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3043',
@@ -3215,7 +3215,7 @@ class MentionsSeeder extends Seeder
 
 
         //TEC. FABR. II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 135,
             'academic_curriculaid' => 7,
             'pre_req' => 'IM2014',
@@ -3226,7 +3226,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRATAMIENTOS TERMICOS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 136,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT1144,IQ4034',
@@ -3236,8 +3236,8 @@ class MentionsSeeder extends Seeder
 
 
 
-        //LAB. MET EXTR. 
-        DB::table('subjects')->insert([
+        //LAB. MET EXTR.
+        DB::table('mentions')->insert([
             'subjectid' => 137,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT2222,IQ3022',
@@ -3248,7 +3248,7 @@ class MentionsSeeder extends Seeder
 
 
         //FUNDICION
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 138,
             'academic_curriculaid' => 7,
             'pre_req' => 'IQ4034,MT1144',
@@ -3259,7 +3259,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB ANA INSTR.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 139,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3233',
@@ -3271,7 +3271,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB QUI. ORG.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 140,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3323',
@@ -3283,7 +3283,7 @@ class MentionsSeeder extends Seeder
 
 
         //CINETICA QUIMICA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 141,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3323,IQ4334',
@@ -3295,7 +3295,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB FENOMENOS TRANS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 142,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4334',
@@ -3306,7 +3306,7 @@ class MentionsSeeder extends Seeder
 
 
         //OPERACIONES UNITARIAS I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 143,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4334,IQ4224',
@@ -3318,7 +3318,7 @@ class MentionsSeeder extends Seeder
 
 
         //GESTION MTTO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 144,
             'academic_curriculaid' => 1,
             'pre_req' => 'II3043',
@@ -3326,7 +3326,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 144,
             'academic_curriculaid' => 6,
             'pre_req' => 'II3043',
@@ -3338,7 +3338,7 @@ class MentionsSeeder extends Seeder
 
 
         //CONTROLES ELECTR.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 145,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE6142',
@@ -3346,12 +3346,12 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        
+
 
 
 
         //PROTEC. SIST. ELEC. POT.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 146,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE7213',
@@ -3362,7 +3362,7 @@ class MentionsSeeder extends Seeder
 
 
         //SIS COMUNICACIONES II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 147,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL2124,EL2213',
@@ -3374,7 +3374,7 @@ class MentionsSeeder extends Seeder
 
 
         //REDES DE COMP
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 148,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL2124,EL3221',
@@ -3382,7 +3382,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 148,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL2124,EL3234',
@@ -3394,19 +3394,19 @@ class MentionsSeeder extends Seeder
 
 
         //COMUNICACIONES MOV
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 149,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL2263',
             'post_req' => '',
             'status' => 'A',
-        ]);      
+        ]);
 
 
 
 
         //LAB MICROONDAS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 150,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL2263',
@@ -3417,7 +3417,7 @@ class MentionsSeeder extends Seeder
 
 
         //SIST OPERATIVOS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 151,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL4153,EL3234',
@@ -3429,7 +3429,7 @@ class MentionsSeeder extends Seeder
 
 
         //DISEÑO DE SIS. SOFT.
-        DDB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 152,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3234',
@@ -3440,7 +3440,7 @@ class MentionsSeeder extends Seeder
 
 
         //ELECT. IND II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 153,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL1223',
@@ -3452,7 +3452,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB II DE CONTROL
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 154,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL3121,EL3221',
@@ -3464,7 +3464,7 @@ class MentionsSeeder extends Seeder
 
 
         //CONTROL III
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 155,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL3173,EL3234',
@@ -3475,7 +3475,7 @@ class MentionsSeeder extends Seeder
 
 
         //ING ECONOMICA II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 156,
             'academic_curriculaid' => 5,
             'pre_req' => 'II3214',
@@ -3486,7 +3486,7 @@ class MentionsSeeder extends Seeder
 
 
         //INV OPERACIONES II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 157,
             'academic_curriculaid' => 5,
             'pre_req' => 'II1114',
@@ -3498,7 +3498,7 @@ class MentionsSeeder extends Seeder
 
 
         //MTTO IND
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 158,
             'academic_curriculaid' => 5,
             'pre_req' => 'II1114',
@@ -3510,7 +3510,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRABAJO ESP I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 159,
             'academic_curriculaid' => 5,
             'pre_req' => 'II1313,II1213',
@@ -3521,7 +3521,7 @@ class MentionsSeeder extends Seeder
 
 
         //HIGIENE Y SEGURIDAD
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 160,
             'academic_curriculaid' => 5,
             'pre_req' => 'II2113',
@@ -3533,7 +3533,7 @@ class MentionsSeeder extends Seeder
 
 
         //VIBR. Y BALANC.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 161,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM1453',
@@ -3543,7 +3543,7 @@ class MentionsSeeder extends Seeder
 
 
         //TECN. MECA. II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 162,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM2234',
@@ -3555,18 +3555,18 @@ class MentionsSeeder extends Seeder
 
 
         //MAQ TERM. I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 163,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM3234,IM3163',
             'post_req' => '',
             'status' => 'A',
         ]);
-        
+
 
 
         //TRANSF CALOR
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 164,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM3234',
@@ -3577,7 +3577,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRABAJO ESP I IM
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 165,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM1453,IM3234',
@@ -3589,7 +3589,7 @@ class MentionsSeeder extends Seeder
 
 
         //SOLDADURA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 166,
             'academic_curriculaid' => 6,
             'pre_req' => 'MT1015',
@@ -3600,7 +3600,7 @@ class MentionsSeeder extends Seeder
 
 
         //CORROSION
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 167,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT1144',
@@ -3611,7 +3611,7 @@ class MentionsSeeder extends Seeder
 
 
         //MET MAC I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 168,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT1144,IM1054',
@@ -3623,7 +3623,7 @@ class MentionsSeeder extends Seeder
 
 
         //ING DE LA SOLDADURA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 169,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT4213,IE5014',
@@ -3635,7 +3635,7 @@ class MentionsSeeder extends Seeder
 
 
         //SIDERURGIA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 170,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT2222,IQ4034',
@@ -3646,7 +3646,7 @@ class MentionsSeeder extends Seeder
 
 
         //PLANIF. Y CONTROL DE LA PRODC
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 171,
             'academic_curriculaid' => 2,
             'pre_req' => 'II3043,EB1134',
@@ -3654,7 +3654,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 171,
             'academic_curriculaid' => 3,
             'pre_req' => 'II3043,EB1134',
@@ -3662,7 +3662,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 171,
             'academic_curriculaid' => 4,
             'pre_req' => 'II3043,EB1134',
@@ -3670,7 +3670,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 171,
             'academic_curriculaid' => 8,
             'pre_req' => 'II3043',
@@ -3682,7 +3682,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB TERMODINAMICA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 172,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3413,IQ4224',
@@ -3693,7 +3693,7 @@ class MentionsSeeder extends Seeder
 
 
         //OPE. UNITARIAS II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 173,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4414',
@@ -3704,7 +3704,7 @@ class MentionsSeeder extends Seeder
 
 
         //REACTORES QUIMICOS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 174,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3413,IQ4224',
@@ -3715,7 +3715,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB PROTEC. SIS. POT.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 175,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE7313',
@@ -3726,7 +3726,7 @@ class MentionsSeeder extends Seeder
 
 
         //PLANTAS ELEC.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 176,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE6134,IE7313',
@@ -3738,7 +3738,7 @@ class MentionsSeeder extends Seeder
 
 
         //TELEFONIA II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 177,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL2313',
@@ -3749,7 +3749,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB DISEÑO COMP
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 178,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL4333',
@@ -3760,7 +3760,7 @@ class MentionsSeeder extends Seeder
 
 
         //ARQ DEL COMPUTADOR
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 179,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3234',
@@ -3771,7 +3771,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB ELECTR. IND.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 180,
             'academic_curriculaid' => 4,
             'pre_req' => '',
@@ -3782,7 +3782,7 @@ class MentionsSeeder extends Seeder
 
 
         //INSTR INDUS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 181,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL3163',
@@ -3793,7 +3793,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRABAJO ESP II II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 182,
             'academic_curriculaid' => 5,
             'pre_req' => 'II1332',
@@ -3804,7 +3804,7 @@ class MentionsSeeder extends Seeder
 
 
         //INSTALACIONES
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 183,
             'academic_curriculaid' => 5,
             'pre_req' => 'II1323',
@@ -3815,7 +3815,7 @@ class MentionsSeeder extends Seeder
 
 
         //TEORIA DE DECISIONES
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 184,
             'academic_curriculaid' => 5,
             'pre_req' => 'II3223',
@@ -3826,7 +3826,7 @@ class MentionsSeeder extends Seeder
 
 
         //PROYECTOS IND
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 185,
             'academic_curriculaid' => 5,
             'pre_req' => 'II3223',
@@ -3837,7 +3837,7 @@ class MentionsSeeder extends Seeder
 
 
         //GCIA RECURSOS HUMANOS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 186,
             'academic_curriculaid' => 5,
             'pre_req' => 'II1332',
@@ -3848,7 +3848,7 @@ class MentionsSeeder extends Seeder
 
 
         //MAW TERMICAS II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 187,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM3173',
@@ -3860,7 +3860,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRABAJO ESP II IM
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 188,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM4112',
@@ -3871,7 +3871,7 @@ class MentionsSeeder extends Seeder
 
 
         //ENSAUOS NO DEST
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 189,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT4123',
@@ -3883,7 +3883,7 @@ class MentionsSeeder extends Seeder
 
 
         //MET MECA II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 190,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT3112,IM2054',
@@ -3895,7 +3895,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB MET
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 191,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT3112',
@@ -3906,7 +3906,7 @@ class MentionsSeeder extends Seeder
 
 
         //LAB OPE. UNITARIAS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 192,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4424,IQ4331',
@@ -3918,7 +3918,7 @@ class MentionsSeeder extends Seeder
 
 
         //ING DE PROCESOS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 193,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4513,IQ4414',
@@ -3929,7 +3929,7 @@ class MentionsSeeder extends Seeder
 
 
         //SIMULACION DE OPE.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 194,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4513,IQ4424',
@@ -3940,7 +3940,7 @@ class MentionsSeeder extends Seeder
 
 
         //ENT IND I II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 195,
             'academic_curriculaid' => 5,
             'pre_req' => 'II1393',
@@ -3951,7 +3951,7 @@ class MentionsSeeder extends Seeder
 
 
         //ENT INDS I IM
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 196,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM1443,IM2314',
@@ -3963,7 +3963,7 @@ class MentionsSeeder extends Seeder
 
 
         //ENT IND I II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 197,
             'academic_curriculaid' => 5,
             'pre_req' => 'II1213,II1313,II3214',
@@ -3974,7 +3974,7 @@ class MentionsSeeder extends Seeder
 
 
         //ENT INDS I IM
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 198,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM2234,IM1453,IM3234',
@@ -3985,7 +3985,7 @@ class MentionsSeeder extends Seeder
 
 
         //INST INDU ELECTIVA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 199,
             'academic_curriculaid' => 1,
             'pre_req' => 'EL1054',
@@ -3993,7 +3993,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 199,
             'academic_curriculaid' => 7,
             'pre_req' => 'IE5014',
@@ -4004,7 +4004,7 @@ class MentionsSeeder extends Seeder
 
 
         //CONTROLES ELEC ELECTIVA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 200,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE6314',
@@ -4015,7 +4015,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRANS ENER
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 201,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE7113',
@@ -4025,7 +4025,7 @@ class MentionsSeeder extends Seeder
 
 
         //ANA SIS ELECT DE POT II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 202,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE7213',
@@ -4036,7 +4036,7 @@ class MentionsSeeder extends Seeder
 
 
         //TCN. ALTA TENSION
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 203,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE6214,IE5313',
@@ -4045,8 +4045,8 @@ class MentionsSeeder extends Seeder
         ]);
 
 
-        //CONTROL Y OPE. DE SIST 
-        DB::table('subjects')->insert([
+        //CONTROL Y OPE. DE SIST
+        DB::table('mentions')->insert([
             'subjectid' => 204,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE6134',
@@ -4057,7 +4057,7 @@ class MentionsSeeder extends Seeder
 
 
         //PLANIF SIS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 205,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE7213',
@@ -4067,7 +4067,7 @@ class MentionsSeeder extends Seeder
 
 
         //CONTROL DE CALIDAD
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 206,
             'academic_curriculaid' => 1,
             'pre_req' => 'II3043',
@@ -4075,7 +4075,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 206,
             'academic_curriculaid' => 7,
             'pre_req' => 'II3043',
@@ -4085,7 +4085,7 @@ class MentionsSeeder extends Seeder
 
 
         //CONTROL DE CALIDAD
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 207,
             'academic_curriculaid' => 1,
             'pre_req' => 'II3043',
@@ -4093,7 +4093,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 207,
             'academic_curriculaid' => 6,
             'pre_req' => 'II3043',
@@ -4103,9 +4103,9 @@ class MentionsSeeder extends Seeder
 
 
 
-        
+
         //ING DE COSTO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 208,
             'academic_curriculaid' => 1,
             'pre_req' => 'II3043',
@@ -4113,7 +4113,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 208,
             'academic_curriculaid' => 6,
             'pre_req' => 'II3023',
@@ -4121,7 +4121,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 208,
             'academic_curriculaid' => 7,
             'pre_req' => 'II3043',
@@ -4133,7 +4133,7 @@ class MentionsSeeder extends Seeder
 
 
         //DISEÑO EXP.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 209,
             'academic_curriculaid' => 1,
             'pre_req' => 'II1053',
@@ -4141,7 +4141,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 209,
             'academic_curriculaid' => 7,
             'pre_req' => 'II1053',
@@ -4152,7 +4152,7 @@ class MentionsSeeder extends Seeder
 
 
         //ELECTR. IND. I ELECTIVA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 210,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL1313',
@@ -4160,7 +4160,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 210,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1313',
@@ -4171,7 +4171,7 @@ class MentionsSeeder extends Seeder
 
 
         //ANA CIR ELEC ASIST POR COMP
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 211,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL1181',
@@ -4179,7 +4179,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 211,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1181',
@@ -4187,7 +4187,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 211,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL1181',
@@ -4198,7 +4198,7 @@ class MentionsSeeder extends Seeder
 
 
         //TOPICOS ESP ELECTR
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 212,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL1313',
@@ -4206,7 +4206,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 212,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1313',
@@ -4214,7 +4214,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 212,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL1313',
@@ -4225,7 +4225,7 @@ class MentionsSeeder extends Seeder
 
 
         //COMU VIA SATELITE
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 213,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL2124,EL2213',
@@ -4233,7 +4233,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 213,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL2124,EL2213',
@@ -4241,7 +4241,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 213,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL2124,EL2213',
@@ -4251,7 +4251,7 @@ class MentionsSeeder extends Seeder
 
 
         //ANA CIR ELEC PARA COMU
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 214,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL1313,EL2124',
@@ -4259,7 +4259,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 214,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1313,EL2124',
@@ -4267,7 +4267,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 214,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL1313,EL2124',
@@ -4277,7 +4277,7 @@ class MentionsSeeder extends Seeder
 
 
         //TV
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 215,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL2124',
@@ -4285,7 +4285,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 215,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL2124',
@@ -4293,7 +4293,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 215,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL2124',
@@ -4303,7 +4303,7 @@ class MentionsSeeder extends Seeder
 
 
         //ING DE TRANS.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 216,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL2124',
@@ -4311,7 +4311,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 216,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL2124',
@@ -4319,7 +4319,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 216,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL2124',
@@ -4330,7 +4330,7 @@ class MentionsSeeder extends Seeder
 
 
         //TOP ESP COMUN.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 217,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL2153',
@@ -4341,7 +4341,7 @@ class MentionsSeeder extends Seeder
 
 
         //TELF MOVIL
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 218,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL2273,EL2313',
@@ -4352,7 +4352,7 @@ class MentionsSeeder extends Seeder
 
 
         //REDES ELECTIVA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 219,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL2124,EL3221',
@@ -4363,7 +4363,7 @@ class MentionsSeeder extends Seeder
 
 
         //INTR INDS ELECTIVA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 220,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL3163',
@@ -4371,7 +4371,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 220,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3163',
@@ -4381,7 +4381,7 @@ class MentionsSeeder extends Seeder
 
 
         ///CONT LOG PROG
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 221,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL3234,EL3121',
@@ -4389,7 +4389,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 221,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3234,EL3121',
@@ -4397,7 +4397,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 221,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL3234,EL3121',
@@ -4408,7 +4408,7 @@ class MentionsSeeder extends Seeder
 
 
         //CONTROL II ELECT
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 222,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3163',
@@ -4419,7 +4419,7 @@ class MentionsSeeder extends Seeder
 
 
         //CONTROL DISCRETO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 223,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3163',
@@ -4427,7 +4427,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 223,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL3163',
@@ -4437,7 +4437,7 @@ class MentionsSeeder extends Seeder
 
 
         //PLC ELECTIVA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 224,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL3234,EL3121',
@@ -4445,7 +4445,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 224,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3234,EL3121',
@@ -4453,7 +4453,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 224,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL3234,EL3121',
@@ -4464,7 +4464,7 @@ class MentionsSeeder extends Seeder
 
 
         //CONTROL III ELEC
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 225,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3683,EL3234',
@@ -4475,7 +4475,7 @@ class MentionsSeeder extends Seeder
 
 
         //TOP EN CONTROL
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 226,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL3193',
@@ -4486,7 +4486,7 @@ class MentionsSeeder extends Seeder
 
 
         //ROBOTICA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 227,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL3163,EL3234',
@@ -4494,7 +4494,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 227,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3163,EL3234',
@@ -4502,7 +4502,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 227,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL3163,EL3234',
@@ -4512,7 +4512,7 @@ class MentionsSeeder extends Seeder
 
 
         //DISEÑO SOFT
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 228,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL4143',
@@ -4523,7 +4523,7 @@ class MentionsSeeder extends Seeder
 
 
         //ALGORITMO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 229,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL3221,EB1312',
@@ -4531,7 +4531,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 229,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3221,EB1312',
@@ -4539,7 +4539,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 229,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL3221,EB1312',
@@ -4550,7 +4550,7 @@ class MentionsSeeder extends Seeder
 
 
         //TOP EN COMPO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 230,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL4333',
@@ -4560,7 +4560,7 @@ class MentionsSeeder extends Seeder
 
 
         //PROGRAMACION II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 231,
             'academic_curriculaid' => 2,
             'pre_req' => 'EB1312',
@@ -4568,7 +4568,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 231,
             'academic_curriculaid' => 4,
             'pre_req' => 'EB1312',
@@ -4578,7 +4578,7 @@ class MentionsSeeder extends Seeder
 
 
         //DISEÑO COMP
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 232,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL3234',
@@ -4586,7 +4586,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 232,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL3234',
@@ -4596,7 +4596,7 @@ class MentionsSeeder extends Seeder
 
 
         //ARQUITECTURA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 233,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL3234',
@@ -4604,7 +4604,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 233,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL3234',
@@ -4614,7 +4614,7 @@ class MentionsSeeder extends Seeder
 
 
         //DISEÑO DFE EXP
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 234,
             'academic_curriculaid' => 5,
             'pre_req' => 'II1213',
@@ -4625,7 +4625,7 @@ class MentionsSeeder extends Seeder
 
 
         //GERENCIA DE P
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 235,
             'academic_curriculaid' => 5,
             'pre_req' => 'II1313',
@@ -4635,7 +4635,7 @@ class MentionsSeeder extends Seeder
 
 
         //LOGISTICA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 236,
             'academic_curriculaid' => 5,
             'pre_req' => 'II1313',
@@ -4645,7 +4645,7 @@ class MentionsSeeder extends Seeder
 
 
         //GSETION Y ASEG
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 237,
             'academic_curriculaid' => 5,
             'pre_req' => 'II1213',
@@ -4656,7 +4656,7 @@ class MentionsSeeder extends Seeder
 
 
         //TOP ING INDS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 238,
             'academic_curriculaid' => 5,
             'pre_req' => 'II3223',
@@ -4667,7 +4667,7 @@ class MentionsSeeder extends Seeder
 
 
         //ELABOR DE PROY
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 239,
             'academic_curriculaid' => 5,
             'pre_req' => 'II2213',
@@ -4678,7 +4678,7 @@ class MentionsSeeder extends Seeder
 
 
         //HIGIENE
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 240,
             'academic_curriculaid' => 5,
             'pre_req' => 'II2213',
@@ -4688,7 +4688,7 @@ class MentionsSeeder extends Seeder
 
 
         //GESTION AMB.
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 241,
             'academic_curriculaid' => 5,
             'pre_req' => 'II2213',
@@ -4699,7 +4699,7 @@ class MentionsSeeder extends Seeder
 
 
         //PROB Y EST APL
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 242,
             'academic_curriculaid' => 5,
             'pre_req' => 'II1213',
@@ -4710,7 +4710,7 @@ class MentionsSeeder extends Seeder
 
 
         //FINANZAS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 243,
             'academic_curriculaid' => 5,
             'pre_req' => 'II3223',
@@ -4721,7 +4721,7 @@ class MentionsSeeder extends Seeder
 
 
         //GCIA DE PRO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 244,
             'academic_curriculaid' => 5,
             'pre_req' => 'II1213,II1313',
@@ -4732,7 +4732,7 @@ class MentionsSeeder extends Seeder
 
 
         //INV DE MERCADO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 245,
             'academic_curriculaid' => 5,
             'pre_req' => 'II3223',
@@ -4743,7 +4743,7 @@ class MentionsSeeder extends Seeder
 
 
         //NEUMATICA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 246,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM3234,IM3163',
@@ -4753,7 +4753,7 @@ class MentionsSeeder extends Seeder
 
 
         //REFRIGERACION
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 247,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM3323',
@@ -4764,7 +4764,7 @@ class MentionsSeeder extends Seeder
 
 
         //SIST HIDR
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 248,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM3234',
@@ -4774,7 +4774,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRAT. TERM
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 249,
             'academic_curriculaid' => 6,
             'pre_req' => 'MT1015',
@@ -4784,7 +4784,7 @@ class MentionsSeeder extends Seeder
 
 
         //ENSAYO NO DES
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 250,
             'academic_curriculaid' => 6,
             'pre_req' => 'MT4053',
@@ -4794,7 +4794,7 @@ class MentionsSeeder extends Seeder
 
 
         //CORROSION
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 251,
             'academic_curriculaid' => 6,
             'pre_req' => 'MT1015',
@@ -4805,7 +4805,7 @@ class MentionsSeeder extends Seeder
 
 
         //FUNDICIOM
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 252,
             'academic_curriculaid' => 6,
             'pre_req' => 'MT1015',
@@ -4815,7 +4815,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRIBOLOGIA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 253,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM1453',
@@ -4825,7 +4825,7 @@ class MentionsSeeder extends Seeder
 
 
         //CONTROL NUM
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 254,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM2244',
@@ -4835,7 +4835,7 @@ class MentionsSeeder extends Seeder
 
 
         //MTTO MECA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 255,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM2244',
@@ -4845,7 +4845,7 @@ class MentionsSeeder extends Seeder
 
 
         //GESTION MTTO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 256,
             'academic_curriculaid' => 7,
             'pre_req' => 'II3043',
@@ -4855,7 +4855,7 @@ class MentionsSeeder extends Seeder
 
 
         //METALOGRAFIA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 257,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT1313',
@@ -4866,7 +4866,7 @@ class MentionsSeeder extends Seeder
 
 
         //ACEROS ESP
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 258,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT1313',
@@ -4876,7 +4876,7 @@ class MentionsSeeder extends Seeder
 
 
         //ANA FALLAS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 259,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT3112',
@@ -4887,7 +4887,7 @@ class MentionsSeeder extends Seeder
 
 
         //METALURGIA MECA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 260,
             'academic_curriculaid' => 7,
             'pre_req' => 'IM2014,MT3112',
@@ -4897,7 +4897,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRATAMIEN DE SUPE
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 261,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT2323',
@@ -4907,7 +4907,7 @@ class MentionsSeeder extends Seeder
 
 
         //CONCENT DE MINER
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 262,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT2231',
@@ -4918,7 +4918,7 @@ class MentionsSeeder extends Seeder
 
 
         //COLADA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 263,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT4234,MT4213',
@@ -4929,7 +4929,7 @@ class MentionsSeeder extends Seeder
 
 
         //FUNDICION AVAN
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 264,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT4213',
@@ -4939,7 +4939,7 @@ class MentionsSeeder extends Seeder
 
 
         //MATERIALES RE
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 265,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT1144,MT2222',
@@ -4949,7 +4949,7 @@ class MentionsSeeder extends Seeder
 
 
         //TEC DE ALUM
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 266,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT1144,MT2222',
@@ -4959,7 +4959,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRIBOLOGIA MT
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 267,
             'academic_curriculaid' => 7,
             'pre_req' => 'IM2054',
@@ -4970,7 +4970,7 @@ class MentionsSeeder extends Seeder
 
 
         //QUIMICA ALIMEN
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 268,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3323,IQ4334',
@@ -4980,7 +4980,7 @@ class MentionsSeeder extends Seeder
 
 
         //INTR A LA TEC
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 269,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3613',
@@ -4990,7 +4990,7 @@ class MentionsSeeder extends Seeder
 
 
         //P.M
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 270,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3323,IQ3233',
@@ -5000,7 +5000,7 @@ class MentionsSeeder extends Seeder
 
 
         //INTR A LA ING
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 271,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3323,IQ4334',
@@ -5010,7 +5010,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRATA AGUAS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 272,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4613',
@@ -5020,7 +5020,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRAT AGUAS RESI
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 273,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4613',
@@ -5030,7 +5030,7 @@ class MentionsSeeder extends Seeder
 
 
         //TRAT DESECHOS
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 274,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4613',
@@ -5041,7 +5041,7 @@ class MentionsSeeder extends Seeder
 
 
         //PETRO I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 275,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3323',
@@ -5051,7 +5051,7 @@ class MentionsSeeder extends Seeder
 
 
         //PETRO II
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 276,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4653',
@@ -5061,7 +5061,7 @@ class MentionsSeeder extends Seeder
 
 
         //CONTROL DE PROC
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 277,
             'academic_curriculaid' => 8,
             'pre_req' => 'EL3034,IQ4513',
@@ -5071,7 +5071,7 @@ class MentionsSeeder extends Seeder
 
 
         //SIMULACION DE PRO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 278,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4513,IQ4424',
@@ -5081,7 +5081,7 @@ class MentionsSeeder extends Seeder
 
 
         //PETROQUIMICA
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 279,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3323',
@@ -5091,7 +5091,7 @@ class MentionsSeeder extends Seeder
 
 
         //SERV COMUNITARIO
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 281,
             'academic_curriculaid' => 1,
             'pre_req' => 'EL1041,IE6214,IE7514',
@@ -5099,7 +5099,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 280,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL1313,EL2124,EL3163',
@@ -5107,7 +5107,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 280,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1313,EL2124,EL3163',
@@ -5115,7 +5115,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 280,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL1313,EL2124,EL3163',
@@ -5123,7 +5123,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 282,
             'academic_curriculaid' => 5,
             'pre_req' => 'IM2014,IQ4003,II2113',
@@ -5131,7 +5131,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 283,
             'academic_curriculaid' => 6,
             'pre_req' => 'IM1443,IM2314',
@@ -5139,7 +5139,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 284,
             'academic_curriculaid' => 7,
             'pre_req' => 'IM1054,MT1144,MT2222',
@@ -5147,7 +5147,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 285,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4224,IQ4334',
@@ -5156,8 +5156,8 @@ class MentionsSeeder extends Seeder
         ]);
 
 
-        //TRABAJO I 
-        DB::table('subjects')->insert([
+        //TRABAJO I
+        DB::table('mentions')->insert([
             'subjectid' => 286,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE7213,IE7613',
@@ -5165,7 +5165,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 287,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL3234,EL2223',
@@ -5173,7 +5173,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 287,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL3234,EL4153',
@@ -5181,7 +5181,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 287,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL1313,EL3234,EL1223',
@@ -5189,7 +5189,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 288,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT4213,MT1313,MT2231',
@@ -5197,7 +5197,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 289,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3241,IQ4414',
@@ -5206,8 +5206,8 @@ class MentionsSeeder extends Seeder
         ]);
 
 
-        //TRABAJO II 
-        DB::table('subjects')->insert([
+        //TRABAJO II
+        DB::table('mentions')->insert([
             'subjectid' => 290,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE8212',
@@ -5215,7 +5215,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 291,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL5112',
@@ -5223,7 +5223,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 291,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL5112',
@@ -5231,7 +5231,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 291,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL5112',
@@ -5239,7 +5239,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 292,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT5112',
@@ -5247,7 +5247,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 293,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4532',
@@ -5258,7 +5258,7 @@ class MentionsSeeder extends Seeder
 
 
         //ENTRENAMIENTO IND I
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 295,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE8223',
@@ -5266,7 +5266,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 294,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL5123',
@@ -5274,7 +5274,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 294,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL5123',
@@ -5282,7 +5282,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 294,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL5123',
@@ -5290,7 +5290,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 297,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT5123',
@@ -5298,7 +5298,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 296,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ4543',
@@ -5309,7 +5309,7 @@ class MentionsSeeder extends Seeder
 
 
         //ENTRE IND OPC
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 298,
             'academic_curriculaid' => 1,
             'pre_req' => 'IE7213,IE7613',
@@ -5317,7 +5317,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 299,
             'academic_curriculaid' => 2,
             'pre_req' => 'EL1181,EL3221',
@@ -5325,7 +5325,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 299,
             'academic_curriculaid' => 3,
             'pre_req' => 'EL1181,EL3221',
@@ -5333,7 +5333,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 299,
             'academic_curriculaid' => 4,
             'pre_req' => 'EL1181,EL3221',
@@ -5341,7 +5341,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 300,
             'academic_curriculaid' => 7,
             'pre_req' => 'MT1313,MT2231',
@@ -5349,7 +5349,7 @@ class MentionsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-        DB::table('subjects')->insert([
+        DB::table('mentions')->insert([
             'subjectid' => 301,
             'academic_curriculaid' => 8,
             'pre_req' => 'IQ3241,IQ4414',

@@ -19,7 +19,6 @@ class Index extends Component
     protected $rules = [
         'mention.subjectid' =>'required',
         'mention.academic_curriculaid' =>'required',
-        'mention.name' =>'nullable|min:3|string',
         'mention.pre_req' => 'nullable',
         'mention.post_req' => 'nullable'
     ];
@@ -44,9 +43,12 @@ class Index extends Component
         else{
             session()->flash('mens-error', 'Ya se encuentra esa materia registrada en el pensum.');
         }
-       
+
     }
     public function edit(Mention $mention){
+        $this->mention = $mention;
+    }
+    public function delete(Mention $mention){
         $this->mention = $mention;
     }
     public function render()

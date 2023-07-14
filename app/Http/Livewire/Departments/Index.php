@@ -54,8 +54,13 @@ class Index extends Component
 
         }else{
             $nextId = Department::max('id') + 1;
+            $driverName = DB::getDriverName();
+            if($driverName =='pgsql'){
+                DB::statement("ALTER SEQUENCE departments_id_seq RESTART WITH $nextId");
+            }else{
+                DB::statement("ALTER TABLE departments AUTO_INCREMENT = $nextId");
+            }
             $this->department->delete();
-            DB::statement("ALTER TABLE departments AUTO_INCREMENT = $nextId");
             session()->flash('mens', 'Departamento eliminado correctamente.');
             $this->mount();
             $this->emitUp('departmentSaved','Departamento eliminado correctamente.');

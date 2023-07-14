@@ -43,10 +43,6 @@
                                     <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="col-12 col-md-6 align-content-center align-items-center">
-                                <label for="name">Mención de la Carrera</label>
-                                <input type="text" class="form-control" wire:model='mention.name' name="name" placeholder="Indique la mención de la carrera">
-                            </div>
                             <div class="col-12 col-md-6 mt-2 align-content-center align-items-center">
                                 <label for="subjectid">Materia</label>
                                 <select class="form-control" name="subjectid" wire:model='mention.subjectid'>
@@ -87,7 +83,6 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Mención</th>
                                             <th scope="col">Pensum</th>
                                             <th scope="col">Materia</th>
                                             <th scope="col">Pre-Requisitos</th>
@@ -98,13 +93,13 @@
                                     <tbody>
                                         @foreach ($mentions as $mention)
                                             <tr>
-                                                <td>{{$mention->name}}</td>
                                                 <td>{{$mention->academic_curricula}}</td>
                                                 <td>{{$mention->subject}}</td>
                                                 <td>{{(is_null($mention->pre_req) ? 'No tiene pre-requisitos' : $mention->pre_req)}}</td>
                                                 <td>{{(is_null($mention->post_req) ? 'No tiene co-requisitos' : $mention->post_req)}}</td>
-                                                <td>
+                                                <td class="d-flex justify-content-center">
                                                     <button wire:click="edit({{$mention->id}})" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
+                                                    <button wire:click="delete({{$mention->id}})" type="button" class="ml-2 bg-danger px-2 py-1 text-white rounded">Eliminar</button>
                                                 </td>
                                             </tr>
                                         @endforeach
