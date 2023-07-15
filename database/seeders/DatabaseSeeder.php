@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SectionSeeder::class);
         $this->call(StudentsSeeder::class);
         $this->call(DetailSectionSeeder::class);
-        //$this->call(MentionSeeder::class);
+        $this->call(MentionSeeder::class);
 
 
     }

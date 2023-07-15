@@ -8,6 +8,7 @@ use App\Models\DepartmentSection;
 use Livewire\Component;
 use App\Models\UserType;
 use App\Models\Department;
+use App\Models\Section;
 use Illuminate\Http\Request;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
@@ -149,6 +150,23 @@ class Index extends Component
 
         session()->flash('mens', 'Usuario actualizado exitosamente.');
         return redirect()->to('livewire.user.list');
+    }
+
+    public function delete(User $user){
+        if($user->id == auth()->user()->id){
+            return redirect()->route('users.list')->with('mens-error','No se puede eliminar ese usuario');
+        }
+        $section = Section::join('teachers','sections.teacherid','=','teachers.id')
+            ->where('teachers.userid','=', $user->id)
+            ->select('sections.*')
+            ->first();
+        if($section){
+            return redirect()->route('users.list')->with('mens-error','No se puede eliminar ese usuario');
+        }else{
+            DB::table('teachers')->where('userid','=',$user->id)->delete();
+            $user->delete();
+            return redirect()->route('users.list')->with('mens','Usuario eliminado correctamente');
+        }
     }
 
     public function render()

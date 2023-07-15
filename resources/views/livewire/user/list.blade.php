@@ -13,11 +13,7 @@
 @endsection
 <x-app-layout>
     <!--  BEGIN CONTENT AREA  -->
-    @if (session()->has('mens'))
-        <div class="alert alert-success">
-            {{ session('mens') }}
-        </div>
-    @endif
+
     <div class="main-content mt-6">
         <div class="layout-px-spacing">
             <div class="mb-0">
@@ -36,8 +32,18 @@
                     </div>
                 </div>
             </div>
+            @if (session()->has('mens'))
+            <div class="alert alert-success mt-2">
+                {{ session('mens') }}
+            </div>
+        @endif
+        @if (session()->has('mens-error'))
+            <div class="alert alert-danger mt-2">
+                {{ session('mens-error') }}
+            </div>
+        @endif
             <div class="row layout-spacing mt-2 justify-content-center mt-3">
-                <div class="col-10">
+                <div class="col-12">
                     <div class="statbox widget box box-shadow shadow ">
                         <div class="row justify-content-center mb-3">
                             <h2 class="fond-weight-bold text-bold text-primary m-0 mb-2">LISTADO DE USUARIOS</h2>
@@ -65,8 +71,13 @@
                                                 <td>{{ $user->names." ".$user->last_names }}</td>
                                                 <td>{{ $user->description  }}</td>
                                                 <td>{{ (is_null($user->name) ? 'Sin departamento': $user->name)  }}</td>
-                                                <td>
-                                                    <a href="{{route('user.edit',['user'=>$user->id])}}" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
+                                                <td class="d-flex justify-content-center">
+                                                    <a href="{{route('user.edit',['user'=>$user->id])}}" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</a>
+                                                        <form action="{{route('users.delete',['user'=> $user->id])}}" method="POST" class="ml-2">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button href="{{route('user.edit',['user'=>$user->id])}}" type="submit" class="bg-danger px-2 py-1 text-white rounded">Eliminar</button>
+                                                        </form>
                                                 </td>
                                             </tr>
                                             @endforeach

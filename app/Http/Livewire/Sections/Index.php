@@ -34,6 +34,7 @@ class Index extends Component
         $this->department_sections = DepartmentSection::join('structure_sections','department_sections.id','=','structure_sections.department_sectionid')
         ->join('subjects','structure_sections.subjectid','=','subjects.id')
         ->where('department_sections.departmentid',$this->teacher->ndepartament)
+        ->distinct()
         ->select('department_sections.*')
         ->get();
     }

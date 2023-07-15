@@ -19,7 +19,6 @@ class CreateStudentsTable extends Migration
             $table->unsignedBigInteger('academic_curriculaid');
             $table->string('mention')->nullable();
             $table->string('dni');
-            $table->string('name');
             $table->char('status',1)->default('A');
             $table->foreign('academic_curriculaid')->references('id')->on('academic_curricula');
             $table->timestamps();

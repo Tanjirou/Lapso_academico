@@ -65,6 +65,7 @@ Route::get('academic-lapse',AcademicLapseComponent::class)->name('academic_lapse
 Route::get('users-create',UserComponent::class)->Middleware('auth')->name('user.create');
 Route::post('users-create',[UserComponent::class, 'store'])->Middleware('auth')->name('user.store');
 Route::get('/users-list',[UserComponent::class, 'usersList'])->middleware('auth')->name('users.list');
+Route::delete('/users-list/{user}',[UserComponent::class, 'delete'])->middleware('auth')->name('users.delete');
 Route::get('/users-list/{user}',UserEditComponent::class)->middleware('auth')->name('user.edit');
 Route::put('/users-list/{user}',[UserEditComponent::class,'update'])->name('user.updated');
 

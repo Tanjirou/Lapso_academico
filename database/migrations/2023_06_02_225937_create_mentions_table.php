@@ -21,7 +21,7 @@ class CreateMentionsTable extends Migration
             $table->string('pre_req')->nullable();
             $table->string('post_req')->nullable();
             $table->char('status')->default('A');
-            $table->foreign('subjectid')->references('id')->on('departments');
+            $table->foreign('subjectid')->references('id')->on('subjects');
             $table->foreign('academic_curriculaid')->references('id')->on('academic_curricula');
             $table->timestamps();
         });

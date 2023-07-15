@@ -65,10 +65,8 @@ class Index extends Component
             ->select('students.*')
             ->first();
             if(!is_null($this->studentSearch)){
-                $this->studentName = $this->studentSearch->name;
                 $this->academicCurriculaId = $this->studentSearch->academic_curriculaid;
             }else{
-                $this->studentSearch = null;
                 $this->academicCurriculaId = null;
             }
         }
@@ -78,7 +76,6 @@ class Index extends Component
 
         $this->rules = [
             'query'=>'required',
-            'studentName' => 'required',
             'academicCurriculaId' =>'required',
             'qualificationResult' => 'required'
         ];
@@ -88,7 +85,6 @@ class Index extends Component
             $student = Student::create([
                 'academic_curriculaid' => $this->academicCurriculaId,
                 'dni' => $this->query,
-                'name' => $this->studentName,
                 'status' => 'A'
             ]);
         }

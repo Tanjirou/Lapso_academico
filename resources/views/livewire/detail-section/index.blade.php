@@ -154,19 +154,6 @@
                                                         </div>
                                                     </div>
                                                     <input type="hidden" wire:model="userId" >
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="textDpto">Nombre</label>
-                                                            <input type="text" wire:model="studentName"
-                                                                class="form-control" id="name"
-                                                                placeholder="Nombre"
-                                                                value="{{ is_null($studentSearch) ? '' : $studentSearch->name }}">
-                                                            @error('studentName')
-                                                                <div class="mt-1 text-danger text-sm">{{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
 
                                                     <div
                                                         class="col-12 col-md-6 mt-2 align-content-center align-items-center">
