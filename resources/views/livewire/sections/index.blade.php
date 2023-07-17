@@ -35,6 +35,11 @@
                                                 {{ session('mens') }}
                                             </div>
                                         @endif
+                                        @if (session()->has('mens-error'))
+                                            <div class="alert alert-danger">
+                                                {{ session('mens-error') }}
+                                            </div>
+                                        @endif
                                         <form method="POST" wire:submit.prevent="save">
                                              @csrf
                                             <div class="row">
@@ -83,7 +88,17 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="codeAsig">Código Asignatura</label>
+                                                        <input type="text" class="form-control" wire:model="subjectCode" readonly>
+                                                        @error('selectedSubject')
+                                                            <div class="mt-1 text-danger text-sm">{{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="section_number">Seccion</label>
