@@ -27,21 +27,22 @@
                         </nav>
                     </div>
                     <div class="col-md-4 col-lg-4 col-xl-4 justify-content-end mb-0 d-flex mt-4 ml-auto">
-                        <img src="assets/img/logo-SPA1.png" class="img-fluid mb-0 d-none d-md-block"
-                            alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
+                        <img src="assets/img/logo-SPA1.png" class="img-fluid mb-0 d-none d-md-block" alt="header-image"
+                            style="width-sm: 23%; width-md: 35%; width: 40%">
                     </div>
                 </div>
             </div>
             @if (session()->has('mens'))
-            <div class="alert alert-success mt-2">
-                {{ session('mens') }}
-            </div>
-        @endif
-        @if (session()->has('mens-error'))
-            <div class="alert alert-danger mt-2">
-                {{ session('mens-error') }}
-            </div>
-        @endif
+                <div class="alert alert-success mt-2">
+                    {{ session('mens') }}
+                </div>
+            @endif
+            @if (session()->has('mens-error'))
+                <div class="alert alert-danger mt-2">
+                    {{ session('mens-error') }}
+                </div>
+            @endif
+
             <div class="row layout-spacing mt-2 justify-content-center mt-3">
                 <div class="col-12">
                     <div class="statbox widget box box-shadow shadow ">
@@ -49,43 +50,49 @@
                             <h2 class="fond-weight-bold text-bold text-primary m-0 mb-2">LISTADO DE USUARIOS</h2>
                         </div>
                         <div class="row mt-0">
-                            <div class="col-md-12">
+                            <div class="col-12">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class="thead-primary">
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Cedula</th>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Tipo de Usuario</th>
-                                            <th scope="col">Departamento</th>
-                                            <th scope="col">Opciones</th>
-                                        </tr>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Cedula</th>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Tipo de Usuario</th>
+                                                <th scope="col">Departamento</th>
+                                                <th scope="col">Opciones</th>
+                                            </tr>
                                         </thead>
                                         <tbody>
                                             @php $cont=1; @endphp
                                             @foreach ($users as $user)
-                                            <tr>
-                                                <th scope="row">{{ $cont++ }}</th>
-                                                <td>{{ $user->dni }}</td>
-                                                <td>{{ $user->names." ".$user->last_names }}</td>
-                                                <td>{{ $user->description  }}</td>
-                                                <td>{{ (is_null($user->name) ? 'Sin departamento': $user->name)  }}</td>
-                                                <td class="d-flex justify-content-center">
-                                                    <a href="{{route('user.edit',['user'=>$user->id])}}" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</a>
-                                                        <form action="{{route('users.delete',['user'=> $user->id])}}" method="POST" class="ml-2">
+                                                <tr>
+                                                    <th scope="row">{{ $cont++ }}</th>
+                                                    <td>{{ $user->dni }}</td>
+                                                    <td>{{ $user->names . ' ' . $user->last_names }}</td>
+                                                    <td>{{ $user->description }}</td>
+                                                    <td>{{ is_null($user->name) ? 'Sin departamento' : $user->name }}
+                                                    </td>
+                                                    <td class="d-flex justify-content-center">
+                                                        <a href="{{ route('user.edit', ['user' => $user->id]) }}"
+                                                            type="button"
+                                                            class="bg-info px-2 py-1 text-white rounded">Editar</a>
+                                                        <form action="{{ route('users.delete', ['user' => $user->id]) }}"
+                                                            method="POST" class="ml-2">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button href="{{route('user.edit',['user'=>$user->id])}}" type="submit" class="bg-danger px-2 py-1 text-white rounded">Eliminar</button>
+                                                            <button href="{{ route('user.edit', ['user' => $user->id]) }}"
+                                                                type="submit"
+                                                                class="bg-danger px-2 py-1 text-white rounded">Eliminar</button>
                                                         </form>
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="row justify-content-center">
-                                    {{$users->links()}}
+                                    {{ $users->links() }}
                                 </div>
                             </div>
                         </div>
@@ -98,4 +105,3 @@
         </div>
     </div>
 </x-app-layout>
-

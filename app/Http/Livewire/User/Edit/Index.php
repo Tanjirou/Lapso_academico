@@ -51,8 +51,31 @@ class Index extends Component
             'nmention' => 'nullable',
             'college_degree' => 'string|max:255|nullable'
         ]);
-
-
+        $head_department = null;
+        if ($data['user_type'] == 2 && !is_null($request['ndepartament'])) {
+            $head_department = Teacher::join('users', 'teachers.userid', '=', 'users.id')
+                ->where('ndepartament', '=', $request['ndepartament'])
+                ->where('users.user_type', '=',$data['user_type'])
+                ->where('teachers.userid','!=',$user->id)
+                ->select('teachers.*')
+                ->first();
+            if (!is_null($head_department)) {
+                return redirect()->route('users.list')->with('mens-error','Ya existe registrado un jefe de departamento');
+            }
+        }
+        if ($data['user_type'] == 3 && !is_null($request['ndepartament']) && !is_null($request['nmention'])) {
+            $head_department = Teacher::join('users', 'teachers.userid', '=', 'users.id')
+                ->where('ndepartament', '=',$request['ndepartament'])
+                ->where('users.user_type', '=', $data['user_type'])
+                ->where('nmention', '=', $request['nmention'])
+                ->where('teachers.userid','!=',$user->id)
+                ->select('teachers.*')
+                ->first();
+            if (!is_null($head_department)) {
+                session()->flash('mens-error', 'Ya existe registrado un jefe de sección');
+                return;
+            }
+        }
         DB::table('teachers')->where('userid','=',$user->id)->delete();
         //$this->validate($this->rules);
         //Guardar datos en la primera tabla user

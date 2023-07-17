@@ -14,4 +14,12 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
     ];
+    protected function redirectTo($request)
+{
+    if ($request->expectsJson()) {
+        return response()->json(['message' => 'CSRF token expired'], 419);
+    }
+
+    return route('login');
+}
 }
