@@ -7,7 +7,7 @@
                         <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
-                                <li class="breadcrumb-item"><a href="javascript:void(0);">Secciones</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Recursos</a></li>
                                 <!--<li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Secciones</a></li>-->
                             </ol>
                         </nav>
@@ -24,7 +24,7 @@
                         <div class="row mt-0 justify-content-center">
                             <div class="col-md-10 align-content-center">
                                 <div class="row justify-content-center mb-3 mt-2 mr-auto ml-2 m-0">
-                                    <h2 class="text-bold text-primary fond-bold m-0">CREAR ESTRUCTURA</h2>
+                                    <h2 class="text-bold text-primary fond-bold m-0">CREAR RECURSO</h2>
                                 </div>
 
                                 <div class="row mt-0 justify-content-center">
@@ -39,7 +39,8 @@
                                             {{ session('mens-error') }}
                                         </div>
                                     @endif
-                                        <form method="POST" wire:submit.prevent="save">
+                                        <form>
+                                        {{-- <form method="POST" wire:submit.prevent="save"> --}}
                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -52,72 +53,21 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="textMenc">Sección del Departamneto</label>
-                                                        <select wire:model="selectedDepartmentSection"
-                                                            class="form-control" id="textMenc">
-                                                            <option>Seleccione</option>
-                                                            @foreach ($department_sections as $department_section)
-                                                                <option value="{{ $department_section->id }}" {{($department_section->id == $selectedDepartmentSection) ? 'selected' : ''}}>
-                                                                    {{ $department_section->description }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @error('selectedDepartmentSection')
-                                                            <div class="mt-1 text-danger text-sm">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="textAsig">Asignatura</label>
-                                                        <select wire:model="selectedSubject"
-                                                            class="form-control" id="textAsig">
-                                                            <option value="">Seleccione</option>
-                                                            @if (!is_null($subjects))
-                                                                @foreach ($subjects as $subject)
-                                                                    <option value="{{ $subject->id }}" {{($struc_section->subjectid == $subject->id) ? 'selected' : ''}}>
-                                                                        {{ $subject->name }}</option>
-                                                                @endforeach
-                                                            @endif
-                                                        </select>
-                                                        @error('struc_section.subjectid')
-                                                            <div class="mt-1 text-danger text-sm">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
                                                  <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="codeAsig">Código Asignatura</label>
-                                                        <input type="text" class="form-control" wire:model="subjectCode" readonly>
-                                                        @error('selectedSubject')
+                                                        <label for="description">Recurso</label>
+                                                        <input type="text" class="form-control" wire:model="description" placeholder="Indique el nombre del recurso">
+                                                        @error('description')
                                                             <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                                         @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textPunt">Cantidad de Secciones</label>
-                                                        <input wire:model="struc_section.number_section"
-                                                            class="form-control" type="number" placeholder="4">
-                                                        <small id="sh-text1" class="form-text text-muted">Número
-                                                            aproximado de secciones a aperturar.</small>
-                                                        @error('struc_section.number_section')
-                                                            <div class="mt-1 text-danger text-sm">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="textPunt">Cantidad de Estudiantes</label>
-                                                        <input wire:model="struc_section.average_students"
-                                                            class="form-control" type="number" placeholder="40">
-                                                        <small id="sh-text1" class="form-text text-muted">Cantidad
-                                                            máxima de estudiantes en promedio para la planificación del
-                                                            próximo semestre.</small>
-                                                        @error('struc_section.average_students')
+                                                        <label for="textCant">Cantidad</label>
+                                                        <input wire:model="quantity"
+                                                            class="form-control" type="number" placeholder="Ej: 4">
+                                                        @error('quantity')
                                                             <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                                         @enderror
                                                     </div>
@@ -137,24 +87,22 @@
                         </div>
                         <br>
                         <div class="row justify-content-center">
-                            <h2 class="text-bold text-primary fond-bold m-0 mb-2">Listado de secciones</h2>
+                            <h2 class="text-bold text-primary fond-bold m-0 mb-2">LISTADO DE RECURSOS</h2>
                         </div>
                         <div class="row mt-3 justify-content-center">
                             <div class="col-md-10">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table text-center">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Sección del Dpto.</th>
-                                                <th scope="col">Materia</th>
-                                                <th scope="col">Cantidad de Secciones</th>
-                                                <th scope="col">Cantidad de Estudiantes por Sección</th>
+                                                <th scope="col">Recurso</th>
+                                                <th scope="col">Cantidad</th>
                                                 <th scope="col">Opciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($struc_sections as $struc_section)
-                                                <tr>
+                                            {{-- @foreach ($struc_sections as $struc_section) --}}
+                                                {{-- <tr>
                                                     <td>{{ $struc_section->department_section }}</td>
                                                     <td>{{ $struc_section->subject }}</td>
                                                     <td>{{ $struc_section->number_section }}</td>
@@ -166,15 +114,23 @@
                                                             <button wire:click="delete({{ $struc_section->id }})"
                                                                 type="button"
                                                                 class="ml-2 bg-danger px-2 py-1 text-white rounded">Eliminar</button>
+                                                    </td> --}}
+                                                    <td class="justify-content-center">Videobeam</td>
+                                                    <td class="justify-content-center">1</td>
+                                                    <td class="d-flex justify-content-center">
+                                                        <button type="button"
+                                                            class="bg-info px-2 py-1 text-white rounded">Editar</button>
+                                                            <button type="button"
+                                                                class="ml-2 bg-danger px-2 py-1 text-white rounded">Eliminar</button>
                                                     </td>
                                                 </tr>
-                                            @endforeach
+                                            {{-- @endforeach --}}
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="row justify-content-end">
+                                {{-- <div class="row justify-content-end">
                                     {{$struc_sections->links()}}
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -183,6 +139,4 @@
         </div>
 
     </div>
-
-
 </div>

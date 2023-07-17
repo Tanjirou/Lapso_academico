@@ -11,6 +11,7 @@ use App\Http\Livewire\AcademicLapse\Index as AcademicLapseComponent;
 use App\Http\Livewire\Sections\Index as SectionsComponent;
 use App\Http\Livewire\DetailSection\Index as DetailSectionComponent;
 use App\Http\Livewire\Mentions\Index as MentionsComponent;
+use App\Http\Livewire\DepartmentResources\Index as DepartmentResourcesComponent;
 use App\Http\Livewire\Reports\EvaluationResult\Index as EvaluationResultComponent;
 use App\Http\Livewire\Reports\OpenSection\Index as OpenSectionComponent;
 
@@ -109,6 +110,7 @@ Route::get('sections',SectionsComponent::class)->name('sections.index');
 Route::get('qualify-student',DetailSectionComponent::class)->name('detail_section.index');
 
 Route::get('structure-section',StructureSectionComponent::class)->middleware('auth')->name('section-struc.index');
+Route::get('department-resources',DepartmentResourcesComponent::class)->name('department-resources.index');
 
 
 /* MENU - GESTION SECCIONES */
