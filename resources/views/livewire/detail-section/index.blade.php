@@ -81,6 +81,15 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
+                                                            <label for="codeAsig">Código Asignatura</label>
+                                                            <input type="text" class="form-control" wire:model="subjectCode" readonly>
+                                                            @error('selectedSubject')
+                                                                <div class="mt-1 text-danger text-sm">{{ $message }}</div>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
                                                             <label for="section_number">Seccion</label>
                                                             <select wire:model="section_number" class="form-control"
                                                                 id="section_number"
