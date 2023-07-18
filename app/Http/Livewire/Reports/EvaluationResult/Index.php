@@ -18,7 +18,7 @@ class Index extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $teacher, $subject,$department, $departmentSectionEnable = false, $subjectSectionEnable = false, $numberSectionEnable = false,
-     $department_sections, $subjects,$detailSections = null,  $section, $section_number, $countstudents, $studaprob, $studrep, $sections_not_updated, $optionds, $optionsub, $optionsec, $academic_lapse, $lapse;
+     $department_sections, $subjects,$detailSections = null, $department_sectionId, $section, $section_number, $countstudents, $studaprob, $studrep, $sections_not_updated, $optionds, $optionsub, $optionsec, $academic_lapse, $lapse;
     public $selectedDepartmentSection= null, $selectedSubject = null;
     public DetailSection $detailSection;
 
@@ -33,14 +33,23 @@ class Index extends Component
         $this->department_sections = DepartmentSection::join('structure_sections','department_sections.id','=','structure_sections.department_sectionid')
         ->join('subjects','structure_sections.subjectid','=','subjects.id')
         ->where('department_sections.departmentid',$this->teacher->ndepartament)
+        // ->where('sections.status','=','F')
         ->select('department_sections.*')
+        ->distinct()
         ->get();
 
     }
 
     public function updatedSelectedDepartmentSection($department_sectionId){
         if($department_sectionId != 'Seleccione' && !is_null($department_sectionId)){
-            $this->subjects = Subject::where('departmentsectionid',$department_sectionId)->get();
+            $this->subjects = Subject::join('sections','subjects.id','=','sections.subjectid')
+                ->join('detail_sections','sections.id','=','detail_sections.sectionid')
+                ->join('department_sections','subjects.departmentsectionid','=','department_sections.id')
+                ->where('subjects.departmentsectionid',$department_sectionId)
+                ->where('department_sections.departmentid','=',$this->department->id)
+                ->select('subjects.*')
+                ->distinct()
+                ->get();
         }else{
             $this->selectedDepartmentSection = null;
         }
@@ -58,7 +67,7 @@ class Index extends Component
     public function updatedSelectedSubject($subjectId){
         if($subjectId != 'Seleccione' && $subjectId && $this->selectedSubject){
             $this->sections_not_updated = Section::where('subjectid',$subjectId)
-                            ->where('status','F')
+                            ->where('sections.status','=','F')
                             ->select('sections.*')
                             ->orderBy('section_number')
                             ->get();
@@ -126,17 +135,3 @@ class Index extends Component
         return view('livewire.reports.evaluation-result.index');
     }
 }
-// ->select('department_sections.description as department_section','subjects.name as subject','sections.section_number', COUNT(CASE WHEN detail.sections.qualification == 'Aprobado' THEN 1 END) as studaprob, COUNT(CASE WHEN detail.sections.qualification == 'Reprobado' THEN 1 END) as studrep)
-
-// $nombre_de_columna=$results[0]->nombre_de_columna
-
- // ->orWhere(function ($query) use ($optionds, $selectedDepartmentSection) {
-        //     if ($optionds && isset($optionds) && $optionds != 'option1' && $selectedDepartmentSection){
-        //         $query->where('department_sections.id','=',$selectedDepartmentSection);
-        //     }
-        // })
-        // ->orWhere(function ($query) use ($optionsub, $selectedSubject) {
-        //     if ($optionsub && isset($optionsub) && $optionsub != 'option3' && isset($selectedSubject) && !is_null($selectedSubject)){
-        //         $query->where('subjects.id','=',$selectedSubject);
-        //     }
-        // })

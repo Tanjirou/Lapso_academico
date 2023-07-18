@@ -9,24 +9,21 @@
 @endsection
 <x-app-layout>
     <!--  BEGIN CONTENT AREA  -->
-    <div class="main-content mt-6">
+    <div class="main-content mt-0">
         <div class="layout-px-spacing">
-            <div class="fq-header-wrapper">
+            <div class="mt-5 mb-0">
                 <div class="container mb-3">
-                    <div class="row mb-2 mt-3 justify-content-center ">
 
-
-                    </div>
                     <div class="row">
                         <!--<div class="col-lg-7 col-md-6 col-4 mb-0 md-mb-0 order-md-0 order-0 mt-2 ml-3">-->
-                        <div class="col-5 col-sm-5 col-md-7 col-lg-7 col-xl-7 mb-0 mt-3 ml-3">
+                        <div class="col-5 col-sm-5 col-md-7 col-lg-7 col-xl-7 mb-0 mt-4 ml-3">
                             <h2 class="text-bold text-gray-100 font-extrabold font-weight-bold d-inline"> BIENVENIDO, </h2>
                             <h4 class="text-bold fond-bold font-weight-bold text-secondary d-inline">{{ auth()->user()->names }}</h4>
 
                         </div>
                         <!--<div class="col-md-4 col-6 mb-0 md-mb-0 order-md-0 order-1 d-flex justify-content-end ml-5 mt-0">-->
                         <div class="col-5 col-sm-5 col-md-4 col-lg-4 col-xl-4 mb-1 d-flex justify-content-end ml-auto mt-3">
-                            <img src="assets/img/logo-SPA1.png" class="img-fluid mb-xl-5 mb-lg-5 mb-md-5 mb-2" alt="header-image" style="width-sm: 30%;  width-md:30%; width-lg:35%; width: 40%;">
+                            <img src="assets/img/logo-SPA1.png" class="img-fluid mb-xl-5 mb-lg-5 mb-md-5 mb-0" alt="header-image" style="width-sm: 30%;  width-md:30%; width-lg:35%; width: 40%;">
                         </div>
                     </div>
 
@@ -415,7 +412,7 @@
                                                         <polyline points="20 6 9 17 4 12"></polyline>
                                                     </svg>
                                                 </div>
-                                                Crear/Modificar pensum de estudios.
+                                                Crear/Modificar pensum académico.
                                                 </li>
                                                 <li class="list-unstyled">
                                                     <div class="icon-svg">
@@ -426,7 +423,7 @@
                                                             <polyline points="20 6 9 17 4 12"></polyline>
                                                         </svg>
                                                     </div>
-                                                    Crea/Cargar Materias.
+                                                    Crear/Cargar Asignaturas.
                                                 </li>
                                                 <li class="list-unstyled">
                                                     <div class="icon-svg">
@@ -448,7 +445,7 @@
                                                             <polyline points="20 6 9 17 4 12"></polyline>
                                                         </svg>
                                                     </div>
-                                                    Asignar Materias.
+                                                    Asignar Asignaturas.
                                                 </li>
                                             </ul>
                                         </div>
@@ -486,7 +483,7 @@
                                                             <polyline points="20 6 9 17 4 12"></polyline>
                                                         </svg>
                                                     </div>
-                                                    Exportar/Blanquear Datos.
+                                                    Exportar/Vaciar Datos.
                                                 </li>
                                                 <li class="list-unstyled">
                                                     <div class="icon-svg">
