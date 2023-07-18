@@ -101,7 +101,7 @@
                                                     <div class="form-group">
                                                         <label for="textPunt">Cantidad de Secciones</label>
                                                         <input wire:model="struc_section.number_section"
-                                                            class="form-control" type="number" placeholder="4">
+                                                            class="form-control" type="number" placeholder="Ejemplo: 4">
                                                         <small id="sh-text1" class="form-text text-muted">Número
                                                             aproximado de secciones a aperturar.</small>
                                                         @error('struc_section.number_section')
@@ -113,7 +113,7 @@
                                                     <div class="form-group">
                                                         <label for="textPunt">Cantidad de Estudiantes</label>
                                                         <input wire:model="struc_section.average_students"
-                                                            class="form-control" type="number" placeholder="40">
+                                                            class="form-control" type="number" placeholder="Ejemplo: 40">
                                                         <small id="sh-text1" class="form-text text-muted">Cantidad
                                                             máxima de estudiantes en promedio para la planificación del
                                                             próximo semestre.</small>
@@ -137,12 +137,12 @@
                         </div>
                         <br>
                         <div class="row justify-content-center">
-                            <h2 class="text-bold text-primary fond-bold m-0 mb-2">Listado de secciones</h2>
+                            <h3 class="text-bold text-primary fond-bold m-0 mb-2">LISTADO DE SECCIONES</h3>
                         </div>
                         <div class="row mt-3 justify-content-center">
                             <div class="col-md-10">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table text-center">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Sección del Dpto.</th>

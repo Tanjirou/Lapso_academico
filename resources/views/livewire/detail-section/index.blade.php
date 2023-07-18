@@ -25,7 +25,7 @@
                             <div class="row mt-0 justify-content-center">
                                 <div class="col-md-10 align-content-center">
                                     <div class="row justify-content-center mb-3 mt-2 mr-auto ml-2 m-0">
-                                        <h2 class="text-bold text-primary fond-bold m-0">Datos a Cargar</h2>
+                                        <h2 class="text-bold text-primary fond-bold m-0">DATOS A CARGAR</h2>
                                     </div>
 
                                     <div class="row mt-0 justify-content-center">
@@ -50,7 +50,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="textPunt">Lapso Academico</label>
+                                                            <label for="textPunt">Lapso Académico</label>
                                                             <input class="form-control" type="text" placeholder="40"
                                                                 readonly
                                                                 value="{{ isset($academic_lapse) ? $academic_lapse->description : '' }}">
@@ -90,7 +90,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="section_number">Seccion</label>
+                                                            <label for="section_number">Sección</label>
                                                             <select wire:model="section_number" class="form-control"
                                                                 id="section_number"
                                                                 @readonly({{(!is_null($evaluate_section) ? true : false)}})>
@@ -114,7 +114,7 @@
                                                         <div class="form-group">
                                                             <label for="textPunt">Cantidad de Estudiantes</label>
                                                             <input class="form-control" wire:model="student_numbers"
-                                                                type="number" placeholder="40"
+                                                                type="number" placeholder="Ejemplo: 40"
                                                                 @readonly({{(!is_null($evaluate_section) ? true : false)}})>
                                                         </div>
                                                         @error('student_numbers')
@@ -143,7 +143,7 @@
                             @if (!is_null($evaluate_section))
                                 <div class="col-12">
                                     <div class="row justify-content-center">
-                                        <h2 class="text-bold text-primary fond-bold m-0 mb-2">Estudiantes</h2>
+                                        <h3 class="text-bold text-primary fond-bold m-0 mb-2">ESTUDIANTES</h2>
                                     </div>
                                     <div class="row mt-0 justify-content-center">
                                         <div class=" col-11 col-md-10 pb-3">
@@ -152,7 +152,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="textDpto">Cedula</label>
+                                                            <label for="textDpto">Cédula</label>
                                                             <input type="text" wire:model="query"
                                                                 class="form-control" id="dni"
                                                                 placeholder="Cedula" wire:keydown="studentSearch">

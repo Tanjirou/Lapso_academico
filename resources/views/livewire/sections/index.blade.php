@@ -25,7 +25,7 @@
                         <div class="row mt-0 justify-content-center">
                             <div class="col-md-10 align-content-center">
                                 <div class="row justify-content-center mb-3 mt-2 mr-auto ml-2 m-0">
-                                    <h2 class="text-bold text-primary fond-bold m-0">Asignar Profesor</h2>
+                                    <h2 class="text-bold text-primary fond-bold m-0">ASIGNAR PROFESOR</h2>
                                 </div>
 
                                 <div class="row mt-0 justify-content-center">
@@ -55,7 +55,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textMenc">Sección del Departamneto</label>
+                                                        <label for="textMenc">Sección del Departamento</label>
                                                         <select wire:model="selectedDepartmentSection"
                                                             class="form-control" id="textMenc">
                                                             <option>Seleccione</option>
@@ -166,16 +166,16 @@
                         </div>
                         <br>
                         <div class="row justify-content-center">
-                            <h2 class="text-bold text-primary fond-bold m-0 mb-2">Listado de secciones</h2>
+                            <h3 class="text-bold text-primary fond-bold m-0 mb-2">LISTADO DE SECCIONES</h3>
                         </div>
                         <div class="row mt-3 justify-content-center">
                             <div class="col-md-10">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table text-center">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Departamento</th>
-                                                <th scope="col">Materia</th>
+                                                <th scope="col">Asignatura</th>
                                                 <th scope="col">Cantidad de Secciones</th>
                                                 <th scope="col">Cantidad de Estudiantes por Sección</th>
                                                 <th scope="col">Opciones</th>
