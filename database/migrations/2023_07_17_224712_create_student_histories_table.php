@@ -21,7 +21,7 @@ class CreateStudentHistoriesTable extends Migration
             $table->string('qualification');
             $table->char('status',1)->default('A');
             $table->foreign('studentid')->references('id')->on('students');
-            $table->foreign('subjectid')->references('id')->on('subjectid');
+            $table->foreign('subjectid')->references('id')->on('subjects');
             $table->timestamps();
         });
     }
