@@ -23,7 +23,8 @@
                         </div>
                         <!--<div class="col-md-4 col-6 mb-0 md-mb-0 order-md-0 order-1 d-flex justify-content-end ml-5 mt-0">-->
                         <div class="col-5 col-sm-5 col-md-4 col-lg-4 col-xl-4 mb-1 d-flex justify-content-end ml-auto mt-3">
-                            <img src="assets/img/logo-SPA1.png" class="img-fluid mb-xl-5 mb-lg-5 mb-md-5 mb-0" alt="header-image" style="width-sm: 30%;  width-md:30%; width-lg:35%; width: 40%;">
+                            {{-- <img src="assets/img/logo-SPA1.png" class="img-fluid mb-xl-5 mb-lg-5 mb-md-5 mb-0" alt="header-image" style="width-sm: 30%;  width-md:30%; width-lg:35%; width: 40%;"> --}}
+                            <img src="assets/img/logo-SPA1.png" class="img-fluid mb-xl-5 mb-lg-5 mb-md-5 mb-0 d-none d-md-block" alt="header-image" style="width-sm: 23%; width-md: 35%; width: 40%">
                         </div>
                     </div>
 
