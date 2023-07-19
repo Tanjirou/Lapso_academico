@@ -49,40 +49,40 @@ Route::get('load-data', [AdministratorController::class,'load_data'])->name('adm
 //Route::get('/perfil-admin', [AdministratorController::class,'profile'])->name('administrator.profile');
 //Route::post('/perfil-admin/store/{user}', [AdministratorController::class,'profile_update'])->name('administrator.profile_update');
 //BASE DE DATOS
-Route::get('export', [AdministratorController::class, 'export'])->name('administrator.export');
-Route::get('empty', [AdministratorController::class, 'empty'])->name('administrator.empty');
+Route::get('export', [AdministratorController::class, 'export'])->middleware(['auth','administrator'])->name('administrator.export');
+Route::get('empty', [AdministratorController::class, 'empty'])->middleware(['auth','administrator'])->name('administrator.empty');
 
 
-Route::get('/profile', [AdministratorController::class,'profile'])->name('administrator.profile');
-Route::post('/admin-profile/store/{user}', [AdministratorController::class,'profile_update'])->name('administrator.profile_update');
-Route::get('/users-create',[AdministratorController::class, 'users_create'])->name('administrator.users_create');
+Route::get('/profile', [AdministratorController::class,'profile'])->middleware('auth')->name('administrator.profile');
+Route::post('/profile/store/{user}', [AdministratorController::class,'profile_update'])->middleware('auth')->name('administrator.profile_update');
+Route::get('/users-create',[AdministratorController::class, 'users_create'])->middleware(['auth','administrator'])->name('administrator.users_create');
 Route::post('/users-create/store', [AdministratorController::class, 'users_create_store'])->name('administrator.users_create_store');
-Route::get('/users-restore',[AdministratorController::class, 'users_restore'])->name('administrator.users_restore');
-Route::post('/users-restore/password',[AdministratorController::class, 'users_restore_password'])->name('administrator.users_restore_password');
-Route::post('/users-restore/factor',[AdministratorController::class, 'users_restore_factor'])->name('administrator.users_restore_factor');
+Route::get('/users-restore',[AdministratorController::class, 'users_restore'])->middleware(['auth','administrator'])->name('administrator.users_restore');
+Route::post('/users-restore/password',[AdministratorController::class, 'users_restore_password'])->middleware(['auth','administrator'])->name('administrator.users_restore_password');
+Route::post('/users-restore/factor',[AdministratorController::class, 'users_restore_factor'])->middleware(['auth','administrator'])->name('administrator.users_restore_factor');
 // Route::get('/users-modify',[AdministratorController::class, 'users_modify'])->name('administrator.users_modify');
-Route::get('academic-lapse',AcademicLapseComponent::class)->name('academic_lapse.index');
+Route::get('academic-lapse',AcademicLapseComponent::class)->middleware(['auth','administrator'])->name('academic_lapse.index');
 
-Route::get('users-create',UserComponent::class)->Middleware('auth')->name('user.create');
-Route::post('users-create',[UserComponent::class, 'store'])->Middleware('auth')->name('user.store');
-Route::get('/users-list',[UserComponent::class, 'usersList'])->middleware('auth')->name('users.list');
-Route::delete('/users-list/{user}',[UserComponent::class, 'delete'])->middleware('auth')->name('users.delete');
-Route::get('/users-list/{user}',UserEditComponent::class)->middleware('auth')->name('user.edit');
-Route::put('/users-list/{user}',[UserEditComponent::class,'update'])->name('user.updated');
+Route::get('users-create',UserComponent::class)->Middleware(['auth','administrator'])->name('user.create');
+Route::post('users-create',[UserComponent::class, 'store'])->Middleware(['auth','administrator'])->name('user.store');
+Route::get('/users-list',[UserComponent::class, 'usersList'])->middleware(['auth','administrator'])->name('users.list');
+Route::delete('/users-list/{user}',[UserComponent::class, 'delete'])->middleware(['auth','administrator'])->name('users.delete');
+Route::get('/users-list/{user}',UserEditComponent::class)->middleware(['auth','administrator'])->name('user.edit');
+Route::put('/users-list/{user}',[UserEditComponent::class,'update'])->middleware(['auth','administrator'])->name('user.updated');
 
-Route::get('/user-edit/{user}',[UserDepComponent::class, 'render'])->name('user.edit_u');
+Route::get('/user-edit/{user}',[UserDepComponent::class, 'render'])->middleware(['auth','administrator'])->name('user.edit_u');
 
-Route::put('/user-update/{userId}',[UserComponent::class, 'update'])->name('user.edit_store');
+Route::put('/user-update/{userId}',[UserComponent::class, 'update'])->middleware(['auth','administrator'])->name('user.edit_store');
 
-Route::get('pensum',AcademicCurriculumComponent::class)->Middleware('auth')->name('academic_curriculum.index');
-Route::get('departments',DepartmentComponent::class)->middleware('auth')->name('departments.index');
-Route::get('subjects',SubjectsComponent::class)->middleware('auth')->name('subjects.index');
-Route::post('subjects',SubjectsComponent::class)->middleware('auth');
-Route::get('departments-section',DepartmentSectionComponent::class)->middleware('auth')->name('department_section.index');
+Route::get('pensum',AcademicCurriculumComponent::class)->Middleware(['auth','administrator'])->name('academic_curriculum.index');
+Route::get('departments',DepartmentComponent::class)->middleware(['auth','administrator'])->name('departments.index');
+Route::get('subjects',SubjectsComponent::class)->middleware(['auth','administrator'])->name('subjects.index');
+Route::post('subjects',SubjectsComponent::class)->middleware(['auth','administrator']);
+Route::get('departments-section',DepartmentSectionComponent::class)->middleware(['auth','administrator'])->name('department_section.index');
 
 
 
-Route::get('mentions', MentionsComponent::class)->middleware('auth')->name('mentions.index');
+Route::get('mentions', MentionsComponent::class)->middleware(['auth','administrator'])->name('mentions.index');
 if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
 {
     Route::get('/register', function() {
@@ -92,7 +92,7 @@ if (Schema::hasTable('users') && count(DB::table('users')->get())>0)
 
 Route::get('ajustes', function(){
     return view('profile.index');
-})->name('user.profile.index');
+})->middleware('auth')->name('user.profile.index');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -106,11 +106,11 @@ Route::get('/', function () {
 
 
 /* PROFESOR */
-Route::get('sections',SectionsComponent::class)->name('sections.index');
+Route::get('sections',SectionsComponent::class)->middleware(['auth','head'])->name('sections.index');
 Route::get('qualify-student',DetailSectionComponent::class)->name('detail_section.index');
 
-Route::get('structure-section',StructureSectionComponent::class)->middleware('auth')->name('section-struc.index');
-Route::get('department-resources',DepartmentResourcesComponent::class)->name('department-resources.index');
+Route::get('structure-section',StructureSectionComponent::class)->middleware(['auth','head'])->name('section-struc.index');
+Route::get('department-resources',DepartmentResourcesComponent::class)->middleware(['auth','departmentHead'])->name('department-resources.index');
 
 
 /* MENU - GESTION SECCIONES */
@@ -119,5 +119,5 @@ Route::get('department-resources',DepartmentResourcesComponent::class)->name('de
 // Route::get('listado-secciones', [TeacherController::class, 'listSection'])->Middleware('auth')->name('teachers.list_sections');
 
 //REPORTES
-Route::get('evaluation-result',EvaluationResultComponent::class)->name('reports.evaluation-result.index');
-Route::get('open-section',OpenSectionComponent::class)->name('reports.open-section.index');
+Route::get('evaluation-result',EvaluationResultComponent::class)->middleware('auth')->name('reports.evaluation-result.index');
+Route::get('open-section',OpenSectionComponent::class)->middleware('auth')->name('reports.open-section.index');
