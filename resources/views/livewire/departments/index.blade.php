@@ -18,18 +18,18 @@
                     </div>
                     @if (session()->has('mens'))
                     <div class="alert alert-success">
-                        {{ session('mens') }}
+                        <h5 class="text-center">{{ session('mens') }}</h5>
                     </div>
                     @endif
                     @if (session()->has('mens-error'))
                     <div class="alert alert-danger">
-                        {{ session('mens-error') }}
+                        <h5 class="text-center">{{ session('mens-error') }}</h5>
                     </div>
                     @endif
                      <form wire:submit.prevent='save'>
                          <div class="form-group row mx-sm-3 mb-2 justify-content-center">
                             <div class="col-12 col-md-5 align-content-center align-items-center">
-                             <input wire:model="department.name" class="p-2 form-control" type="text" placeholder="Indique nombre del departamento">
+                             <input wire:model="department.name" class="p-2 form-control" type="text" placeholder="(*)Indique nombre del departamento">
                              @error('department.name') <div class="mt-1 text-danger text-sm">{{$message}}</div> @enderror
                             </div>
                              <button type="submit" class="btn btn-primary w-100 w-md-auto btn-lg mb-2 mt-4 mt-md-0">Guardar</button>
@@ -42,18 +42,18 @@
                     <div class="row mt-3 justify-content-center">
                         <div class="col-md-10">
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table" >
                                     <thead>
                                         <tr>
                                             <th scope="col">Nombre</th>
-                                            <th scope="col">Opciones</th>
+                                            <th class="text-center" scope="col">Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     @forelse ($departments as $department)
                                     <tr>
                                         <td>{{$department->name}}</td>
-                                        <td>
+                                        <td class="text-center">
                                             <button wire:click="edit({{$department->id}})" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
                                             <button wire:click="delete({{$department->id}})" type="button" class="bg-danger px-2 py-1 text-white rounded">Eliminar</button>
                                         </td>

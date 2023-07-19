@@ -36,7 +36,7 @@ class Index extends Component
         }
         $this->validate();
         $this->subject->save();
-        session()->flash('mens', 'Materia guardada correctamente.');
+        session()->flash('mens', 'Asignatura guardada correctamente.');
         $this->mount();
     }
     public function edit(Subject $subject)
@@ -50,7 +50,7 @@ class Index extends Component
     public function done(Subject $subject)
     {
         $subject->update(['done'=>!$subject->done]);
-        session()->flash('mens', 'Materia guardada correctamente.');
+        session()->flash('mens', 'Asignatura guardada correctamente.');
         $this->mount();
     }
     public function delete(Subject $subject){
@@ -59,7 +59,7 @@ class Index extends Component
         $section = Section::where('subjectid','=', $subject->id)->first();
 
         if($structure || $section){
-            session()->flash('mens-error', 'No se puede eliminar la materia.');
+            session()->flash('mens-error', 'No se puede eliminar la asignatura.');
             $this->mount();
         }else{
             $driverName = DB::getDriverName();
@@ -70,9 +70,9 @@ class Index extends Component
                 DB::statement("ALTER TABLE subjects AUTO_INCREMENT = $nextId");
             }
             $this->subject->delete();
-            session()->flash('mens', 'Materia eliminada correctamente.');
+            session()->flash('mens', 'Asignatura eliminada correctamente.');
             $this->mount();
-            $this->emitUp('subjectidSaved','Materia eliminada correctamente.');
+            $this->emitUp('subjectidSaved','Asignatura eliminada correctamente.');
         }
 
     }

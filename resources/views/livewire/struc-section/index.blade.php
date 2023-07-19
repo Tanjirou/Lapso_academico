@@ -31,7 +31,7 @@
                                     <div class=" col-11 col-md-10 pb-3">
                                         @if (session()->has('mens'))
                                             <div class="alert alert-success">
-                                                {{ session('mens') }}
+                                                <h5 class="text-center">{{ session('mens') }}</h5>
                                             </div>
                                         @endif
                                         @if (session()->has('mens-error'))
@@ -54,7 +54,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textMenc">Sección del Departamneto</label>
+                                                        <label for="textMenc">(*)Sección Académica</label>
                                                         <select wire:model="selectedDepartmentSection"
                                                             class="form-control" id="textMenc">
                                                             <option>Seleccione</option>
@@ -70,7 +70,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textAsig">Asignatura</label>
+                                                        <label for="textAsig">(*)Asignatura</label>
                                                         <select wire:model="selectedSubject"
                                                             class="form-control" id="textAsig">
                                                             <option value="">Seleccione</option>
@@ -99,7 +99,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textPunt">Cantidad de Secciones</label>
+                                                        <label for="textPunt">(*)Cantidad de Secciones</label>
                                                         <input wire:model="struc_section.number_section"
                                                             class="form-control" type="number" placeholder="Ejemplo: 4">
                                                         <small id="sh-text1" class="form-text text-muted">Número
@@ -111,12 +111,11 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textPunt">Cantidad de Estudiantes</label>
+                                                        <label for="textPunt">(*)Cantidad de Estudiantes</label>
                                                         <input wire:model="struc_section.average_students"
                                                             class="form-control" type="number" placeholder="Ejemplo: 40">
                                                         <small id="sh-text1" class="form-text text-muted">Cantidad
-                                                            máxima de estudiantes en promedio para la planificación del
-                                                            próximo semestre.</small>
+                                                            máxima de estudiantes por sección de la asignatura.</small>
                                                         @error('struc_section.average_students')
                                                             <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                                         @enderror

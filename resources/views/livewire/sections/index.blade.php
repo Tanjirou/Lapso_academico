@@ -2,7 +2,7 @@
     <div class="main-content mt-6">
         <div class="layout-px-spacing">
             <div class="mb-0">
-                <div class="row mb-2 mt-3">
+                <div class="row mb-2 mt-4">
                     <div class="col-12 col-md-7 col-lg-7 col-xl-7 mb-0 order-md-0 order-1 mb-2 mt-4">
                         <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                             <ol class="breadcrumb">
@@ -32,7 +32,7 @@
                                     <div class=" col-11 col-md-10 pb-3">
                                         @if (session()->has('mens'))
                                             <div class="alert alert-success">
-                                                {{ session('mens') }}
+                                                <h5 class="text-center">{{ session('mens') }}</h5>
                                             </div>
                                         @endif
                                         @if (session()->has('mens-error'))
@@ -55,7 +55,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textMenc">Sección del Departamento</label>
+                                                        <label for="textMenc">(*)Sección Académica</label>
                                                         <select wire:model="selectedDepartmentSection"
                                                             class="form-control" id="textMenc">
                                                             <option>Seleccione</option>
@@ -71,7 +71,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textAsig">Asignatura</label>
+                                                        <label for="textAsig">(*)Asignatura</label>
                                                         <select wire:model="selectedSubject" class="form-control"
                                                             id="textAsig">
                                                             <option value="">Seleccione</option>
@@ -101,7 +101,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="section_number">Seccion</label>
+                                                        <label for="section_number">(*)Sección de la asignatura</label>
                                                         <select wire:model="section_number" class="form-control"
                                                             id="section_number">
                                                             <option value="">Seleccione</option>
@@ -121,7 +121,7 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="teacherid">Profesor</label>
+                                                        <label for="teacherid">(*)Profesor</label>
                                                         <select wire:model="teacherid" class="form-control"
                                                             id="teacherid">
                                                             <option value="">Seleccione</option>
@@ -141,7 +141,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textPunt">Lapso Academico</label>
+                                                        <label for="textPunt">Lapso Académico</label>
                                                         <input class="form-control" type="text" placeholder="40"
                                                             readonly
                                                             value="{{ isset($academic_lapse) ? $academic_lapse->description : '' }}">
@@ -174,10 +174,11 @@
                                     <table class="table text-center">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Departamento</th>
+                                                <th scope="col">Sección Académica</th>
+                                                <th scope="col">Código Asignatura</th>
                                                 <th scope="col">Asignatura</th>
-                                                <th scope="col">Cantidad de Secciones</th>
-                                                <th scope="col">Cantidad de Estudiantes por Sección</th>
+                                                <th scope="col">Sección Asig.</th>
+                                                <th scope="col">Profesor</th>
                                                 <th scope="col">Opciones</th>
                                             </tr>
                                         </thead>

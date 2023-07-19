@@ -72,10 +72,11 @@ class Index extends Component
                 ->select('teachers.*')
                 ->first();
             if (!is_null($head_department)) {
-                session()->flash('mens-error', 'Ya existe registrado un jefe de sección');
-                return;
+                return redirect()->route('users.list')->with('mens-error','Ya existe registrado un jefe de sección');
             }
         }
+
+
         DB::table('teachers')->where('userid','=',$user->id)->delete();
         //$this->validate($this->rules);
         //Guardar datos en la primera tabla user

@@ -51,12 +51,12 @@
                         </div>
                         <div class="row mt-0">
                             <div class="col-12">
-                                <div class="table-responsive">
+                                <div class="table-responsive text-center">
                                     <table class="table">
                                         <thead class="thead-primary">
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">Cedula</th>
+                                                <th scope="col">Cédula</th>
                                                 <th scope="col">Nombre</th>
                                                 <th scope="col">Tipo de Usuario</th>
                                                 <th scope="col">Departamento</th>

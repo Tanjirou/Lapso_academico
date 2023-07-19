@@ -24,7 +24,7 @@
                     <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
-                            <li class="breadcrumb-item" ><a href="javascript:void(0);">Blanquear</a></li>
+                            <li class="breadcrumb-item" ><a href="javascript:void(0);">Vaciar</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -43,39 +43,14 @@
         @endif --}}
 
         <div class="mt-3">
-            {{-- <div class="container mb-0">
-                <div class="row mb-2 justify-content-center">
-                    <div class="col-md-12 align-self-center order-md-0 order-1 ml-2 mt-3">
-                        <div class="row justify-content-center"><h1 class="text-center font-weight-bold mt-3 mb-3">{{ __('Migrar') }}</h1></div>
-                        <div class="row mt-2">
-                            <p class="font-weight-bold text-justify">En esta opción se migrará la información de estudiantes, profesores, oferta académica, universidad, materias y carreras a la base de datos del sistema.
-                                Nota: tenga en cuenta que esta opción es la primera que se debe ejecutar para que la aplicación pueda funcionar correctamente.
-                            </p>
-                        </div>
 
-
-                        <div class="row justify-content-center mt-5">
-                            <a href="{{ route('administrator.load_data') }}" class="btn btn-primary btn-lg"> Ejecutar</a>
-                        </div>
-
-                        @if (session('migrate-message'))
-                        <div class="form-group row">
-                            <span class="alert alert-success col-12">
-                                {{ session('migrate-message') }}
-                            </span>
-                        </div>
-                        @endif
-
-                    </div>
-                </div>
-            </div> --}}
             <div class="fq-header-wrapper">
                 <div class="container">
                     <div class="row mb-0">
                         <div class="col-md-7 align-self-center order-md-0 order-1 mb-sm-0">
-                            <h1 class="">BLANQUEAR</h1>
-                            <p class="font-weight-bold text-justify">Esta opción se utilizara para borrar la información al inicio o a mitad del lapso academico en curso, para introducir la nueva información necesaria para desarrollar la planificación académica del próximo lapso academico.
-                                <ins>Nota:</ins> No se blanqueara toda la información de la base de datos, solo la necesaria para mantener la operatividad del sistema.</p>
+                            <h1 class="">VACIAR</h1>
+                            <p class="font-weight-bold text-justify">Esta opción se utilizara para borrar la información al inicio o a mitad del lapso académico en curso, para introducir la nueva información necesaria para desarrollar la planificación académica del próximo lapso academico.
+                                <ins>Nota:</ins> No se vaciará toda la información de la base de datos, solo la necesaria para mantener la operatividad del sistema.</p>
                             {{-- <button class="btn btn-info">Ejecutar</button> --}}
                             <div class="row justify-content-center mt-5">
                                 <a href="" class="btn btn-primary btn-lg"> Ejecutar</a>

@@ -3,12 +3,12 @@
         <div class="main-content mt-6">
             <div class="layout-px-spacing">
                 <div class="mb-0">
-                    <div class="row mb-2 mt-3">
+                    <div class="row mb-2 mt-5">
                         <div class="col-12 col-md-7 col-lg-7 col-xl-7 mb-0 order-md-0 order-1 mb-2 mt-2">
                             <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Crear Materias</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Crear Asignaturas</a></li>
                                 </ol>
                             </nav>
                         </div>
@@ -19,7 +19,7 @@
                     </div>
                     @if (session()->has('mens'))
                         <div class="alert alert-success">
-                            {{ session('mens') }}
+                            <h5 class="text-center">{{ session('mens') }}</h5>
                         </div>
                     @endif
                     @if (session()->has('mens-error'))
@@ -32,23 +32,23 @@
 
                         <div class="form-group row mx-sm-3 mb-2 justify-content-center">
                             <div class="col-12 col-md-5 align-content-center align-items-center">
-                                <label for="subject.code">Código</label>
+                                <label for="subject.code">(*)Código</label>
                                 <input type="text" class="form-control" wire:model="subject.code"
-                                    placeholder="Código de la materia">
+                                    placeholder="Código de la asignatura">
                                 @error('subject.code')
                                     <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="col-12 col-md-5 align-content-center align-items-center">
-                                <label for="subject.name">Nombre</label>
+                                <label for="subject.name">(*)Nombre</label>
                                 <input type="text" class="form-control" wire:model="subject.name"
-                                    placeholder="Nombre de la materia">
+                                    placeholder="Nombre de la asignatura">
                                     @error('subject.name')
                                     <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="col-12 col-md-5 mt-3 align-content-center align-items-center">
-                                <label for="subject.credit_unid">Unidades de crédito</label>
+                                <label for="subject.credit_unid">(*)Unidades de crédito</label>
                                 <input type="number" class="form-control" wire:model="subject.credit_units"
                                     placeholder="En números">
                                     @error('subject.credit_units')
@@ -56,7 +56,7 @@
                                 @enderror
                             </div>
                             <div class="col-12 col-md-5 mt-3 align-content-center align-items-center">
-                                <label for="subject.departmentsectionid">Sección del Departamento</label>
+                                <label for="subject.departmentsectionid">(*)Sección Académica</label>
                                 <select class="form-control" wire:model="subject.departmentsectionid">
                                     <option value="">Seleccione</option>
                                     @foreach ($department_sections as $department)
@@ -75,24 +75,24 @@
                     </form>
                     <br>
                     <div class="row justify-content-center">
-                        <h2 class="text-bold text-primary fond-bold m-0 mb-2">LISTADO DE MATERIAS</h2>
+                        <h2 class="text-bold text-primary fond-bold m-0 mb-2">LISTADO DE ASIGNATURAS</h2>
                     </div>
                     <div class="row mt-3 justify-content-center">
                         <div class="col-md-10">
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-center">
                                             <th scope="col">Código</th>
                                             <th scope="col">Nombre</th>
                                             <th scope="col">Unidades de crédito</th>
-                                            <th scope="col">Sección del Departamento</th>
+                                            <th scope="col">Sección Académica</th>
                                             <th scope="col">Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @forelse ($subjects as $subject)
-                                            <tr>
+                                            <tr class="text-center">
                                                 <td>{{ $subject->code }}</td>
                                                 <td>{{ $subject->name }}</td>
                                                 <td>{{ $subject->credit_units }}</td>
@@ -106,7 +106,7 @@
 
                                             </tr>
                                         @empty
-                                            <h3>No existen materias para mostrar</h3>
+                                            <h3>No existen asignaturas para mostrar</h3>
                                         @endforelse
                                     </tbody>
                                 </table>

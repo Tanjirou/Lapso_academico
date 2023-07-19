@@ -4,7 +4,7 @@
     <div class="main-content mt-6">
         <div class="layout-px-spacing">
             <div class="mb-0">
-                <div class="row mb-2 mt-3">
+                <div class="row mb-2 mt-5">
                     <div class="col-12 col-md-7  mb-0 order-md-0 order-1 mb-2 mt-2">
                         <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                             <ol class="breadcrumb">
@@ -42,7 +42,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="dni" class="text-dark">{{ __('Cédula') }}</label>
+                                                <label for="dni" class="text-dark">{{ __('(*)Cédula') }}</label>
                                                 <input type="numeric"
                                                     class="form-control mb-2 @error('dni') is-invalid @enderror"
                                                     value="{{ $userData->dni }}" required autocomplete="dni" autofocus
@@ -57,7 +57,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="names" class="text-dark">{{ __('Nombres') }}</label>
+                                                <label for="names" class="text-dark">{{ __('(*)Nombres') }}</label>
                                                 <input type="text" name="names" id="names"
                                                     class="form-control mb-2 @error('names') is-invalid @enderror"
                                                     value="{{ $userData->names }}" required autofocus
@@ -71,7 +71,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="last_names" class="text-dark">{{ __('Apellidos') }}</label>
+                                                <label for="last_names" class="text-dark">{{ __('(*)Apellidos') }}</label>
                                                 <input id="last_names" name="last_names" type="text"
                                                     class="form-control mb-2 @error('last_names') is-invalid @enderror"
                                                     value="{{ $userData->last_names }}" required
@@ -101,7 +101,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="email" class="text-dark">{{ __('Email') }}</label>
+                                                <label for="email" class="text-dark">{{ __('(*)Email') }}</label>
                                                 <input id="email" type="email"
                                                     class="form-control mb-2 @error('email') is-invalid @enderror"
                                                     name="email" value="{{ $userData->email }}" required
@@ -119,7 +119,7 @@
 
                                     <div class="form-group">
                                         <label for="selectedUser"
-                                            class="text-dark">{{ __('Tipo de Usuario') }}</label>
+                                            class="text-dark">{{ __('(*)Tipo de Usuario') }}</label>
                                         <select wire:model="selectedUser" id="selectedUser" name="user_type"
                                             class="custom-select bg-white form-control border-primary @error('user_types') is-invalid @enderror">
                                             <option value="">Seleccione</option>
@@ -142,7 +142,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="departments" class="text-dark">{{ __('Departamento') }}</label>
+                                                        <label for="departments" class="text-dark">{{ __('(*)Departamento') }}</label>
                                                             <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartament" id="department">
                                                                 <option value="" >Seleccione</option>
                                                                 @foreach ($departments as $department)
@@ -156,11 +156,33 @@
                                                             @enderror
                                                     </div>
                                                 </div>
-                                                @if ($selectedUser == 3 || $selectedUser == 5)
+                                                @if ($selectedUser == 3)
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="mentions"
-                                                                class="text-dark">{{ __('Sección del Departamento') }}</label>
+                                                                class="text-dark">{{ __('(*)Sección Académica') }}</label>
+                                                            <select wire:model="selectedMention"
+                                                                class="custom-select bg-white form-control @error('mentions') is-invalid @enderror"
+                                                                name="nmention" id="mentions">
+                                                                <option value="">Seleccione</option>
+                                                                @foreach ($department_sections as $department_section)
+                                                                    <option value="{{ $department_section->id }}">
+                                                                        {{ $department_section->description }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                            @error('mentions')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    @elseif ($selectedUser == 5)
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="mentions"
+                                                                class="text-dark">{{ __('Sección Académica') }}</label>
                                                             <select wire:model="selectedMention"
                                                                 class="custom-select bg-white form-control @error('mentions') is-invalid @enderror"
                                                                 name="nmention" id="mentions">
@@ -197,7 +219,7 @@
                                             </div>
                                         @endif
                                     </div>
-                                    
+
                                     <div class="form-group row mb-0 justify-content-center">
                                         <div class="col-12 col-md-4 col-lg-3">
                                             <button type="submit" class="w-100 btn btn-primary font-weight-bold">

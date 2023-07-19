@@ -3,7 +3,7 @@
         <div class="main-content mt-6">
             <div class="layout-px-spacing">
                 <div class="mb-0">
-                    <div class="row mb-2 mt-3">
+                    <div class="row mb-2 mt-5">
                         <div class="col-12 col-md-7 col-lg-7 col-xl-7 mb-0 order-md-0 order-1 mb-2 mt-2">
                             <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -31,20 +31,19 @@
                         @csrf
                         <div class="form-group row mx-sm-3 mb-2 justify-content-center">
                             <div class="col-12 col-md-5 align-content-center align-items-center">
-                             <input wire:model="academic_lapse.description" class="p-2 form-control" type="text" placeholder="Lapso Académico a Crear">
+                             <input wire:model="academic_lapse.description" class="p-2 form-control" type="text" placeholder="Indique lapso académico a crear">
                             </div>
                              <button type="submit" class="btn btn-primary w-100 w-md-auto btn-lg mb-2 mt-4 mt-md-0">Guardar</button>
                          </div>
                          @error('academic_lapse.description') <div class="mt-1 text-danger text-sm text-center">{{$message}}</div> @enderror
-                         <hr>
                     </form>
                     <hr>
                     <div class="row justify-content-center">
-                        <h2 class="text-bold text-primary fond-bold m-0">Lapsos Académicos</h2>
+                        <h2 class="text-bold text-primary fond-bold m-0">LAPSOS ACADÉMICOS</h2>
                     </div>
                     <div class="row mt-3 justify-content-center">
                         <div class="col-md-10">
-                            <div class="table-responsive">
+                            <div class="table-responsive text-center">
                                 <table class="table">
                                     <thead>
                                         <tr>

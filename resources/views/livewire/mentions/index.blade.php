@@ -3,12 +3,12 @@
         <div class="main-content mt-6">
             <div class="layout-px-spacing">
                 <div class="mb-0">
-                    <div class="row mb-2 mt-3">
+                    <div class="row mb-2 mt-5">
                         <div class="col-12 col-md-7 col-lg-7 col-xl-7 mb-0 order-md-0 order-1 mb-2 mt-2">
                             <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Cargar Materias en el Pensum</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Cargar Asignaturas en el Pensum</a></li>
                                 </ol>
                             </nav>
                         </div>
@@ -19,7 +19,7 @@
                     </div>
                     @if (session()->has('mens'))
                     <div class="alert alert-success">
-                        {{ session('mens') }}
+                        <h5 class="text-center">{{ session('mens') }}</h5>
                     </div>
                     @endif
                     @if (session()->has('mens-error'))
@@ -32,7 +32,7 @@
 
                         <div class="form-group row mx-sm-3 mb-2 ">
                              <div class="col-12 col-md-6 align-content-center align-items-center">
-                                <label for="academic_curriculaid">Pensum</label>
+                                <label for="academic_curriculaid">(*)Pensum</label>
                                 <select  class="form-control" name="academic_curriculaid" wire:model='mention.academic_curriculaid'>
                                     <option value="">Seleccione</option>
                                     @foreach ($academic_curricula as $academic_c)
@@ -44,7 +44,7 @@
                                 @enderror
                             </div>
                             <div class="col-12 col-md-6 mt-2 align-content-center align-items-center">
-                                <label for="subjectid">Materia</label>
+                                <label for="subjectid">(*)Asignatura</label>
                                 <select class="form-control" name="subjectid" wire:model='mention.subjectid'>
                                     <option value="">Seleccione</option>
                                     @foreach ($subjects as $subject)
@@ -57,11 +57,11 @@
                             </div>
                             <div class="col-12 col-md-6 mt-2 align-content-center align-items-center">
                                 <label for="pre_req">Pre-Requisitos</label>
-                                <input type="text" class="form-control" wire:model='mention.pre_req' name="pre_req" placeholder="Indique pre-requisitos separados con coma (,)">
+                                <input type="text" class="form-control" wire:model='mention.pre_req' name="pre_req" placeholder="Indique separados con coma (,)">
                             </div>
                             <div class="col-12 col-md-6 mt-2 align-content-center align-items-center">
                                 <label for="post_req">Co-Requisitos</label>
-                                <input type="text" class="form-control" name="post_req" wire:model='mention.post_req' placeholder="Indique co-requisitos separados con coma (,)">
+                                <input type="text" class="form-control" name="post_req" wire:model='mention.post_req' placeholder="Indique separados con coma (,)">
                             </div>
 
 
@@ -75,16 +75,16 @@
                     </form>
                     <br>
                     <div class="row justify-content-center">
-                        <h2 class="text-bold text-primary fond-bold m-0 mb-2">LISTADO DE MATERIAS EN EL PENSUM</h2>
+                        <h2 class="text-center text-bold text-primary fond-bold m-0 mb-2">LISTADO DE ASIGNATURAS EN EL PENSUM</h2>
                     </div>
                     <div class="row mt-3 justify-content-center">
                         <div class="col-md-10">
-                            <div class="table-responsive">
+                            <div class="table-responsive text-center">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th scope="col">Pensum</th>
-                                            <th scope="col">Materia</th>
+                                            <th scope="col">Asignatura</th>
                                             <th scope="col">Pre-Requisitos</th>
                                             <th scope="col">Co-Requisitos</th>
                                             <th scope="col">Opciones</th>

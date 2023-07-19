@@ -677,7 +677,7 @@
                                     <a href="{{ route('administrator.export') }}">Exportar</a>
                                 </li>
                                 <li class="active">
-                                    <a href="{{ route('administrator.empty') }}">Blanquear</a>
+                                    <a href="{{ route('administrator.empty') }}">Vaciar</a>
                                 </li>
 
                                 {{-- <li class="active">
