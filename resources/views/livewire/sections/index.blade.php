@@ -57,7 +57,7 @@
                                                     <div class="form-group">
                                                         <label for="textMenc">(*)Sección Académica</label>
                                                         <select wire:model="selectedDepartmentSection"
-                                                            class="form-control" id="textMenc">
+                                                            class="form-control" id="textMenc1">
                                                             <option>Seleccione</option>
                                                             @foreach ($department_sections as $department_section)
                                                                 <option value="{{ $department_section->id }}">
@@ -127,9 +127,14 @@
                                                             <option value="">Seleccione</option>
                                                             @if (!is_null($teachers))
                                                                 @foreach ($teachers as $teacher)
+                                                                    @if(is_null($teacher->nmention) || $teacher->nmention == $selectedDepartmentSection)
                                                                     <option value="{{ $teacher->id }}">
                                                                         {{ $teacher->names }}
                                                                         {{ $teacher->last_names }}</option>
+                                                                    @else
+                                                                        @continue
+                                                                    @endif
+
                                                                 @endforeach
                                                             @endif
                                                         </select>
@@ -207,7 +212,13 @@
                 </div>
             </div>
             @else
-            <p class="font-weight-bold">Debe activar un lapso academico</p>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <section class="col-12 align-items-center align-content-center mt-5">
+                        <h3 class="font-weight-bold text-center">DEBE ACTIVAR UN LAPSO ACADÉMICO</h3>
+                    </section>
+                </div>
+            </div>
             @endif
         </div>
 

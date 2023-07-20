@@ -61,6 +61,7 @@ class Kernel extends HttpKernel
         'departmentHead' => \App\Http\Middleware\DepartmentHead::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'head' => \App\Http\Middleware\Head::class,
+        'notTeacher' => \App\Http\Middleware\NotTeacher::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,

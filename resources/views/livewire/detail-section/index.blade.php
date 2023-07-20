@@ -270,7 +270,13 @@
                     </div>
                 </div>
             @else
-                <p class="font-weight-bold">Debe activar un lapso academico</p>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <section class="col-12 align-items-center align-content-center mt-5">
+                        <h3 class="font-weight-bold text-center">DEBE ACTIVAR UN LAPSO ACADÉMICO</h3>
+                    </section>
+                </div>
+            </div>
             @endif
         </div>
 

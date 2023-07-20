@@ -15,14 +15,14 @@ use App\Models\DetailSection;
 
 class Index extends Component
 {
-    public $academic_lapse, $section_number, $departments, $teacherid, $teacher, $department, $department_sections, $sections_not_updated,
+    public $academic_lapse,$authTeacher, $section_number, $departments, $teacherid, $teacher, $department, $department_sections, $sections_not_updated,
         $subjects, $subjectCode, $lapse, $structure_sections, $selectedDepartmentSection = null, $selectedSubject = null;
     public Section $section;
     protected $rules = [
         'selectedDepartmentSection' => 'required',
         'selectedSubject' => 'required',
         'section_number' => 'required',
-        'teacherid' => 'nullable',
+        'teacherid' => 'required',
         'lapse' => 'required'
 
     ];
@@ -33,19 +33,39 @@ class Index extends Component
         $this->department = Department::where('id', $this->teacher->ndepartament)->first();
         $this->section = new Section();
         $this->academic_lapse = AcademicLapse::where('status', 'A')->first();
-        $this->lapse = $this->academic_lapse->id;
+        $this->lapse = ($this->academic_lapse) ? $this->academic_lapse->id : null;
         $this->department_sections = DepartmentSection::join('structure_sections', 'department_sections.id', '=', 'structure_sections.department_sectionid')
             ->join('subjects', 'structure_sections.subjectid', '=', 'subjects.id')
             ->where('department_sections.departmentid', $this->teacher->ndepartament)
             ->distinct()
             ->select('department_sections.*')
             ->get();
+        $this->authTeacher = Teacher::where('userid','=',auth()->user()->id)->select('nmention')->first();
+        if(auth()->user()->id == 3){
+            $this->selectedDepartmentSection = $this->authTeacher->nmention;
+        }
+        if($this->selectedDepartmentSection){
+            $this->subjects = Subject::join('structure_sections', 'subjects.id','=','structure_sections.subjectid')
+            ->where('subjects.departmentsectionid', $this->selectedDepartmentSection)
+            ->select('subjects.*')
+            ->get();
+        }
+
     }
 
     public function updatedSelectedDepartmentSection($department_sectionId)
     {
         if ($department_sectionId != 'Seleccione' && !is_null($department_sectionId)) {
-            $this->subjects = Subject::where('subjects.departmentsectionid', $department_sectionId)->get();
+            $this->subjects = Subject::join('structure_sections', 'subjects.id','=','structure_sections.subjectid')
+                ->where('subjects.departmentsectionid', $department_sectionId)
+                ->select('subjects.*')
+                ->get();
+        }else{
+            $this->selectedDepartmentSection = null;
+            $this->subjectCode = null;
+            $this->reset('selectedSubject','section_number','teacherid');
+            $this->subjects = null;
+            $this->selectedDepartmentSection = null;
         }
     }
     public function updatedSelectedSubject($subjectId)
@@ -148,8 +168,7 @@ class Index extends Component
             ->get();
         return view('livewire.sections.index', [
             'sections' => $sections,
-            'teachers' => $teachers,
-
+            'teachers' => $teachers
         ]);
     }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire\AcademicLapse;
 
-use App\Models\AcademicLapse;
+use App\Models\Section;
 use Livewire\Component;
+use App\Models\AcademicLapse;
+use App\Models\DetailSection;
 use Illuminate\Support\Facades\DB;
 
 class Index extends Component
@@ -17,7 +19,10 @@ class Index extends Component
     }
     public function save(){
         $count_active_lapse = DB::table('academic_lapses')->where('status','=','A')->first();
-        if(is_null($count_active_lapse) || !is_null($this->academic_lapse->id)){
+        $detailSection = DetailSection::where('status','=','F')->first();
+        if($detailSection){
+            session()->flash('mens-error', 'Debe ejecutar la opción de vaciar antes de poder crear un nuevo lapso.');
+        }elseif(is_null($count_active_lapse) || !is_null($this->academic_lapse->id)){
             $this->validate();
             $this->academic_lapse->save();
             session()->flash('mens', 'Lapso guardado y activado correctamente.');
@@ -28,6 +33,16 @@ class Index extends Component
     }
     public function edit(AcademicLapse $academic_lapse){
         $this->academic_lapse = $academic_lapse;
+        $academicLapse = new AcademicLapse();
+        $academicLapse = $academic_lapse;
+        $section = Section::where('academic_lapseid','=',$academicLapse->id)->first();
+        if(!$section){
+            $this->academic_lapse = $academic_lapse;
+        }else{
+            session()->flash('mens-error', 'No se puede editar el lapso.');
+            $this->mount();
+        }
+
     }
     public function finish(AcademicLapse $academic_lapse){
         $this->academic_lapse = $academic_lapse;
