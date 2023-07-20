@@ -99,7 +99,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textPunt">(*)Cantidad de Secciones</label>
+                                                        <label for="textPunt">(*)Cantidad de secciones</label>
                                                         <input wire:model="struc_section.number_section"
                                                             class="form-control" type="number" placeholder="Ejemplo: 4">
                                                         <small id="sh-text1" class="form-text text-muted">Número
@@ -136,7 +136,7 @@
                         </div>
                         <br>
                         <div class="row justify-content-center">
-                            <h3 class="text-bold text-primary fond-bold m-0 mb-2">LISTADO DE SECCIONES</h3>
+                            <h3 class="text-bold text-primary fond-bold m-0 mb-2"> LISTADO DE ESTRUCTURAS </h3>
                         </div>
                         <div class="row mt-3 justify-content-center">
                             <div class="col-md-10">
@@ -144,10 +144,10 @@
                                     <table class="table text-center">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Sección del Dpto.</th>
-                                                <th scope="col">Materia</th>
-                                                <th scope="col">Cantidad de Secciones</th>
-                                                <th scope="col">Cantidad de Estudiantes por Sección</th>
+                                                <th scope="col">Sección Académica</th>
+                                                <th scope="col">Asignatura</th>
+                                                <th scope="col">Cant. de secciones</th>
+                                                <th scope="col">Cant. de Estudiantes por Sección</th>
                                                 <th scope="col">Opciones</th>
                                             </tr>
                                         </thead>

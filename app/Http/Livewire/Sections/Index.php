@@ -144,8 +144,7 @@ class Index extends Component
             ->join('users', 'teachers.userid', '=', 'users.id')
             ->join('structure_sections', 'sections.structure_sectionid', '=', 'structure_sections.id')
             ->join('subjects', 'sections.subjectid', '=', 'subjects.id')
-            ->join('department_sections','structure_sections.department_sectionid','=','department_sections.departmentid')
-            ->select('sections.*', 'subjects.name as subject', 'academic_lapses.description as lapse', 'users.names as names', 'users.last_names as last_names')
+            ->select('sections.*', 'subjects.code as code', 'subjects.name as subject', 'academic_lapses.description as lapse', 'users.names as names', 'users.last_names as last_names')
             ->get();
         return view('livewire.sections.index', [
             'sections' => $sections,

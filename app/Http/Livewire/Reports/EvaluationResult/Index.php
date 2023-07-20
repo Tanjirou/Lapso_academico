@@ -39,6 +39,30 @@ class Index extends Component
         ->get();
 
     }
+    // if ($userTeacher && $userTeacher->user_type == 2 && $departmentSection) {
+
+    //     $this->teacher = Teacher::where('userid',auth()->user()->id)->first();
+    //     $this->department = Department::where('id',$this->teacher->ndepartament)->first();
+    //     $this->academic_lapse = AcademicLapse::where('status','A')->first();
+    //     $this->lapse = $this->academic_lapse->id;
+    //     $this->detailSections = null;
+    //     $this->department_sections = DepartmentSection::where('departmentid',$this->department->id)->get();
+    //     $this->department_sections = DepartmentSection::join('structure_sections','department_sections.id','=','structure_sections.department_sectionid')
+    //     ->join('subjects','structure_sections.subjectid','=','subjects.id')
+    //     ->where('department_sections.departmentid',$this->teacher->ndepartament)
+    //     // ->where('sections.status','=','F')
+    //     ->select('department_sections.*')
+    //     ->distinct()
+    //     ->get();
+    // }elseif($userTeacher && $userTeacher->user_type == 3 && $departmentSection){
+    //     $departmentSection = DepartmentSection::join('subjects', 'department_sections.id', '=', 'subjects.departmentsectionid')
+    // ->where('department_sections.description', 'like', '%Casos Especiales%')
+    // ->select()
+    // ->first();
+    // }
+    // endif
+
+
 
     public function updatedSelectedDepartmentSection($department_sectionId){
         if($department_sectionId != 'Seleccione' && !is_null($department_sectionId)){

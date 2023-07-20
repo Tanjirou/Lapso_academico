@@ -185,9 +185,10 @@
                                         <tbody>
                                             @foreach ($sections as $section)
                                             <tr>
-                                             <td>{{$section->lapse}}</td>
-                                            <td>{{$section->section_number}}</td>
+                                             <td>{{$section->department_section}}</td>
+                                            <td>{{$section->code}}</td>
                                             <td>{{$section->subject}}</td>
+                                            <td>{{$section->section_number}}</td>
                                             <td>{{$section->names}} {{$section->last_names}}</td>
                                             <td class="d-flex justify-content-center">
                                              <button wire:click="delete({{$section->id}})" type="button" class="bg-danger px-2 py-1 ml-3 text-white rounded">Eliminar</button>

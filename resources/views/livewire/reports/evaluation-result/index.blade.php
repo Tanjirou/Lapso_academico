@@ -46,7 +46,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="textCorte">Sección Académica - Filtrado por:</label>
+                                                <label for="textCorte">Filtrado por - Sección Académica</label>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <label
@@ -95,7 +95,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="textCorte">Sección Académica - Filtrado por:</label>
+                                                <label for="textCorte">Filtrado por - Sección Académica</label>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <label
@@ -146,7 +146,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="textSubject">Materia - Filtrado por:</label>
+                                                <label for="textSubject">Filtrado por - Asignatura</label>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <label
@@ -174,7 +174,7 @@
                                         @if ($subjectSectionEnable)
                                             <div class="col-md-6" id="select-container2">
                                                 <div class="form-group">
-                                                    <label for="subject">Seleccione una Materia</label>
+                                                    <label for="subject">Seleccione una Asignatura</label>
                                                     <select wire:model="selectedSubject" class="form-control"
                                                         name="subject" id="subject">
                                                         <option value="">Seleccione</option>
@@ -195,7 +195,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="textSection">Sección - Filtrado por:</label>
+                                                <label for="textSection">Filtrado por - Sección</label>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <label
@@ -259,9 +259,9 @@
                                     <table id="column-filter" class="table table-bordered table-hover table-striped">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">Sección del Dpto</th>
+                                                <th class="text-center">Sección Académica</th>
                                                 <th class="text-center">Código</th>
-                                                <th class="text-center">Materia</th>
+                                                <th class="text-center">Asignatura</th>
                                                 <th class="text-center">Sección</th>
                                                 <th class="text-center">N° Aprobados</th>
                                                 <th class="text-center">N° Reprobados</th>
@@ -296,26 +296,6 @@
                                                     </tr>
                                                 @endforeach
                                             @endif
-
-                                            <!-- <tr>
-                                                <td class="text-center">Matematica</td>
-                                                <td class="text-center">EB1115</td>
-                                                <td class="text-center">Cálculo I</td>
-                                                <td class="text-center">1</td>
-                                                <td class="text-center">30 </td>
-                                                <td class="text-center">18</td>
-                                                <td class="text-center">12</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">Matematica</td>
-                                                <td class="text-center">EB1115</td>
-                                                <td class="text-center">Cálculo I</td>
-                                                <td class="text-center">2</td>
-                                                <td class="text-center">28 </td>
-                                                <td class="text-center">12</td>
-                                                <td class="text-center">16</td>
-                                            </tr> -->
-
                                         </tbody>
                                     </table>
 
@@ -328,40 +308,3 @@
         </div>
     </div>
 </div>
-{{-- <script>
-    var option1 = document.getElementById('option1');
-    var option2 = document.getElementById('option2');
-    var selectContainer1 = document.getElementById('select-container1');
-
-    var option3 = document.getElementById('option3');
-    var option4 = document.getElementById('option4');
-    var selectContainer2 = document.getElementById('select-container2');
-
-    var option5 = document.getElementById('option5');
-    var option6 = document.getElementById('option6');
-    var selectContainer4 = document.getElementById('select-container4');
-
-    option1.addEventListener('click', function() {
-      selectContainer1.style.display = 'none';
-    });
-
-    option2.addEventListener('click', function() {
-      selectContainer1.style.display = 'block';
-    });
-
-    option3.addEventListener('click', function() {
-      selectContainer2.style.display = 'none';
-    });
-
-    option4.addEventListener('click', function() {
-      selectContainer2.style.display = 'block';
-    });
-
-    option5.addEventListener('click', function() {
-      selectContainer4.style.display = 'none';
-    });
-
-    option6.addEventListener('click', function() {
-      selectContainer4.style.display = 'block';
-    });
-  </script> --}}
