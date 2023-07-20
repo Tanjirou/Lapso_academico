@@ -48,10 +48,10 @@
                                 <select class="form-control" name="subjectid" wire:model='mention.subjectid'>
                                     <option value="">Seleccione</option>
                                     @foreach ($subjects as $subject)
-                                    <option value="{{$subject->id}}" {{($subject->id == $mention->subjectid) ? 'selected' :''}}>{{$subject->name}}</option>
+                                    <option value="{{$subject->id}}" {{($subject->id == $mention->subjectid) ? 'selected' :''}}>{{$subject->code}} - {{$subject->name}}</option>
                                     @endforeach
                                 </select>
-                                @error('subjectid')
+                                @error('mention.subjectid')
                                     <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                 @enderror
                             </div>

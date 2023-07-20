@@ -32,7 +32,7 @@
                                         <div class=" col-11 col-md-10 pb-3">
                                             @if (session()->has('mens'))
                                                 <div class="alert alert-success">
-                                                    {{ session('mens') }}
+                                                    <h5 class="text-center">{{ session('mens') }}</h5>
                                                 </div>
                                             @endif
                                             <form wire:submit.prevent="save">
@@ -59,7 +59,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="textAsig">Asignatura</label>
+                                                            <label for="textAsig">(*)Asignatura</label>
                                                             <select wire:model="selectedSubject" class="form-control"
                                                                 id="textAsig"
                                                                 @readonly({{(!is_null($evaluate_section) ? true : false)}})>
@@ -90,7 +90,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="section_number">Sección</label>
+                                                            <label for="section_number">(*)Sección de Asignatura</label>
                                                             <select wire:model="section_number" class="form-control"
                                                                 id="section_number"
                                                                 @readonly({{(!is_null($evaluate_section) ? true : false)}})>
@@ -112,7 +112,7 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="textPunt">Cantidad de Estudiantes</label>
+                                                            <label for="textPunt">(*)Cantidad de Estudiantes</label>
                                                             <input class="form-control" wire:model="student_numbers"
                                                                 type="number" placeholder="Ejemplo: 40"
                                                                 @readonly({{(!is_null($evaluate_section) ? true : false)}})>

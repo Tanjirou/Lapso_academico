@@ -171,7 +171,7 @@
                         </div>
                         <br>
                         <div class="row justify-content-center">
-                            <h3 class="text-bold text-primary fond-bold m-0 mb-2">LISTADO DE SECCIONES</h3>
+                            <h3 class="text-bold text-primary fond-bold m-0 mb-2">LISTADO DE ASIGNACIONES</h3>
                         </div>
                         <div class="row mt-3 justify-content-center">
                             <div class="col-md-10">
@@ -179,7 +179,6 @@
                                     <table class="table text-center">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Sección Académica</th>
                                                 <th scope="col">Código Asignatura</th>
                                                 <th scope="col">Asignatura</th>
                                                 <th scope="col">Sección Asig.</th>
@@ -190,7 +189,6 @@
                                         <tbody>
                                             @foreach ($sections as $section)
                                             <tr>
-                                             <td>{{$section->department_section}}</td>
                                             <td>{{$section->code}}</td>
                                             <td>{{$section->subject}}</td>
                                             <td>{{$section->section_number}}</td>

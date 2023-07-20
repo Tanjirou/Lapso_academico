@@ -28,6 +28,15 @@ class Index extends Component
         $this->mention = new Mention();
 
     }
+
+    public function messages()
+    {
+    return [
+        'mention.academic_curriculaid.required' => 'El campo Pensum es obligatorio.',
+        'mention.subjectid.required' => 'El campo Asignatura es obligatorio.',
+    ];
+    }
+
     public function save(){
         $count_mentions = DB::table('mentions')->where('status','=','A')
                                                 ->where('subjectid','=',$this->mention->subjectid)

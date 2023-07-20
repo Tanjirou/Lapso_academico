@@ -21,6 +21,16 @@ class Index extends Component
         //$this->departments =Department::orderBy('id','desc')->paginate(3);
         $this->department = new Department();
     }
+
+    public function messages()
+    {
+    return [
+        'department.name.required' => 'El campo nombre del departamento es obligatorio.',
+        'department.name.max' => 'El máximo de caracteres para el campo es de 60.',
+
+    ];
+    }
+
     public function updateddepartmentText()
     {
         $this->validate(['department.name'=>'max:60']);

@@ -22,6 +22,18 @@ class Index extends Component
         $this->department_sections = DepartmentSection::all();
         $this->subject = new Subject();
     }
+    public function messages()
+    {
+    return [
+        'subject.code.required' => 'El campo código de la asignatura es obligatorio.',
+        'subject.code.min' => 'El mínimo de caracteres es de 3.',
+        'subject.code.unique' => 'El código ya existe.',
+        'subject.name.required' => 'El campo nombre de la asignatura es obligatorio.',
+        'subject.name.min' => 'El mínimo de caracteres es de 3.',
+        'subject.credit_units.required' => 'El campo unidades de crédito es obligatorio.',
+        'subject.departmentsectionid.required' => 'El campo Sección Académica es obligatorio.',
+    ];
+    }
     public function save(){
         if(is_null($this->subject->id)){
             $this->rules =[

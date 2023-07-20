@@ -24,45 +24,34 @@ class Index extends Component
 
     public function mount()
     {
+        $this->optionds = 'option1';
+        $this->optionsub = 'option3';
+        $this->optionsec = 'option5';
         $this->teacher = Teacher::where('userid',auth()->user()->id)->first();
         $this->department = Department::where('id',$this->teacher->ndepartament)->first();
         $this->academic_lapse = AcademicLapse::where('status','A')->first();
         $this->lapse = $this->academic_lapse->id;
         $this->detailSections = null;
-        $this->department_sections = DepartmentSection::where('departmentid',$this->department->id)->get();
-        $this->department_sections = DepartmentSection::join('structure_sections','department_sections.id','=','structure_sections.department_sectionid')
-        ->join('subjects','structure_sections.subjectid','=','subjects.id')
-        ->where('department_sections.departmentid',$this->teacher->ndepartament)
-        // ->where('sections.status','=','F')
-        ->select('department_sections.*')
-        ->distinct()
-        ->get();
+        if (auth()->user()->user_type == 2 || is_null($this->teacher->nmention)){
+            $this->department_sections = DepartmentSection::join('structure_sections','department_sections.id','=','structure_sections.department_sectionid')
+                ->join('subjects','structure_sections.subjectid','=','subjects.id')
+                ->where('department_sections.departmentid',$this->teacher->ndepartament)
+                // ->where('sections.status','=','F')
+                ->select('department_sections.*')
+                ->distinct()
+                ->get();
+
+        }else{
+            $this->department_sections = DepartmentSection::join('structure_sections','department_sections.id','=','structure_sections.department_sectionid')
+                ->join('subjects','structure_sections.subjectid','=','subjects.id')
+                ->where('department_sections.departmentid',$this->teacher->ndepartament)
+                ->where('department_sections.id', '=', $this->teacher->nmention)
+                ->select('department_sections.*')
+                ->distinct()
+                ->get();
+        }
 
     }
-    // if ($userTeacher && $userTeacher->user_type == 2 && $departmentSection) {
-
-    //     $this->teacher = Teacher::where('userid',auth()->user()->id)->first();
-    //     $this->department = Department::where('id',$this->teacher->ndepartament)->first();
-    //     $this->academic_lapse = AcademicLapse::where('status','A')->first();
-    //     $this->lapse = $this->academic_lapse->id;
-    //     $this->detailSections = null;
-    //     $this->department_sections = DepartmentSection::where('departmentid',$this->department->id)->get();
-    //     $this->department_sections = DepartmentSection::join('structure_sections','department_sections.id','=','structure_sections.department_sectionid')
-    //     ->join('subjects','structure_sections.subjectid','=','subjects.id')
-    //     ->where('department_sections.departmentid',$this->teacher->ndepartament)
-    //     // ->where('sections.status','=','F')
-    //     ->select('department_sections.*')
-    //     ->distinct()
-    //     ->get();
-    // }elseif($userTeacher && $userTeacher->user_type == 3 && $departmentSection){
-    //     $departmentSection = DepartmentSection::join('subjects', 'department_sections.id', '=', 'subjects.departmentsectionid')
-    // ->where('department_sections.description', 'like', '%Casos Especiales%')
-    // ->select()
-    // ->first();
-    // }
-    // endif
-
-
 
     public function updatedSelectedDepartmentSection($department_sectionId){
         if($department_sectionId != 'Seleccione' && !is_null($department_sectionId)){
@@ -77,7 +66,6 @@ class Index extends Component
         }else{
             $this->selectedDepartmentSection = null;
         }
-        // $this->subject->name = null;
     }
 
     public function updatedOptionds($option){
@@ -130,12 +118,10 @@ class Index extends Component
         ->join('subjects','sections.subjectid','=','subjects.id')
         ->join('department_sections','subjects.departmentsectionid','=','department_sections.id')
         ->join('departments','department_sections.departmentid','=','departments.id')
+        ->where('departments.id','=', $this->teacher->ndepartament)
         ->where('sections.status','=','F')
         ->where('detail_sections.status','=','F')
 
-
-
-        // ->select('department_sections.description as department_section','subjects.code as code','subjects.name as subject','sections.section_number as section_number');
         ->selectRaw("department_sections.description as department_section, subjects.code as code, subjects.name as subject, sections.section_number as section_number,
         COUNT(CASE WHEN detail_sections.qualification = 'aprobado' THEN 1 END) as aprobados,
         COUNT(CASE WHEN detail_sections.qualification = 'reprobado' THEN 1 END) as reprobados")
@@ -151,6 +137,9 @@ class Index extends Component
          if($this->optionsec && $optionsec != 'option5'){
             $detailSections->where('sections.id','=',$this->section_number);
          }
+         if(auth()->user()->user_type == 3 || !is_null($this->teacher->nmention)){
+            $detailSections->where('department_sections.id','=', $this->teacher->nmention);
+        }
         $this->detailSections = $detailSections->get();
 
     }

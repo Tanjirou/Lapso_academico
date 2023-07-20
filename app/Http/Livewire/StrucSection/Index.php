@@ -39,6 +39,14 @@ class Index extends Component
         $this->subject = new Subject();
         $this->struc_section = new StructureSection();
     }
+
+    public function messages()
+    {
+    return [
+        'struc_section.number_section.required' => 'El campo numero de la sección es obligatorio.',
+
+    ];
+    }
     public function updatedSelectedDepartmentSection($department_sectionId){
         if($department_sectionId != 'Seleccione' && !is_null($department_sectionId)){
             $this->subjects = Subject::where('departmentsectionid',$department_sectionId)->get();

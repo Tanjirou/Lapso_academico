@@ -23,7 +23,7 @@
             </div>
             @if (session()->has('mens'))
             <div class="alert alert-success">
-                {{ session('mens') }}
+                <h5 class="text-center">{{ session('mens') }}</h5>
             </div>
             @endif
             <div class="row layout-spacing mt-2">

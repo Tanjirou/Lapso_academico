@@ -22,6 +22,16 @@ class Index extends Component
         $this->departments = Department::all();
         $this->departmentSection = new DepartmentSection();
     }
+
+    public function messages()
+    {
+    return [
+        'departmentSection.description.required' => 'El campo nombre de la sección académica es obligatorio.',
+        'departmentSection.departmentid.required' => 'El campo Departamento es obligatorio.',
+
+    ];
+    }
+
     public function save()
     {
         $this->validate();

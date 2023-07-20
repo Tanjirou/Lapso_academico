@@ -1,6 +1,5 @@
 <div>
 
-
     <div class="main-content mt-6">
         <div class="layout-px-spacing">
             <div class="mb-0">
@@ -29,7 +28,7 @@
                             <div class=" col-11 col-md-10 pb-3">
                                 @if (session()->has('mens'))
                                     <div class="alert alert-success">
-                                        {{ session('mens') }}
+                                        <h5 class="text-center">{{ session('mens') }}</h5>
                                     </div>
                                 @endif
                                 @if (session()->has('mens-error'))

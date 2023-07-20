@@ -19,6 +19,14 @@ class Index extends Component
         // $this->pensums =AcademicCurriculumModel::orderBy('id','desc')->paginate(10);
         $this->pensum = new AcademicCurriculumModel();
     }
+
+    public function messages()
+    {
+    return [
+        'pensum.description.required' => 'El campo nombre del pensum académico es obligatorio.',
+    ];
+    }
+
     public function updatedPensumText()
     {
         $this->validate(['pensum.description'=>'max:60']);

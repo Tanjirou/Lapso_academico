@@ -54,6 +54,8 @@ class Index extends Component
             $this->selectedSubject = null;
         }
     }
+
+
     public function save(){
         $this->validate();
         $section = Section::where('id',$this->section_number)->first();
