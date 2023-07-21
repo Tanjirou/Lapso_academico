@@ -46,11 +46,11 @@ class Index extends Component
         if(is_null($count_mentions) || !is_null($this->mention->id))
         {
                 $this->mention->save();
-                session()->flash('mens', 'Materia asignada correctamente.');
+                session()->flash('mens', 'Asignatura asignada correctamente.');
                 $this->mount();
             }
         else{
-            session()->flash('mens-error', 'Ya se encuentra esa materia registrada en el pensum.');
+            session()->flash('mens-error', 'Ya se encuentra esa asignatura registrada en el pensum.');
         }
 
     }
@@ -59,8 +59,16 @@ class Index extends Component
     }
     public function delete(Mention $mention){
         $this->mention = $mention;
+        $driverName = DB::getDriverName();
         $nextId = Mention::max('id') + 1;
+        if($driverName =='pgsql'){
+            DB::statement("ALTER SEQUENCE mentions_id_seq RESTART WITH $nextId");
+        }else{
+            DB::statement("ALTER TABLE mentions AUTO_INCREMENT = $nextId");
+        }
         $this->mention->delete();
+        session()->flash('mens', 'Asignatura eliminada del pensum correctamente.');
+        $this->mount();
     }
     public function render()
     {
