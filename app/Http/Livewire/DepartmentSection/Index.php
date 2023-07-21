@@ -36,9 +36,9 @@ class Index extends Component
     {
         $this->validate();
         $this->departmentSection->save();
-        session()->flash('mens', 'Sección del departamento guardado correctamente.');
+        session()->flash('mens', 'Sección Académica guardada correctamente.');
         $this->mount();
-        $this->emitUp('departmentSectionsSaved','Sección del departamento guardado correctamente');
+        $this->emitUp('departmentSectionsSaved','Sección Académica guardada correctamente');
     }
     public function edit(DepartmentSection $departmentSection)
     {
@@ -51,7 +51,7 @@ class Index extends Component
     public function done(DepartmentSection $departmentSection)
     {
         $departmentSection->update(['done'=>!$departmentSection->done]);
-        session()->flash('mens', 'Sección del departamento guardado correctamente.');
+        session()->flash('mens', 'Sección Académica guardada correctamente.');
         $this->mount();
     }
     public function delete(DepartmentSection $departmentSection){
@@ -59,7 +59,7 @@ class Index extends Component
         $subjects= Subject::where('departmentsectionid','=',$departmentSection->id)->first();
         $structureSections = StructureSection::where('department_sectionid','=',$departmentSection->id)->first();
         if(!is_null($subjects) || !is_null($structureSections)){
-            session()->flash('mens-error', 'No se puede eliminar esa sección del departamento.');
+            session()->flash('mens-error', 'No se puede eliminar esa sección académica.');
             $this->departmentSection->description = null;
             $this->departmentSection->departmentid = null;
             $this->mount();
@@ -72,9 +72,9 @@ class Index extends Component
                 DB::statement("ALTER TABLE department_sections AUTO_INCREMENT = $nextId");
             }
             $this->departmentSection->delete();
-            session()->flash('mens', 'Sección del departamento eliminado correctamente.');
+            session()->flash('mens', 'Sección académica eliminada correctamente.');
             $this->mount();
-            $this->emitUp('departmentSaved','Sección del departamento eliminado correctamente.');
+            $this->emitUp('departmentSaved','Sección académica eliminada correctamente.');
         }
 
     }

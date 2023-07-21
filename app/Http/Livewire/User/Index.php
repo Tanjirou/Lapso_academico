@@ -38,8 +38,6 @@ class Index extends Component
         'selectedMention' => 'nullable',
         'college_degree' => 'string|max:255|nullable'
     ];
-
-
     public function mount()
     {
         $this->user_types = UserType::where('status', 'A')
@@ -49,6 +47,15 @@ class Index extends Component
         // $this->mentions= Mention::where('mentions.status','=', 'A')->orderBy('mentions.id')->get();
         $this->department_sections = DepartmentSection::where('department_sections.status', '=', 'A')->orderBy('department_sections.id')->get();
         $this->teacher = new Teacher();
+    }
+
+    public function messages()
+    {
+    return [
+        'dni.required' => 'El campo cédula es obligatorio.',
+        'dni.numeric' => 'Solo caracteres numéricos.',
+
+    ];
     }
 
     public function updatedSelectedDepartment($department_id)
