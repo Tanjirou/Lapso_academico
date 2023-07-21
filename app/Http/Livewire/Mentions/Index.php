@@ -38,17 +38,17 @@ class Index extends Component
     }
 
     public function save(){
+        $this->validate();
         $count_mentions = DB::table('mentions')->where('status','=','A')
                                                 ->where('subjectid','=',$this->mention->subjectid)
                                                 ->where('academic_curriculaid','=',$this->mention->academic_curriculaid)
                                                 ->first();
         if(is_null($count_mentions) || !is_null($this->mention->id))
         {
-            $this->validate();
-            $this->mention->save();
-            session()->flash('mens', 'Materia asignada correctamente.');
-            $this->mount();
-        }
+                $this->mention->save();
+                session()->flash('mens', 'Materia asignada correctamente.');
+                $this->mount();
+            }
         else{
             session()->flash('mens-error', 'Ya se encuentra esa materia registrada en el pensum.');
         }
@@ -59,6 +59,8 @@ class Index extends Component
     }
     public function delete(Mention $mention){
         $this->mention = $mention;
+        $nextId = Mention::max('id') + 1;
+        $this->mention->delete();
     }
     public function render()
     {

@@ -18,7 +18,7 @@ class SubjectsSeeder extends Seeder
         DB::table('subjects')->insert([
             'departmentsectionid' => 20,
             'code' => 'EB1115',
-            'name' => 'Cálculo I',//1
+            'name' => 'Calculo I',//1
             'credit_units' => 5,
             'status' => 'A',
         ]);
@@ -77,7 +77,7 @@ class SubjectsSeeder extends Seeder
         DB::table('subjects')->insert([
             'departmentsectionid' => 20,
             'code' => 'EB1125',
-            'name' => 'Cálculo II',//8
+            'name' => 'Calculo II',//8
             'credit_units' => 5,
             'status' => 'A',
         ]);
@@ -1641,7 +1641,7 @@ class SubjectsSeeder extends Seeder
             'status' => 'A',
         ]);
 
-
+        
 
 
 
