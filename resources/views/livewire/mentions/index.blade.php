@@ -43,7 +43,7 @@
                                     <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="col-12 col-md-6 mt-2 align-content-center align-items-center">
+                            <div class="col-12 col-md-6 align-content-center align-items-center">
                                 <label for="subjectid">(*)Asignatura</label>
                                 <select class="form-control" name="subjectid" wire:model='mention.subjectid'>
                                     <option value="">Seleccione</option>
