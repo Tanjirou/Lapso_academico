@@ -124,17 +124,19 @@ class Index extends Component
             $this->mount();
         }else{
             $this->section->academic_lapseid = null;
+            $this->teacherid = $this->section->teacherid;
             $this->section->teacherid = null;
             $this->section->save();
             $userTeacher = User::join('teachers', 'teachers.userid', '=', 'users.id')
                 ->where('teachers.id', $this->teacherid)
-                ->select('users.*','teachers.ndepartament')
+                ->select('users.*','teachers.id as teacher')
                 ->first();
             $section = Section::join('subjects','sections.subjectid','=','subjects.id')
                 ->join('department_sections','subjects.departmentsectionid','=','department_sections.id')
-                ->where('department_sections.description', 'like', '%Casos Especiales%')
                 ->where('subjects.id', '=', $this->selectedSubject)
                 ->where('sections.teacherid','=',$this->teacherid)
+                ->where('department_sections.description', 'like', '%Casos Especiales%')
+                ->orWhere('department_sections.description', 'like', '%Servicio Comunitario%')
                 ->select('sections.*')
                 ->first();
 

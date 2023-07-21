@@ -8,7 +8,8 @@
                             <nav class="breadcrumb-two align-self-center" aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Crear Lapso Académico</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Crear Lapso Académico</a>
+                                    </li>
                                 </ol>
                             </nav>
                         </div>
@@ -18,24 +19,28 @@
                         </div>
                     </div>
                     @if (session()->has('mens'))
-                    <div class="alert alert-success">
-                        {{ session('mens') }}
-                    </div>
+                        <div class="row justify-content-center alert alert-success">
+                            <h5 class="text-center font-weight-bold">{{ session('mens') }}</h5>
+                        </div>
                     @endif
                     @if (session()->has('mens-error'))
-                    <div class="alert alert-danger">
-                        {{ session('mens-error') }}
-                    </div>
+                        <div class="row justify-content-center alert alert-danger">
+                            <h5 class="text-center font-weight-bold">{{ session('mens-error') }}</h5>
+                        </div>
                     @endif
                     <form wire:submit.prevent='save' method="POST">
                         @csrf
                         <div class="form-group row mx-sm-3 mb-2 justify-content-center">
                             <div class="col-12 col-md-5 align-content-center align-items-center">
-                             <input wire:model="academic_lapse.description" class="p-2 form-control" type="text" placeholder="Indique lapso académico a crear">
+                                <input wire:model="academic_lapse.description" class="p-2 form-control" type="text"
+                                    placeholder="Indique lapso académico a crear">
                             </div>
-                             <button type="submit" class="btn btn-primary w-100 w-md-auto btn-lg mb-2 mt-4 mt-md-0">Guardar</button>
-                         </div>
-                         @error('academic_lapse.description') <div class="mt-1 text-danger text-sm text-center">{{$message}}</div> @enderror
+                            <button type="submit"
+                                class="btn btn-primary w-100 w-md-auto btn-lg mb-2 mt-4 mt-md-0">Guardar</button>
+                        </div>
+                        @error('academic_lapse.description')
+                            <div class="mt-1 text-danger text-sm text-center">{{ $message }}</div>
+                        @enderror
                     </form>
                     <hr>
                     <div class="row justify-content-center">
@@ -53,19 +58,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if(!is_null($academic_lapses))
-                                        @foreach ($academic_lapses as $academic_lapse)
-                                            <tr>
-                                                <td>{{$academic_lapse->description}}</td>
-                                                <td>{{(($academic_lapse->status === 'A') ? 'Activo' : 'Cerrado')}}</td>
-                                                <td>
-                                                    @if ($academic_lapse->status == 'A')
-                                                    <button wire:click="edit({{$academic_lapse->id}})" type="button" class="bg-info px-2 py-1 text-white rounded">Editar</button>
-                                                    <button wire:click="finish({{$academic_lapse->id}})" type="button" class="bg-success px-2 py-1 text-white rounded">Finalizar</button>
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                        @endforeach
+                                        @if (!is_null($academic_lapses))
+                                            @foreach ($academic_lapses as $academic_lapse)
+                                                <tr>
+                                                    <td>{{ $academic_lapse->description }}</td>
+                                                    <td>{{ $academic_lapse->status === 'A' ? 'Activo' : 'Cerrado' }}
+                                                    </td>
+                                                    <td>
+                                                        @if ($academic_lapse->status == 'A')
+                                                            <button wire:click="edit({{ $academic_lapse->id }})"
+                                                                type="button"
+                                                                class="bg-info px-2 py-1 text-white rounded">Editar</button>
+                                                            <button wire:click="finish({{ $academic_lapse->id }})"
+                                                                type="button"
+                                                                class="bg-success px-2 py-1 text-white rounded">Finalizar</button>
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         @endif
                                     </tbody>
                                 </table>

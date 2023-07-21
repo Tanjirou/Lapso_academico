@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AcademicLapse;
 use App\Models\User;
 use App\Models\career;
 use App\Models\course;
@@ -14,7 +15,9 @@ use App\Models\UserType;
 use App\Models\Departament;
 use Illuminate\Http\Request;
 use App\Models\AcademicOffer;
+use App\Models\DetailSection;
 use App\Models\EnrolledSubject;
+use App\Models\Section;
 use Illuminate\Support\Facades\DB;
 use Database\Seeders\UserTypesSeeder;
 use Illuminate\Support\Facades\Storage;
@@ -351,6 +354,23 @@ class AdministratorController extends Controller
 
     public function empty(){
         return view('administrator.database.empty');
+    }
+
+    public function emptyStore(){
+        $academicLapse = AcademicLapse::join('sections','academic_lapses.id','=','sections.academic_lapseid')
+            ->join('detail_sections','sections.id','=','detail_sections.sectionid')
+            ->where('sections.status','=','F')
+            ->where('academic_lapses.status','=','F')
+            ->select('academic_lapses.*')
+            ->first();
+       if($academicLapse){
+        DetailSection::where('status','=','F')->delete();
+        Section::where('status','=','F')->delete();
+        return redirect()->action([AdministratorController::class, 'empty'])->with('mens','Se ha vaciado correctamente');
+       }else{
+        return redirect()->action([AdministratorController::class, 'empty'])->with('mens-error','No se puede ejecutar esta opción ya que hay un lapso académico activo o no hay datos que vaciar.');
+       }
+
     }
 
     public function profile(User $user)

@@ -51,7 +51,7 @@ Route::get('load-data', [AdministratorController::class,'load_data'])->name('adm
 //BASE DE DATOS
 Route::get('export', [AdministratorController::class, 'export'])->middleware(['auth','administrator'])->name('administrator.export');
 Route::get('empty', [AdministratorController::class, 'empty'])->middleware(['auth','administrator'])->name('administrator.empty');
-
+Route::post('empty',[AdministratorController::class, 'emptyStore'])->middleware(['auth','administrator'])->name('administrator.emptyStore');
 
 Route::get('/profile', [AdministratorController::class,'profile'])->middleware('auth')->name('administrator.profile');
 Route::post('/profile/store/{user}', [AdministratorController::class,'profile_update'])->middleware('auth')->name('administrator.profile_update');
