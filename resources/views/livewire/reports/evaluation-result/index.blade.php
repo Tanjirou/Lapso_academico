@@ -93,7 +93,7 @@
 
                                         </div>
                                     @endif
-                                    @if (auth()->user()->user_type == 3)
+                                    @if (auth()->user()->user_type == 3 && $subjects->name == "Servicio Comunitario")
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">

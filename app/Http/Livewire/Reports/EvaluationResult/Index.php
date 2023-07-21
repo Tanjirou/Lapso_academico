@@ -50,7 +50,14 @@ class Index extends Component
                 ->distinct()
                 ->get();
         }
-
+        $this->subjects = DepartmentSection::join('subjects', 'department_sections.id', '=', 'subjects.departmentsectionid')
+            ->where('department_sections.description', 'like', '%Casos Especiales%')
+            ->where('subjects.name', 'like', '%Servicio Comunitario%')
+            ->orWhere('subjects.name', 'like', '%Trabajo Especial%')
+            ->orWhere('subjects.name', 'like', '%Entrenamiento Industrial%')
+            ->where('subjects.id', '=', $this->selectedSubject)
+            ->select('subjects.*')
+            ->get();
     }
 
     public function updatedSelectedDepartmentSection($department_sectionId){
