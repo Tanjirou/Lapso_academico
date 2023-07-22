@@ -9,7 +9,7 @@ class Student extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'academic_curriculaid','mention','dni', 'status'
+        'academic_curriculaid','dni', 'status'
     ];
 
 }

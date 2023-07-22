@@ -34,41 +34,10 @@
             </div>
         </div>
         <hr>
-        {{-- @if (session('migrate-message'))
-        <div class="form-group row">
-            <span class="alert alert-success col-12">
-                {{ session('migrate-message') }}
-            </span>
-        </div>
-        @endif --}}
+
 
         <div class="mt-3">
-            {{-- <div class="container mb-0">
-                <div class="row mb-2 justify-content-center">
-                    <div class="col-md-12 align-self-center order-md-0 order-1 ml-2 mt-3">
-                        <div class="row justify-content-center"><h1 class="text-center font-weight-bold mt-3 mb-3">{{ __('Migrar') }}</h1></div>
-                        <div class="row mt-2">
-                            <p class="font-weight-bold text-justify">En esta opción se migrará la información de estudiantes, profesores, oferta académica, universidad, materias y carreras a la base de datos del sistema.
-                                Nota: tenga en cuenta que esta opción es la primera que se debe ejecutar para que la aplicación pueda funcionar correctamente.
-                            </p>
-                        </div>
 
-
-                        <div class="row justify-content-center mt-5">
-                            <a href="{{ route('administrator.load_data') }}" class="btn btn-primary btn-lg"> Ejecutar</a>
-                        </div>
-
-                        @if (session('migrate-message'))
-                        <div class="form-group row">
-                            <span class="alert alert-success col-12">
-                                {{ session('migrate-message') }}
-                            </span>
-                        </div>
-                        @endif
-
-                    </div>
-                </div>
-            </div> --}}
             <div class="fq-header-wrapper">
                 <div class="container">
                     <div class="row mb-0">
@@ -79,7 +48,30 @@
                                 <ins>Nota:</ins> Tenga en cuenta que esta opción es para realizar un backup de la información importante del sistema.</p>
                             {{-- <button class="btn btn-info">Ejecutar</button> --}}
                             <div class="row justify-content-center mt-5">
-                                <a href="" class="btn btn-primary btn-lg"> Ejecutar</a>
+                                <form id="my-form" action="{{route('administrator.exportStore')}}" method="POST">
+                                    @csrf
+                                    <div class="col-12">
+                                        <select class="form-control mb-3 @error('option') is-invalid @enderror" name="option" id="option">
+                                            <option value="">Seleccione</option>
+                                            <option value="1">Usuarios</option>
+                                            <option value="2">Tipo de usuarios</option>
+                                            <option value="3">Profesores</option>
+                                            <option value="4">Estudiantes</option>
+                                            <option value="5">Departamentos</option>
+                                            <option value="6">Secciones académicas</option>
+                                            <option value="7">Pensa</option>
+                                            <option value="8">Asignaturas</option>
+                                            <option value="9">Asignaturas en pensa</option>
+                                            <option value="10">Estructura de secciones</option>
+                                            <option value="11">Historial de estudiantes</option>
+                                            <option value="12">Recursos de los departamentos</option>
+                                        </select>
+                                        <h4 id="error-message" class="text-danger"></h4>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <button type="submit"  class="btn btn-primary btn-lg w-100"> Ejecutar</button>
+                                    </div>
+                                </form>
                             </div>
 
 
@@ -93,5 +85,20 @@
                 </div>
             </div>
         </div>
+        <script>
+            document.getElementById('my-form').addEventListener('submit', function(event) {
 
+                // Validación del formulario
+                var option = document.getElementById('option').value;
+                if (option === '') {
+                    event.preventDefault();
+                    document.getElementById('error-message').textContent = 'Debe seleccionar una opción';
+                    return; // Evita que se envíe el formulario
+                }else{
+                    document.getElementById('error-message').textContent = '';
+                }
+
+                // Si la validación es exitosa, el formulario se enviará automáticamente
+            });
+        </script>
 </x-app-layout>

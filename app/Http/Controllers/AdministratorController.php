@@ -2,25 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AcademicLapse;
 use App\Models\User;
 use App\Models\career;
 use App\Models\course;
 use App\Models\Pensum;
+use App\Models\Section;
 use App\Models\Student;
 use App\Models\Teacher;
 
 use App\Models\UserType;
 
 use App\Models\Departament;
+use App\Exports\UsersExport;
 use Illuminate\Http\Request;
+use App\Models\AcademicLapse;
 use App\Models\AcademicOffer;
 use App\Models\DetailSection;
+use App\Exports\MentionsExport;
+use App\Exports\StudentsExport;
+use App\Exports\SubjectsExport;
+use App\Exports\TeachersExport;
 use App\Models\EnrolledSubject;
-use App\Models\Section;
+use App\Exports\UserTypesExport;
+use App\Exports\DepartmentsExport;
+use App\Models\AcademicCurriculum;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use Database\Seeders\UserTypesSeeder;
+use App\Exports\StudentHistoriesExport;
 use Illuminate\Support\Facades\Storage;
+use App\Exports\StructureSectionsExport;
+use App\Exports\AcademicCurriculumExport;
+use App\Exports\DepartmentSectionsExport;
 
 class AdministratorController extends Controller
 {
@@ -350,6 +363,50 @@ class AdministratorController extends Controller
 
     public function export(){
         return view('administrator.database.export');
+    }
+
+    public function exportStore(Request $request){
+        $message = [
+            'option.required' =>'Debe seleccionar una opción'
+        ];
+        $this->validate($request,[
+            'option' => 'required'
+        ],$message);
+        if($request['option']== 1){
+            return Excel::download(new UsersExport, 'users.xlsx');
+        }
+        if($request['option']== 2){
+            return Excel::download(new UserTypesExport, 'user_types.xlsx');
+        }
+        if($request['option']== 3){
+            return Excel::download(new TeachersExport, 'teachers.xlsx');
+        }
+        if($request['option']== 4){
+            return Excel::download(new StudentsExport, 'students.xlsx');
+        }
+        if($request['option']== 5){
+            return Excel::download(new DepartmentsExport, 'department.xlsx');
+        }
+        if($request['option']== 6){
+            return Excel::download(new DepartmentSectionsExport, 'department_sections.xlsx');
+        }
+        if($request['option']== 7){
+            return Excel::download(new AcademicCurriculumExport, 'academic_curricula.xlsx');
+        }
+        if($request['option']== 8){
+            return Excel::download(new SubjectsExport, 'subjects.xlsx');
+        }
+        if($request['option']== 9){
+            return Excel::download(new MentionsExport, 'mentions.xlsx');
+        }
+        if($request['option']== 10){
+            return Excel::download(new StructureSectionsExport, 'structure_sections.xlsx');
+        }
+        if($request['option']== 11){
+            return Excel::download(new StudentHistoriesExport, 'student_histories.xlsx');
+        }
+
+
     }
 
     public function empty(){
