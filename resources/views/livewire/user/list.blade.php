@@ -34,7 +34,7 @@
             </div>
             @if (session()->has('mens'))
                 <div class="alert alert-success mt-2">
-                    {{ session('mens') }}
+                    <h5 class="text-center" >{{ session('mens') }}</h5>
                 </div>
             @endif
             @if (session()->has('mens-error'))

@@ -17,7 +17,7 @@ class Index extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $teacher, $subject,$department, $departmentSectionEnable = false, $subjectSectionEnable = false, $numberSectionEnable = false,
+    public $teacher, $subject,$department, $subject_cs = null, $departmentSectionEnable = false, $subjectSectionEnable = false, $numberSectionEnable = false,
      $department_sections, $subjects,$detailSections = null, $department_sectionId, $section, $section_number, $countstudents, $studaprob, $studrep, $sections_not_updated, $optionds, $optionsub, $optionsec, $academic_lapse, $lapse;
     public $selectedDepartmentSection= null, $selectedSubject = null;
     public DetailSection $detailSection;
@@ -31,6 +31,7 @@ class Index extends Component
         $this->department = Department::where('id',$this->teacher->ndepartament)->first();
         $this->academic_lapse = AcademicLapse::where('status','A')->first();
         $this->lapse = $this->academic_lapse->id;
+        $this->subject_cs = null;
         $this->detailSections = null;
         if (auth()->user()->user_type == 2 || is_null($this->teacher->nmention)){
             $this->department_sections = DepartmentSection::join('structure_sections','department_sections.id','=','structure_sections.department_sectionid')
@@ -49,15 +50,22 @@ class Index extends Component
                 ->select('department_sections.*')
                 ->distinct()
                 ->get();
-        }
-        $this->subjects = DepartmentSection::join('subjects', 'department_sections.id', '=', 'subjects.departmentsectionid')
-            ->where('department_sections.description', 'like', '%Casos Especiales%')
+
+            $subject_cs = Subject::join('sections', 'subjects.id', '=', 'sections.subjectid')
+            ->join('teachers', 'sections.teacherid', '=', 'teachers.id')
             ->where('subjects.name', 'like', '%Servicio Comunitario%')
             ->orWhere('subjects.name', 'like', '%Trabajo Especial%')
             ->orWhere('subjects.name', 'like', '%Entrenamiento Industrial%')
+            ->where('teachers.id', '=', 'sections.teacherid')
             ->where('subjects.id', '=', $this->selectedSubject)
             ->select('subjects.*')
-            ->get();
+            ->first();
+            // $this->subject_cs = $subject_cs;
+            $this->subject_cs = $subject_cs->get();
+        }
+            // $this->subject_cs = $subject_cs->get();
+
+
     }
 
     public function updatedSelectedDepartmentSection($department_sectionId){
@@ -85,7 +93,10 @@ class Index extends Component
 
     public function updatedSelectedSubject($subjectId){
         if($subjectId != 'Seleccione' && $subjectId && $this->selectedSubject){
-            $this->sections_not_updated = Section::where('subjectid',$subjectId)
+            $this->sections_not_updated = Section::join('teachers','teachers.id','=','sections.teacherid')
+                            // ->where('teachers.userid',auth()->user()->id)
+                            // ->where('sections.subjectid',$subjectId)
+                            ->where('subjectid',$subjectId)
                             ->where('sections.status','=','F')
                             ->select('sections.*')
                             ->orderBy('section_number')
@@ -96,7 +107,9 @@ class Index extends Component
             $this->subjects = null;
             $this->selectedSubject = null;
         }
+
     }
+
 
     public function updatedOptionsub($option){
         if(!is_null($this->optionsub) && $this->optionsub == 'option4'){

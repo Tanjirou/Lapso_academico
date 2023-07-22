@@ -43,7 +43,7 @@
                                 <form wire:submit.prevent='search'>
                                     <!--SECCION DEL DEPARTAMENTO-->
 
-                                    @if (auth()->user()->user_type == 2)
+                                    {{-- @if (auth()->user()->user_type == 2)
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -92,8 +92,8 @@
                                             @endif
 
                                         </div>
-                                    @endif
-                                    @if (auth()->user()->user_type == 3 && $subjects->name == "Servicio Comunitario")
+                                    @endif --}}
+                                    @if ((auth()->user()->user_type == 3 && $subject_cs) || (auth()->user()->user_type == 2))
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -199,7 +199,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="textSection">Filtrado por - Sección</label>
+                                                <label for="textSection">Filtrado por - Sección de la asignatura</label>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <label
