@@ -60,8 +60,10 @@ class Index extends Component
             ->where('subjects.id', '=', $this->selectedSubject)
             ->select('subjects.*')
             ->first();
-            $this->subject_cs = $subject_cs;
+            // $this->subject_cs = $subject_cs;
+            $this->subject_cs = $subject_cs->get();
         }
+            // $this->subject_cs = $subject_cs->get();
 
 
     }
@@ -105,39 +107,6 @@ class Index extends Component
             $this->subjects = null;
             $this->selectedSubject = null;
         }
-        // if(auth()->user()->user_type == 2 || auth()->user()->user_type == 3){
-        //     if($subjectId != 'Seleccione' && $subjectId && $this->selectedSubject){
-        //         $this->sections_not_updated = Section::join('teachers','teachers.id','=','sections.teacherid')
-        //                         // ->where('teachers.userid',auth()->user()->id)
-        //                         // ->where('sections.subjectid',$subjectId)
-        //                         ->where('subjectid',$subjectId)
-        //                         ->where('sections.status','=','F')
-        //                         ->select('sections.*')
-        //                         ->orderBy('section_number')
-        //                         ->get();
-
-        //     }else{
-        //         $this->reset('selectedSubject');
-        //         $this->subjects = null;
-        //         $this->selectedSubject = null;
-        //     }
-        // }else{
-        //     if($subjectId != 'Seleccione' && $subjectId && $this->selectedSubject){
-        //         $this->sections_not_updated = Section::join('teachers','teachers.id','=','sections.teacherid')
-        //                         ->where('teachers.userid',auth()->user()->id)
-        //                         ->where('sections.subjectid',$subjectId)
-        //                         ->where('subjectid',$subjectId)
-        //                         ->where('sections.status','=','F')
-        //                         ->select('sections.*')
-        //                         ->orderBy('section_number')
-        //                         ->get();
-
-        //     }else{
-        //         $this->reset('selectedSubject');
-        //         $this->subjects = null;
-        //         $this->selectedSubject = null;
-        //     }
-        // }
 
     }
 
