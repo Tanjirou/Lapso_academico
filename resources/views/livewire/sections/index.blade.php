@@ -57,10 +57,12 @@
                                                     <div class="form-group">
                                                         <label for="textMenc">(*)Sección Académica</label>
                                                         <select wire:model="selectedDepartmentSection"
-                                                            class="form-control" id="textMenc1">
-                                                            <option>Seleccione</option>
+                                                            class="form-control" id="textMenc1" {{((auth()->user()->user_type == 3)? 'readonly' :'')}}>
+                                                            @if(auth()->user()->user_type != 3)
+                                                                <option>Seleccione</option>
+                                                            @endif
                                                             @foreach ($department_sections as $department_section)
-                                                                <option value="{{ $department_section->id }}">
+                                                                <option value="{{ $department_section->id }}" {{(($department_section->id == $teacher->ndepartament)? 'selected' : '')}}>
                                                                     {{ $department_section->description }}</option>
                                                             @endforeach
                                                         </select>
@@ -94,9 +96,6 @@
                                                     <div class="form-group">
                                                         <label for="codeAsig">Código Asignatura</label>
                                                         <input type="text" class="form-control" wire:model="subjectCode" readonly>
-                                                        @error('selectedSubject')
-                                                            <div class="mt-1 text-danger text-sm">{{ $message }}</div>
-                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">

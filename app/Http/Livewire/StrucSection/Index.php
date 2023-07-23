@@ -50,8 +50,8 @@ class Index extends Component
             'struc_section.number_section.required' => 'El campo número de la sección es obligatorio.',
             'struc_section.subjectid.unique' => 'Esa asignatura ya se encuetra registrado.',
             'struc_section.subjectid.required' => 'El campo asignatura es obligatorio.',
-            'struc_section.average_students.required' => 'El campo cantidad de estudiantes es obligatorio',
-            'selectedDepartmentSection.required' => 'El campo sección académica es obligatorio'
+            'struc_section.average_students.required' => 'El campo cantidad de estudiantes es obligatorio.',
+            'selectedDepartmentSection.required' => 'El campo sección académica es obligatorio.'
         ];
     }
     public function updatedSelectedDepartmentSection($department_sectionId)
@@ -179,11 +179,8 @@ class Index extends Component
                 ->join('department_sections', 'structure_sections.department_sectionid', '=', 'department_sections.id')
                 ->join('departments','department_sections.departmentid','=','departments.id')
                 ->join('subjects', 'structure_sections.subjectid', '=', 'subjects.id')
-                ->where('structure_sections.status', '=', 'A');
-                if(auth()->user()->user_type == 3){
-                    $struc_sections->where('department_sections.id','=',$teacher->nmention);
-                }
-                $struc_sections->where('departments.id','=',$this->department->id)
+                ->where('structure_sections.status', '=', 'A')
+                ->where('departments.id','=',$this->department->id)
                 ->select(
                     'department_sections.description as department_section',
                     'subjects.name as subject',

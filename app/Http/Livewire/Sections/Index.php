@@ -27,6 +27,17 @@ class Index extends Component
 
     ];
 
+    public function messages()
+    {
+        return [
+            'selectedDepartmentSection.required' => 'El campo sección académica es obligatorio.',
+            'selectedSubject.required' => 'El campo asignatura es obligatorio.',
+            'section_number.required' => 'El campo sección de la asignatura es obligatorio.',
+            'teacherid.required' => 'El campo profesor es obligatorio.',
+            'lapse.required' => 'El lapso académico es requerido.'
+        ];
+    }
+
     public function mount()
     {
         $this->teacher = Teacher::where('userid', auth()->user()->id)->first();
@@ -111,7 +122,7 @@ class Index extends Component
             ]);
         }
         session()->flash('mens', 'Sección guardada correctamente.');
-        $this->reset('lapse', 'selectedDepartmentSection', 'selectedSubject', 'section_number', 'teacherid');
+        $this->reset('subjectCode','lapse', 'selectedDepartmentSection', 'selectedSubject', 'section_number', 'teacherid');
         $this->mount();
     }
     public function delete(Section $section)
@@ -152,12 +163,13 @@ class Index extends Component
     }
     public function render()
     {
-        $teachers = Teacher::join('users', 'teachers.userid', '=', 'users.id')
+        if(auth()->user()->user_type==3){
+            $teachers = Teacher::join('users', 'teachers.userid', '=', 'users.id')
             ->where('teachers.ndepartament', $this->department->id)
+            ->whereIn('teachers.nmention',[null,$this->teacher->nmention])
             ->select('users.names as names', 'users.last_names as last_names', 'teachers.id')
             ->get();
-
-        $sections = Section::where('sections.status', 'A')
+            $sections = Section::where('sections.status', 'A')
             ->whereNotNull('sections.subjectid')
             ->whereNotNull('sections.academic_lapseid')
             ->whereNotNull('sections.structure_sectionid')
@@ -166,8 +178,29 @@ class Index extends Component
             ->join('users', 'teachers.userid', '=', 'users.id')
             ->join('structure_sections', 'sections.structure_sectionid', '=', 'structure_sections.id')
             ->join('subjects', 'sections.subjectid', '=', 'subjects.id')
+            ->where('teachers.ndepartament', $this->department->id)
+            ->whereIn('teachers.nmention',[null,$this->teacher->nmention])
             ->select('sections.*', 'subjects.code as code', 'subjects.name as subject', 'academic_lapses.description as lapse', 'users.names as names', 'users.last_names as last_names')
             ->get();
+        }else{
+            $teachers = Teacher::join('users', 'teachers.userid', '=', 'users.id')
+            ->where('teachers.ndepartament', $this->department->id)
+            ->select('users.names as names', 'users.last_names as last_names', 'teachers.id')
+            ->get();
+            $sections = Section::where('sections.status', 'A')
+            ->whereNotNull('sections.subjectid')
+            ->whereNotNull('sections.academic_lapseid')
+            ->whereNotNull('sections.structure_sectionid')
+            ->join('academic_lapses', 'sections.academic_lapseid', '=', 'academic_lapses.id')
+            ->join('teachers', 'sections.teacherid', '=', 'teachers.id')
+            ->join('users', 'teachers.userid', '=', 'users.id')
+            ->join('structure_sections', 'sections.structure_sectionid', '=', 'structure_sections.id')
+            ->join('subjects', 'sections.subjectid', '=', 'subjects.id')
+            ->where('teachers.ndepartament', $this->department->id)
+            ->select('sections.*', 'subjects.code as code', 'subjects.name as subject', 'academic_lapses.description as lapse', 'users.names as names', 'users.last_names as last_names')
+            ->get();
+        }
+
         return view('livewire.sections.index', [
             'sections' => $sections,
             'teachers' => $teachers
