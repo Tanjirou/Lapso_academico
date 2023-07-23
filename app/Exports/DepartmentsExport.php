@@ -18,11 +18,11 @@ class DepartmentsExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'ID',
-            'Departamento',
-            'Estatus',
-            'Creado en',
-            'Actualizado en',
+            'id',
+            'name',
+            'status',
+            'created_at',
+            'updated_at',
         ];
     }
 }

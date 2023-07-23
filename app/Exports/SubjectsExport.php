@@ -18,14 +18,14 @@ class SubjectsExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'ID',
-            'ID_seccion_asignatura',
-            'Codigo',
-            'Nombre',
-            'Unidades_credito',
-            'Estatus',
-            'Creado en',
-            'Actualizado en',
+            'id',
+            'departmentsectionid',
+            'code',
+            'name',
+            'credit_units',
+            'status',
+            'created_at',
+            'updated_at',
         ];
     }
 }

@@ -18,12 +18,14 @@ class StudentHistoriesExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'ID',
-            'ID_estudiante',
-            'ID_lapso_academico',
-            'Calificacion',
-            'Creado en',
-            'Actualizado en',
+            'id',
+            'studentid',
+            'subjectid',
+            'academic_lapse',
+            'qualification',
+            'status',
+            'created_at',
+            'updated_at',
         ];
     }
 }

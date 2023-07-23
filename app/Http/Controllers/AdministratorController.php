@@ -34,6 +34,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Exports\StructureSectionsExport;
 use App\Exports\AcademicCurriculumExport;
 use App\Exports\DepartmentSectionsExport;
+use App\Exports\DepartmentResourcesExport;
 
 class AdministratorController extends Controller
 {
@@ -405,7 +406,9 @@ class AdministratorController extends Controller
         if($request['option']== 11){
             return Excel::download(new StudentHistoriesExport, 'student_histories.xlsx');
         }
-
+        if($request['option']== 12){
+            return Excel::download(new DepartmentResourcesExport, 'department_resources.xlsx');
+        }
 
     }
 

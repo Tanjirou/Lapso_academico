@@ -18,14 +18,14 @@ class MentionsExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'ID',
-            'ID_asignatura',
-            'ID_pensum',
-            'Pre_requisito',
-            'Post_requisito',
-            'Estatus',
-            'Creado en',
-            'Actualizado en',
+            'id',
+            'subjectid',
+            'academic_curriculaid',
+            'pre_req',
+            'post_req',
+            'status',
+            'created_at',
+            'updated_at',
         ];
     }
 }

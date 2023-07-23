@@ -18,12 +18,12 @@ class StudentsExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'ID',
-            'ID_Pensum',
-            'Cedula',
-            'Estatus',
-            'Creado en',
-            'Actualizado en',
+            'id',
+            'academic_curriculaid',
+            'dni',
+            'status',
+            'created_at',
+            'updated_at',
         ];
     }
 }

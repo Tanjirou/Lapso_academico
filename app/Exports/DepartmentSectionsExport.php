@@ -18,12 +18,12 @@ class DepartmentSectionsExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'ID',
-            'ID_Departamento',
-            'Descripción',
-            'Estatus',
-            'Creado en',
-            'Actualizado en',
+            'id',
+            'departmentid',
+            'description',
+            'status',
+            'created_at',
+            'updated_at',
         ];
     }
 }

@@ -18,14 +18,14 @@ class StructureSectionsExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'ID',
-            'ID_asignatura',
-            'ID_departamento_asignatura',
-            'Cantidad_estudiantes',
-            'Numero_seccion',
-            'Estatus',
-            'Creado en',
-            'Actualizado en',
+            'id',
+            'subjectid',
+            'department_sectionid',
+            'average_students',
+            'number_section',
+            'status',
+            'created_at',
+            'updated_at',
         ];
     }
 }

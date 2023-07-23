@@ -18,11 +18,11 @@ class UserTypesExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'ID',
-            'Descripción',
-            'Estatus',
-            'Creado en',
-            'Actualizado en',
+            'id',
+            'description',
+            'status',
+            'created_at',
+            'updated_at',
         ];
     }
 }
