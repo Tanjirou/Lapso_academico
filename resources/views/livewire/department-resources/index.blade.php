@@ -31,16 +31,16 @@
                                     <div class=" col-11 col-md-10 pb-3">
                                         @if (session()->has('mens'))
                                             <div class="alert alert-success">
-                                                {{ session('mens') }}
+                                                <h4 class="text-center">{{ session('mens') }}</h4>
                                             </div>
                                         @endif
                                         @if (session()->has('mens-error'))
-                                        <div class="alert alert-danger">
-                                            {{ session('mens-error') }}
-                                        </div>
-                                    @endif
-                                        <form>
-                                        {{-- <form method="POST" wire:submit.prevent="save"> --}}
+                                            <div class="alert alert-danger">
+                                                {{ session('mens-error') }}
+                                            </div>
+                                        @endif
+                                        <form method="POST" wire:submit.prevent="save">
+                                            {{-- <form method="POST" wire:submit.prevent="save"> --}}
                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -53,21 +53,24 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                 <div class="col-md-6">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="description">Recurso</label>
-                                                        <input type="text" class="form-control" wire:model="description" placeholder="Indique el nombre del recurso">
-                                                        @error('description')
+                                                        <label for="description">(*)Recurso</label>
+                                                        <input type="text" class="form-control"
+                                                            wire:model="departmentResource.description"
+                                                            placeholder="Indique el nombre del recurso">
+                                                        @error('departmentResource.description')
                                                             <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                                         @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textCant">Cantidad</label>
-                                                        <input wire:model="quantity"
-                                                            class="form-control" type="number" placeholder="Ej: 4">
-                                                        @error('quantity')
+                                                        <label for="textCant">(*)Cantidad</label>
+                                                        <input class="form-control" type="number"
+                                                            wire:model="departmentResource.quantity"
+                                                            placeholder="Ej: 4">
+                                                        @error('departmentResource.quantity')
                                                             <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                                         @enderror
                                                     </div>
@@ -101,36 +104,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @foreach ($struc_sections as $struc_section) --}}
-                                                {{-- <tr>
-                                                    <td>{{ $struc_section->department_section }}</td>
-                                                    <td>{{ $struc_section->subject }}</td>
-                                                    <td>{{ $struc_section->number_section }}</td>
-                                                    <td>{{ $struc_section->average_students }}</td>
-                                                    <td class="d-flex justify-content-center">
-                                                        <button wire:click="edit({{ $struc_section->id }})"
-                                                            type="button"
-                                                            class="bg-info px-2 py-1 text-white rounded">Editar</button>
-                                                            <button wire:click="delete({{ $struc_section->id }})"
-                                                                type="button"
-                                                                class="ml-2 bg-danger px-2 py-1 text-white rounded">Eliminar</button>
-                                                    </td> --}}
-                                                    <td class="justify-content-center">Videobeam</td>
-                                                    <td class="justify-content-center">1</td>
-                                                    <td class="d-flex justify-content-center">
-                                                        <button type="button"
-                                                            class="bg-info px-2 py-1 text-white rounded">Editar</button>
-                                                            <button type="button"
-                                                                class="ml-2 bg-danger px-2 py-1 text-white rounded">Eliminar</button>
-                                                    </td>
-                                                </tr>
-                                            {{-- @endforeach --}}
+                                            @foreach ($departmentResources as $departmentResource)
+                                            <tr>
+                                                <td class="justify-content-center">{{$departmentResource->description}}</td>
+                                                <td class="justify-content-center">{{$departmentResource->quantity}}</td>
+                                                <td class="d-flex justify-content-center">
+                                                    <button type="button" wire:click="edit({{$departmentResource->id}})"
+                                                        class="bg-info px-2 py-1 text-white rounded">Editar</button>
+                                                    <button type="button" wire:click="delete({{$departmentResource->id}})"
+                                                        class="ml-2 bg-danger px-2 py-1 text-white rounded">Eliminar</button>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>
-                                {{-- <div class="row justify-content-end">
-                                    {{$struc_sections->links()}}
-                                </div> --}}
                             </div>
                         </div>
                     </div>
