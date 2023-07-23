@@ -56,10 +56,12 @@
                                                     <div class="form-group">
                                                         <label for="textMenc">(*)Sección Académica</label>
                                                         <select wire:model="selectedDepartmentSection"
-                                                            class="form-control" id="textMenc">
-                                                            <option>Seleccione</option>
+                                                            class="form-control" id="textMenc" {{((auth()->user()->user_type ==3) ? 'readonly' : '')}}>
+                                                            @if (auth()->user()->user_type !=3)
+                                                                <option>Seleccione</option>
+                                                            @endif
                                                             @foreach ($department_sections as $department_section)
-                                                                <option value="{{ $department_section->id }}" {{($department_section->id == $selectedDepartmentSection) ? 'selected' : ''}}>
+                                                                <option value="{{ $department_section->id }}" {{($department_section->id == $teacher->nmention) ? 'selected' : ''}}>
                                                                     {{ $department_section->description }}</option>
                                                             @endforeach
                                                         </select>
