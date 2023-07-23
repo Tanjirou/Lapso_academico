@@ -62,7 +62,7 @@
                                                             <label for="textAsig">(*)Asignatura</label>
                                                             <select wire:model="selectedSubject" class="form-control"
                                                                 id="textAsig"
-                                                                @readonly({{(!is_null($evaluate_section) ? true : false)}})>
+                                                                {{(($evaluate_section) ? 'disabled' : '')}}>
                                                                 <option value="">Seleccione</option>
                                                                 @if (!is_null($subjects))
                                                                     @foreach ($subjects as $subject)
@@ -83,9 +83,7 @@
                                                         <div class="form-group">
                                                             <label for="codeAsig">Código Asignatura</label>
                                                             <input type="text" class="form-control" wire:model="subjectCode" readonly>
-                                                            @error('selectedSubject')
-                                                                <div class="mt-1 text-danger text-sm">{{ $message }}</div>
-                                                            @enderror
+
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -93,7 +91,7 @@
                                                             <label for="section_number">(*)Sección de Asignatura</label>
                                                             <select wire:model="section_number" class="form-control"
                                                                 id="section_number"
-                                                                @readonly({{(!is_null($evaluate_section) ? true : false)}})>
+                                                                {{(($evaluate_section) ? 'disabled' : '')}}>
                                                                 <option value="">Seleccione</option>
                                                                 @if (!is_null($sections))
                                                                     @foreach ($sections as $section)
@@ -115,7 +113,7 @@
                                                             <label for="textPunt">(*)Cantidad de Estudiantes</label>
                                                             <input class="form-control" wire:model="student_numbers"
                                                                 type="number" placeholder="Ejemplo: 40"
-                                                                @readonly({{(!is_null($evaluate_section) ? true : false)}})>
+                                                                {{(($evaluate_section) ? 'readonly' : '')}}>
                                                         </div>
                                                         @error('student_numbers')
                                                             <div class="mt-1 text-danger text-sm">{{ $message }}
@@ -152,7 +150,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="textDpto">Cédula</label>
+                                                            <label for="textDpto">(*)Cédula</label>
                                                             <input type="text" wire:model="query"
                                                                 class="form-control" id="dni"
                                                                 placeholder="Cedula" wire:keydown="studentSearch">
@@ -165,8 +163,8 @@
                                                     <input type="hidden" wire:model="userId" >
 
                                                     <div
-                                                        class="col-12 col-md-6 mt-2 align-content-center align-items-center">
-                                                        <label for="academic_curricula">Pensum</label>
+                                                        class="col-12 col-md-6 align-content-center align-items-center">
+                                                        <label for="academic_curricula">(*)Pensum</label>
                                                         <select wire:model="academicCurriculaId" class="form-control">
                                                             <option value="">Seleccione</option>
                                                             @foreach ($academicCurricula as $academic)

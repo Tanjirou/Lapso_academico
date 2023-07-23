@@ -1,22 +1,25 @@
 <?php
 
 namespace App\Http\Livewire\DetailSection;
+use App\Models\User;
+use App\Models\Mention;
 use App\Models\Section;
 use App\Models\Student;
 use App\Models\Subject;
+use App\Models\Teacher;
 use Livewire\Component;
 use App\Models\Department;
 use App\Models\AcademicLapse;
+use App\Models\DetailSection;
+use App\Models\StudentHistory;
 use App\Models\TemporaryTable;
 use App\Models\AcademicCurriculum;
-use App\Models\DetailSection;
-use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class Index extends Component
 {
     public $sections,$section_number,$subjects,$academic_lapse, $selectedSubject = null,
-    $department,$evaluate_section, $student_numbers, $studentSearch, $userId,
+    $department,$evaluate_section, $teacher,$student_numbers, $studentSearch, $userId,
     $query = null,$studentName, $subjectId, $academicCurricula,$academicCurriculaId,$mention,$qualificationResult;
     public Section $section;
     protected $rules =[
@@ -24,11 +27,24 @@ class Index extends Component
         'section_number' => 'required',
         'student_numbers' => 'required'
     ];
+    protected $messages =[
+        'selectedSubject.required' => 'El campo asignatura es obligatorio.',
+        'section_number.required' => 'El campo sección de asignatura es obligatorio.',
+        'student_numbers.required' => 'El campo cantidad de estudiantes es obligatorio.',
+        'query.required' => 'El campo cédula es obligatorio.',
+        'academicCurriculaId.required' => 'El campo pensum es obligatorio.',
+        'qualificationResult.required' => 'La calificación es obligatoria.'
+
+    ];
     public function mount(){
         $this->userId = auth()->id();
-
+        $this->teacher = Teacher::where('userid','=',$this->userId)->first();
+        $this->department = Department::join('teachers','departments.id','=','teachers.ndepartament')
+        ->where('teachers.userid',auth()->user()->id)->select('departments.*')->first();
         $this->subjects = Subject::join('sections','subjects.id','=','sections.subjectid')
             ->join('teachers','teachers.id','=','sections.teacherid')
+            ->where('teachers.ndepartament','=',$this->department->id)
+            ->where('teachers.userid','=',$this->userId)
             ->select('subjects.*')
             ->distinct()
             ->get();
@@ -36,8 +52,7 @@ class Index extends Component
         $this->section = new Section();
         $this->academicCurricula = AcademicCurriculum::where('status','A')->get();
         $this->academic_lapse = AcademicLapse::where('status','A')->first();
-        $this->department = Department::join('teachers','departments.id','=','teachers.ndepartament')
-        ->where('teachers.userid',auth()->user()->id)->select('departments.*')->first();
+
     }
     public function updatedSelectedSubject($subjectid){
         if($subjectid && $subjectid !='Seleccione'){
@@ -58,7 +73,8 @@ class Index extends Component
 
     public function save(){
         $this->validate();
-        $section = Section::where('id',$this->section_number)->first();
+        $section = Section::where('id',$this->section_number)
+            ->first();
         $this->evaluate_section = $section;
     }
     public function studentSearch(){
@@ -82,7 +98,8 @@ class Index extends Component
             'qualificationResult' => 'required'
         ];
         $this->validate();
-        $student = Student::where('dni','=',$this->query)->first();;
+
+        $student = Student::where('dni','=',$this->query)->first();
         if(is_null($student)){
             $student = Student::create([
                 'academic_curriculaid' => $this->academicCurriculaId,
@@ -90,6 +107,50 @@ class Index extends Component
                 'status' => 'A'
             ]);
         }
+        //Buscamos el historico del estudiante
+        $studentHistory = StudentHistory::where('studentid','=',$student->id)
+            ->where('subjectid','=',$this->selectedSubject)
+            ->orderByDesc('id')
+            ->first();
+        if($studentHistory){
+            if( $studentHistory->qualification == 'Aprobado'){
+                session()->flash('mens-error-student', 'No puede agregar a ese estudiante ya que tiene aprobada esa asignatura.');
+                $this->query = null;
+                $this->studentName = null;
+                $this->qualificationResult = null;
+                $this->reset('academicCurriculaId');
+                return;
+            }
+        }
+        //Buscamos y comprobamos los pre-requisitos y co-requisitos
+        if($student->academic_curriculaid){
+            $mention = Mention::where('subjectid','=',$this->selectedSubject)
+            ->where('academic_curriculaid','=',$student->academic_curriculaid)
+            ->first();
+            if($mention && !is_null($mention->pre_req)){
+                $pre_reqs = explode(",", $mention->pre_req);
+                foreach($pre_reqs as $pre_req){
+                    $meets_requirements = Subject::join('mentions','mentions.subjectid','=','subjects.id')
+                    ->join('student_histories','student_histories.subjectid','=','subjects.id')
+                    ->join('students','student_histories.studentid','=','students.id')
+                    ->where('students.id','=',$student->id)
+                    ->where('subjects.code','like',"%$pre_req%")
+                    ->where('student_histories.qualification','=','Aprobado')
+                    ->where('mentions.academic_curriculaid','=',$student->academic_curriculaid)
+                    ->select('subjects.*')
+                    ->get();
+                    if(!$meets_requirements){
+                        session()->flash('mens-error-student', 'El estudiante no cumple los pre-requisitos con esa materia.');
+                        $this->query = null;
+                        $this->studentName = null;
+                        $this->qualificationResult = null;
+                        $this->reset('academicCurriculaId');
+                        return;
+                    }
+                }
+            }
+        }
+
         if($student->id == $this->userId){
             session()->flash('mens-error-student', 'No puede agregarse a usted mismo.');
         }else{
