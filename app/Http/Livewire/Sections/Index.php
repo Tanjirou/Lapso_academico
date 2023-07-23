@@ -146,8 +146,9 @@ class Index extends Component
                 ->join('department_sections','subjects.departmentsectionid','=','department_sections.id')
                 ->where('subjects.id', '=', $this->selectedSubject)
                 ->where('sections.teacherid','=',$this->teacherid)
-                ->where('department_sections.description', 'like', '%Casos Especiales%')
-                ->orWhere('department_sections.description', 'like', '%Servicio Comunitario%')
+                ->where('subjects.name', 'like', '%Servicio Comunitario%')
+                ->orWhere('subjects.name', 'like', '%Trabajo Especial%')
+                ->orWhere('subjects.name', 'like', '%Entrenamiento Industrial%')
                 ->select('sections.*')
                 ->first();
 

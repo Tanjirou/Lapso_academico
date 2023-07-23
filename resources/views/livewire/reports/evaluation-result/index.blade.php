@@ -40,10 +40,15 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if (session()->has('mens-error'))
+                                <div class="alert alert-danger">
+                                    <h4 class="text-center">{{ session('mens-error') }}</h4>
+                                </div>
+                            @endif
                                 <form wire:submit.prevent='search'>
                                     <!--SECCION DEL DEPARTAMENTO-->
 
-                                    {{-- @if (auth()->user()->user_type == 2)
+                                    @if (auth()->user()->user_type == 2)
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -92,8 +97,8 @@
                                             @endif
 
                                         </div>
-                                    @endif --}}
-                                    @if ((auth()->user()->user_type == 3 && $subject_cs) || (auth()->user()->user_type == 2))
+                                    @endif
+                                    @if ((auth()->user()->user_type == 3 && $subject_cs))
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -146,107 +151,109 @@
 
                                     @endif
                                     <!--MATERIA-->
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="textSubject">Filtrado por - Asignatura</label>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label
-                                                            class="new-control new-radio new-radio-text radio-primary">
-                                                            <input type="radio" class="new-control-input"
-                                                                name="optionsub" value="option3"
-                                                                wire:model="optionsub" id="option3">
-                                                            <span class="new-control-indicator"></span><span
-                                                                class="new-radio-content">Todas</span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label
-                                                            class="new-control new-radio new-radio-text radio-primary">
-                                                            <input type="radio" class="new-control-input"
-                                                                name="optionsub" value="option4"
-                                                                wire:model="optionsub" id="option4">
-                                                            <span class="new-control-indicator"></span><span
-                                                                class="new-radio-content">Especifico</span>
-                                                        </label>
-                                                    </div>
+                                   @if(auth()->user()->user_type !=5)
+                                   <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="textSubject">Filtrado por - Asignatura</label>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label
+                                                        class="new-control new-radio new-radio-text radio-primary">
+                                                        <input type="radio" class="new-control-input"
+                                                            name="optionsub" value="option3"
+                                                            wire:model="optionsub" id="option3">
+                                                        <span class="new-control-indicator"></span><span
+                                                            class="new-radio-content">Todas</span>
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label
+                                                        class="new-control new-radio new-radio-text radio-primary">
+                                                        <input type="radio" class="new-control-input"
+                                                            name="optionsub" value="option4"
+                                                            wire:model="optionsub" id="option4">
+                                                        <span class="new-control-indicator"></span><span
+                                                            class="new-radio-content">Especifico</span>
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
-                                        @if ($subjectSectionEnable)
-                                            <div class="col-md-6" id="select-container2">
-                                                <div class="form-group">
-                                                    <label for="subject">Seleccione una Asignatura</label>
-                                                    <select wire:model="selectedSubject" class="form-control"
-                                                        name="subject" id="subject">
-                                                        <option value="">Seleccione</option>
-                                                        @if (!is_null($subjects))
-                                                            @foreach ($subjects as $subject)
-                                                                <option value="{{ $subject->id }}">
-                                                                    {{$subject->code}} - {{ $subject->name }} </option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                    @error('selectedSubject')
-                                                        <div class="mt-1 text-danger text-sm">{{ $message }}</div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                        @endif
                                     </div>
-                                    <!--SECCION-->
-                                    <div class="row">
-                                        <div class="col-md-6">
+                                    @if ($subjectSectionEnable)
+                                        <div class="col-md-6" id="select-container2">
                                             <div class="form-group">
-                                                <label for="textSection">Filtrado por - Sección de la asignatura</label>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label
-                                                            class="new-control new-radio new-radio-text radio-primary">
-                                                            <input type="radio" class="new-control-input"
-                                                                name="optionsec" value="option5"
-                                                                wire:model="optionsec" id="option5">
-                                                            <span class="new-control-indicator"></span><span
-                                                                class="new-radio-content">Todas</span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label
-                                                            class="new-control new-radio new-radio-text radio-primary">
-                                                            <input type="radio" class="new-control-input"
-                                                                name="optionsec" value="option6"
-                                                                wire:model="optionsec" id="option6">
-                                                            <span class="new-control-indicator"></span><span
-                                                                class="new-radio-content">Especifico</span>
-                                                        </label>
-                                                    </div>
+                                                <label for="subject">Seleccione una Asignatura</label>
+                                                <select wire:model="selectedSubject" class="form-control"
+                                                    name="subject" id="subject">
+                                                    <option value="">Seleccione</option>
+                                                    @if (!is_null($subjects))
+                                                        @foreach ($subjects as $subject)
+                                                            <option value="{{ $subject->id }}">
+                                                                {{$subject->code}} - {{ $subject->name }} </option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                                @error('selectedSubject')
+                                                    <div class="mt-1 text-danger text-sm">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                                <!--SECCION-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="textSection">Filtrado por - Sección de la asignatura</label>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label
+                                                        class="new-control new-radio new-radio-text radio-primary">
+                                                        <input type="radio" class="new-control-input"
+                                                            name="optionsec" value="option5"
+                                                            wire:model="optionsec" id="option5">
+                                                        <span class="new-control-indicator"></span><span
+                                                            class="new-radio-content">Todas</span>
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label
+                                                        class="new-control new-radio new-radio-text radio-primary">
+                                                        <input type="radio" class="new-control-input"
+                                                            name="optionsec" value="option6"
+                                                            wire:model="optionsec" id="option6">
+                                                        <span class="new-control-indicator"></span><span
+                                                            class="new-radio-content">Especifico</span>
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
-                                        @if ($numberSectionEnable)
-                                            <div class="col-md-6" id="select-container4">
-                                                <div class="form-group">
-                                                    <label for="section_number">Seleccione una sección</label>
-                                                    <select wire:model="section_number" class="form-control"
-                                                        name="section_number" id="section_number">
-                                                        <option value="">Seleccione</option>
-                                                        @if (!is_null($sections_not_updated))
-                                                            @foreach ($sections_not_updated as $section)
-                                                                <option value="{{ $section->id }}">
-                                                                    {{ $section->section_number }}</option>
-                                                            @endforeach
-
-                                                        @endif
-                                                    </select>
-                                                    @error('section_number')
-                                                        <div class="mt-1 text-danger text-sm">{{ $message }}</div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                        @endif
                                     </div>
+                                    @if ($numberSectionEnable)
+                                        <div class="col-md-6" id="select-container4">
+                                            <div class="form-group">
+                                                <label for="section_number">Seleccione una sección</label>
+                                                <select wire:model="section_number" class="form-control"
+                                                    name="section_number" id="section_number">
+                                                    <option value="">Seleccione</option>
+                                                    @if (!is_null($sections_not_updated))
+                                                        @foreach ($sections_not_updated as $section)
+                                                            <option value="{{ $section->id }}">
+                                                                {{ $section->section_number }}</option>
+                                                        @endforeach
 
+                                                    @endif
+                                                </select>
+                                                @error('section_number')
+                                                    <div class="mt-1 text-danger text-sm">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+
+                                   @endif
                                     <br>
 
                                     <div class="row">
@@ -262,6 +269,7 @@
                                 <div class="row justify-content-center">
                                     <h3 class="text-bold text-primary fond-bold m-0 mb-2"> LISTADO </h3>
                                 </div>
+
                                 <div class="widget-content widget-content-area table-responsive">
                                     <table id="column-filter" class="table table-bordered table-hover table-striped">
                                         <thead>

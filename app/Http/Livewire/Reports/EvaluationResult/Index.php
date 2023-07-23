@@ -46,7 +46,6 @@ class Index extends Component
             $this->department_sections = DepartmentSection::join('structure_sections','department_sections.id','=','structure_sections.department_sectionid')
                 ->join('subjects','structure_sections.subjectid','=','subjects.id')
                 ->where('department_sections.departmentid',$this->teacher->ndepartament)
-                ->where('department_sections.id', '=', $this->teacher->nmention)
                 ->select('department_sections.*')
                 ->distinct()
                 ->get();
@@ -56,12 +55,22 @@ class Index extends Component
             ->where('subjects.name', 'like', '%Servicio Comunitario%')
             ->orWhere('subjects.name', 'like', '%Trabajo Especial%')
             ->orWhere('subjects.name', 'like', '%Entrenamiento Industrial%')
-            ->where('teachers.id', '=', 'sections.teacherid')
-            ->where('subjects.id', '=', $this->selectedSubject)
+            ->where('teachers.ndepartament', '=', $this->teacher->ndepartament)
             ->select('subjects.*')
             ->first();
             // $this->subject_cs = $subject_cs;
-            $this->subject_cs = $subject_cs->get();
+            $this->subject_cs = $subject_cs;
+            if(!$this->subject_cs){
+                $this->subjects = Subject::join('sections','subjects.id','=','sections.subjectid')
+                ->join('detail_sections','sections.id','=','detail_sections.sectionid')
+                ->join('department_sections','subjects.departmentsectionid','=','department_sections.id')
+                ->where('subjects.departmentsectionid',$this->teacher->nmention)
+                ->where('department_sections.departmentid','=',$this->department->id)
+                ->select('subjects.*')
+                ->distinct()
+                ->get();
+            }
+            $this->selectedDepartmentSection = $this->teacher->nmention;
         }
             // $this->subject_cs = $subject_cs->get();
 
@@ -143,8 +152,8 @@ class Index extends Component
         ->where('detail_sections.status','=','F')
 
         ->selectRaw("department_sections.description as department_section, subjects.code as code, subjects.name as subject, sections.section_number as section_number,
-        COUNT(CASE WHEN detail_sections.qualification = 'aprobado' THEN 1 END) as aprobados,
-        COUNT(CASE WHEN detail_sections.qualification = 'reprobado' THEN 1 END) as reprobados")
+        COUNT(CASE WHEN detail_sections.qualification = 'Aprobado' THEN 1 END) as aprobados,
+        COUNT(CASE WHEN detail_sections.qualification = 'Reprobado' THEN 1 END) as reprobados")
         ->groupBy('department_sections.description', 'subjects.code','subjects.name','sections.section_number');
         // ->simplePaginate(10);
 
@@ -160,7 +169,11 @@ class Index extends Component
          if(auth()->user()->user_type == 3 || !is_null($this->teacher->nmention)){
             $detailSections->where('department_sections.id','=', $this->teacher->nmention);
         }
+        if(is_null($detailSections->first())){
+            session()->flash('mens-error', 'No tiene calificación cargada.');
+        }
         $this->detailSections = $detailSections->get();
+
 
     }
     public function render()
