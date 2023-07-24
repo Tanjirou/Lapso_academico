@@ -35,10 +35,10 @@
                                             </div>
                                         @endif
                                         @if (session()->has('mens-error'))
-                                        <div class="alert alert-danger">
-                                            {{ session('mens-error') }}
-                                        </div>
-                                    @endif
+                                            <div class="alert alert-danger">
+                                                <h5 class="text-center">{{ session('mens-error') }}</h5>
+                                            </div>
+                                        @endif
                                         <form method="POST" wire:submit.prevent="save">
                                             @csrf
                                             <div class="row">

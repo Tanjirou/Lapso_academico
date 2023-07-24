@@ -19,6 +19,11 @@
             <h5 class="text-center">{{ session('mens') }}</h5>
         </div>
     @endif
+    @if (session()->has('mens-error'))
+        <div class="alert alert-danger">
+            <h5 class="text-center">{{ session('mens-error') }}</h5>
+        </div>
+    @endif
 
     <div class="main-content mt-6">
         <div class="layout-px-spacing">

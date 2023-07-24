@@ -59,7 +59,7 @@ class Index extends Component
         $departmentSection = DepartmentSection::where('departmentid','=',$this->department->id)->first();
         $teacher = Teacher::where('ndepartament','=',$this->department->id)->first();
         if($departmentSection || $teacher){
-            session()->flash('mens-error', 'No se puede eliminar el departamento.');
+            session()->flash('mens-error', 'No se puede eliminar el departamento, porque tiene profesores asignados.');
             $this->mount();
 
         }else{

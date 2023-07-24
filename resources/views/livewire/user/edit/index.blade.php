@@ -26,6 +26,11 @@
                 <h5 class="text-center">{{ session('mens') }}</h5>
             </div>
             @endif
+            @if (session()->has('mens-error'))
+                <div class="alert alert-danger">
+                    <h5 class="text-center">{{ session('mens-error') }}</h5>
+                </div>
+            @endif
             <div class="row layout-spacing mt-2">
                 <div class="col-lg-12">
                     <div class="statbox widget box box-shadow shadow ">
@@ -59,9 +64,10 @@
                                             <div class="form-group">
                                                 <label for="names" class="text-dark">{{ __('(*)Nombres') }}</label>
                                                 <input type="text" name="names" id="names"
-                                                    class="form-control mb-2 @error('names') is-invalid @enderror"
+                                                    class="form-control mb-2"
                                                     value="{{ $userData->names }}" required autofocus
-                                                    placeholder="Ej: Evan Jesus">
+                                                    title="El campo es requerido"
+                                                    placeholder="Ej: Evan Jesús">
                                                 @error('names')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -69,6 +75,7 @@
                                                 @enderror
                                             </div>
                                         </div>
+
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="last_names" class="text-dark">{{ __('(*)Apellidos') }}</label>
@@ -76,6 +83,7 @@
                                                     class="form-control mb-2 @error('last_names') is-invalid @enderror"
                                                     value="{{ $userData->last_names }}" required
                                                     autocomplete="last_names" autofocus
+                                                    title="El campo es requerido"
                                                     placeholder="Ej: Sibrian Meléndez">
                                                 @error('last_names')
                                                     <span class="invalid-feedback" role="alert">
@@ -101,10 +109,10 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="email" class="text-dark">{{ __('(*)Email') }}</label>
+                                                <label for="email" class="text-dark">{{ __('Email') }}</label>
                                                 <input id="email" type="email"
                                                     class="form-control mb-2 @error('email') is-invalid @enderror"
-                                                    name="email" value="{{ $userData->email }}" required
+                                                    name="email" value="{{ $userData->email }}"
                                                     pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
                                                     placeholder="Ej: correo@correo.com">
                                                 @error('email')
@@ -121,7 +129,7 @@
                                         <label for="selectedUser"
                                             class="text-dark">{{ __('(*)Tipo de Usuario') }}</label>
                                         <select wire:model="selectedUser" id="selectedUser" name="user_type"
-                                            class="custom-select bg-white form-control border-primary @error('user_types') is-invalid @enderror">
+                                            class="custom-select bg-white form-control border-primary  @error('user_types') is-invalid @enderror" required placeholder="Debe ser un correo con formato válido.">
                                             <option value="">Seleccione</option>
                                             @foreach ($user_types as $user_type)
                                                 <option value="{{ $user_type->id }}"
@@ -146,7 +154,11 @@
                                                             <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartament" id="department">
                                                                 <option value="" >Seleccione</option>
                                                                 @foreach ($departments as $department)
+                                                                    @if (($selectedUser == 3 || $selectedUser == 5) && ($department->id == 8))
+                                                                        @continue
+                                                                    @else
                                                                     <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                                                    @endif
                                                                 @endforeach
                                                             </select>
                                                             @error('departments')
@@ -156,33 +168,11 @@
                                                             @enderror
                                                     </div>
                                                 </div>
-                                                @if ($selectedUser == 3)
+                                                @if ($selectedUser == 3 || $selectedUser == 5)
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="mentions"
                                                                 class="text-dark">{{ __('(*)Sección Académica') }}</label>
-                                                            <select wire:model="selectedMention"
-                                                                class="custom-select bg-white form-control @error('mentions') is-invalid @enderror"
-                                                                name="nmention" id="mentions">
-                                                                <option value="">Seleccione</option>
-                                                                @foreach ($department_sections as $department_section)
-                                                                    <option value="{{ $department_section->id }}">
-                                                                        {{ $department_section->description }}
-                                                                    </option>
-                                                                @endforeach
-                                                            </select>
-                                                            @error('mentions')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    @elseif ($selectedUser == 5)
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="mentions"
-                                                                class="text-dark">{{ __('Sección Académica') }}</label>
                                                             <select wire:model="selectedMention"
                                                                 class="custom-select bg-white form-control @error('mentions') is-invalid @enderror"
                                                                 name="nmention" id="mentions">
@@ -234,7 +224,7 @@
                         @if (session('user-message'))
                             <div class="form-group row justify-content-center mt-3">
                                 <span class="alert alert-success col-12">
-                                    {{ session('user-message') }}
+                                    <h5 class="text-center">{{ session('user-message') }}</h5>
                                 </span>
                             </div>
                         @endif
