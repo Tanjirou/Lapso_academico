@@ -32,7 +32,7 @@
 
                         <div class="form-group row mx-sm-3 mb-2 ">
                              <div class="col-12 col-md-6 align-content-center align-items-center">
-                                <label for="academic_curriculaid">(*)Pensum</label>
+                                <label for="academic_curriculaid">*Pensum</label>
                                 <select  class="form-control" name="academic_curriculaid" wire:model='mention.academic_curriculaid'>
                                     <option value="">Seleccione</option>
                                     @foreach ($academic_curricula as $academic_c)
@@ -44,7 +44,7 @@
                                 @enderror
                             </div>
                             <div class="col-12 col-md-6 align-content-center align-items-center">
-                                <label for="subjectid">(*)Asignatura</label>
+                                <label for="subjectid">*Asignatura</label>
                                 <select class="form-control" name="subjectid" wire:model='mention.subjectid'>
                                     <option value="">Seleccione</option>
                                     @foreach ($subjects as $subject)

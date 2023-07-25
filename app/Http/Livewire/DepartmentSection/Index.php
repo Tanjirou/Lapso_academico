@@ -26,7 +26,7 @@ class Index extends Component
     public function messages()
     {
     return [
-        'departmentSection.description.required' => 'El campo nombre de la sección académica es obligatorio.',
+        'departmentSection.description.required' => 'El campo Sección Académica es obligatorio.',
         'departmentSection.departmentid.required' => 'El campo Departamento es obligatorio.',
 
     ];

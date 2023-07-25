@@ -103,7 +103,7 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware('auth')->name('home');
 
-
+Route::get('/inicio',[UserController::class, 'nameDepartment'])->middleware(['auth'])->name('layouts.app');
 
 
 /* PROFESOR */

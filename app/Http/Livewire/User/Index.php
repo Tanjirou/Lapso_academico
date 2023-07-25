@@ -65,8 +65,12 @@ class Index extends Component
         'email.email' => 'Debe tener un formato válido',
         'email.max' => 'El máximo de caracteres es de 255.',
         'email.unique' => 'Ya existe un usuario registrado con ese correo',
+        'email.nullable' => '',
         'telephone.regex' =>'El formato del campo es invalido',
-        'telephone.max' =>'El máximo de caracteres es de 12.'
+        'telephone.max' =>'El máximo de caracteres es de 12.',
+        'selectedUser.required' => 'Selecciona un elemento de la lista.',
+        'college_degree.max' =>'El máximo de caracteres es de 255.'
+
 
     ];
     }

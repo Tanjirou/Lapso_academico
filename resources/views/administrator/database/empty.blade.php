@@ -51,7 +51,7 @@
                 @endif
                 @if (session()->has('mens-error'))
                     <div class="alert alert-danger">
-                        {{ session('mens-error') }}
+                        <h5 class="text-center">{{ session('mens-error') }}</h5>
                     </div>
                 @endif
                 <div class="fq-header-wrapper">

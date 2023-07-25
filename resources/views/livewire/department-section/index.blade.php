@@ -31,16 +31,13 @@
                         @csrf
                         <div class="form-group row mx-sm-3 mb-2 justify-content-center align-items-center align-content-center">
                             <div class="col-12 col-md-6 align-content-center align-items-center">
-                                <label for="section">(*)Sección Académica</label>
-                                <input type="text" wire:model = "departmentSection.description" class="form-control" placeholder="Indique nombre de la sección académica">
+                                <label for="section">*Sección Académica</label>
+                                <input type="text" wire:model = "departmentSection.description" class="form-control" placeholder="Indique nombre">
                                 @error('departmentSection.description') <div class="mt-1 text-danger text-sm">{{$message}}</div> @enderror
                             </div>
 
-                            {{-- <div class="col-12 col-md-6  justify-content-center align-content-center align-items-center"> --}}
-                                {{-- <div class="d-md-flex justify-content-center"> --}}
                             <div class="col-12 col-md-6 align-content-center align-items-center">
-                                    {{-- <label for="credit_unid" class="col-form-label mr-3">(*)Departamento</label> --}}
-                                <label for="department">(*)Departamento</label>
+                                <label for="department">*Departamento</label>
                                 <select wire:model="departmentSection.departmentid" class="form-control">
                                     <option value="">Seleccione</option>
                                         @foreach ($departments as $department)

@@ -59,7 +59,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="textAsig">(*)Asignatura</label>
+                                                            <label for="textAsig">*Asignatura</label>
                                                             <select wire:model="selectedSubject" class="form-control"
                                                                 id="textAsig"
                                                                 {{(($evaluate_section) ? 'disabled' : '')}}>
@@ -88,7 +88,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="section_number">(*)Sección de Asignatura</label>
+                                                            <label for="section_number">*Sección de Asignatura</label>
                                                             <select wire:model="section_number" class="form-control"
                                                                 id="section_number"
                                                                 {{(($evaluate_section) ? 'disabled' : '')}}>
@@ -110,7 +110,7 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="textPunt">(*)Cantidad de Estudiantes</label>
+                                                            <label for="textPunt">*Cantidad de Estudiantes</label>
                                                             <input class="form-control" wire:model="student_numbers"
                                                                 type="number" placeholder="Ejemplo: 40"
                                                                 {{(($evaluate_section) ? 'readonly' : '')}}>
@@ -150,7 +150,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="textDpto">(*)Cédula</label>
+                                                            <label for="textDpto">*Cédula</label>
                                                             <input type="text" wire:model="query"
                                                                 class="form-control" id="dni"
                                                                 placeholder="Cédula de Identidad" wire:keydown="studentSearch">
@@ -164,7 +164,7 @@
 
                                                     <div
                                                         class="col-12 col-md-6 align-content-center align-items-center">
-                                                        <label for="academic_curricula">(*)Pensum</label>
+                                                        <label for="academic_curricula">*Pensum</label>
                                                         <select wire:model="academicCurriculaId" class="form-control">
                                                             <option value="">Seleccione</option>
                                                             @foreach ($academicCurricula as $academic)

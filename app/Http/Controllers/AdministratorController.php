@@ -12,6 +12,7 @@ use App\Models\Teacher;
 
 use App\Models\UserType;
 
+use App\Models\Department;
 use App\Models\Departament;
 use App\Exports\UsersExport;
 use Illuminate\Http\Request;
@@ -621,4 +622,20 @@ class AdministratorController extends Controller
             ->simplePaginate(6);
             return view('administrator.users.modify')->with('users',$users);
     }
+
+    // public function nameDepartment($department){
+
+    //     $teacher = Teacher::where('userid', auth()->user()->id)->first();
+    //     if (auth()->user()->user_type == 2) {
+    //         $department = Department::where('id', $teacher->ndepartament)
+    //             ->select('teachers.*');
+
+    //             // ->get();
+    //         $department =  $department->get();
+    //     // return view('layouts.app', compact('department'));
+
+    //     return view('app')->with('departments',$department);
+    //     // return view('administrator.users.modify')->with('users',$users);
+    //     }
+    // }
 }

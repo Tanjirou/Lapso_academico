@@ -24,7 +24,7 @@
                     @endif
                     @if (session()->has('mens-error'))
                         <div class="alert alert-danger">
-                            {{ session('mens-error') }}
+                            <h5 class="text-center">{{ session('mens-error') }}</h5>
                         </div>
                     @endif
                     <form wire:submit.prevent='save' method="POST">
@@ -32,7 +32,7 @@
 
                         <div class="form-group row mx-sm-3 mb-2 justify-content-center">
                             <div class="col-12 col-md-5 align-content-center align-items-center">
-                                <label for="subject.code">(*)Código</label>
+                                <label for="subject.code">*Código</label>
                                 <input type="text" class="form-control" wire:model="subject.code"
                                     placeholder="Código de la asignatura">
                                 @error('subject.code')
@@ -40,7 +40,7 @@
                                 @enderror
                             </div>
                             <div class="col-12 col-md-5 align-content-center align-items-center">
-                                <label for="subject.name">(*)Nombre</label>
+                                <label for="subject.name">*Nombre</label>
                                 <input type="text" class="form-control" wire:model="subject.name"
                                     placeholder="Nombre de la asignatura">
                                     @error('subject.name')
@@ -48,7 +48,7 @@
                                 @enderror
                             </div>
                             <div class="col-12 col-md-5 mt-3 align-content-center align-items-center">
-                                <label for="subject.credit_unid">(*)Unidades de crédito</label>
+                                <label for="subject.credit_unid">*Unidades de crédito</label>
                                 <input type="number" class="form-control" wire:model="subject.credit_units"
                                     placeholder="En números">
                                     @error('subject.credit_units')
@@ -56,7 +56,7 @@
                                 @enderror
                             </div>
                             <div class="col-12 col-md-5 mt-3 align-content-center align-items-center">
-                                <label for="subject.departmentsectionid">(*)Sección Académica</label>
+                                <label for="subject.departmentsectionid">*Sección Académica</label>
                                 <select class="form-control" wire:model="subject.departmentsectionid">
                                     <option value="">Seleccione</option>
                                     @foreach ($department_sections as $department)

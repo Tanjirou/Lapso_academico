@@ -37,7 +37,7 @@
                                         @endif
                                         @if (session()->has('mens-error'))
                                             <div class="alert alert-danger">
-                                                {{ session('mens-error') }}
+                                                <h5 class="text-center">{{ session('mens-error') }}</h5>
                                             </div>
                                         @endif
                                         <form method="POST" wire:submit.prevent="save">
@@ -55,9 +55,14 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textMenc">(*)Sección Académica</label>
+                                                        {{-- <label for="textMenc">*Sección Académica</label> --}}
+                                                        @if (auth()->user()->user_type !=3)
+                                                            <label for="textMenc">*Sección Académica</label>
+                                                        @else
+                                                            <label for="textMenc">Sección Académica</label>
+                                                        @endif
                                                         <select wire:model="selectedDepartmentSection"
-                                                            class="form-control" id="textMenc1" {{((auth()->user()->user_type == 3)? 'readonly' :'')}}>
+                                                            class="form-control" id="textMenc1" {{((auth()->user()->user_type == 3)? 'readonly' :'')}} {{((auth()->user()->user_type == 2)? 'required' :'')}}>
                                                             @if(auth()->user()->user_type != 3)
                                                                 <option>Seleccione</option>
                                                             @endif
@@ -73,7 +78,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textAsig">(*)Asignatura</label>
+                                                        <label for="textAsig">*Asignatura</label>
                                                         <select wire:model="selectedSubject" class="form-control"
                                                             id="textAsig">
                                                             <option value="">Seleccione</option>
@@ -100,7 +105,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="section_number">(*)Sección de la asignatura</label>
+                                                        <label for="section_number">*Sección de la asignatura</label>
                                                         <select wire:model="section_number" class="form-control"
                                                             id="section_number">
                                                             <option value="">Seleccione</option>
@@ -120,7 +125,7 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="teacherid">(*)Profesor</label>
+                                                        <label for="teacherid">*Profesor</label>
                                                         <select wire:model="teacherid" class="form-control"
                                                             id="teacherid">
                                                             <option value="">Seleccione</option>

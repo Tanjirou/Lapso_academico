@@ -32,7 +32,7 @@
                         <div class="form-group row mx-sm-3 mb-2 justify-content-center">
                             <div class="col-12 col-md-5 align-content-center align-items-center">
                                 <input wire:model="pensum.description" class="p-2 form-control" type="text"
-                                    placeholder="(*) Indique nombre del pensum académico">
+                                    placeholder="* Indique nombre del pensum">
                                 @error('pensum.description')
                                     <div class="mt-1 text-danger text-sm">{{ $message }}</div>
                                 @enderror

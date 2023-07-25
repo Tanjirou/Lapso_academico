@@ -8,7 +8,6 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active"><a href="{{ route('home') }}">Inicio</a></li>
                                 <li class="breadcrumb-item"><a href="javascript:void(0);">Recursos</a></li>
-                                <!--<li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Secciones</a></li>-->
                             </ol>
                         </nav>
                     </div>
@@ -36,7 +35,7 @@
                                         @endif
                                         @if (session()->has('mens-error'))
                                             <div class="alert alert-danger">
-                                                {{ session('mens-error') }}
+                                                <h5 class="text-center">{{ session('mens-error') }}</h5>
                                             </div>
                                         @endif
                                         <form method="POST" wire:submit.prevent="save">
@@ -55,7 +54,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="description">(*)Recurso</label>
+                                                        <label for="description">*Recurso</label>
                                                         <input type="text" class="form-control"
                                                             wire:model="departmentResource.description"
                                                             placeholder="Indique el nombre del recurso">
@@ -66,7 +65,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="textCant">(*)Cantidad</label>
+                                                        <label for="textCant">*Cantidad</label>
                                                         <input class="form-control" type="number"
                                                             wire:model="departmentResource.quantity"
                                                             placeholder="Ej: 4">

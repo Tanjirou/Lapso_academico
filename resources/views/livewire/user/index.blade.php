@@ -41,7 +41,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="dni" class="text-dark">{{ __('(*)Cédula') }}</label>
+                                                <label for="dni" class="text-dark">{{ __('*Cédula') }}</label>
                                                 <input id="dni" wire:model="dni" type="numeric" class="form-control mb-2 @error('dni') is-invalid @enderror" name="dni" value="{{ old('dni') }}" required autocomplete="dni" autofocus  maxlength="9"  title="la cédula debe ser solo numerica" pattern="[0-9]+" placeholder="Ej: 123456789">
                                             @error('dni')
                                                 <span class="invalid-feedback" role="alert">
@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="names"  class="text-dark">{{ __('(*)Nombres') }}</label>
+                                                <label for="names"  class="text-dark">{{ __('*Nombres') }}</label>
                                                 <input id="names" wire:model="names" type="text" class="form-control mb-2 @error('names') is-invalid @enderror" name="names" value="{{ old('names') }}" required autocomplete="names" autofocus placeholder="Ej: Evan Jesus">
                                             @error('names')
                                                 <span class="invalid-feedback" role="alert">
@@ -63,7 +63,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="last_names"  class="text-dark">{{ __('(*)Apellidos') }}</label>
+                                                <label for="last_names"  class="text-dark">{{ __('*Apellidos') }}</label>
                                                 <input id="last_names" wire:model="last_names"  type="text" class="form-control mb-2 @error('last_names') is-invalid @enderror" name="last_names" value="{{ old('last_names') }}" required autocomplete="last_names" autofocus placeholder="Ej: Sibrian Meléndez">
                                             @error('last_names')
                                                 <span class="invalid-feedback" role="alert">
@@ -85,8 +85,8 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="email" class="text-dark">{{ __('Email') }}</label>
-                                                <input id="email" wire:model="email"  type="email" class="form-control mb-2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" placeholder="Ej: correo@correo.com">
+                                                <label for="email" class="text-dark">{{ __('*Email') }}</label>
+                                                <input id="email" wire:model="email"  type="email" class="form-control mb-2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" placeholder="Ej: correo@correo.com" required>
                                                 @error('email')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -96,7 +96,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="password" class="text-dark">{{ __('(*)Contraseña') }}</label>
+                                                <label for="password" class="text-dark">{{ __('*Contraseña') }}</label>
                                                 <input id="password" wire:model="password"  type="password" class="form-control mb-2 @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" autofocus minlength="8"  title="La contraseña debe tener mínimo 8 caracteres" placeholder="Escriba su contraseña">
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -108,8 +108,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="user_types" class="text-dark">{{ __('(*)Tipo de Usuario') }}</label>
-                                            <select wire:model="selectedUser" class="custom-select bg-white form-control border-primary @error('user_types') is-invalid @enderror" name="user_type" id="user_types">
+                                        <label for="user_types" class="text-dark">{{ __('*Tipo de Usuario') }}</label>
+                                            <select wire:model="selectedUser" class="custom-select bg-white form-control border-primary @error('user_types') is-invalid @enderror" name="user_type" id="user_types" required>
                                                     <option value="" >Seleccione</option>
                                                 @foreach ($user_types as $user_type)
                                                     <option value="{{ $user_type->id }}">{{ $user_type->description }}</option>
@@ -128,8 +128,8 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="departments" class="text-dark">{{ __('(*)Departamento') }}</label>
-                                                            <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartment" id="departments">
+                                                        <label for="departments" class="text-dark">{{ __('*Departamento') }}</label>
+                                                            <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartment" id="departments" required>
                                                                 <option value="" >Seleccione</option>
                                                                 @foreach ($departments as $department)
                                                                     @if ($department->id == 8)
@@ -146,10 +146,11 @@
                                                             @enderror
                                                     </div>
                                                 </div>
+                                                {{-- {{((auth()->user()->user_type ==3 ) ? 'required' : '')}} --}}
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="mentions" class="text-dark">{{ __('(*)Sección Académica') }}</label>
-                                                            <select wire:model="selectedMention" class="custom-select bg-white form-control @error('mentions') is-invalid @enderror" name="nmention" id="mentions">
+                                                        <label for="mentions" class="text-dark">{{ __('*Sección Académica') }}</label>
+                                                            <select wire:model="selectedMention" class="custom-select bg-white form-control @error('mentions') is-invalid @enderror" name="nmention" id="mentions" required>
                                                                 <option value="" >Seleccione</option>
                                                                 @foreach ($department_sections as $department_section)
                                                                     <option value="{{ $department_section->id }}">{{ $department_section->description }}</option>
@@ -225,7 +226,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="departments" class="text-dark">{{ __('(*)Departamento') }}</label>
+                                                    <label for="departments" class="text-dark">{{ __('*Departamento') }}</label>
                                                         <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="departments" id="departments">
                                                             <option value="" >Seleccione</option>
                                                             @foreach ($departments as $department)

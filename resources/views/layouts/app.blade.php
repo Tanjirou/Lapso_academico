@@ -458,89 +458,119 @@
 
                     <!--JEFE DE DEPARTAMENTO-->
                     @if (auth()->user()->user_type == 2)
+                        {{-- @if($teachers->ndepartament != 8) --}}
 
-                    <!--GESTION SECCIONES-->
-                        <li class="menu">
-                            <a href="#teacher-general" data-toggle="collapse" aria-expanded="false"
-                                class="dropdown-toggle">
-                                <div class="">
-                                    <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-layers">
-                                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                        <polyline points="2 17 12 22 22 17"></polyline>
-                                        <polyline points="2 12 12 17 22 12"></polyline>
-                                    </svg>
-                                    <span>Gestión Secciones</span>
-                                </div>
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-chevron-right">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </div>
-                            </a>
-                            <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled" id="teacher-general"
-                                data-parent="#accordionExample">
-                                <li class="active">
-                                    <a href="{{ route('section-struc.index') }}"> Crear </a>
-                                </li>
-                                {{-- <li class="active">
-                                    <a href="{{ route('teachers.assigned_sections') }}"> Asignar </a>
-                                </li> --}}
-                                <li class="active">
-                                    <a href="{{ route('sections.index') }}"> Asignar Profesor </a>
-                                </li>
-                            </ul>
-                        </li>
+                        <!--GESTION SECCIONES-->
+                            <li class="menu">
+                                <a href="#teacher-general" data-toggle="collapse" aria-expanded="false"
+                                    class="dropdown-toggle">
+                                    <div class="">
+                                        <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-layers">
+                                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                            <polyline points="2 17 12 22 22 17"></polyline>
+                                            <polyline points="2 12 12 17 22 12"></polyline>
+                                        </svg>
+                                        <span>Gestión Secciones</span>
+                                    </div>
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-chevron-right">
+                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled" id="teacher-general"
+                                    data-parent="#accordionExample">
+                                    <li class="active">
+                                        <a href="{{ route('section-struc.index') }}"> Crear </a>
+                                    </li>
+                                    {{-- <li class="active">
+                                        <a href="{{ route('teachers.assigned_sections') }}"> Asignar </a>
+                                    </li> --}}
+                                    <li class="active">
+                                        <a href="{{ route('sections.index') }}"> Asignar Profesor </a>
+                                    </li>
+                                </ul>
+                            </li>
 
-                        <!--GESTION MATERIAS-->
-                        <li class="menu">
-                            <a href="#proceso" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                                <div class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                                    <span>Gestión Asignaturas</span>
-                                </div>
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-chevron-right">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </div>
-                            </a>
-                            <ul class="collapse submenu list-unstyled" id="proceso" data-parent="#accordionExample">
-                                <li class="active">
-                                    <a href="{{ route('detail_section.index') }}">Aprobado/Reprobado</a>
-                                </li>
-                            </ul>
-                        </li>
+                            <!--GESTION MATERIAS-->
+                            <li class="menu">
+                                <a href="#proceso" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                    <div class="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                                        <span>Gestión Asignaturas</span>
+                                    </div>
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-chevron-right">
+                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <ul class="collapse submenu list-unstyled" id="proceso" data-parent="#accordionExample">
+                                    <li class="active">
+                                        <a href="{{ route('detail_section.index') }}">Aprobado/Reprobado</a>
+                                    </li>
+                                </ul>
+                            </li>
 
-                        <!--GESTION RECURSOS-->
-                        <li class="menu">
-                            <a href="#recurso" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                                <div class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                                    <span>Gestión Recursos</span>
-                                </div>
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-chevron-right">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </div>
-                            </a>
-                            <ul class="collapse submenu list-unstyled" id="recurso" data-parent="#accordionExample">
-                                <li class="active">
-                                    <a href="{{ route('department-resources.index') }}">Crear</a>
-                                </li>
-                            </ul>
-                        </li>
+                            <!--GESTION RECURSOS-->
+                            <li class="menu">
+                                <a href="#recurso" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                    <div class="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                                        <span>Gestión Recursos</span>
+                                    </div>
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-chevron-right">
+                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <ul class="collapse submenu list-unstyled" id="recurso" data-parent="#accordionExample">
+                                    <li class="active">
+                                        <a href="{{ route('department-resources.index') }}">Crear</a>
+                                    </li>
+                                </ul>
+                            </li>
 
-                         <!--REPORTES-->
-                        <li class="menu">
+                                <!--REPORTES-->
+                            <li class="menu">
+                                <a href="#report-teacher" data-toggle="collapse" aria-expanded="false"
+                                    class="dropdown-toggle">
+                                    <div class="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                                        <span>Reportes</span>
+                                    </div>
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-chevron-right">
+                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <ul class="collapse submenu list-unstyled" id="report-teacher"
+                                    data-parent="#accordionExample">
+
+                                    <li class="active">
+                                        <a href="{{ route('reports.evaluation-result.index') }}">Aprob./Reprob.</a>
+                                    </li>
+                                    <li class="active">
+                                        <a href="{{ route('reports.open-section.index') }}">Planificación</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        {{-- @else --}}
+                        <!--REPORTES-->
+                        {{-- <li class="menu">
                             <a href="#report-teacher" data-toggle="collapse" aria-expanded="false"
                                 class="dropdown-toggle">
                                 <div class="">
@@ -565,7 +595,8 @@
                                     <a href="{{ route('reports.open-section.index') }}">Planificación</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
+                        {{-- @endif --}}
                     @endif
 
                     <!--ADMINISTRADOR-->
