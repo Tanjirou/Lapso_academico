@@ -59,7 +59,7 @@ class Index extends Component
         $subjects= Subject::where('departmentsectionid','=',$departmentSection->id)->first();
         $structureSections = StructureSection::where('department_sectionid','=',$departmentSection->id)->first();
         if(!is_null($subjects) || !is_null($structureSections)){
-            session()->flash('mens-error', 'No se puede eliminar esa sección académica.');
+            session()->flash('mens-error', 'No se puede eliminar la sección académica, porque tiene profesores asignados.');
             $this->departmentSection->description = null;
             $this->departmentSection->departmentid = null;
             $this->mount();

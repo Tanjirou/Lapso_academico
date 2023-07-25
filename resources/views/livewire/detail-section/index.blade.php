@@ -153,7 +153,7 @@
                                                             <label for="textDpto">(*)Cédula</label>
                                                             <input type="text" wire:model="query"
                                                                 class="form-control" id="dni"
-                                                                placeholder="Cedula" wire:keydown="studentSearch">
+                                                                placeholder="Cédula de Identidad" wire:keydown="studentSearch">
                                                             @error('query')
                                                                 <div class="mt-1 text-danger text-sm">{{ $message }}
                                                                 </div>
@@ -211,7 +211,7 @@
                                             </form>
                                             @if (session()->has('mens-error-student'))
                                             <div class="alert alert-danger">
-                                                {{ session('mens-error-student') }}
+                                                <h5 class="text-center">{{ session('mens-error-student') }}</h5>
                                             </div>
                                             @endif
                                         </div>
@@ -224,7 +224,7 @@
                                                 <table class="table">
                                                     <thead>
                                                         <tr>
-                                                            <th scope="col">Cedula</th>
+                                                            <th scope="col">Cédula</th>
                                                             <th scope="col">Carrera</th>
                                                             <th scope="col">Calificación</th>
                                                             <th scope="col">Opciones</th>

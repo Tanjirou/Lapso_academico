@@ -20,7 +20,7 @@ class Index extends Component
     ];
     public function messages(){
         return [
-            'departmentResource.description.required' => 'La recurso no puede estar vacío.',
+            'departmentResource.description.required' => 'El recurso no puede estar vacío.',
             'departmentResource.quantity.required' => 'El campo cantidad no puede estar vacío.',
             'departmentResource.quantity.numeric' => 'El campo cantidad debe ser numérico.'
         ];

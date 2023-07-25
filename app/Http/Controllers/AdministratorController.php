@@ -359,7 +359,7 @@ class AdministratorController extends Controller
             ]);
         }
 
-        return redirect()->action([AdministratorController::class, 'migrate'])->with('migrate-message','Migración finalizada');
+        return redirect()->action([AdministratorController::class, 'migrate'])->with('migrate-message','Migración finalizada exitosamente');
     }
 
     public function export(){
@@ -452,19 +452,40 @@ class AdministratorController extends Controller
 
     public function profile_update(Request $request, User $user)
     {
-        //^\+?[0-9]{3}-?[0-9]{6,12}$
+
+        $message = [
+            'names.required' =>'El campo nombre es requerido',
+            'names.max' => 'El máximo de caracteres es de 255',
+            'last_names.required' =>'El campo apellido es requerido',
+            'last_names.max' => 'El máximo de caracteres es de 255',
+            'email.email' =>'Debe introducir un correo con formato valido.',
+            'email.unique' => 'Ya existe un usuario con ese correo registrado',
+            'photo.mimes' => 'Debe subir la foto con un formato valido como .jpg, .jpeg y .png',
+            'phone1.regex' =>'El formato del campo es invalido',
+            'phone1.max' =>'El máximo de caracteres es de 12.'
+
+        ];
+        // $this->validate($request,[
+        //     'names' => 'required|max:255',
+        //     // 'names' => 'max:255',
+        //     'last_names' => 'required|max:255',
+        //     // 'email' => 'email',
+        //     // 'email' => 'unique:users'.$user->id,
+        //     'phone1' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12',
+        // ],$message);
+
         $id = auth()->user()->id;
         // var_dump($request['phone1']); die();
         $data = $request->validate([
 
-            'names' => ['required','string'],
-            'last_names' => ['required','string'],
-            'email' => ['nullable','email'],
+            'names' => ['required','string','max:255'],
+            'last_names' => ['required','string','max:255'],
+            'email' => ['email','nullable'],
             'photo' => ['mimes:jpg,jpeg,png'],
-            'phone1' => ['nullable','regex:/^[0-9]{4}-?[0-9]{7}/','max:12'],
+            'phone1' => ['regex:/^[0-9]{4}-?[0-9]{7}/','max:12','nullable'],
 
 
-        ]);
+        ],$message);
         //$photo = $request->file('photo')->store('public/profile');
 
         if(isset($data['photo'])){
@@ -488,22 +509,16 @@ class AdministratorController extends Controller
 
 
         $user->save();
-        return redirect()->action([AdministratorController::class, 'profile'])->with('store','Actualizado');
+        return redirect()->action([AdministratorController::class, 'profile'])->with('store','Usuario actualizado exitosamente');
 
         //var_dump($data); die();
 
     }
 
+
     public function users_create(Request $request){
 
-
-       /*  $user_types = DB::table('user_types')
-        ->where('user_types.status','=', 'A')
-        ->select('user_types.id', 'user_types.description')
-        ->orderBy('user_types.id')->get(); */
-
         $user_types = UserType::where('user_types.status','=', 'A')->orderBy('user_types.id')->get();
-
 
         $departaments = DB::table('departaments')
         ->where('departaments.status','=', 'A')
@@ -512,8 +527,6 @@ class AdministratorController extends Controller
 
         $departaments = $departaments->get();
 
-        /* $tipo = $request->input('user_types');
-        $tipo =  $tipo->get(); */
         $mentions = DB::table('mentions')
         ->where('mentions.status','=', 'A')
         ->select('mentions.id', 'mentions.name')
@@ -530,7 +543,6 @@ class AdministratorController extends Controller
 
         //var_dump( $profile); die();
 
-
         $data = $request->validate([
             'dni' => ['required', 'numeric','digits_between:6,9', 'unique:users'],
             'names' => ['required','regex:/^[\pL\s\-]+$/u', 'max:255'],
@@ -546,7 +558,6 @@ class AdministratorController extends Controller
         ]);
 
         $password = bcrypt($data['dni']);
-
 
         return view('administrator.users.create');
 
@@ -569,14 +580,6 @@ class AdministratorController extends Controller
             'status' => 'A',
         ]);
 
-        // Perfil_Usuario::create([
-        //     'cedula' => $data['cedula'],
-        //     'nombre' => $data['nombre'],
-        //     'apellido' => $data['apellido'],
-        //     'telefono' => $data['telefono'],
-        //     'user_id' => $usuario->id,
-        // ]);
-
         return redirect()->action([AdministratorController::class, 'users_create'])->with('user-message','Usuario registrado con exito');
     }
 
@@ -586,11 +589,11 @@ class AdministratorController extends Controller
 
     public function users_restore_password(Request $request){
         if($request['dni']==""){
-            return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-error','Campo cedula requerido');
+            return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-error','Campo cédula requerido');
         }
         $dni = DB::table('users')->where('dni', '=', $request['dni'])->first();
         if(!$dni){
-            return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-error','Cedula no registrada');
+            return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-error','Cédula no registrada');
         }
         $password = bcrypt($request['dni']);
         DB::table('users')
@@ -600,11 +603,11 @@ class AdministratorController extends Controller
     }
     public function users_restore_factor(Request $request){
         if($request['user_factor']==""){
-            return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-error','Campo cedula requerido');
+            return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-error','Campo cédula requerido');
         }
         $dni = DB::table('users')->where('dni', '=', $request['user_factor'])->first();
         if(!$dni){
-            return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-error','Cedula no registrada');
+            return redirect()->action([AdministratorController::class, 'users_restore'])->with('user-message-error','Cédula no registrada');
         }
         DB::table('users')
             ->where('dni','=', $request['user_factor'])

@@ -33,7 +33,7 @@
                                 @endif
                                 @if (session()->has('mens-error'))
                                     <div class="alert alert-danger">
-                                        {{ session('mens-error') }}
+                                        <h5 class="text-center">{{ session('mens-error') }}</h5>
                                     </div>
                                 @endif
                                 <form method="POST" wire:submit.prevent="store">
@@ -85,8 +85,8 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="email" class="text-dark">{{ __('(*)Email') }}</label>
-                                                <input id="email" wire:model="email"  type="email" class="form-control mb-2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" placeholder="Ej: correo@correo.com">
+                                                <label for="email" class="text-dark">{{ __('Email') }}</label>
+                                                <input id="email" wire:model="email"  type="email" class="form-control mb-2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" placeholder="Ej: correo@correo.com">
                                                 @error('email')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -97,7 +97,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="password" class="text-dark">{{ __('(*)Contraseña') }}</label>
-                                                <input id="password" wire:model="password"  type="password" class="form-control mb-2 @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autofocus minlength="8"  title="La contraseña debe tener mínimo 8 caracteres" placeholder="Escriba su contraseña">
+                                                <input id="password" wire:model="password"  type="password" class="form-control mb-2 @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" autofocus minlength="8"  title="La contraseña debe tener mínimo 8 caracteres" placeholder="Escriba su contraseña">
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -124,7 +124,7 @@
                                     </div>
 
                                     <div wire:target="selectedUser">
-                                        @if($selectedUser!=1 && $selectedUser!=2  && $selectedUser!=4 && $selectedUser!=5 && !empty($selectedUser) && !is_null($selectedUser))
+                                        @if($selectedUser!=1 && $selectedUser!=2  && $selectedUser!=4 && !empty($selectedUser) && !is_null($selectedUser))
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -172,7 +172,7 @@
                                                         </span>
                                                     @enderror
                                             </div>
-                                            @elseif($selectedUser!=1 && $selectedUser!=2  && $selectedUser!=3 && $selectedUser!=4 && !empty($selectedUser) && !is_null($selectedUser))
+                                            {{-- @elseif($selectedUser!=1 && $selectedUser!=2  && $selectedUser!=3 && $selectedUser!=4 && !empty($selectedUser) && !is_null($selectedUser))
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -219,7 +219,7 @@
                                                             <strong>{{ $message }}</strong>
                                                         </span>
                                                     @enderror
-                                            </div>
+                                            </div> --}}
 
                                         @elseif($selectedUser!=1 && $selectedUser!=3 && $selectedUser!=5 && !is_null($selectedUser))
                                         <div class="row">

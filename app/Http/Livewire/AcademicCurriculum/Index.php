@@ -24,6 +24,7 @@ class Index extends Component
     {
     return [
         'pensum.description.required' => 'El campo nombre del pensum académico es obligatorio.',
+        'pensum.description.max' => 'El máximo de caracteres es de 60.',
     ];
     }
 

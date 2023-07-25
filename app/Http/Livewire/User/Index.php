@@ -54,6 +54,19 @@ class Index extends Component
     return [
         'dni.required' => 'El campo cédula es obligatorio.',
         'dni.numeric' => 'Solo caracteres numéricos.',
+        'dni.digits_between' => 'Solo se permite entre 6 y 9 caracteres numéricos.',
+        'dni.unique' => 'Ya existe un usuario registrado con esa cédula',
+        'password.required' => 'El campo contraseña es obligatorio.',
+        'password.min' => 'El mínimo de caracteres es de 8.',
+        'names.required' => 'El campo nombre es obligatorio.',
+        'names.max' => 'El máximo de caracteres es de 255.',
+        'last_names.required' => 'El campo apellido es obligatorio.',
+        'last_names.max' => 'El máximo de caracteres es de 255.',
+        'email.email' => 'Debe tener un formato válido',
+        'email.max' => 'El máximo de caracteres es de 255.',
+        'email.unique' => 'Ya existe un usuario registrado con ese correo',
+        'telephone.regex' =>'El formato del campo es invalido',
+        'telephone.max' =>'El máximo de caracteres es de 12.'
 
     ];
     }
