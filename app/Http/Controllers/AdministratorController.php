@@ -426,7 +426,10 @@ class AdministratorController extends Controller
             ->first();
        if($academicLapse){
         DetailSection::where('status','=','F')->delete();
-        Section::where('status','=','F')->delete();
+        DB::table('sections')->where('status','=','F')->update([
+            'teacherid' => null,
+            'teacherid' =>null
+        ]);
         return redirect()->action([AdministratorController::class, 'empty'])->with('mens','Se ha vaciado correctamente');
        }else{
         return redirect()->action([AdministratorController::class, 'empty'])->with('mens-error','No se puede ejecutar esta opción ya que hay un lapso académico activo o no hay datos que vaciar.');

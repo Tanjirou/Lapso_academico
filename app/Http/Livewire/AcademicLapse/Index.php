@@ -57,27 +57,34 @@ class Index extends Component
     public function finish(AcademicLapse $academic_lapse)
     {
         //buscamos la informacion de estudiantes y su calificacion
-        $studentsQualifications = DetailSection::join('sections','detail_sections.sectionid','=','sections.id')
-            ->join('academic_lapses','sections.academic_lapseid','=','academic_lapses.id')
-            ->where('sections.status','=','F')
-            ->where('detail_sections.status','=','F')
-            ->select('detail_sections.studentid as student','detail_sections.qualification','academic_lapses.description as lapse','sections.subjectid')
-            ->get();
-        if($studentsQualifications){
-            foreach($studentsQualifications as $studentQualification){
-                StudentHistory::create([
-                    'studentid' => $studentQualification->student,
-                    'subjectid' => $studentQualification->subjectid,
-                    'academic_lapse' => $studentQualification->lapse,
-                    'qualification' =>$studentQualification->qualification
-                ]);
+        $openSections = Section::where('status', '=', 'A')
+            ->where('teacherid','!=',null)
+            ->first();
+        if ($openSections) {
+            session()->flash('mens-error', 'No se puede finalizar el lapso académico, hay profesores que aún no han evaluado.');
+        } else {
+            $studentsQualifications = DetailSection::join('sections', 'detail_sections.sectionid', '=', 'sections.id')
+                ->join('academic_lapses', 'sections.academic_lapseid', '=', 'academic_lapses.id')
+                ->where('sections.status', '=', 'F')
+                ->where('detail_sections.status', '=', 'F')
+                ->select('detail_sections.studentid as student', 'detail_sections.qualification', 'academic_lapses.description as lapse', 'sections.subjectid')
+                ->get();
+            if ($studentsQualifications) {
+                foreach ($studentsQualifications as $studentQualification) {
+                    StudentHistory::create([
+                        'studentid' => $studentQualification->student,
+                        'subjectid' => $studentQualification->subjectid,
+                        'academic_lapse' => $studentQualification->lapse,
+                        'qualification' => $studentQualification->qualification
+                    ]);
+                }
             }
+            $this->academic_lapse = $academic_lapse;
+            $this->academic_lapse->status = 'F';
+            $this->academic_lapse->save();
+            session()->flash('mens', 'Lapso finalizado correctamente.');
+            $this->mount();
         }
-        $this->academic_lapse = $academic_lapse;
-        $this->academic_lapse->status = 'F';
-        $this->academic_lapse->save();
-        session()->flash('mens', 'Lapso finalizado correctamente.');
-        $this->mount();
     }
     public function render()
     {
