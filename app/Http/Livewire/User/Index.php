@@ -31,7 +31,7 @@ class Index extends Component
         'password' => 'required|string|min:8',
         'names' => 'required|string|max:255',
         'last_names' => 'required|string|max:255',
-        'email' => 'string|email|max:255|unique:users|nullable',
+        'email' => 'string|email|max:255|unique:users|required',
         'telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable',
         'selectedUser' => 'required',
         'selectedDepartment' => 'nullable',
@@ -66,7 +66,10 @@ class Index extends Component
         'email.max' => 'El máximo de caracteres es de 255.',
         'email.unique' => 'Ya existe un usuario registrado con ese correo',
         'telephone.regex' =>'El formato del campo es invalido',
-        'telephone.max' =>'El máximo de caracteres es de 12.'
+        'telephone.max' =>'El máximo de caracteres es de 12.',
+        'selectedDepartment.required' => 'El campo departamento es obligatorio.',
+        'selectedUser.required' => 'El campo tipo de usuario es obligatorio.',
+        'selectedMention.required' => 'El campo sección académica es obligatorio.'
 
     ];
     }
@@ -79,7 +82,35 @@ class Index extends Component
     public function store()
     {
         $head_department = null;
-        $this->validate($this->rules);
+        if($this->selectedUser == 3){
+            $this->rules =[
+                'dni' => 'required|numeric|digits_between:6,9|unique:users',
+                'password' => 'required|string|min:8',
+                'names' => 'required|string|max:255',
+                'last_names' => 'required|string|max:255',
+                'email' => 'string|email|max:255|unique:users|required',
+                'telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable',
+                'selectedUser' => 'required',
+                'selectedDepartment' => 'required',
+                'selectedMention' => 'required',
+                'college_degree' => 'string|max:255|nullable'
+            ];
+        }
+        if($this->selectedUser == 2 || $this->selectedUser >3){
+            $this->rules =[
+                'dni' => 'required|numeric|digits_between:6,9|unique:users',
+                'password' => 'required|string|min:8',
+                'names' => 'required|string|max:255',
+                'last_names' => 'required|string|max:255',
+                'email' => 'string|email|max:255|unique:users|required',
+                'telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable',
+                'selectedUser' => 'required',
+                'selectedDepartment' => 'required',
+                'selectedMention' => 'nullable',
+                'college_degree' => 'string|max:255|nullable'
+            ];
+        }
+        $this->validate();
         if ($this->selectedUser == 2 && !is_null($this->selectedDepartment)) {
             $head_department = Teacher::join('users', 'teachers.userid', '=', 'users.id')
                 ->where('ndepartament', '=', $this->selectedDepartment)
@@ -92,6 +123,7 @@ class Index extends Component
                 return;
             }
         }
+
         if ($this->selectedUser == 3 && !is_null($this->selectedDepartment) && !is_null($this->selectedMention)) {
             $head_department = Teacher::join('users', 'teachers.userid', '=', 'users.id')
                 ->where('ndepartament', '=', $this->selectedDepartment)
