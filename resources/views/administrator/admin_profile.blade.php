@@ -132,7 +132,7 @@
                                                                         <div class="row">
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
-                                                                                    <label for="names">(*)Nombres</label>
+                                                                                    <label for="names">*Nombres</label>
                                                                                     <input type="text" class="form-control mb-4 @error('names') is-invalid @enderror"
                                                                                     id="nombre" name="names" value="{{ $admin->names }}"
                                                                                     placeholder="Ej: Evan Jesús">
@@ -146,7 +146,7 @@
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="form-group">
-                                                                                    <label for="names">(*)Apellidos</label>
+                                                                                    <label for="names">*Apellidos</label>
                                                                                     <input type="text" class="form-control mb-4 @error('last_names') is-invalid @enderror"
                                                                                     id="last_names" name="last_names" value="{{ $admin->last_names }}"
                                                                                     placeholder="Ej: Sibrian Meléndez">

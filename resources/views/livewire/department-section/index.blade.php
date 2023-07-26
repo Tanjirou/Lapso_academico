@@ -48,29 +48,6 @@
                                 @error('departmentSection.departmentid') <div class="d-block mt-1 text-danger text-sm">{{$message}}</div> @enderror
                             </div>
                         </div>
-
-                        {{-- <div class="col-12 col-md-5 mt-3 align-content-center align-items-center">
-                            <label for="subject.credit_unid">Unidades de crédito</label>
-                            <input type="number" class="form-control" wire:model="subject.credit_units"
-                                placeholder="En números">
-                                @error('subject.credit_units')
-                                <div class="mt-1 text-danger text-sm">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="col-12 col-md-5 mt-3 align-content-center align-items-center">
-                            <label for="subject.departmentsectionid">Sección Académica</label>
-                            <select class="form-control" wire:model="subject.departmentsectionid">
-                                <option value="">Seleccione</option>
-                                @foreach ($department_sections as $department)
-                                    <option value="{{ $department->id }}">{{ $department->description }}</option>
-                                @endforeach
-                            </select>
-                            @error('subject.departmentsectionid')
-                            <div class="mt-1 text-danger text-sm">{{ $message }}</div>
-                        @enderror
-                        </div> --}}
-
-
                         <div class="row justify-content-center mt-4">
                             <button type="submit"
                             class="btn btn-primary w-100 w-md-auto btn-lg mb-2 mt-4 mt-md-0">Guardar</button>

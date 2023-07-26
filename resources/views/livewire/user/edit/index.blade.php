@@ -1,6 +1,4 @@
 <div>
-
-
     <div class="main-content mt-6">
         <div class="layout-px-spacing">
             <div class="mb-0">
@@ -114,7 +112,7 @@
                                                     class="form-control mb-2 @error('email') is-invalid @enderror"
                                                     name="email" value="{{ $userData->email }}"
                                                     pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
-                                                    placeholder="Ej: correo@correo.com">
+                                                    placeholder="Ej: correo@correo.com" required>
                                                 @error('email')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -150,7 +148,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="departments" class="text-dark">{{ __('(*)Departamento') }}</label>
+                                                        <label for="departments" class="text-dark">{{ __('*Departamento') }}</label>
                                                             <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartament" id="department" required>
                                                                 <option value="" >Seleccione</option>
                                                                 @foreach ($departments as $department)

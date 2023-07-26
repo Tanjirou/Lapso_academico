@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\DB;
 
 class Index extends Component
 {
-    public $sections,$section_number,$subjects,$academic_lapse, $selectedSubject = null,
+    public $subjectCode, $sections,$section_number,$subjects,$academic_lapse, $selectedSubject = null,
     $department,$evaluate_section, $teacher,$student_numbers, $studentSearch, $userId,
     $query = null,$studentName, $subjectId, $academicCurricula,$academicCurriculaId,$mention,$qualificationResult;
     public Section $section;
@@ -63,9 +63,12 @@ class Index extends Component
             ->select('sections.*')
             ->get();
             $this->subjectId = $subjectid;
+            $subject = Subject::where('id','=',$this->subjectId)->first();
+            $this->subjectCode = $subject->code;
         }else{
             $this->sections = null;
             $subjectid = null;
+            $this->subjectCode = null;
             $this->selectedSubject = null;
         }
     }

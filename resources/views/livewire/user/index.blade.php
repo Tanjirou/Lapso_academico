@@ -1,5 +1,4 @@
 <div>
-
     <div class="main-content mt-6">
         <div class="layout-px-spacing">
             <div class="mb-0">
@@ -108,15 +107,15 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="user_types" class="text-dark">{{ __('*Tipo de Usuario') }}</label>
-                                            <select wire:model="selectedUser" class="custom-select bg-white form-control border-primary @error('user_types') is-invalid @enderror" name="user_type" id="user_types" required>
+                                        <label for="selectedUser" class="text-dark">{{ __('*Tipo de Usuario') }}</label>
+                                            <select wire:model="selectedUser" class="custom-select bg-white form-control border-primary @error('user_types') is-invalid @enderror" name="user_type" id="user_types">
                                                     <option value="" >Seleccione</option>
                                                 @foreach ($user_types as $user_type)
                                                     <option value="{{ $user_type->id }}">{{ $user_type->description }}</option>
                                                 @endforeach
                                             </select>
 
-                                            @error('user_types')
+                                            @error('selectedUser')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -128,8 +127,8 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="departments" class="text-dark">{{ __('*Departamento') }}</label>
-                                                            <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartment" id="departments" required>
+                                                        <label for="selectedDepartment" class="text-dark">{{ __('*Departamento') }}</label>
+                                                            <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('selectedDepartment') is-invalid @enderror" name="ndepartment" id="departments">
                                                                 <option value="" >Seleccione</option>
                                                                 @foreach ($departments as $department)
                                                                     @if ($department->id == 8)
@@ -139,7 +138,7 @@
                                                                     @endif
                                                                 @endforeach
                                                             </select>
-                                                            @error('departments')
+                                                            @error('selectedDepartment')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
@@ -149,14 +148,14 @@
                                                 {{-- {{((auth()->user()->user_type ==3 ) ? 'required' : '')}} --}}
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="mentions" class="text-dark">{{ __('*Sección Académica') }}</label>
-                                                            <select wire:model="selectedMention" class="custom-select bg-white form-control @error('mentions') is-invalid @enderror" name="nmention" id="mentions" required>
+                                                        <label for="selectedMention" class="text-dark">{{ __('*Sección Académica') }}</label>
+                                                            <select wire:model="selectedMention" class="custom-select bg-white form-control @error('selectedMention') is-invalid @enderror" name="nmention" id="mentions">
                                                                 <option value="" >Seleccione</option>
                                                                 @foreach ($department_sections as $department_section)
                                                                     <option value="{{ $department_section->id }}">{{ $department_section->description }}</option>
                                                                 @endforeach
                                                             </select>
-                                                            @error('mentions')
+                                                            @error('selectedMention')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
@@ -173,67 +172,19 @@
                                                         </span>
                                                     @enderror
                                             </div>
-                                            {{-- @elseif($selectedUser!=1 && $selectedUser!=2  && $selectedUser!=3 && $selectedUser!=4 && !empty($selectedUser) && !is_null($selectedUser))
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="departments" class="text-dark">{{ __('(*)Departamento') }}</label>
-                                                            <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartment" id="departments">
-                                                                <option value="" >Seleccione</option>
-                                                                @foreach ($departments as $department)
-                                                                    @if ($department->id == 8)
-                                                                        @continue
-                                                                    @else
-                                                                        <option value="{{ $department->id }}">{{ $department->name }}</option>
-                                                                    @endif
-                                                                @endforeach
-                                                            </select>
-                                                            @error('departments')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="mentions" class="text-dark">{{ __('Sección Académica') }}</label>
-                                                            <select wire:model="selectedMention" class="custom-select bg-white form-control @error('mentions') is-invalid @enderror" name="nmention" id="mentions">
-                                                                <option value="" >Seleccione</option>
-                                                                @foreach ($department_sections as $department_section)
-                                                                    <option value="{{ $department_section->id }}">{{ $department_section->description }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                            @error('mentions')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="college_degree" class="text-dark">{{ __('Titulo de Grado/Especialidad') }}</label>
-                                                    <input id="college_degree" wire:model="college_degree" type="text" class="form-control mb-4 @error('college_degree') is-invalid @enderror" name="college_degree" value="{{ old('college_degree') }}" autocomplete="college_degree" autofocus placeholder="Ej: Licenciado en Física">
-                                                    @error('college_degree')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-                                            </div> --}}
 
                                         @elseif($selectedUser!=1 && $selectedUser!=3 && $selectedUser!=5 && !is_null($selectedUser))
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="departments" class="text-dark">{{ __('*Departamento') }}</label>
-                                                        <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="departments" id="departments">
+                                                    <label for="selectedDepartment" class="text-dark">{{ __('*Departamento') }}</label>
+                                                        <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('selectedDepartment') is-invalid @enderror" name="departments" id="departments">
                                                             <option value="" >Seleccione</option>
                                                             @foreach ($departments as $department)
                                                                 <option value="{{ $department->id }}">{{ $department->name }}</option>
                                                             @endforeach
                                                         </select>
-                                                        @error('departments')
+                                                        @error('selectedDepartment')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
                                                             </span>
