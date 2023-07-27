@@ -45,6 +45,7 @@ class Index extends Component
             ->join('teachers','teachers.id','=','sections.teacherid')
             ->where('teachers.ndepartament','=',$this->department->id)
             ->where('teachers.userid','=',$this->userId)
+            ->where('sections.status','=','A')
             ->select('subjects.*')
             ->distinct()
             ->get();
