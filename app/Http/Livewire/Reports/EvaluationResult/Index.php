@@ -17,7 +17,7 @@ class Index extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $teacher, $subject,$department, $subject_cs = null, $departmentSectionEnable = false, $subjectSectionEnable = false, $numberSectionEnable = false,
+    public $teacher, $userId, $subject,$department, $subject_cs = null, $departmentSectionEnable = false, $subjectSectionEnable = false, $numberSectionEnable = false,
      $department_sections, $subjects,$detailSections = null, $department_sectionId, $section, $section_number, $countstudents, $studaprob, $studrep, $sections_not_updated, $optionds, $optionsub, $optionsec, $academic_lapse, $lapse;
     public $selectedDepartmentSection= null, $selectedSubject = null;
     public DetailSection $detailSection;
@@ -138,6 +138,7 @@ class Index extends Component
 
     public function search()
     {
+        $this->userId = auth()->id();
         $optionds = $this->optionds;
         $optionsub = $this->optionsub;
         $optionsec = $this->optionsec;
@@ -147,7 +148,12 @@ class Index extends Component
         ->join('subjects','sections.subjectid','=','subjects.id')
         ->join('department_sections','subjects.departmentsectionid','=','department_sections.id')
         ->join('departments','department_sections.departmentid','=','departments.id')
+
+        ->join('teachers','teachers.id','=','sections.teacherid')
         ->where('departments.id','=', $this->teacher->ndepartament)
+
+        ->where('teachers.userid','=',$this->userId)
+
         ->where('sections.status','=','F')
         ->where('detail_sections.status','=','F')
 
@@ -181,3 +187,15 @@ class Index extends Component
         return view('livewire.reports.evaluation-result.index');
     }
 }
+
+// $this->userId = auth()->id();
+// $this->teacher = Teacher::where('userid','=',$this->userId)->first();
+// $this->department = Department::join('teachers','departments.id','=','teachers.ndepartament')
+// ->where('teachers.userid',auth()->user()->id)->select('departments.*')->first();
+// $this->subjects = Subject::join('sections','subjects.id','=','sections.subjectid')
+//     ->join('teachers','teachers.id','=','sections.teacherid')
+//     ->where('teachers.ndepartament','=',$this->department->id)
+//     ->where('teachers.userid','=',$this->userId)
+//     ->select('subjects.*')
+//     ->distinct()
+//     ->get();
