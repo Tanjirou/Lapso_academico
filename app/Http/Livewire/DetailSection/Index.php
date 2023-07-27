@@ -153,9 +153,10 @@ class Index extends Component
                 }
             }
         }
-
-        if($student->id == $this->userId){
-            session()->flash('mens-error-student', 'No puede agregarse a usted mismo.');
+        //Buscamos si hay un usuario con esa cedula, si existe mandamos el mensaje de error
+        $userExist = User::where('dni','=', $student->dni)->first();
+        if($userExist){
+            session()->flash('mens-error-student', 'No se puede agregar ese registro, la cédula pertenece a un administrador, jefe, coordinador o profesor.');
         }else{
             $temporary = TemporaryTable::where('studentid',$student->id)
             ->where('teacher_dni','=',$this->userId)->first();

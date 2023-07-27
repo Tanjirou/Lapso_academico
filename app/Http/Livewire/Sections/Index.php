@@ -52,12 +52,10 @@ class Index extends Component
             ->select('department_sections.*')
             ->get();
         $this->authTeacher = Teacher::where('userid','=',auth()->user()->id)->select('nmention')->first();
-        if(auth()->user()->id == 3){
+        if(auth()->user()->user_type == 3){
             $this->selectedDepartmentSection = $this->authTeacher->nmention;
-        }
-        if($this->selectedDepartmentSection){
             $this->subjects = Subject::join('structure_sections', 'subjects.id','=','structure_sections.subjectid')
-            ->where('subjects.departmentsectionid', $this->selectedDepartmentSection)
+            ->where('subjects.departmentsectionid', '=' ,$this->authTeacher->nmention)
             ->select('subjects.*')
             ->get();
         }
