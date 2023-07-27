@@ -54,9 +54,16 @@ class Index extends Component
         $this->authTeacher = Teacher::where('userid','=',auth()->user()->id)->select('nmention')->first();
         if(auth()->user()->user_type == 3){
             $this->selectedDepartmentSection = $this->authTeacher->nmention;
+            // $this->subjects = Subject::join('structure_sections', 'subjects.id','=','structure_sections.subjectid')
+            // ->where('subjects.departmentsectionid', '=' ,$this->authTeacher->nmention)
+            // ->select('subjects.*')
+            // ->get();
             $this->subjects = Subject::join('structure_sections', 'subjects.id','=','structure_sections.subjectid')
+            ->join('sections', 'structure_sections.id', '=', 'sections.structure_sectionid')
             ->where('subjects.departmentsectionid', '=' ,$this->authTeacher->nmention)
+            ->where('sections.teacherid','=',null)
             ->select('subjects.*')
+            ->distinct()
             ->get();
         }
 
@@ -66,8 +73,11 @@ class Index extends Component
     {
         if ($department_sectionId != 'Seleccione' && !is_null($department_sectionId)) {
             $this->subjects = Subject::join('structure_sections', 'subjects.id','=','structure_sections.subjectid')
+                ->join('sections', 'structure_sections.id', '=', 'sections.structure_sectionid')
                 ->where('subjects.departmentsectionid', $department_sectionId)
+                ->where('sections.teacherid','=',null)
                 ->select('subjects.*')
+                ->distinct()
                 ->get();
         }else{
             $this->selectedDepartmentSection = null;
@@ -165,7 +175,8 @@ class Index extends Component
         if(auth()->user()->user_type==3){
             $teachers = Teacher::join('users', 'teachers.userid', '=', 'users.id')
             ->where('teachers.ndepartament', $this->department->id)
-            ->whereIn('teachers.nmention',[null,$this->teacher->nmention])
+            ->where('teachers.nmention','=',null)
+            ->orWhere('teachers.nmention','=',$this->teacher->nmention )
             ->select('users.names as names', 'users.last_names as last_names', 'teachers.id')
             ->get();
             $sections = Section::where('sections.status', 'A')
@@ -178,7 +189,8 @@ class Index extends Component
             ->join('structure_sections', 'sections.structure_sectionid', '=', 'structure_sections.id')
             ->join('subjects', 'sections.subjectid', '=', 'subjects.id')
             ->where('teachers.ndepartament', $this->department->id)
-            ->whereIn('teachers.nmention',[null,$this->teacher->nmention])
+            ->where('teachers.nmention','=',null)
+            ->orWhere('teachers.nmention','=',$this->teacher->nmention)
             ->select('sections.*', 'subjects.code as code', 'subjects.name as subject', 'academic_lapses.description as lapse', 'users.names as names', 'users.last_names as last_names')
             ->get();
         }else{
