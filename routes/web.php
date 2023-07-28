@@ -122,3 +122,4 @@ Route::get('department-resources',DepartmentResourcesComponent::class)->middlewa
 //REPORTES
 Route::get('evaluation-result',EvaluationResultComponent::class)->middleware('auth')->name('reports.evaluation-result.index');
 Route::get('open-section',OpenSectionComponent::class)->middleware(['auth','notTeacher'])->name('reports.open-section.index');
+Route::post('open-section',[OpenSectionComponent::class, 'generate'])->name('reports.open_section_resources');
