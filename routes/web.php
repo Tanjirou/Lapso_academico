@@ -108,7 +108,7 @@ Route::get('/inicio',[UserController::class, 'nameDepartment'])->middleware(['au
 
 /* PROFESOR */
 Route::get('sections',SectionsComponent::class)->middleware(['auth','head'])->name('sections.index');
-Route::get('qualify-student',DetailSectionComponent::class)->name('detail_section.index');
+Route::get('qualify-student',DetailSectionComponent::class)->middleware(['auth','notAdmin'])->name('detail_section.index');
 
 Route::get('structure-section',StructureSectionComponent::class)->middleware(['auth','head'])->name('section-struc.index');
 Route::get('department-resources',DepartmentResourcesComponent::class)->middleware(['auth','departmentHead'])->name('department-resources.index');
@@ -122,3 +122,4 @@ Route::get('department-resources',DepartmentResourcesComponent::class)->middlewa
 //REPORTES
 Route::get('evaluation-result',EvaluationResultComponent::class)->middleware('auth')->name('reports.evaluation-result.index');
 Route::get('open-section',OpenSectionComponent::class)->middleware(['auth','notTeacher'])->name('reports.open-section.index');
+Route::post('open-section',[OpenSectionComponent::class, 'generate'])->name('reports.open_section_resources');

@@ -131,14 +131,9 @@
                                                             <option value="">Seleccione</option>
                                                             @if (!is_null($teachers))
                                                                 @foreach ($teachers as $teacher)
-                                                                    @if(is_null($teacher->nmention) || $teacher->nmention == $selectedDepartmentSection)
                                                                     <option value="{{ $teacher->id }}">
                                                                         {{ $teacher->names }}
                                                                         {{ $teacher->last_names }}</option>
-                                                                    @else
-                                                                        @continue
-                                                                    @endif
-
                                                                 @endforeach
                                                             @endif
                                                         </select>
