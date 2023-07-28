@@ -15,8 +15,9 @@ class CreateTemporalOpeningSectionsTable extends Migration
     {
         Schema::create('temporal_opening_sections', function (Blueprint $table) {
             $table->id();
+            $table->string('dni');
             $table->string('subject');
-            $table->string('section_numbers');
+            $table->string('student');
             $table->timestamps();
         });
     }
