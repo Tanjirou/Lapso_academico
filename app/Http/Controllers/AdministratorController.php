@@ -428,7 +428,8 @@ class AdministratorController extends Controller
         DetailSection::where('status','=','F')->delete();
         DB::table('sections')->where('status','=','F')->update([
             'teacherid' => null,
-            'teacherid' =>null
+            'academic_lapseid' =>null,
+            'status' => 'A'
         ]);
         return redirect()->action([AdministratorController::class, 'empty'])->with('mens','Se ha vaciado correctamente');
        }else{

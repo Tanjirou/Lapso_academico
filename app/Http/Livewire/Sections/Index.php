@@ -60,7 +60,7 @@ class Index extends Component
             // ->get();
             $this->subjects = Subject::join('structure_sections', 'subjects.id','=','structure_sections.subjectid')
             ->join('sections', 'structure_sections.id', '=', 'sections.structure_sectionid')
-            ->where('subjects.departmentsectionid', '=' ,$this->authTeacher->nmention)
+            ->where('subjects.departmentsectionid', '=' ,$this->selectedDepartmentSection)
             ->where('sections.teacherid','=',null)
             ->select('subjects.*')
             ->distinct()
@@ -102,10 +102,9 @@ class Index extends Component
             // $this->structure_sections = StructureSection::where('subjectid',$subjectId)
             //     ->where('department_sectionid',$this->selectedDepartmentSection)->first();
         } else {
-            $this->reset('selectedSubject');
-            $this->subjects = null;
-            $this->selectedSubject = null;
+
             $this->subjectCode = null;
+
         }
     }
     public function save()
