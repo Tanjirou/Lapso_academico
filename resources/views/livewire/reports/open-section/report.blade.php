@@ -27,7 +27,11 @@
         }
         table{
             text-align: center;
+            border: #b2b2b2 1px solid;
         }
+        td, th {
+  border: black 1px solid;
+}
     </style>
     <div class="container">
         <div class="row">

@@ -38,21 +38,7 @@ class Index extends Component
         $this->departments= Department::where('departments.status','=', 'A')->orderBy('departments.id')->get();
         $this->department_sections= DepartmentSection::where('department_sections.status','=', 'A')->orderBy('department_sections.id')->get();
     }
-    // public function messages()
-    // {
-    // return [
-    //     'names.required' => 'El campo nombre es obligatorio.',
-    //     'names.max' => 'El máximo de caracteres es de 255.',
-    //     'last_names.required' => 'El campo apellido es obligatorio.',
-    //     'last_names.max' => 'El máximo de caracteres es de 255.',
-    //     'email.email' => 'Debe tener un formato válido',
-    //     'email.max' => 'El máximo de caracteres es de 255.',
-    //     'email.unique' => 'Ya existe un usuario registrado con ese correo',
-    //     'telephone.regex' =>'El formato del campo es invalido',
-    //     'telephone.max' =>'El máximo de caracteres es de 12.'
 
-    // ];
-    // }
 
     public function update(User $user, Request $request)
     {
@@ -65,20 +51,50 @@ class Index extends Component
             'email.max' => 'El máximo de caracteres es de 255.',
             'email.unique' => 'Ya existe un usuario registrado con ese correo',
             'telephone.regex' =>'El formato del campo es invalido',
-            'telephone.max' =>'El máximo de caracteres es de 12.'
+            'telephone.max' =>'El máximo de caracteres es de 12.',
+            'ndepartament.required' => 'El departamento es obligatorio.',
+            'nmention.required' => 'La sección académica es obligatoria.'
 
         ];
 
-        $data = $request->validate([
-            'names' => 'required|string|max:255',
-            'last_names' => 'required|string|max:255',
-            'email' => 'string|email|max:255|nullable|unique:users,email,'.$user->id,
-            'telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable',
-            'user_type' => 'required',
-            'ndepartment' => 'nullable',
-            'nmention' => 'nullable',
-            'college_degree' => 'string|max:255|nullable'
-        ],$message);
+        if($request['user_type'] ==2 || $request['user_type'] >3){
+            $data = $request->validate([
+                'names' => 'required|string|max:255',
+                'last_names' => 'required|string|max:255',
+                'email' => 'string|email|max:255|nullable|unique:users,email,'.$user->id,
+                'telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable',
+                'user_type' => 'required',
+                'ndepartament' => 'required',
+                'nmention' => 'nullable',
+                'college_degree' => 'string|max:255|nullable'
+            ],$message);
+        }
+        if($request['user_type'] ==3){
+            $data = $request->validate([
+                'names' => 'required|string|max:255',
+                'last_names' => 'required|string|max:255',
+                'email' => 'string|email|max:255|nullable|unique:users,email,'.$user->id,
+                'telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable',
+                'user_type' => 'required',
+                'ndepartament' => 'required',
+                'nmention' => 'required',
+                'college_degree' => 'string|max:255|nullable'
+            ],$message);
+        }
+        if($request['user_type'] ==1){
+            $data = $request->validate([
+                'names' => 'required|string|max:255',
+                'last_names' => 'required|string|max:255',
+                'email' => 'string|email|max:255|nullable|unique:users,email,'.$user->id,
+                'telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable',
+                'user_type' => 'required',
+                'ndepartament' => 'nullable',
+                'nmention' => 'nullable',
+                'college_degree' => 'string|max:255|nullable'
+            ],$message);
+        }
+
+
         $head_department = null;
         if ($data['user_type'] == 2 && !is_null($request['ndepartament'])) {
             $head_department = Teacher::join('users', 'teachers.userid', '=', 'users.id')

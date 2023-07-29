@@ -29,8 +29,8 @@ class Index extends Component
         $this->optionsec = 'option5';
         $this->teacher = Teacher::where('userid',auth()->user()->id)->first();
         $this->department = Department::where('id',$this->teacher->ndepartament)->first();
-        $this->academic_lapse = AcademicLapse::where('status','A')->first();
-        $this->lapse = $this->academic_lapse->id;
+        $this->academic_lapse = AcademicLapse::orderByDesc('id')->first();
+        $this->lapse = (($this->academic_lapse && isset($this->academic_lapse) && $this->academic_lapse->status == 'F') ? $this->academic_lapse->id : null);
         $this->subject_cs = null;
         $this->detailSections = null;
         if (auth()->user()->user_type == 2 || is_null($this->teacher->nmention)){

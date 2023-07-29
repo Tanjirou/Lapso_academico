@@ -213,7 +213,7 @@ class MentionSeeder extends Seeder
 
 
 
-        //LEMGUAJE
+        //LENGUAJE
         DB::table('mentions')->insert([
             'subjectid' => 4,
             'academic_curriculaid' => 1,
@@ -552,7 +552,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 1,
-            'pre_req' => '',
+            'pre_req' => 'EB1115',
             'post_req' => 'EB1125',
             'status' => 'A',
         ]);
@@ -560,7 +560,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 2,
-            'pre_req' => '',
+            'pre_req' => 'EB1115',
             'post_req' => 'EB1125',
             'status' => 'A',
         ]);
@@ -568,7 +568,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 3,
-            'pre_req' => '',
+            'pre_req' => 'EB1115',
             'post_req' => 'EB1125',
             'status' => 'A',
         ]);
@@ -576,7 +576,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 4,
-            'pre_req' => '',
+            'pre_req' => 'EB1115',
             'post_req' => 'EB1125',
             'status' => 'A',
         ]);
@@ -584,7 +584,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 5,
-            'pre_req' => '',
+            'pre_req' => 'EB1115',
             'post_req' => 'EB1125',
             'status' => 'A',
         ]);
@@ -592,7 +592,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 6,
-            'pre_req' => '',
+            'pre_req' => 'EB1115',
             'post_req' => 'EB1125',
             'status' => 'A',
         ]);
@@ -600,7 +600,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 7,
-            'pre_req' => '',
+            'pre_req' => 'EB1115',
             'post_req' => 'EB1125',
             'status' => 'A',
         ]);
@@ -608,7 +608,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 9,
             'academic_curriculaid' => 8,
-            'pre_req' => '',
+            'pre_req' => 'EB1115',
             'post_req' => 'EB1125',
             'status' => 'A',
         ]);
@@ -1088,7 +1088,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 1,
-            'pre_req' => '',
+            'pre_req' => 'EB2115,EB1125',
             'post_req' => 'EB2124',
             'status' => 'A',
         ]);
@@ -1096,7 +1096,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 2,
-            'pre_req' => '',
+            'pre_req' => 'EB2115,EB1125',
             'post_req' => 'EB2124',
             'status' => 'A',
         ]);
@@ -1104,7 +1104,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 3,
-            'pre_req' => '',
+            'pre_req' => 'EB2115,EB1125',
             'post_req' => 'EB2124',
             'status' => 'A',
         ]);
@@ -1112,7 +1112,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 4,
-            'pre_req' => '',
+            'pre_req' => 'EB2115,EB1125',
             'post_req' => 'EB2124',
             'status' => 'A',
         ]);
@@ -1120,7 +1120,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 5,
-            'pre_req' => 'EB1125',
+            'pre_req' => 'EB2115,EB1125',
             'post_req' => 'EB2124',
             'status' => 'A',
         ]);
@@ -1128,7 +1128,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 6,
-            'pre_req' => '',
+            'pre_req' => 'EB2115,EB1125',
             'post_req' => 'EB2124',
             'status' => 'A',
         ]);
@@ -1136,7 +1136,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 7,
-            'pre_req' => 'EB1125',
+            'pre_req' => 'EB2115,EB1125',
             'post_req' => 'EB2124',
             'status' => 'A',
         ]);
@@ -1144,7 +1144,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 17,
             'academic_curriculaid' => 8,
-            'pre_req' => '',
+            'pre_req' => 'EB2115,EB1125',
             'post_req' => 'EB2124',
             'status' => 'A',
         ]);
@@ -1312,7 +1312,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 25,
             'academic_curriculaid' => 8,
-            'pre_req' => '',
+            'pre_req' => 'IQ5113,EB1125',
             'post_req' => 'IQ3213',
             'status' => 'A',
         ]);
@@ -1471,7 +1471,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 30,
             'academic_curriculaid' => 1,
-            'pre_req' => 'IE5114',
+            'pre_req' => 'IE5114,EB1134,EB1213',
             'post_req' => 'EB1144',
             'status' => 'A',
         ]);
@@ -1517,7 +1517,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 32,
             'academic_curriculaid' => 1,
-            'pre_req' => 'EB2211',
+            'pre_req' => 'EB2211,IE5114',
             'post_req' => 'IE5213',
             'status' => 'A',
         ]);
@@ -1606,7 +1606,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 35,
             'academic_curriculaid' => 2,
-            'pre_req' => 'EB2211',
+            'pre_req' => 'EB2211,IE5114',
             'post_req' => 'IE5124',
             'status' => 'A',
         ]);
@@ -1614,7 +1614,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 35,
             'academic_curriculaid' => 3,
-            'pre_req' => 'EB2211',
+            'pre_req' => 'EB2211,IE5114',
             'post_req' => 'IE5124',
             'status' => 'A',
         ]);
@@ -1622,7 +1622,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 35,
             'academic_curriculaid' => 4,
-            'pre_req' => 'EB2211',
+            'pre_req' => 'EB2211,IE5114',
             'post_req' => 'IE5124',
             'status' => 'A',
         ]);
@@ -1668,7 +1668,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 37,
             'academic_curriculaid' => 2,
-            'pre_req' => '',
+            'pre_req' => 'IE5114',
             'post_req' => 'IE5124',
             'status' => 'A',
         ]);
@@ -1676,7 +1676,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 37,
             'academic_curriculaid' => 3,
-            'pre_req' => '',
+            'pre_req' => 'IE5114',
             'post_req' => 'IE5124',
             'status' => 'A',
         ]);
@@ -1684,7 +1684,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 37,
             'academic_curriculaid' => 4,
-            'pre_req' => '',
+            'pre_req' => 'IE5114',
             'post_req' => 'IE5124',
             'status' => 'A',
         ]);
@@ -1837,14 +1837,14 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 48,
             'academic_curriculaid' => 8,
-            'pre_req' => 'EB1134,IQ3213',
+            'pre_req' => 'EB1134,IQ3213,EB1125,IQ5113',
             'post_req' => 'IQ3113',
             'status' => 'A',
         ]);
 
 
 
-        //EELCTRO. ANA.
+        //ELECTRO. ANA.
         DB::table('mentions')->insert([
             'subjectid' => 49,
             'academic_curriculaid' => 1,
@@ -1947,7 +1947,7 @@ class MentionSeeder extends Seeder
 
 
 
-        //
+        //ADMINISTRACION E
         DB::table('mentions')->insert([
             'subjectid' => 54,
             'academic_curriculaid' => 1,
@@ -2045,7 +2045,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 56,
             'academic_curriculaid' => 2,
-            'pre_req' => 'EL1142',
+            'pre_req' => 'EL1142,EL1154',
             'post_req' => 'EL1183',
             'status' => 'A',
         ]);
@@ -2053,7 +2053,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 56,
             'academic_curriculaid' => 3,
-            'pre_req' => 'EL1142',
+            'pre_req' => 'EL1142,EL1154',
             'post_req' => 'EL1183',
             'status' => 'A',
         ]);
@@ -2061,7 +2061,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 56,
             'academic_curriculaid' => 4,
-            'pre_req' => 'EL1142',
+            'pre_req' => 'EL1142,EL1154',
             'post_req' => 'EL1183',
             'status' => 'A',
         ]);
@@ -2226,7 +2226,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 66,
             'academic_curriculaid' => 6,
-            'pre_req' => '',
+            'pre_req' => 'IM1253',
             'post_req' => 'IM1324',
             'status' => 'A',
         ]);
@@ -2325,7 +2325,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 75,
             'academic_curriculaid' => 8,
-            'pre_req' => '',
+            'pre_req' => 'IQ4113',
             'post_req' => 'IQ4213',
             'status' => 'A',
         ]);
@@ -2406,7 +2406,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 78,
             'academic_curriculaid' => 1,
-            'pre_req' => 'IE5131',
+            'pre_req' => 'IE5131,EL1013',
             'post_req' => 'EL1033',
             'status' => 'A',
         ]);
@@ -2461,7 +2461,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 83,
             'academic_curriculaid' => 2,
-            'pre_req' => 'EL1161',
+            'pre_req' => 'EL1161,EL1183',
             'post_req' => 'EL1313',
             'status' => 'A',
         ]);
@@ -2469,7 +2469,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 83,
             'academic_curriculaid' => 3,
-            'pre_req' => 'EL1161',
+            'pre_req' => 'EL1161,EL1183',
             'post_req' => 'EL1313',
             'status' => 'A',
         ]);
@@ -2477,7 +2477,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 83,
             'academic_curriculaid' => 4,
-            'pre_req' => 'EL1161',
+            'pre_req' => 'EL1161,EL1183',
             'post_req' => 'EL1313',
             'status' => 'A',
         ]);
@@ -2511,7 +2511,7 @@ class MentionSeeder extends Seeder
 
 
 
-        //
+        //SIST COMUNI I
         DB::table('mentions')->insert([
             'subjectid' => 85,
             'academic_curriculaid' => 2,
@@ -2685,7 +2685,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 95,
             'academic_curriculaid' => 5,
-            'pre_req' => '',
+            'pre_req' => 'II2322,II3114',
             'post_req' => 'II2113',
             'status' => 'A',
         ]);
@@ -2792,7 +2792,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 104,
             'academic_curriculaid' => 8,
-            'pre_req' => 'EB2211',
+            'pre_req' => 'EB2211,IQ3313,IQ3222',
             'post_req' => 'IQ3323',
             'status' => 'A',
         ]);
@@ -2825,7 +2825,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 107,
             'academic_curriculaid' => 8,
-            'pre_req' => 'IQ4313',
+            'pre_req' => 'IQ4313,IQ4213,EB1154',
             'post_req' => 'IQ4224',
             'status' => 'A',
         ]);
@@ -2843,7 +2843,7 @@ class MentionSeeder extends Seeder
 
 
 
-        //LAB MAQ. ELE.
+        //LAB MAQ. ELE. IE
         DB::table('mentions')->insert([
             'subjectid' => 109,
             'academic_curriculaid' => 1,
@@ -2892,7 +2892,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 113,
             'academic_curriculaid' => 2,
-            'pre_req' => '',
+            'pre_req' => 'EL2124,EL2213',
             'post_req' => '',
             'status' => 'A',
         ]);
@@ -2903,7 +2903,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 114,
             'academic_curriculaid' => 2,
-            'pre_req' => '',
+            'pre_req' => 'EL2124,EL2213',
             'post_req' => '',
             'status' => 'A',
         ]);
@@ -2914,7 +2914,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 115,
             'academic_curriculaid' => 2,
-            'pre_req' => '',
+            'pre_req' => 'EL3213',
             'post_req' => '',
             'status' => 'A',
         ]);
@@ -3017,7 +3017,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 120,
             'academic_curriculaid' => 2,
-            'pre_req' => '',
+            'pre_req' => 'EL4143',
             'post_req' => '',
             'status' => 'A',
         ]);
@@ -3162,7 +3162,7 @@ class MentionSeeder extends Seeder
 
 
 
-        //ELEMENTOS DE MAQ
+        //ELEMENTOS DE MAQ II
         DB::table('mentions')->insert([
             'subjectid' => 131,
             'academic_curriculaid' => 6,
@@ -3274,7 +3274,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 140,
             'academic_curriculaid' => 8,
-            'pre_req' => 'IQ3323',
+            'pre_req' => 'IQ3323,IQ3233',
             'post_req' => 'IQ3241',
             'status' => 'A',
         ]);
@@ -3365,7 +3365,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 147,
             'academic_curriculaid' => 2,
-            'pre_req' => 'EL2124,EL2213',
+            'pre_req' => 'EL2124',
             'post_req' => '',
             'status' => 'A',
         ]);
@@ -3385,7 +3385,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 148,
             'academic_curriculaid' => 3,
-            'pre_req' => 'EL2124,EL3234',
+            'pre_req' => 'EL2124,EL3221',
             'post_req' => '',
             'status' => 'A',
         ]);
@@ -3455,7 +3455,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 154,
             'academic_curriculaid' => 4,
-            'pre_req' => 'EL3121,EL3221',
+            'pre_req' => 'EL3121,EL3221,EL3173,EL3234',
             'post_req' => 'EL3193',
             'status' => 'A',
         ]);
@@ -3569,7 +3569,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 164,
             'academic_curriculaid' => 6,
-            'pre_req' => 'IM3234',
+            'pre_req' => 'IM3234,EB1154',
             'post_req' => '',
             'status' => 'A',
         ]);
@@ -3774,7 +3774,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 180,
             'academic_curriculaid' => 4,
-            'pre_req' => '',
+            'pre_req' => 'EL1223',
             'post_req' => 'EL1243',
             'status' => 'A',
         ]);
@@ -3847,7 +3847,7 @@ class MentionSeeder extends Seeder
 
 
 
-        //MAW TERMICAS II
+        //MAQ TERMICAS II
         DB::table('mentions')->insert([
             'subjectid' => 187,
             'academic_curriculaid' => 6,
@@ -3870,7 +3870,7 @@ class MentionSeeder extends Seeder
 
 
 
-        //ENSAUOS NO DEST
+        //ENSAYOS NO DEST
         DB::table('mentions')->insert([
             'subjectid' => 189,
             'academic_curriculaid' => 7,
@@ -3932,7 +3932,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 194,
             'academic_curriculaid' => 8,
-            'pre_req' => 'IQ4513,IQ4424',
+            'pre_req' => 'IQ4513,IQ4424,IQ4513,IQ4414',
             'post_req' => 'IQ4523',
             'status' => 'A',
         ]);
@@ -3954,7 +3954,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 196,
             'academic_curriculaid' => 6,
-            'pre_req' => 'IM1443,IM2314',
+            'pre_req' => 'IM1443',
             'post_req' => '',
             'status' => 'A',
         ]);
@@ -3962,7 +3962,7 @@ class MentionSeeder extends Seeder
 
 
 
-        //ENT IND I II
+        //ENT IND OP II
         DB::table('mentions')->insert([
             'subjectid' => 197,
             'academic_curriculaid' => 5,
@@ -3973,7 +3973,7 @@ class MentionSeeder extends Seeder
 
 
 
-        //ENT INDS I IM
+        //ENT INDS OP IM
         DB::table('mentions')->insert([
             'subjectid' => 198,
             'academic_curriculaid' => 6,
@@ -4066,7 +4066,7 @@ class MentionSeeder extends Seeder
         ]);
 
 
-        //CONTROL DE CALIDAD
+        //PLANIF Y CONT PRO
         DB::table('mentions')->insert([
             'subjectid' => 206,
             'academic_curriculaid' => 1,
@@ -4613,7 +4613,7 @@ class MentionSeeder extends Seeder
         ]);
 
 
-        //DISEÑO DFE EXP
+        //DISEÑO DE EXP
         DB::table('mentions')->insert([
             'subjectid' => 234,
             'academic_curriculaid' => 5,
@@ -5044,7 +5044,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 275,
             'academic_curriculaid' => 8,
-            'pre_req' => 'IQ3323',
+            'pre_req' => 'IQ3323,IQ3413,IQ4224',
             'post_req' => 'IQ4513',
             'status' => 'A',
         ]);
@@ -5074,7 +5074,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 278,
             'academic_curriculaid' => 8,
-            'pre_req' => 'IQ4513,IQ4424',
+            'pre_req' => 'IQ4513,IQ4424,IQ4513,IQ4414',
             'post_req' => 'IQ4523',
             'status' => 'A',
         ]);
@@ -5084,7 +5084,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 279,
             'academic_curriculaid' => 8,
-            'pre_req' => 'IQ3323',
+            'pre_req' => 'IQ3323,IQ3413,IQ4224',
             'post_req' => 'IQ4513',
             'status' => 'A',
         ]);
@@ -5184,7 +5184,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 287,
             'academic_curriculaid' => 4,
-            'pre_req' => 'EL1313,EL3234,EL1223',
+            'pre_req' => 'EL3234,EL1223',
             'post_req' => '',
             'status' => 'A',
         ]);
@@ -5250,7 +5250,7 @@ class MentionSeeder extends Seeder
         DB::table('mentions')->insert([
             'subjectid' => 293,
             'academic_curriculaid' => 8,
-            'pre_req' => 'IQ4532',
+            'pre_req' => 'IQ4532,IQ4424,IQ4331',
             'post_req' => 'IQ4432',
             'status' => 'A',
         ]);
