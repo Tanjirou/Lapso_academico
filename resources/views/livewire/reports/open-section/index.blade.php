@@ -1,5 +1,6 @@
 <div>
-    <div class="main-content mt-6">
+    <div class="main-content">
+        @if($activeLapse && isset($activeLapse) && $activeLapse->status == 'F')
         <div class="layout-px-spacing">
             <div class="mb-0">
                 <div class="row mb-2 mt-3">
@@ -95,5 +96,14 @@
                 </div>
             </div>
         </div>
+        @else
+        <div class="container">
+            <div class="row justify-content-center mt-5">
+                <section class="col-12 align-items-center align-content-center mt-5">
+                    <h3 class="font-weight-bold text-center mt-5">DEBE FINALIZAR EL LAPSO ACADÉMICO</h3>
+                </section>
+            </div>
+        </div>
+        @endif
     </div>
 </div>

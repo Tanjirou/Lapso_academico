@@ -27,7 +27,7 @@ class Index extends Component
     protected $paginationTheme = 'bootstrap';
     public $teacher, $subject, $department, $departmentSectionEnable = false, $subjectSectionEnable = false, $department_sections, $detail_sections, $subjects, $section, $section_number, $countstudents, $studaprob, $studrep, $sections_not_updated, $optionds, $optionsub, $optionsec, $academic_lapse, $lapse;
     public $selectedDepartmentSection = null, $selectedSubject = null;
-
+    public $activeLapse;
     protected $rules = [
         'optionds' => 'required',
     ];
@@ -40,6 +40,7 @@ class Index extends Component
         $this->teacher = Teacher::where('userid', auth()->user()->id)->first();
         $this->department = Department::where('id', '=', $this->teacher->ndepartament)->first();
         $this->detail_sections = new DetailSection();
+        $this->activeLapse = AcademicLapse::orderByDesc('id')->first();
         if (auth()->user()->user_type >= 3) {
             $this->department_sections = DepartmentSection::join('structure_sections', 'department_sections.id', '=', 'structure_sections.department_sectionid')
                 ->join('subjects', 'structure_sections.subjectid', '=', 'subjects.id')
