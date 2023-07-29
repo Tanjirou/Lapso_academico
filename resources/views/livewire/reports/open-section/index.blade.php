@@ -64,8 +64,8 @@
                                     <div class="col-md-6" id="select-container1">
                                         <div class="form-group">
                                             <label for="secdep">Seleccione una Sección del Departamento</label>
-                                            <select wire:model="selectedDepartmentSection" class="form-control" name="secDep" id="secDep">
-                                                    <option>Seleccione</option>
+                                            <select wire:model="selectedDepartmentSection" class="form-control" name="secDep" id="secDep" {{(($departmentSectionEnable)? 'required' : '')}}>
+                                                    <option value="">Seleccione</option>
                                                     @foreach ($department_sections as $department_section)
                                                     <option value="{{ $department_section->id }}">
                                                         {{ $department_section->description }}</option>

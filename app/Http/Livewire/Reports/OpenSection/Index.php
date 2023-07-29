@@ -53,6 +53,21 @@ class Index extends Component
                 ->where('department_sections.departmentid', $this->teacher->ndepartament)
                 ->select('department_sections.*')
                 ->get();
+                $this->optionds= 'option1';
+        }
+    }
+
+    public function updatedOptionds($department_sectionId){
+        if($this->optionds == 'option2'){
+            $teacher = Teacher::where('userid', auth()->user()->id)->first();
+            $department_sections = DepartmentSection::join('structure_sections', 'department_sections.id', '=', 'structure_sections.department_sectionid')
+            ->join('subjects', 'structure_sections.subjectid', '=', 'subjects.id')
+            ->where('department_sections.departmentid', $teacher->ndepartament)
+            ->select('department_sections.*')
+            ->get();
+            $this->departmentSectionEnable = true;
+        }else{
+            $this->departmentSectionEnable = false;
         }
     }
 
@@ -63,19 +78,23 @@ class Index extends Component
         $teacher = Teacher::where('userid', '=', auth()->user()->id)->first();
         $department = Department::where('id', '=', $teacher->ndepartament)->first();
         if (auth()->user()->user_type == 2) {
-            if ($this->optionds == 'option2') {
-                $rules = [
-                    'optionds' => 'required',
-                    'selectedDepartmentSection' => 'required'
-                ];
-                $this->validate($rules);
-            }
+            if ($request['optionds'] == 'option2') {
+                $sectionDepartment = $request['secDep'];
             //Buscamos las materias del departamento
             $subjects = Subject::join('department_sections', 'subjects.departmentsectionid', '=', 'department_sections.id')
                 ->join('departments', 'department_sections.departmentid', '=', 'departments.id')
                 ->where('departments.id', '=', $department->id)
+                ->where('department_sections.id','=',$sectionDepartment)
                 ->select('subjects.*')
                 ->get();
+            }else{
+                $subjects = Subject::join('department_sections', 'subjects.departmentsectionid', '=', 'department_sections.id')
+                ->join('departments', 'department_sections.departmentid', '=', 'departments.id')
+                ->where('departments.id', '=', $department->id)
+                ->select('subjects.*')
+                ->get();
+            }
+
         }else{
             $subjects = Subject::join('department_sections', 'subjects.departmentsectionid', '=', 'department_sections.id')
             ->join('departments', 'department_sections.departmentid', '=', 'departments.id')
