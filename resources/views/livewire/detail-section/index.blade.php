@@ -261,6 +261,9 @@
                                                     Guardar </button>
                                             </div>
                                         </div>
+                                        <div class="row justify-content-center">
+                                            <h6 class="text-center text-danger font-weight-bold text-uppercase">*Una vez guardada esta información no se podrá modificar. En caso de ameritar algún cambio debe comunicarse con el administrador.</h6>
+                                        </div>
                                     </form>
                                 </div>
                             @endif
