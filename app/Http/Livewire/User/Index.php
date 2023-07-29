@@ -34,7 +34,7 @@ class Index extends Component
         'email' => 'string|email|max:255|unique:users|required',
         'telephone' => 'regex:/^[0-9]{4}-?[0-9]{7}/|max:12|nullable',
         'selectedUser' => 'required',
-        'selectedDepartment' => 'nullable',
+        'selectedDepartment' => 'required',
         'selectedMention' => 'nullable',
         'college_degree' => 'string|max:255|nullable'
     ];

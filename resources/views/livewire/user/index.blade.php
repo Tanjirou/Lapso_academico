@@ -108,7 +108,7 @@
 
                                     <div class="form-group">
                                         <label for="selectedUser" class="text-dark">{{ __('*Tipo de Usuario') }}</label>
-                                            <select wire:model="selectedUser" class="custom-select bg-white form-control border-primary @error('user_types') is-invalid @enderror" name="user_type" id="user_types">
+                                            <select wire:model="selectedUser" class="custom-select bg-white form-control border-primary @error('selectedUser') is-invalid @enderror" name="user_type" id="user_types">
                                                     <option value="" >Seleccione</option>
                                                 @foreach ($user_types as $user_type)
                                                     <option value="{{ $user_type->id }}">{{ $user_type->description }}</option>
