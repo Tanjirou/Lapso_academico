@@ -25,6 +25,9 @@
         h2 {
             text-align: center;
         }
+        table{
+            text-align: center;
+        }
     </style>
     <div class="container">
         <div class="row">
@@ -42,7 +45,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr></tr>
+                    @foreach ($planification as $planificat)
+                    <tr>
+                        <td>{{$planificat->subject_code}}</td>
+                        <td>{{$planificat->subject}}</td>
+                        <td>{{$planificat->sections}}</td>
+                        <td>{{$planificat->number_student}}</td>
+                        <td>{{$planificat->student_cant}}</td>
+                    </tr>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>
