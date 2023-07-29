@@ -37,7 +37,7 @@
                         </div>
                         <div class="row mt-0 justify-content-center">
                             <div class=" col-11 col-md-10 pb-3">
-                                <form method="POST" action="{{ route('user.updated', ['user' => $userData->id]) }}">
+                                <form wire:prevent method="POST" action="{{ route('user.updated', ['user' => $userData->id]) }}">
                                     @csrf
                                     @method('PUT')
                                     <input type="hidden" name="userId" id="userId" wire:model="userId"
@@ -149,7 +149,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="departments" class="text-dark">{{ __('*Departamento') }}</label>
-                                                            <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartament" id="department" required>
+                                                            <select wire:model="selectedDepartment" class="custom-select bg-white form-control @error('departments') is-invalid @enderror" name="ndepartament" id="ndepartament" required>
                                                                 <option value="" >Seleccione</option>
                                                                 @foreach ($departments as $department)
                                                                     @if (($selectedUser == 3 || $selectedUser == 5) && ($department->id == 8))
@@ -159,7 +159,7 @@
                                                                     @endif
                                                                 @endforeach
                                                             </select>
-                                                            @error('departments')
+                                                            @error('ndepartament')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
@@ -173,7 +173,7 @@
                                                                 class="text-dark">{{ __('*Sección Académica') }}</label>
                                                             <select wire:model="selectedMention"
                                                                 class="custom-select bg-white form-control @error('mentions') is-invalid @enderror"
-                                                                name="nmention" id="mentions" required>
+                                                                name="nmention" id="mentions" {{(($selectedUser == 3) ? 'required' : '')}}>
                                                                 <option value="">Seleccione</option>
                                                                 @foreach ($department_sections as $department_section)
                                                                     <option value="{{ $department_section->id }}">
@@ -181,7 +181,7 @@
                                                                     </option>
                                                                 @endforeach
                                                             </select>
-                                                            @error('mentions')
+                                                            @error('nmention')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
