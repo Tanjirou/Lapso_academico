@@ -110,6 +110,7 @@ class Index extends Component
                     ->where('departments.id','=','teachers.ndepartament')
                     ->where('department_sections.id','=',$this->teacher->nmention)
                     ->orWhere('department_sections.id','=',null)
+                    ->orWhere('department_sections.id','=','')
 
                     // ->where('department_sections.departmentid','=',$this->department->id)
                     //  ->where('subjects.departmentsectionid', '=' ,$this->authTeacher->ndepartament)

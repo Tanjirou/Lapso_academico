@@ -176,6 +176,7 @@ class Index extends Component
             ->where('teachers.ndepartament', $this->department->id)
             ->where('teachers.nmention','=',null)
             ->orWhere('teachers.nmention','=',$this->teacher->nmention )
+            ->orWhere('teachers.nmention','=','')
             ->select('users.names as names', 'users.last_names as last_names', 'teachers.id')
             ->get();
             $sections = Section::where('sections.status', 'A')
