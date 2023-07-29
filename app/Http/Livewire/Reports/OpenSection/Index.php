@@ -124,17 +124,38 @@ class Index extends Component
                         ->join('subjects', 'mentions.subjectid', '=', 'subjects.id')
                         ->where('mentions.pre_req', 'like', "%$subject->code%")
                         ->select('mentions.*')->first();
-                    //buscamos no tiene esa materia
+                    //Comprobamos los pre-requisitos
                     if ($mention) {
+                        $requirement = explode(",", $mention->pre_req);
+                        $reprobate = false;
+                        if(count($requirement)>0){
+                            foreach($requirement as $require){
+                                $requiriSubject = StudentHistory::join('subjects','student_histories.subjectid','=','subjects.id')
+                                ->join('mentions','subjects.id','=','mentions.subjectid')
+                                ->join('academic_curricula', 'mentions.academic_curriculaid', '=', 'academic_curricula.id')
+                                ->where('subjects.code', '=', $require)
+                                ->select('student_histories.*')
+                                ->first();
+                                if($requiriSubject){
+                                    $reprobate = false;
+                                }else{
+                                    $reprobate = true;
+                                    break;
+                                }
+                            }
+                        }
+                        //Buscamos tambien que no tenga aprobada esa materia
                         $aprobateSubject = StudentHistory::where('subjectid', '=', $mention->subjectid)->first();
                     }
                     if ($mention && (is_null($aprobateSubject) || (isset($aprobateSubject->qualification) && $aprobateSubject->qualification != 'Aprobado'))) {
                         $subjectNew = Subject::where('id', '=', $mention->subjectid)->first();
+                       if($reprobate===false){
                         TemporalOpeningSection::create([
                             'dni' => auth()->user()->dni,
                             'subject' => $subjectNew->code,
                             'student' => 1
                         ]);
+                       }
                     }
                 } else {
                     if ($studentId != $aprobateStudet->studentid) {
