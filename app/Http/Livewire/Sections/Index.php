@@ -187,9 +187,11 @@ class Index extends Component
             ->join('users', 'teachers.userid', '=', 'users.id')
             ->join('structure_sections', 'sections.structure_sectionid', '=', 'structure_sections.id')
             ->join('subjects', 'sections.subjectid', '=', 'subjects.id')
-            ->where('teachers.ndepartament', $this->department->id)
-            ->where('teachers.nmention','=',null)
-            ->orWhere('teachers.nmention','=',$this->teacher->nmention)
+            ->join('department_sections','subjects.departmentsectionid','=','department_sections.id')
+            ->join('departments', 'department_sections.departmentid','=','departments.id')
+            ->where('departments.id','=',$this->teacher->ndepartament )
+            ->where('department_sections.id','=',$this->teacher->nmention)
+            ->orWhere('department_sections.id','=',null)
             ->select('sections.*', 'subjects.code as code', 'subjects.name as subject', 'academic_lapses.description as lapse', 'users.names as names', 'users.last_names as last_names')
             ->get();
         }else{
@@ -206,7 +208,8 @@ class Index extends Component
             ->join('users', 'teachers.userid', '=', 'users.id')
             ->join('structure_sections', 'sections.structure_sectionid', '=', 'structure_sections.id')
             ->join('subjects', 'sections.subjectid', '=', 'subjects.id')
-            ->where('teachers.ndepartament', $this->department->id)
+            ->join('departments','teachers.ndepartament','=','departments.id')
+            ->where('departments.id', $this->teacher->ndepartament)
             ->select('sections.*', 'subjects.code as code', 'subjects.name as subject', 'academic_lapses.description as lapse', 'users.names as names', 'users.last_names as last_names')
             ->get();
         }
