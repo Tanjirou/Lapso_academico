@@ -119,7 +119,8 @@ class Index extends Component
                 ->get();
 
             foreach ($aprobateStudets as $aprobateStudet) {
-                if ($aprobateStudet->qualification == 'Aprobado') {
+                if ($aprobateStudet->qualification === 'Aprobado') {
+
                     $studentId = $aprobateStudet->studentid;
                     //busco la materia que la abre
                     $mention = Mention::join('academic_curricula', 'mentions.academic_curriculaid', '=', 'academic_curricula.id')
@@ -131,6 +132,7 @@ class Index extends Component
                         ->join('students', 'academic_curricula.id', '=', 'students.academic_curriculaid')
                         ->join('subjects', 'mentions.subjectid', '=', 'subjects.id')
                         ->where('mentions.pre_req', 'like', "%$subject->code%")
+                        ->where('students.id','=',$aprobateStudet->studentid)
                         ->select('mentions.*', 'subjects.code','students.id as student','students.dni as student_dni')->get();
                     //Comprobamos los pre-requisitos
                     if (count($mentions) > 0) {
@@ -210,7 +212,7 @@ class Index extends Component
                 ->where('subject', '=', $subject->code)
                 ->get();
             $countStudent = count($temporal);
-            if (isset($structureNumberSection) && $structureNumberSection->$structureNumberSection > 0) {
+            if (isset($structureNumberSection) && $structureNumberSection->average_students > 0) {
                 $countSubject = ceil($countStudent / $structureNumberSection->average_students);
             } else {
                 $countSubject = 0;
