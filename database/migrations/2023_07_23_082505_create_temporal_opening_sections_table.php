@@ -17,6 +17,7 @@ class CreateTemporalOpeningSectionsTable extends Migration
             $table->id();
             $table->string('dni');
             $table->string('subject');
+            $table->string('student_dni');
             $table->string('student');
             $table->timestamps();
         });

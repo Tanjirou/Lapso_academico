@@ -9,6 +9,6 @@ class TemporalOpeningSection extends Model
 {
     use HasFactory;
     protected $fillable =[
-        'dni','subject', 'student'
+        'dni','subject','student_dni' ,'student'
     ];
 }

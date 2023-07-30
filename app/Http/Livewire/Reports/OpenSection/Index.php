@@ -102,7 +102,6 @@ class Index extends Component
                 ->where('departments.id', '=', $department->id)
                 ->where('department_sections.id', '=', $teacher->nmention)
                 ->orWhere('department_sections.id', '=', null)
-                ->orWhere('department_sections.id', '=', '')
                 ->select('subjects.*')
                 ->get();
         }
@@ -112,9 +111,11 @@ class Index extends Component
             //Buscamos las materias en el historico de estudiantes
 
             // $array = explode(",", $mention->pre_req);
-            $aprobateStudets = StudentHistory::where('subjectid', '=', $subject->id)
-                ->orderByDesc('id')
-                ->groupBy('qualification', 'id')
+            $aprobateStudets = StudentHistory::join('students','student_histories.studentid','=','students.id')
+                ->where('student_histories.subjectid', '=', $subject->id)
+                ->orderByDesc('student_histories.id')
+                ->select('student_histories.qualification','student_histories.id','students.dni')
+                ->groupBy('student_histories.qualification', 'student_histories.id', 'students.dni')
                 ->get();
 
             foreach ($aprobateStudets as $aprobateStudet) {
@@ -122,23 +123,27 @@ class Index extends Component
                     $studentId = $aprobateStudet->studentid;
                     //busco la materia que la abre
                     $mention = Mention::join('academic_curricula', 'mentions.academic_curriculaid', '=', 'academic_curricula.id')
+                        ->join('students', 'academic_curricula.id', '=', 'students.academic_curriculaid')
                         ->join('subjects', 'mentions.subjectid', '=', 'subjects.id')
                         ->where('mentions.pre_req', 'like', "%$subject->code%")
                         ->select('mentions.*')->first();
                     $mentions = Mention::join('academic_curricula', 'mentions.academic_curriculaid', '=', 'academic_curricula.id')
+                        ->join('students', 'academic_curricula.id', '=', 'students.academic_curriculaid')
                         ->join('subjects', 'mentions.subjectid', '=', 'subjects.id')
                         ->where('mentions.pre_req', 'like', "%$subject->code%")
-                        ->select('mentions.*')->get();
+                        ->select('mentions.*', 'subjects.code','students.id as student','students.dni as student_dni')->get();
                     //Comprobamos los pre-requisitos
                     if (count($mentions) > 0) {
                         foreach ($mentions as $ment) {
                             $requirement = explode(",", $ment->pre_req);
                             $reprobate = false;
+
                             if (count($requirement) > 0) {
                                 foreach ($requirement as $require) {
                                     $requiriSubject = StudentHistory::join('subjects', 'student_histories.subjectid', '=', 'subjects.id')
                                         ->join('mentions', 'subjects.id', '=', 'mentions.subjectid')
                                         ->join('academic_curricula', 'mentions.academic_curriculaid', '=', 'academic_curricula.id')
+                                        ->join('students','students.academic_curriculaid','=', 'academic_curricula.id')
                                         ->where('subjects.code', '=', $require)
                                         ->select('student_histories.*')
                                         ->first();
@@ -151,59 +156,50 @@ class Index extends Component
                                 }
                             }
                             //Buscamos tambien que no tenga aprobada esa materia
-                            $aprobateSubject = StudentHistory::where('subjectid', '=', $ment->subjectid)->first();
-                        }
-                        if ($ment && (is_null($aprobateSubject) || (isset($aprobateSubject->qualification) && $aprobateSubject->qualification != 'Aprobado'))) {
-                            $subjectNew = Subject::where('id', '=', $ment->subjectid)->first();
                             if ($reprobate === false) {
-                                TemporalOpeningSection::create([
-                                    'dni' => auth()->user()->dni,
-                                    'subject' => $subjectNew->code,
-                                    'student' => 1
-                                ]);
+
+                                $aprobateSubject = StudentHistory::where('subjectid', '=', $ment->subjectid)
+                                    ->select('student_histories.*')
+                                    ->orderByDesc('id')
+                                    ->first();
+                                    $empty = false;
+                                    if(empty($aprobateSubject)){
+                                        $empty = true;
+                                    }
+                                if ($empty) {
+                                    $subjectNew = Subject::join('mentions','subjects.id','=','mentions.subjectid')
+                                        ->join('academic_curricula','mentions.academic_curriculaid','=','academic_curricula.id')
+                                        ->join('students','academic_curricula.id','=','students.academic_curriculaid')
+                                        ->where('subjects.code', '=', $ment->code)
+                                        ->where('students.id','=',$ment->student)
+                                        ->select('subjects.*')
+                                        ->first();
+                                        $tempralOp = TemporalOpeningSection::where('dni','=', auth()->user()->dni)
+                                        ->where('subject','=',$subjectNew->code)
+                                        ->where('student_dni','=',$ment->student_dni)
+                                        ->first();
+                                        if(!$tempralOp){
+                                            TemporalOpeningSection::create([
+                                                'dni' => auth()->user()->dni,
+                                                'subject' => $subjectNew->code,
+                                                'student_dni' =>$ment->student_dni,
+                                                'student' => 1
+                                            ]);
+                                        }
+
+                                }
                             }
                         }
                     }
-                    // if ($mention) {
-                    //     $requirement = explode(",", $mention->pre_req);
-                    //     $reprobate = false;
-                    //     if(count($requirement)>0){
-                    //         foreach($requirement as $require){
-                    //             $requiriSubject = StudentHistory::join('subjects','student_histories.subjectid','=','subjects.id')
-                    //             ->join('mentions','subjects.id','=','mentions.subjectid')
-                    //             ->join('academic_curricula', 'mentions.academic_curriculaid', '=', 'academic_curricula.id')
-                    //             ->where('subjects.code', '=', $require)
-                    //             ->select('student_histories.*')
-                    //             ->first();
-                    //             if($requiriSubject){
-                    //                 $reprobate = false;
-                    //             }else{
-                    //                 $reprobate = true;
-                    //                 break;
-                    //             }
-                    //         }
-                    //     }
-                    //     //Buscamos tambien que no tenga aprobada esa materia
-                    //     $aprobateSubject = StudentHistory::where('subjectid', '=', $mention->subjectid)->first();
-                    // }
-                    // if ($mention && (is_null($aprobateSubject) || (isset($aprobateSubject->qualification) && $aprobateSubject->qualification != 'Aprobado'))) {
-                    //     $subjectNew = Subject::where('id', '=', $mention->subjectid)->first();
-                    //    if($reprobate===false){
-                    //     TemporalOpeningSection::create([
-                    //         'dni' => auth()->user()->dni,
-                    //         'subject' => $subjectNew->code,
-                    //         'student' => 1
-                    //     ]);
-                    //    }
-                    // }
                 } else {
-                    if ($studentId != $aprobateStudet->studentid) {
+                    if ($studentId !== $aprobateStudet->studentid) {
                         $studentId = $aprobateStudet->studentid;
-                        TemporalOpeningSection::create([
-                            'dni' => auth()->user()->dni,
-                            'subject' => $subject->code,
-                            'student' => 1
-                        ]);
+                            TemporalOpeningSection::create([
+                                'dni' => auth()->user()->dni,
+                                'subject' => $subject->code,
+                                'student_dni' =>$aprobateStudet->dni,
+                                'student' => 1
+                            ]);
                     }
                 }
             }
@@ -236,6 +232,7 @@ class Index extends Component
         //Buscamos los recursos
         $departmentResources = DepartmentResource::where('departmentid', '=', $department->id)->get();
         //Generamos el pdf
+
         $pdf = PDF::loadView('livewire.reports.open-section.report', compact('departmentResources'), compact('planification'));
         return $pdf->stream('resources.pdf');
     }
