@@ -203,15 +203,10 @@ class Index extends Component
                 ->join('subjects', 'sections.subjectid', '=', 'subjects.id')
                 ->join('department_sections', 'subjects.departmentsectionid', '=', 'department_sections.id')
                 ->join('departments', 'department_sections.departmentid', '=', 'departments.id')
-                ->join('teachers', 'teachers.id', '=', 'sections.teacherid')
-//                 ->where(function ($query) {
-//                     $query->where('teachers.ndepartament', '=', $this->teacher->ndepartament)
-//                         ->orWhere('teachers.id', '=', $this->teacher->id);
-// })
-                // ->where('teachers.nmention', '=', $this->teacher->nmention)
-                // ->orWhere('teachers.id', '=', $this->teacher->id)
+                // ->join('teachers', 'teachers.id', '=', 'sections.teacherid')
 
                 ->where('department_sections.id', '=', $this->teacher->nmention)
+                ->orWhere('sections.teacherid', '=', $this->teacher->id)
 
                 ->where('sections.status', '=', 'F')
                 ->where('detail_sections.status', '=', 'F')
@@ -219,7 +214,9 @@ class Index extends Component
         COUNT(CASE WHEN detail_sections.qualification = 'Aprobado' THEN 1 END) as aprobados,
         COUNT(CASE WHEN detail_sections.qualification = 'Reprobado' THEN 1 END) as reprobados")
                 ->groupBy('department_sections.description', 'subjects.code', 'subjects.name', 'sections.section_number');
-        } else {
+        }
+
+            else {
             $detailSections = DetailSection::join('sections', 'detail_sections.sectionid', '=', 'sections.id')
                 ->join('subjects', 'sections.subjectid', '=', 'subjects.id')
                 ->join('department_sections', 'subjects.departmentsectionid', '=', 'department_sections.id')
@@ -247,9 +244,9 @@ class Index extends Component
         if ($this->optionsec && $optionsec != 'option5') {
             $detailSections->where('sections.id', '=', $this->section_number);
         }
-        if ((auth()->user()->user_type == 3 &&  !$this->subject_cs) || !is_null($this->teacher->nmention)) {
-            $detailSections->where('department_sections.id', '=', $this->teacher->nmention);
-        }
+        // if ((auth()->user()->user_type == 3 &&  !is_null($this->subject_cs)) || !is_null($this->teacher->nmention)) {
+        //     $detailSections->where('department_sections.id', '=', $this->teacher->nmention);
+        // }
 
         if (count($detailSections->get()) == 0) {
             session()->flash('mens-error', 'No tiene calificación cargada.');

@@ -49,6 +49,7 @@
                                         <!--SECCION DEL DEPARTAMENTO-->
 
                                         @if (auth()->user()->user_type == 2)
+                                            <!--SECCION DEL DEPARTAMENTO-->
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
