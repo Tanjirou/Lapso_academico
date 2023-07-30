@@ -207,7 +207,7 @@
                                                         <td>{{ $section->status == 'A' ? 'Pendiente' : 'Finalizada' }}
                                                         </td>
                                                         <td class="d-flex justify-content-center">
-                                                            @if ($section->status == 'A')
+                                                            @if ($section && isset($section) && $section->status == 'A')
                                                                 <button wire:click="delete({{ $section->id }})"
                                                                     type="button"
                                                                     class="bg-danger px-2 py-1 ml-3 text-white rounded">Eliminar</button>
