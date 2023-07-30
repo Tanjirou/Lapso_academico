@@ -54,6 +54,7 @@ class Index extends Component
                 ->join('subjects', 'structure_sections.subjectid', '=', 'subjects.id')
                 ->where('department_sections.departmentid', $this->teacher->ndepartament)
                 ->select('department_sections.*')
+                ->distinct()
                 ->get();
             $this->optionds = 'option1';
         }
