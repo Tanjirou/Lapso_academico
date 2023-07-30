@@ -176,10 +176,10 @@ class Index extends Component
             ->where('teachers.ndepartament', $this->department->id)
             ->where('teachers.nmention','=',null)
             ->orWhere('teachers.nmention','=',$this->teacher->nmention )
+            ->orWhere('teachers.nmention','=','')
             ->select('users.names as names', 'users.last_names as last_names', 'teachers.id')
             ->get();
-            $sections = Section::where('sections.status', 'A')
-            ->whereNotNull('sections.subjectid')
+            $sections = Section::whereNotNull('sections.subjectid')
             ->whereNotNull('sections.academic_lapseid')
             ->whereNotNull('sections.structure_sectionid')
             ->join('academic_lapses', 'sections.academic_lapseid', '=', 'academic_lapses.id')
@@ -193,14 +193,14 @@ class Index extends Component
             ->where('department_sections.id','=',$this->teacher->nmention)
             ->orWhere('department_sections.id','=',null)
             ->select('sections.*', 'subjects.code as code', 'subjects.name as subject', 'academic_lapses.description as lapse', 'users.names as names', 'users.last_names as last_names')
+            ->orderBy('sections.updated_at')
             ->get();
         }else{
             $teachers = Teacher::join('users', 'teachers.userid', '=', 'users.id')
             ->where('teachers.ndepartament', $this->department->id)
             ->select('users.names as names', 'users.last_names as last_names', 'teachers.id')
             ->get();
-            $sections = Section::where('sections.status', 'A')
-            ->whereNotNull('sections.subjectid')
+            $sections = Section::whereNotNull('sections.subjectid')
             ->whereNotNull('sections.academic_lapseid')
             ->whereNotNull('sections.structure_sectionid')
             ->join('academic_lapses', 'sections.academic_lapseid', '=', 'academic_lapses.id')
@@ -211,6 +211,7 @@ class Index extends Component
             ->join('departments','teachers.ndepartament','=','departments.id')
             ->where('departments.id', $this->teacher->ndepartament)
             ->select('sections.*', 'subjects.code as code', 'subjects.name as subject', 'academic_lapses.description as lapse', 'users.names as names', 'users.last_names as last_names')
+            ->orderBy('sections.updated_at')
             ->get();
         }
 
