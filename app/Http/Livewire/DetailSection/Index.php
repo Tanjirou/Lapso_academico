@@ -110,6 +110,10 @@ class Index extends Component
                 'dni' => $this->query,
                 'status' => 'A'
             ]);
+        }else{
+            DB::table('students')->where('dni','=',$this->query)->update([
+                'academic_curriculaid' => $this->academicCurriculaId
+            ]);
         }
         //Buscamos el historico del estudiante
         $studentHistory = StudentHistory::where('studentid','=',$student->id)
