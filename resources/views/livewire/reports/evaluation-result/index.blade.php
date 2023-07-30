@@ -374,8 +374,6 @@
                                                     @endif
                                                 </div>
                                         @endif
-
-
                                         <br>
 
                                         <div class="row">
@@ -384,7 +382,6 @@
                                             </div>
                                         </div>
                                     </form>
-
 
                                     <hr>
 
@@ -436,7 +433,6 @@
                                                 @endif
                                             </tbody>
                                         </table>
-
                                     </div>
                                 </div>
                             </div>
