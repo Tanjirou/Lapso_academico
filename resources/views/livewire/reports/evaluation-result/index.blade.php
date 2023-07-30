@@ -242,7 +242,6 @@
                                                                 Académica</label>
                                                             <select wire:model="selectedDepartmentSection"
                                                                 class="form-control" name="secDep" id="secDep">
-                                                                <option value="">Seleccione</option>
                                                                 @foreach ($department_sections as $department_section)
                                                                     <option value="{{ $department_section->id }}">
                                                                         {{ $department_section->description }}</option>
