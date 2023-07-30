@@ -52,6 +52,7 @@ class Index extends Component
             'email.unique' => 'Ya existe un usuario registrado con ese correo',
             'telephone.regex' =>'El formato del campo es invalido',
             'telephone.max' =>'El máximo de caracteres es de 12.',
+            'selectedUser.required' => 'Seleccione un tipo de usuario.',
             'ndepartament.required' => 'El departamento es obligatorio.',
             'nmention.required' => 'La sección académica es obligatoria.'
 

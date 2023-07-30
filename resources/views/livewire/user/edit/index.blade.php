@@ -169,8 +169,12 @@
                                                 @if ($selectedUser == 3 || $selectedUser == 5)
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="mentions"
-                                                                class="text-dark">{{ __('*Sección Académica') }}</label>
+
+                                                            @if($selectedUser == 3)
+                                                            <label for="mentions"class="text-dark">{{ __('*Sección Académica') }}</label>
+                                                            @else
+                                                                <label for="mentions"class="text-dark">{{ __('Sección Académica') }}</label>
+                                                            @endif
                                                             <select wire:model="selectedMention"
                                                                 class="custom-select bg-white form-control @error('mentions') is-invalid @enderror"
                                                                 name="nmention" id="mentions" {{(($selectedUser == 3) ? 'required' : '')}}>
