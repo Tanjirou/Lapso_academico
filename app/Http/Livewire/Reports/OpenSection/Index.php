@@ -115,32 +115,26 @@ class Index extends Component
             // $array = explode(",", $mention->pre_req);
             $aprobateStudets = StudentHistory::where('subjectid', '=', $subject->id)
                 ->orderByDesc('id')
-                ->select('qualification','id','studentid')
-                ->groupBy('qualification', 'id','studentid')
+                ->select('qualification','id','studentid','subjectid')
+                ->groupBy('qualification', 'id','studentid','subjectid')
                 ->get();
 
             foreach ($aprobateStudets as $aprobateStudet) {
                 if ($aprobateStudet->qualification === 'Aprobado') {
-
                     $studentId = $aprobateStudet->studentid;
                     //busco la materia que la abre
-                    $mention = Mention::join('academic_curricula', 'mentions.academic_curriculaid', '=', 'academic_curricula.id')
-                        ->join('students', 'academic_curricula.id', '=', 'students.academic_curriculaid')
-                        ->join('subjects', 'mentions.subjectid', '=', 'subjects.id')
-                        ->where('mentions.pre_req', 'like', "%$subject->code%")
-                        ->select('mentions.*')->first();
                     $mentions = Mention::join('academic_curricula', 'mentions.academic_curriculaid', '=', 'academic_curricula.id')
                         ->join('students', 'academic_curricula.id', '=', 'students.academic_curriculaid')
                         ->join('subjects', 'mentions.subjectid', '=', 'subjects.id')
                         ->where('mentions.pre_req', 'like', "%$subject->code%")
                         ->where('students.id','=',$aprobateStudet->studentid)
-                        ->select('mentions.*', 'subjects.code','students.id as student','students.dni as student_dni')->get();
+                        ->select('mentions.*','subjects.name', 'subjects.code','students.id as student','students.dni as student_dni')
+                        ->get();
                     //Comprobamos los pre-requisitos
                     if (count($mentions) > 0) {
                         foreach ($mentions as $ment) {
                             $requirement = explode(",", $ment->pre_req);
                             $reprobate = false;
-
                             if (count($requirement) > 0) {
                                 foreach ($requirement as $require) {
                                     $requiriSubject = StudentHistory::join('subjects', 'student_histories.subjectid', '=', 'subjects.id')
