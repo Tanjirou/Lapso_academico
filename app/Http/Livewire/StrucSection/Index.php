@@ -99,7 +99,9 @@ class Index extends Component
         $this->validate();
         $this->struc_section->department_sectionid = $this->selectedDepartmentSection;
         $this->struc_section->save();
-        $structure = StructureSection::orderByDesc('id')->first();
+        //borramos las secciones que tenga la estructura
+        DB::table('sections')->where('structure_sectionid','=',$this->struc_section->id)->delete();
+        $structure = StructureSection::where('id','=',$this->struc_section->id)->orderByDesc('id')->first();
         for ($i = 1; $i <= $this->struc_section->number_section; $i++) {
             Section::create([
                 'structure_sectionid' => $structure->id,
