@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Reports\OpenSection;
 
 use App\Models\Mention;
 use App\Models\Section;
+use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Teacher;
 use Livewire\Component;
@@ -111,11 +112,10 @@ class Index extends Component
             //Buscamos las materias en el historico de estudiantes
 
             // $array = explode(",", $mention->pre_req);
-            $aprobateStudets = StudentHistory::join('students','student_histories.studentid','=','students.id')
-                ->where('student_histories.subjectid', '=', $subject->id)
-                ->orderByDesc('student_histories.id')
-                ->select('student_histories.qualification','student_histories.id','students.dni')
-                ->groupBy('student_histories.qualification', 'student_histories.id', 'students.dni')
+            $aprobateStudets = StudentHistory::where('subjectid', '=', $subject->id)
+                ->orderByDesc('id')
+                ->select('qualification','id','studentid')
+                ->groupBy('qualification', 'id','studentid')
                 ->get();
 
             foreach ($aprobateStudets as $aprobateStudet) {
@@ -194,10 +194,11 @@ class Index extends Component
                 } else {
                     if ($studentId !== $aprobateStudet->studentid) {
                         $studentId = $aprobateStudet->studentid;
+                        $studentDni = Student::where('id','=',$aprobateStudet->studentid)->first();
                             TemporalOpeningSection::create([
                                 'dni' => auth()->user()->dni,
                                 'subject' => $subject->code,
-                                'student_dni' =>$aprobateStudet->dni,
+                                'student_dni' =>$studentDni->dni,
                                 'student' => 1
                             ]);
                     }
