@@ -203,6 +203,16 @@ class Index extends Component
                 ->join('subjects', 'sections.subjectid', '=', 'subjects.id')
                 ->join('department_sections', 'subjects.departmentsectionid', '=', 'department_sections.id')
                 ->join('departments', 'department_sections.departmentid', '=', 'departments.id')
+                ->join('teachers', 'teachers.id', '=', 'sections.teacherid')
+//                 ->where(function ($query) {
+//                     $query->where('teachers.ndepartament', '=', $this->teacher->ndepartament)
+//                         ->orWhere('teachers.id', '=', $this->teacher->id);
+// })
+                // ->where('teachers.nmention', '=', $this->teacher->nmention)
+                // ->orWhere('teachers.id', '=', $this->teacher->id)
+
+                ->where('department_sections.id', '=', $this->teacher->nmention)
+
                 ->where('sections.status', '=', 'F')
                 ->where('detail_sections.status', '=', 'F')
                 ->selectRaw("department_sections.description as department_section, subjects.code as code, subjects.name as subject, sections.section_number as section_number,
@@ -219,6 +229,7 @@ class Index extends Component
                 // ->join('departments','teachers.ndepartament','=','departments.id')
                 ->where('departments.id', '=', $this->teacher->ndepartament)
                 ->where('teachers.userid', '=', $this->userId)
+                ->where('sections.teacherid', '=', $this->teacher->id)
                 ->where('sections.status', '=', 'F')
                 ->where('detail_sections.status', '=', 'F')
                 ->selectRaw("department_sections.description as department_section, subjects.code as code, subjects.name as subject, sections.section_number as section_number,
