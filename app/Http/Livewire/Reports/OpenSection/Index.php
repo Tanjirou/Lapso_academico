@@ -46,7 +46,7 @@ class Index extends Component
             $this->department_sections = DepartmentSection::join('structure_sections', 'department_sections.id', '=', 'structure_sections.department_sectionid')
                 ->join('subjects', 'structure_sections.subjectid', '=', 'subjects.id')
                 ->where('department_sections.departmentid', $this->teacher->ndepartament)
-                ->where('department_sections.id', $this->teacher->nmention)
+                // ->where('department_sections.id', $this->teacher->nmention)
                 ->select('department_sections.*')
                 ->get();
         } else {
@@ -143,6 +143,7 @@ class Index extends Component
                                         ->join('students','students.academic_curriculaid','=', 'academic_curricula.id')
                                         ->where('subjects.code', '=', $require)
                                         ->select('student_histories.*')
+                                        ->groupBy('student_histories.id','student_histories.subjectid')
                                         ->first();
                                     if ($requiriSubject) {
                                         $reprobate = false;
@@ -226,7 +227,15 @@ class Index extends Component
             ]);
         }
         //Consultamos la temporal para mostrarla
-        $planification = ReportTwo::where('dni', '=', auth()->user()->dni)->get();
+        if(auth()->user()->user_type >= 3){
+            $teacherHead = Teacher::where('userid', auth()->user()->id)->first();
+            $departmentSection = DepartmentSection::where('id','=',$teacherHead->nmention)->first();
+            $planification = ReportTwo::where('sections','=',$departmentSection->description)
+                ->where('dni', '=', auth()->user()->dni)->get();
+        }else{
+            $planification = ReportTwo::where('dni', '=', auth()->user()->dni)->get();
+        }
+
         //Buscamos los recursos
         $departmentResources = DepartmentResource::where('departmentid', '=', $department->id)->get();
         //Generamos el pdf
