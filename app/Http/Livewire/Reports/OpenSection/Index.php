@@ -138,10 +138,12 @@ class Index extends Component
                     //     ->get();
                     $subjectCodeNew= Subject::where('id','=',$aprobateStudet->subjectid)->first();
                     $mentions = Mention::join('academic_curricula', 'mentions.academic_curriculaid', '=', 'academic_curricula.id')
-                    ->join('students', 'academic_curricula.id', '=', 'students.academic_curriculaid')
+                    ->join('students', 'academic_curricula.id', '=', 'students.id')
+                    ->join('student_histories','students.id','=','student_histories.studentid')
                     ->join('subjects', 'mentions.subjectid', '=', 'subjects.id')
                     ->where('mentions.pre_req', 'like', "%$subjectCodeNew->code%")
                     ->where('students.id','=',$aprobateStudet->studentid)
+                    ->distinct()
                     ->select('mentions.*','subjects.name', 'subjects.code','students.id as student','students.dni as student_dni')
                     ->get();
                     //Comprobamos los pre-requisitos
@@ -156,8 +158,10 @@ class Index extends Component
                                         ->join('academic_curricula', 'mentions.academic_curriculaid', '=', 'academic_curricula.id')
                                         ->join('students','students.academic_curriculaid','=', 'academic_curricula.id')
                                         ->where('subjects.code', '=', $require)
-                                        ->select('student_histories.*')
-                                        ->groupBy('student_histories.id','student_histories.subjectid')
+                                        ->where('students.id','=',$aprobateStudet->studentid)
+                                        ->where('student_histories.qualification','=', 'Aprobado')
+                                        ->select('student_histories.*', 'subjects.code')
+                                        ->groupBy('student_histories.id','student_histories.subjectid','subjects.code')
                                         ->first();
                                     if ($requiriSubject) {
                                         $reprobate = false;
