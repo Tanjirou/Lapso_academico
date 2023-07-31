@@ -207,7 +207,7 @@
                                             </div>
                                         @endif
                                         @if(auth()->user()->user_type == 3)
-                                            @if (!is_null($subject_cs))
+                                            {{-- @if (!is_null($subject_cs))
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -257,7 +257,7 @@
                                                 @endif
 
                                             </div>
-                                            @endif
+                                            @endif --}}
                                                 <!--MATERIA-->
                                                 <div class="row">
                                                     <div class="col-md-6">

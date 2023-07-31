@@ -203,10 +203,11 @@ class Index extends Component
                 ->join('subjects', 'sections.subjectid', '=', 'subjects.id')
                 ->join('department_sections', 'subjects.departmentsectionid', '=', 'department_sections.id')
                 ->join('departments', 'department_sections.departmentid', '=', 'departments.id')
-                // ->join('teachers', 'teachers.id', '=', 'sections.teacherid')
+                ->join('teachers', 'teachers.id', '=', 'sections.teacherid')
 
                 ->where('department_sections.id', '=', $this->teacher->nmention)
-                ->orWhere('sections.teacherid', '=', $this->teacher->id)
+
+                // ->orWhere('sections.teacherid', '=', $this->teacher->id)
 
                 ->where('sections.status', '=', 'F')
                 ->where('detail_sections.status', '=', 'F')
