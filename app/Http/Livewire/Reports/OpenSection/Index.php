@@ -80,6 +80,7 @@ class Index extends Component
         DB::table('report_twos')->where('dni', '=', auth()->user()->dni)->delete();
         DB::table('temporal_opening_sections')->where('dni', '=', auth()->user()->dni)->delete();
         $teacher = Teacher::where('userid', '=', auth()->user()->id)->first();
+
         $department = Department::where('id', '=', $teacher->ndepartament)->first();
         if (auth()->user()->user_type == 2) {
             if ($request['optionds'] == 'option2') {
@@ -99,19 +100,24 @@ class Index extends Component
                     ->get();
             }
         } else {
-            $subjects = Subject::join('department_sections', 'subjects.departmentsectionid', '=', 'department_sections.id')
+            if(auth()->user()->user_type == 3){
+                $subjects = Subject::join('department_sections', 'subjects.departmentsectionid', '=', 'department_sections.id')
                 ->join('departments', 'department_sections.departmentid', '=', 'departments.id')
                 ->where('departments.id', '=', $department->id)
-                ->where('department_sections.id', '=', $teacher->nmention)
-                ->orWhere('department_sections.id', '=', null)
                 ->select('subjects.*')
                 ->get();
+            }else{
+                $subjects = Subject::join('department_sections', 'subjects.departmentsectionid', '=', 'department_sections.id')
+                ->join('departments', 'department_sections.departmentid', '=', 'departments.id')
+                ->where('departments.id', '=', $department->id)
+                ->select('subjects.*')
+                ->get();
+            }
         }
         foreach ($subjects as $subject) {
             $cont_students = 0;
             $studentId = 0;
             //Buscamos las materias en el historico de estudiantes
-
             // $array = explode(",", $mention->pre_req);
             $aprobateStudets = StudentHistory::where('subjectid', '=', $subject->id)
                 ->orderByDesc('id')
@@ -123,13 +129,21 @@ class Index extends Component
                 if ($aprobateStudet->qualification === 'Aprobado') {
                     $studentId = $aprobateStudet->studentid;
                     //busco la materia que la abre
+                    // $mentions = Mention::join('academic_curricula', 'mentions.academic_curriculaid', '=', 'academic_curricula.id')
+                    //     ->join('students', 'academic_curricula.id', '=', 'students.academic_curriculaid')
+                    //     ->join('subjects', 'mentions.subjectid', '=', 'subjects.id')
+                    //     ->where('mentions.pre_req', 'like', "%$subject->code%")
+                    //     ->where('students.id','=',$aprobateStudet->studentid)
+                    //     ->select('mentions.*','subjects.name', 'subjects.code','students.id as student','students.dni as student_dni')
+                    //     ->get();
+                    $subjectCodeNew= Subject::where('id','=',$aprobateStudet->subjectid)->first();
                     $mentions = Mention::join('academic_curricula', 'mentions.academic_curriculaid', '=', 'academic_curricula.id')
-                        ->join('students', 'academic_curricula.id', '=', 'students.academic_curriculaid')
-                        ->join('subjects', 'mentions.subjectid', '=', 'subjects.id')
-                        ->where('mentions.pre_req', 'like', "%$subject->code%")
-                        ->where('students.id','=',$aprobateStudet->studentid)
-                        ->select('mentions.*','subjects.name', 'subjects.code','students.id as student','students.dni as student_dni')
-                        ->get();
+                    ->join('students', 'academic_curricula.id', '=', 'students.academic_curriculaid')
+                    ->join('subjects', 'mentions.subjectid', '=', 'subjects.id')
+                    ->where('mentions.pre_req', 'like', "%$subjectCodeNew->code%")
+                    ->where('students.id','=',$aprobateStudet->studentid)
+                    ->select('mentions.*','subjects.name', 'subjects.code','students.id as student','students.dni as student_dni')
+                    ->get();
                     //Comprobamos los pre-requisitos
                     if (count($mentions) > 0) {
                         foreach ($mentions as $ment) {
@@ -229,9 +243,29 @@ class Index extends Component
         //Consultamos la temporal para mostrarla
         if(auth()->user()->user_type >= 3){
             $teacherHead = Teacher::where('userid', auth()->user()->id)->first();
-            $departmentSection = DepartmentSection::where('id','=',$teacherHead->nmention)->first();
-            $planification = ReportTwo::where('sections','=',$departmentSection->description)
-                ->where('dni', '=', auth()->user()->dni)->get();
+            $specialCase = Subject::join('sections','subjects.id','=','sections.subjectid')
+                ->join('department_sections','subjects.departmentsectionid','=','department_sections.id')
+                ->where('sections.teacherid','=',$teacherHead->id)
+                ->where('department_sections.description', 'like', '%Casos Especial%')
+                ->select('subjects.*')
+                ->first();
+            if($specialCase){
+                if(isset($teacherHead->nmention)){
+                    $departmentSection = DepartmentSection::where('id','=',$teacherHead->nmention)->first();
+                    $planification = ReportTwo::where('sections','=',$departmentSection->description)
+                        ->orWhere('sections','=', 'Casos Especiales')
+                        ->where('dni', '=', auth()->user()->dni)->get();
+                }else{
+                $planification = ReportTwo::where('sections','=', 'Casos Especiales')
+                    ->where('dni', '=', auth()->user()->dni)->get();
+                }
+
+            }else{
+                $departmentSection = DepartmentSection::where('id','=',$teacherHead->nmention)->first();
+                $planification = ReportTwo::where('sections','=',$departmentSection->description)
+                    ->where('dni', '=', auth()->user()->dni)->get();
+            }
+
         }else{
             $planification = ReportTwo::where('dni', '=', auth()->user()->dni)->get();
         }
