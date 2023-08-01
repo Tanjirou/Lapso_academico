@@ -23,10 +23,23 @@
                     <div class="form-container">
                         <div class="form-content">
 
-                            <div class="division">
+                            {{-- <div class="division">
                                 <img src="assets/img/logo.png" class="navbar-logo" alt="logo">
+                            </div> --}}
+                            <div class="row mt-0">
+                                <div class="col-6 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
+                                    <img src="{{ asset('assets/img/logo-SPA1.png') }}" class="img-fluid d-none d-sm-block mt-1 mb-1" alt="header-image"
+                                    style="width: 100%;">
+                                </div>
+                                <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 justify-content-center text-center">
+                                    <h5 class="fond-weight-bold text-bold text-primary mt-2 mb-1">SISTEMA DE PLANIFICACIÓN ACADÉMICA</h5>
+                                </div>
+                                <div class="col-6 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
+                                    <img src="{{ asset('assets/img/logo.png') }}" class="img-fluid d-none d-sm-block mt-1 mb-1" alt="header-image">
+                                </div>
                             </div>
                             </br>
+
                             <h1 class="">Inicia Sesión</h1>
                             <!--<p class="">Log in to your account to continue.</p>-->
                             <form class="text-left" {{ route('login') }} method="POST">

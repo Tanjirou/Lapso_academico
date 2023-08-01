@@ -752,7 +752,8 @@
                                 </div>
                                 <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 justify-content-center text-center">
                                     <h6 class="text-muted">
-                                        <br>Av. Corpahuaico entre Av. La Salle y La Rotaria. Barquisimeto. Venezuela<br>
+                                        <br>Av. Corpahuaico entre Av. La Salle y La Rotaria. Barquisimeto. Venezuela <br>
+                                        Contacto: planificacionunexpo2023@gmail.com<br>
                                     </h6>
                                 </div>
                                 <div class="col-6 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
@@ -760,9 +761,8 @@
                                     style="width: 30%;">
                                 </div>
                             </div>
-
-                            <p class="">Copyright © 2023 | Ing. Jorge Meléndez - Ing. José Torcates |
-                                Programa Ingeniería Electrónica, All rights reserved.
+                            {{-- <p class="">Contacto: planificacionunexpo2023@gmail.com</p> --}}
+                            <p class="">Copyright © 2023 | Ing. Jorge Meléndez - Ing. José Torcates |  Programa Ingeniería Electrónica, All rights reserved.
                             </p>
                         </div>
 
