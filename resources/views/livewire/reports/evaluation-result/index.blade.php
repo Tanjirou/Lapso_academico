@@ -428,8 +428,8 @@
                                                             <td class="text-center">
                                                                 {{ $detail_s->reprobados }}
                                                             </td>
-                                                            <td class="text-center">{{ ((($detail_s->aprobados + $detail_s->reprobados) > 0) ? ($detail_s->aprobados * 100) /($detail_s->aprobados + $detail_s->reprobados) : 0) }}</td>
-                                                            <td class="text-center">{{ ((($detail_s->aprobados + $detail_s->reprobados) > 0) ? ($detail_s->reprobados * 100) /($detail_s->aprobados + $detail_s->reprobados) : 0) }}</td>
+                                                            <td class="text-center">{{ ((($detail_s->aprobados + $detail_s->reprobados) > 0) ? round(($detail_s->aprobados * 100) /($detail_s->aprobados + $detail_s->reprobados),2) : 0) }}</td>
+                                                            <td class="text-center">{{ ((($detail_s->aprobados + $detail_s->reprobados) > 0) ? round(($detail_s->reprobados * 100) /($detail_s->aprobados + $detail_s->reprobados),2) : 0) }}</td>
                                                             <td class="text-center">
                                                                 {{ $detail_s->reprobados + $detail_s->aprobados }}
                                                             </td>
@@ -439,6 +439,36 @@
                                             </tbody>
                                         </table>
                                     </div>
+
+
+                                    @if ($detailReportSecionts && isset($detailReportSecionts) && count($detailReportSecionts)> 0)
+                                    <div class="row justify-content-center">
+                                        <h3 class="text-bold text-primary fond-bold m-0 mb-2 mt-3 text-uppercase"> Porcentaje por sección académica </h3>
+                                    </div>
+                                    <div class="widget-content widget-content-area table-responsive">
+                                        <table id="column-filter"
+                                            class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">Sección Académica</th>
+                                                    <th class="text-center">% Aprobados</th>
+                                                    <th class="text-center">% Reprobados</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    @foreach ($detailReportSecionts as $detail_s)
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                {{ $detail_s->department_section }}
+                                                            </td>
+                                                            <td class="text-center">{{ ((($detail_s->aprobados + $detail_s->reprobados) > 0) ? round(($detail_s->aprobados * 100) /($detail_s->aprobados + $detail_s->reprobados),2) : 0) }}</td>
+                                                            <td class="text-center">{{ ((($detail_s->aprobados + $detail_s->reprobados) > 0) ? round(($detail_s->reprobados * 100) /($detail_s->aprobados + $detail_s->reprobados),2) : 0) }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
