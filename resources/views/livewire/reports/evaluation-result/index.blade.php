@@ -401,6 +401,8 @@
                                                     <th class="text-center">Sección</th>
                                                     <th class="text-center">N° Aprobados</th>
                                                     <th class="text-center">N° Reprobados</th>
+                                                    <th class="text-center">% Aprobados</th>
+                                                    <th class="text-center">% Reprobados</th>
                                                     <th class="text-center">N° Estudiantes</th>
                                                 </tr>
                                             </thead>
@@ -426,6 +428,8 @@
                                                             <td class="text-center">
                                                                 {{ $detail_s->reprobados }}
                                                             </td>
+                                                            <td class="text-center">{{ ((($detail_s->aprobados + $detail_s->reprobados) > 0) ? ($detail_s->aprobados * 100) /($detail_s->aprobados + $detail_s->reprobados) : 0) }}</td>
+                                                            <td class="text-center">{{ ((($detail_s->aprobados + $detail_s->reprobados) > 0) ? ($detail_s->reprobados * 100) /($detail_s->aprobados + $detail_s->reprobados) : 0) }}</td>
                                                             <td class="text-center">
                                                                 {{ $detail_s->reprobados + $detail_s->aprobados }}
                                                             </td>
